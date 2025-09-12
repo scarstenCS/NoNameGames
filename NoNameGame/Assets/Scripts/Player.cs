@@ -12,9 +12,10 @@ public class Player : MonoBehaviour
 
     public PlayerControls controls;
 
-    private InputAction move; 
+    private InputAction move;
 
-    private void Awake() {
+    private void Awake()
+    {
         controls = new PlayerControls();
     }
     private void OnEnable()
@@ -38,5 +39,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t.position += (Vector3) move.ReadValue<Vector2>()*Time.deltaTime *playerSpeed;
+        t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
     }
+}

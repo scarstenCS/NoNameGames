@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     private Transform t;
-    public int health = 20;
+
+    public int maxHealth = 20;
+    private int health;
     public float startSpeed = 1;
     private float playerSpeed;
 
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         t = GetComponent<Transform>();
         playerSpeed = startSpeed;
     }

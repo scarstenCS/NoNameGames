@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 // https://www.youtube.com/watch?v=LNLVOjbrQj4&t=998s
@@ -29,10 +30,12 @@ public class BasicAttack : MonoBehaviour
     void Update()
     {
         Vector2 lookDir;
-        mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); // from https://www.reddit.com/r/Unity2D/comments/swum6c/how_to_make_object_follow_mouse_in_unity_with_new/
-        lookDir = mousePosition - (Vector2)t.position;
-        rb2d.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-
+        if (atkStage == 0)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); // from https://www.reddit.com/r/Unity2D/comments/swum6c/how_to_make_object_follow_mouse_in_unity_with_new/
+            lookDir = mousePosition - (Vector2)t.position;
+            rb2d.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        }
         PreformAttack();
 
 
@@ -46,30 +49,33 @@ public class BasicAttack : MonoBehaviour
         if (atkStage != 0) return;
 
         atkStage++;
+        //rb2d.AddForce(transform.right * projectileSpeed);
     }
 
     private void PreformAttack()
     {
+
+
         switch (atkStage)
-        {
-            case 0:
-                return;
-            case 1:
-                projectileT.position += new Vector3(projectileSpeed * Time.deltaTime,0f,0f);
-                if (projectileT.position.x >= projectileDistance)
-                {
-                    atkStage++;
-                }
-                break;
-            case 2:
-                projectileT.position -= new Vector3(projectileSpeed * Time.deltaTime,0f,0f);
-                if (projectileT.position.x >= 0.5)
-                {
-                    projectileT.position = new Vector3(0.5f, 0f, 0f);
-                    atkStage = 0;
-                }
-                break;
+            {
+                case 0:
+                    return;
+                case 1:
+                    projectileT.position += transform.right*projectileSpeed*Time.deltaTime;
+                    if (projectileT.position.x >= projectileDistance)
+                    {
+                        atkStage++;
+                    }
+                    break;
+                case 2:
+                    projectileT.position -= new Vector3(projectileSpeed * Time.deltaTime,0f,0f);
+                    if (projectileT.position.x <= 0.5)
+                    {
+                        projectileT.position = new Vector3(0.5f, 0f, 0f);
+                        atkStage = 0;
+                    }
+                    break;
+            }
         }
+
     }
-    
-}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 // https://www.youtube.com/watch?v=LNLVOjbrQj4&t=998s
-public class basicAttack : MonoBehaviour
+public class BasicAttack : MonoBehaviour
 {
     // Start is called before the first frame update
     private Vector2 mousePosition;

@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : AnimatedEntity
+public class Enemy : MonoBehaviour
 {
     public static int maxEnemies = 5;
     public static int enemyCount = 0;
     public int hp = 1;
-    private IEnumerator spawnRoutine;
+    public float speed = 3;
+    public Spawner spawner;
+    // private IEnumerator spawnRoutine;
     // Start is called before the first frame update
     void Start()
     {
-        AnimationSetup();
+        // AnimationSetup();
         // spawnRoutine = Spawn();
-        Spawner.Spawn();
+        // spawner.Spawn();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class Enemy : AnimatedEntity
         // {
         //     Destroy(this);
         // }
-        // this.transform.position += Vector3.Normalize(new Vector3(-this.transform.position.x, -this.transform.position.y)) * Time.deltaTime; 
+        transform.position += new Vector3(-transform.position.x, -transform.position.y) * Time.deltaTime; 
     }
 
     // public IEnumerator Spawn()

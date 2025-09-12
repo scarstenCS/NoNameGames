@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
 
     private InputAction move;
 
+    private InputAction basicAtkAction;
+
+    public GameObject basicAttackObj;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -21,6 +25,7 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         move = controls.Player.Move;
+        basicAtkAction = controls.Player.BasicAttack;
         move.Enable();
     }
 
@@ -40,5 +45,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
+
+        if (basicAtkAction.triggered)
+        {
+            Debug.Log($"attack! {Mouse.current.position.ReadValue()}");
+        }
     }
 }

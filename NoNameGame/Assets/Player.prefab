@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   startSpeed: 1
-  basicAttackObj: {fileID: 0}
+  basicAttackObj: {fileID: 4020625129868841038}
 --- !u!1 &4020625129868841038
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31dab2faf92e6344810536f7170b8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  projectileSpeed: 5
+  projectileMaxDistance: 5
 --- !u!50 &2227057740444288077
 Rigidbody2D:
   serializedVersion: 4

@@ -18,19 +18,25 @@ public class Enemy : AnimatedEntity
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount < maxEnemies) {
+        if (enemyCount < maxEnemies)
+        {
             StartCoroutine(spawnRoutine);
-        } else {
+        }
+        else
+        {
             StopCoroutine(spawnRoutine);
         }
-        if (hp <= 0) {
+        if (hp <= 0)
+        {
             Destroy(this);
         }
+        this.transform.position += Vector3.Normalize(new Vector3(-this.transform.position.x, -this.transform.position.y)) * Time.deltaTime; 
     }
 
     public IEnumerator Spawn()
     {
-        Instantiate(new Enemy(), this.transform.position, Quaternion.identity); 
+        Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0,2))};
+        Instantiate(new Enemy(), positions[Random.Range(0,2)], Quaternion.identity); 
         yield return new WaitForSeconds(2);
     }
 }

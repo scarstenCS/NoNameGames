@@ -9,13 +9,18 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     private Vector2 mousePosition;
 
-    public GameObject projectile;
+    public GameObject projectile,player;
 
     public float projectileSpeed = 5,
     projectileMaxDistance =5;
     private float projectileDistance;
-    private Rigidbody2D rb2d;
-    private Transform t, projectileT;
+    private Rigidbody2D rb2d,rbProjectile;
+    private Transform t, projectileT, playerT;
+
+    public GameObject returnPoint;
+    Transform returnT;
+
+    private Vector2 origin;
 
     static private int atkStage = 0;
     void Start()
@@ -24,6 +29,9 @@ public class BasicAttack : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         projectileT = GetComponent<Transform>();
         projectileDistance = projectileMaxDistance;
+        playerT = player.GetComponent<Transform>();
+        rbProjectile = projectile.GetComponent<Rigidbody2D>();
+        returnT = returnPoint.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -54,28 +62,32 @@ public class BasicAttack : MonoBehaviour
 
     private void PreformAttack()
     {
-
+        Vector2 playerDir = playerT.position - transform.position,
+        originDir = origin - (Vector2) transform.position;
 
         switch (atkStage)
-            {
-                case 0:
-                    return;
-                case 1:
-                    projectileT.position += transform.right*projectileSpeed*Time.deltaTime;
-                    if (projectileT.position.x >= projectileDistance)
-                    {
-                        atkStage++;
-                    }
-                    break;
-                case 2:
-                    projectileT.position -= new Vector3(projectileSpeed * Time.deltaTime,0f,0f);
-                    if (projectileT.position.x <= 0.5)
-                    {
-                        projectileT.position = new Vector3(0.5f, 0f, 0f);
-                        atkStage = 0;
-                    }
-                    break;
-            }
+        {
+
+            case 0:
+                origin = transform.position;
+                break;
+            case 1:
+                projectileT.position += transform.right * projectileSpeed * Time.deltaTime;
+                if (originDir.magnitude >= projectileDistance)
+                {
+                    atkStage++;
+                }
+                break;
+            case 2:
+                rbProjectile.rotation = Mathf.Atan2(playerDir.y, playerDir.x);
+                projectileT.position -= transform.right * projectileSpeed * Time.deltaTime;
+                if (playerDir.magnitude <= 0.5)
+                {
+                    projectileT.position = returnT.position;
+                    atkStage = 0;
+                }
+                break;
+        }
         }
 
     }

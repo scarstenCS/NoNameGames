@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour
     private Transform t;
     public int health = 20;
     public float startSpeed = 1;
+    private float playerSpeed;
 
     public PlayerControls controls;
 
@@ -31,15 +32,11 @@ public class playerController : MonoBehaviour
     void Start()
     {
         t = GetComponent<Transform>();
+        playerSpeed = startSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.position += (Vector3) move.ReadValue<Vector2>();
+        t.position += (Vector3) move.ReadValue<Vector2>()*Time.deltaTime *playerSpeed;
     }
-    // private void OnMove(Input movementValue)
-    // {
-    //     t.position += new Vector2(movementValue.x, movementValue.y);
-    // }
-}

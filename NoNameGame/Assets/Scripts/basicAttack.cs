@@ -16,7 +16,7 @@ public class BasicAttack : MonoBehaviour
     private Rigidbody2D rb2d;
     private Transform t, projectileT;
 
-    private int atkStage = 0;
+    static private int atkStage = 0;
     void Start()
     {
         t = GetComponent<Transform>();
@@ -32,7 +32,6 @@ public class BasicAttack : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); // from https://www.reddit.com/r/Unity2D/comments/swum6c/how_to_make_object_follow_mouse_in_unity_with_new/
         lookDir = mousePosition - (Vector2)t.position;
         rb2d.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        Debug.Log(mousePosition);
 
         PreformAttack();
 
@@ -42,7 +41,7 @@ public class BasicAttack : MonoBehaviour
     /// <summary>
     /// Attempt to start an attack
     /// </summary>
-    private void Attack()
+    public void Attack()
     {
         if (atkStage != 0) return;
 

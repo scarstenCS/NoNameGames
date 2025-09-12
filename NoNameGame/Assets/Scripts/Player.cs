@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     public GameObject basicAttackObj;
 
+    private BasicAttack ba;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -29,12 +31,14 @@ public class Player : MonoBehaviour
     {
         move = controls.Player.Move;
         basicAtkAction = controls.Player.BasicAttack;
+        basicAtkAction.Enable();
         move.Enable();
     }
 
     private void OnDisable()
     {
         move.Disable();
+        basicAtkAction.Disable();
     }
 
     // Start is called before the first frame update
@@ -43,6 +47,8 @@ public class Player : MonoBehaviour
         health = maxHealth;
         t = GetComponent<Transform>();
         playerSpeed = startSpeed;
+
+        ba = basicAttackObj.GetComponent<BasicAttack>();
     }
 
     // Update is called once per frame
@@ -50,9 +56,10 @@ public class Player : MonoBehaviour
     {
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
 
-        if (basicAtkAction.triggered)
+        if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>()>0)
         {
-            Debug.Log($"attack! {Mouse.current.position.ReadValue()}");
+            Debug.Log("I attack!");
+            ba.Attack();
         }
     }
 }

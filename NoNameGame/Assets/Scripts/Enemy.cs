@@ -12,31 +12,33 @@ public class Enemy : AnimatedEntity
     void Start()
     {
         AnimationSetup();
-        spawnRoutine = Spawn();
+        // spawnRoutine = Spawn();
+        Spawner.Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount < maxEnemies)
-        {
-            StartCoroutine(spawnRoutine);
-        }
-        else
-        {
-            StopCoroutine(spawnRoutine);
-        }
-        if (hp <= 0)
-        {
-            Destroy(this);
-        }
-        this.transform.position += Vector3.Normalize(new Vector3(-this.transform.position.x, -this.transform.position.y)) * Time.deltaTime; 
+        // Instantiate(new Enemy(), new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), Quaternion.identity);
+        // if (enemyCount < maxEnemies)
+        // {
+        //     StartCoroutine(spawnRoutine);
+        // }
+        // else
+        // {
+        //     StopCoroutine(spawnRoutine);
+        // }
+        // if (hp <= 0)
+        // {
+        //     Destroy(this);
+        // }
+        // this.transform.position += Vector3.Normalize(new Vector3(-this.transform.position.x, -this.transform.position.y)) * Time.deltaTime; 
     }
 
-    public IEnumerator Spawn()
-    {
-        Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0,2))};
-        Instantiate(new Enemy(), positions[Random.Range(0,2)], Quaternion.identity); 
-        yield return new WaitForSeconds(2);
-    }
+    // public IEnumerator Spawn()
+    // {
+    //     Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0,2))};
+    //     Instantiate(new Enemy(), positions[Random.Range(0,2)], Quaternion.identity); 
+    //     yield return new WaitForSeconds(2);
+    // }
 }

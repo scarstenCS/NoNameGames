@@ -17,8 +17,6 @@ public class BasicAttack : MonoBehaviour
     private Rigidbody2D rb2d,rbProjectile;
     private Transform t, projectileT, playerT;
 
-    public GameObject returnPoint;
-    Transform returnT;
 
     private Vector2 origin;
 
@@ -31,7 +29,6 @@ public class BasicAttack : MonoBehaviour
         projectileDistance = projectileMaxDistance;
         playerT = player.GetComponent<Transform>();
         rbProjectile = projectile.GetComponent<Rigidbody2D>();
-        returnT = returnPoint.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -83,7 +80,7 @@ public class BasicAttack : MonoBehaviour
                 projectileT.position -= transform.right * projectileSpeed * Time.deltaTime;
                 if (playerDir.magnitude <= 0.5)
                 {
-                    projectileT.position = returnT.position;
+                    projectileT.position = playerT.position;
                     atkStage = 0;
                 }
                 break;

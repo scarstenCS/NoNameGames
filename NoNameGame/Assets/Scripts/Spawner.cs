@@ -5,10 +5,30 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-
-    public void Spawn()
+    public Camera mainCamera;
+    public static int maxEnemies = 5;
+    public static int enemyCount = 0;
+    public bool started = false;
+    public void Start()
     {
-        GameObject enemy = (GameObject)Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        mainCamera = Camera.main;
+        StartCoroutine(Spawn());
     }
-    // GetComponent<Camera>().ViewportToWorldPoint(new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)))
+
+    public void Update()
+    {
+        
+    }
+
+    public IEnumerator Spawn()
+    {
+        Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0, 2)) };
+        if (enemyCount < maxEnemies)
+        {
+            Instantiate(enemyPrefab, mainCamera.ViewportToWorldPoint(positions[Random.Range(0, 2)]), Quaternion.identity);
+            enemyCount++;
+            yield return new WaitForSeconds(2f);
+        }
+        yield return null;
+    }
 }

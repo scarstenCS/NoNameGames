@@ -250,7 +250,6 @@ MonoBehaviour:
   player: {fileID: 3096818584895333015}
   projectileSpeed: 10
   projectileMaxDistance: 5
-  returnPoint: {fileID: 0}
 --- !u!50 &2227057740444288077
 Rigidbody2D:
   serializedVersion: 4

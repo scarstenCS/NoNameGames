@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
 
     public int damage;
+
+    
     
     void Start()
     {

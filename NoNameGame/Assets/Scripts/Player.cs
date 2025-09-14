@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
 
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>()>0)
         {
-            Debug.Log("I attack!");
             ba.Attack();
         }
     }

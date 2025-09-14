@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
+using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -10,6 +11,10 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 20;
     private int health;
+
+    public int Health => health;
+    public event Action<int,int> HealthChanged;
+
     public float startSpeed = 1;
     private float playerSpeed;
 
@@ -21,6 +26,8 @@ public class Player : MonoBehaviour
 
     public GameObject basicAttackObj;
 
+    private BasicAttack ba;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -29,12 +36,29 @@ public class Player : MonoBehaviour
     {
         move = controls.Player.Move;
         basicAtkAction = controls.Player.BasicAttack;
+        basicAtkAction.Enable();
         move.Enable();
     }
 
     private void OnDisable()
     {
         move.Disable();
+        basicAtkAction.Disable();
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (amount <= 0) return;
+        health = Mathf.Max(0, health - amount);
+        HealthChanged?.Invoke(health, maxHealth);
+        // TODO: if (health == 0) HandleDeath();
+    }
+
+    public void Heal(int amount)
+    {
+        if (amount <= 0) return;
+        health = Mathf.Min(maxHealth, health + amount);
+        HealthChanged?.Invoke(health, maxHealth);
     }
 
     // Start is called before the first frame update
@@ -43,6 +67,10 @@ public class Player : MonoBehaviour
         health = maxHealth;
         t = GetComponent<Transform>();
         playerSpeed = startSpeed;
+
+        HealthChanged?.Invoke(health, maxHealth);
+
+        ba = basicAttackObj.GetComponent<BasicAttack>();
     }
 
     // Update is called once per frame
@@ -50,9 +78,9 @@ public class Player : MonoBehaviour
     {
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
 
-        if (basicAtkAction.triggered)
+        if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>()>0)
         {
-            Debug.Log($"attack! {Mouse.current.position.ReadValue()}");
+            ba.Attack();
         }
     }
 }

@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &101894446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1429266308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &414246473
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +311,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   mainCamera: {fileID: 414246475}
+  player: {fileID: 101894446}
   started: 0
 --- !u!4 &1559139685
 Transform:
@@ -314,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559139683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86069036, y: -1.5417107, z: -14.984972}
+  m_LocalPosition: {x: -0.86069036, y: -1.5417107, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

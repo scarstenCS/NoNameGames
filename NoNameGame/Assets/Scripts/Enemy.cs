@@ -24,18 +24,19 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            Spawner.enemyCount--;
+
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        
+
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
             BasicAttack.atkStage = 2;
-           
-            Debug.Log("Hit!");
+            hp--;
         }
     }
 }

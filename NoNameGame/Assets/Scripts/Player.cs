@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,12 +8,12 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Transform t;
-
+    public const string enemyTag = "Enemy";
     public int maxHealth = 20;
     private int health;
 
     public int Health => health;
-    public event Action<int,int> HealthChanged;
+    public event Action<int, int> HealthChanged;
 
     public float startSpeed = 1;
     private float playerSpeed;
@@ -78,9 +78,16 @@ public class Player : MonoBehaviour
     {
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
 
-        if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>()>0)
+        if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("player hit");
         }
     }
 }

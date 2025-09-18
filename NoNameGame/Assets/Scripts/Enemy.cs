@@ -30,8 +30,11 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == attackTag)
+        
+        if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
+            BasicAttack.atkStage = 2;
+           
             Debug.Log("Hit!");
         }
     }

@@ -20,7 +20,7 @@ public class BasicAttack : MonoBehaviour
 
     private Vector2 origin;
 
-    static private int atkStage = 0;
+    static public int atkStage = 0;
     void Start()
     {
         t = GetComponent<Transform>();

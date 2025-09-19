@@ -9,18 +9,18 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     private Vector2 mousePosition;
 
-    public GameObject projectile,player;
+    public GameObject projectile, player;
 
     public float projectileSpeed = 5,
-    projectileMaxDistance =5;
+    projectileMaxDistance = 5;
     private float projectileDistance;
-    private Rigidbody2D rb2d,rbProjectile;
+    private Rigidbody2D rb2d, rbProjectile;
     private Transform t, projectileT, playerT;
 
 
     private Vector2 origin;
 
-    static private int atkStage = 0;
+    static public int atkStage = 0;
     void Start()
     {
         t = GetComponent<Transform>();
@@ -60,7 +60,7 @@ public class BasicAttack : MonoBehaviour
     private void PreformAttack()
     {
         Vector2 playerDir = playerT.position - transform.position,
-        originDir = origin - (Vector2) transform.position;
+        originDir = origin - (Vector2)transform.position;
 
         switch (atkStage)
         {
@@ -85,6 +85,8 @@ public class BasicAttack : MonoBehaviour
                 }
                 break;
         }
-        }
+    }
+        
+    
 
     }

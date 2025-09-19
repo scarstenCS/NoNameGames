@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public int hp = 1;
+
+    public string attackTag = "PlayerAttack";
 
     public GameObject player;
     private Transform playerPos;
@@ -21,9 +24,19 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            Spawner.enemyCount--;
+
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
-        Debug.Log(playerPos.position);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+
+        if (other.tag == attackTag && BasicAttack.atkStage != 0)
+        {
+            BasicAttack.atkStage = 2;
+            hp--;
+        }
     }
 }

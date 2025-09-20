@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,11 +8,14 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Transform t;
-
+    public const string enemyTag = "Enemy";
     public int maxHealth = 20;
     private int health;
     public int Health => health;
-    public event Action<int,int> HealthChanged;
+
+    public event Action<int, int> HealthChanged;
+
+
     public float startSpeed = 1;
     private float playerSpeed;
     public int minX = -2;
@@ -46,7 +49,10 @@ public class Player : MonoBehaviour
         move.Disable();
         basicAtkAction.Disable();
     }
-
+    /// <summary>
+    /// Makes the player take damage.
+    /// </summary>
+    /// <param name="amount">the ammount of damage to do to player</param>
     public void TakeDamage(int amount)
     {
         if (amount <= 0) return;
@@ -54,7 +60,10 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke(health, maxHealth);
         // TODO: if (health == 0) HandleDeath();
     }
-
+    /// <summary>
+    /// heals the player
+    /// </summary>
+    /// <param name="amount">the ammount to heal player by</param>
     public void Heal(int amount)
     {
         if (amount <= 0) return;
@@ -83,6 +92,13 @@ public class Player : MonoBehaviour
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("player hit");
         }
     }
 }

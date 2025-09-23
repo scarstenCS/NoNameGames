@@ -984,6 +984,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3096818584895333001, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096818584895333001, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096818584895333001, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096818584895333003, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: maxX
@@ -1003,6 +1018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: minY
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096818584895333003, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: startSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}

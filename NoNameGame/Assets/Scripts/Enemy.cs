@@ -19,6 +19,13 @@ public class Enemy : MonoBehaviour
         playerPos = player.GetComponent<Transform>();
     }
 
+    void Awake()
+    {
+        float multiplier = Random.Range(0f, 1f);
+        speed += multiplier * 2;
+        GetComponent<Renderer>().material.color = new Color(multiplier, 0, 0);
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -218,6 +218,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   startSpeed: 3
+  minX: -2
+  maxX: 2
+  minY: -2
+  maxY: 2
   basicAttackObj: {fileID: 4020625129868841038}
 --- !u!70 &4428960741366484871
 CapsuleCollider2D:

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int hp = 1;
+    public int atk = 1;
 
     public string attackTag = "PlayerAttack";
 

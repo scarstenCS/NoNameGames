@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     private InputAction basicAtkAction;
 
+    private InputAction pauseGame;
+
     public GameObject basicAttackObj;
 
     private BasicAttack ba;
@@ -40,7 +42,9 @@ public class Player : MonoBehaviour
     {
         move = controls.Player.Move;
         basicAtkAction = controls.Player.BasicAttack;
+        pauseGame = controls.Player.Pause;
         basicAtkAction.Enable();
+        pauseGame.Enable();
         move.Enable();
     }
 
@@ -48,6 +52,7 @@ public class Player : MonoBehaviour
     {
         move.Disable();
         basicAtkAction.Disable();
+        pauseGame.Disable();
     }
     /// <summary>
     /// Makes the player take damage.
@@ -92,6 +97,11 @@ public class Player : MonoBehaviour
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();
+        }
+
+        if (pauseGame.triggered && pauseGame.ReadValue<float>() > 0)
+        {
+            GameManager.TogglePause();
         }
     }
     

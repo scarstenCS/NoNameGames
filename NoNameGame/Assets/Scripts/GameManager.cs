@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        controls.Player.Pause.performed += ctx => TogglePause();
         
     }
 

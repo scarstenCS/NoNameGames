@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    const int gameSceneIndex = 1;
+    const string gameSceneName = "Prototype Scene";
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(gameSceneIndex);
+        SceneManager.LoadScene(gameSceneName);
     }
 }

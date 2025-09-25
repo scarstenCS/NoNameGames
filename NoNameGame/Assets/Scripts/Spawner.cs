@@ -16,16 +16,11 @@ public class Spawner : MonoBehaviour
         mainCamera = Camera.main;
         wait = new WaitForSeconds(2f);
         StartCoroutine(Spawn());
-
     }
 
     public void Update()
     {
-        // if (!started)
-        // {
-        //     StartCoroutine(Spawn());
-        //     started = true;
-        // }
+    
     }
 
     public IEnumerator Spawn()
@@ -38,6 +33,5 @@ public class Spawner : MonoBehaviour
             e.GetComponent<Enemy>().player = player;
             yield return wait;
         }
-        
     }
 }

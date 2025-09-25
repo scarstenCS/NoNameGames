@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4333312619915833616}
   - component: {fileID: 4465776288933132617}
   - component: {fileID: 4226702466098649690}
-  - component: {fileID: 4404047890813644630}
-  m_Layer: 0
+  - component: {fileID: 2461281766324429200}
+  m_Layer: 8
   m_Name: basic attack
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -98,14 +98,14 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &4404047890813644630
-CapsuleCollider2D:
+--- !u!68 &2461281766324429200
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,8 +118,12 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.32, y: 0.32}
-  m_Direction: 0
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.092588514, y: 0.015861511}
+  - {x: 0.09162301, y: 0.11321944}
+  - {x: 0.1362623, y: 0.13262731}
+  - {x: 0.02517721, y: -0.06741142}
 --- !u!1 &3096818584895333015
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,10 +135,10 @@ GameObject:
   - component: {fileID: 3096818584895333000}
   - component: {fileID: 3096818584895333001}
   - component: {fileID: 3096818584895333003}
-  - component: {fileID: 4428960741366484871}
-  m_Layer: 0
+  - component: {fileID: 8199912590941039346}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,9 +222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   startSpeed: 3
+  minX: -2
+  maxX: 2
+  minY: -2
+  maxY: 2
   basicAttackObj: {fileID: 4020625129868841038}
---- !u!70 &4428960741366484871
-CapsuleCollider2D:
+--- !u!58 &8199912590941039346
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -232,9 +240,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.36, y: 0.64}
-  m_Direction: 0
+  m_Offset: {x: -0.0013634264, y: -0.010135949}
+  serializedVersion: 2
+  m_Radius: 0.2976786
 --- !u!1 &4020625129868841038
 GameObject:
   m_ObjectHideFlags: 0

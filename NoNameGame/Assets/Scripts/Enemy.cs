@@ -6,12 +6,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int hp = 1;
+    public int atk = 1;
 
     public string attackTag = "PlayerAttack";
 
     public GameObject player;
     private Transform playerPos;
     public float speed = 3;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {

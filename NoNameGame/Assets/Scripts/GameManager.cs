@@ -7,14 +7,17 @@ public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
 
-    static public GameObject player;
+    static public GameObject player, pauseMenu;
     static public GameManager Instance;
-    static public GameObject pauseMenu;
     static public bool isPaused = false;
+    private PlayerControls controls;
     void Awake()
     {
         _instance = this;
+        controls.Player.Pause.performed += ctx => TogglePause();
     }
+
+
 
     static public void PlayerTakeDamage(int ammout)
     {
@@ -30,11 +33,6 @@ public class GameManager : MonoBehaviour
         isPaused = !pauseMenu.activeSelf;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f:1f;
-        //if (isPaused)
-        //{
-        //    EventSystem.current.SetSelectedGameObject(null);
-        //    EventSystem.current.SetSelectedGameObject(resumeBtn);
-        //}
 
     }
 

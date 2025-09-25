@@ -7,9 +7,8 @@ public class Spawner : MonoBehaviour
     public GameObject enemyPrefab;
     public Camera mainCamera;
     public GameObject player;
-    public static int maxEnemies = 5;
-    public static int enemyCount = 0;
-    public bool started = false;
+    private int maxEnemies = 5;
+    private static int enemyCount = 0;
     private WaitForSeconds wait;
     public void Start()
     {
@@ -25,12 +24,15 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator Spawn()
     {
-        while (enemyCount < maxEnemies && !GameManager.isPaused)
+        while (enemyCount <= maxEnemies && !GameManager.isPaused)
         {
-            Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0, 2)) };
-            GameObject e = Instantiate(enemyPrefab, mainCamera.ViewportToWorldPoint(positions[Random.Range(0, 2)]), Quaternion.identity);
-            enemyCount++;
-            e.GetComponent<Enemy>().player = player;
+            if (enemyCount < maxEnemies)
+            {
+                Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0, 2)) };
+                GameObject e = Instantiate(enemyPrefab, mainCamera.ViewportToWorldPoint(positions[Random.Range(0, 2)]), Quaternion.identity);
+                enemyCount++;
+                e.GetComponent<Enemy>().player = player;
+            }
             yield return wait;
         }
     }

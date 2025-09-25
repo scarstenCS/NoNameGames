@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
 
-    static public GameObject player, pauseMenu;
+    public GameObject player, pauseMenu;
+    static private GameObject _player, _pauseMenu;
     static public GameManager Instance;
     static public bool isPaused = false;
     private PlayerControls controls;
@@ -15,22 +16,29 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         controls.Player.Pause.performed += ctx => TogglePause();
+        
+    }
+
+    private void Start()
+    {
+        _player = player;
+        _pauseMenu = pauseMenu;
     }
 
 
 
     static public void PlayerTakeDamage(int ammout)
     {
-        Player p = player.GetComponent<Player>();
+        Player p = _player.GetComponent<Player>();
         p.TakeDamage(ammout);
     }
 
     /// <summary>
     /// Toggles weather tha game is paused or not
     /// </summary>
-    public void TogglePause()
+    static public void TogglePause()
     {
-        isPaused = !pauseMenu.activeSelf;
+        isPaused = !_pauseMenu.activeSelf;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f:1f;
 

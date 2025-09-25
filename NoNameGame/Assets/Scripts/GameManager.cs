@@ -38,8 +38,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     static public void TogglePause()
     {
+        Debug.Log("pause hit!");
         isPaused = !_pauseMenu.activeSelf;
-        pauseMenu.SetActive(isPaused);
+        _pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f:1f;
 
     }

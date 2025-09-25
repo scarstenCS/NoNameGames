@@ -105,10 +105,10 @@ public class Player : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Enemy")
+    private void OnCollisionEnter2D(Collision2D coll) {
+        if (coll.collider.gameObject.tag == "Enemy")
         {
-            this.TakeDamage(other.gameObject.GetComponent<Enemy>().atk);
+            this.TakeDamage(coll.collider.gameObject.GetComponent<Enemy>().atk);
         }
     }
 }

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private Transform playerPos;
     public float speed = 3;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {

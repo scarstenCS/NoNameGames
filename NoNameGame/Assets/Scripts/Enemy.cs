@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
-            Spawner.enemyCount--;
+            WaveManager.enemyCount--;
 
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;

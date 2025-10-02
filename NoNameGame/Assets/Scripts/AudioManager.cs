@@ -55,17 +55,17 @@ public class AudioManager : MonoBehaviour
     }
 
 
-     public void setMasterVol(float value)
+     public void setMainVol(float value)
     {
-        Instance.audioMixer.SetFloat("masterVolume", Mathf.Log10(value) * 20f);
+        Instance.audioMixer.SetFloat("mainVolume", Mathf.Log10(value) * 20f);
     }
 
-    static public void setSFXVol(float value)
+     public void setSFXVol(float value)
     {
         Instance.audioMixer.SetFloat("sfxVolume", Mathf.Log10(value) * 20f);
     }
 
-    static public void setMusicVol(float value)
+     public void setMusicVol(float value)
     {
         Instance.audioMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20f);
     }

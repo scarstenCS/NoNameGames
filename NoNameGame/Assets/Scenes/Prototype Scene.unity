@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 8300000, guid: fcc01ef5b8fdb2549b8642898fead245, type: 3}
-  playerHit: {fileID: 0}
-  enemyHit: {fileID: 0}
+  playerHit: {fileID: 8300000, guid: 500ff3601ac7af54280dce4c413be984, type: 3}
+  enemyHit: {fileID: 8300000, guid: 1710443b2e6a0fb49b84aa6e5dd3008f, type: 3}
 --- !u!82 &59755429
 AudioSource:
   m_ObjectHideFlags: 0

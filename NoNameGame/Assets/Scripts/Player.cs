@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll) {
         if (coll.collider.gameObject.tag == "Enemy")
         {
+            AudioManager.SfxPlayerHit();
             this.TakeDamage(coll.collider.gameObject.GetComponent<Enemy>().atk);
         }
     }

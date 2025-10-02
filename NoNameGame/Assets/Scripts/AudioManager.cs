@@ -37,4 +37,16 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    static public void SfxEnemyHit()
+    {
+        audioSource.clip = Instance.enemyHit;
+        audioSource.Play();
+    }
+
+    static public void SfxPlayerHit()
+    {
+        audioSource.clip = Instance.playerHit;
+        audioSource.Play();
+    }
+
 }

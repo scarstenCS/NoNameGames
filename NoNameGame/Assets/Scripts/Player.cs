@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     public float startSpeed = 1;
     private float playerSpeed;
+    
     public int minX = -2;
     public int maxX = 2;
     public int minY = -2;
@@ -104,12 +105,17 @@ public class Player : MonoBehaviour
             GameManager.TogglePause();
         }
     }
-    
-    private void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.collider.gameObject.tag == "Enemy")
+
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        GameObject other = coll.collider.gameObject;
+        if (other.tag == "Enemy")
         {
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (Time.time - enemy._lastAtkTime < enemy.cooldown) return;
             AudioManager.SfxPlayerHit();
-            this.TakeDamage(coll.collider.gameObject.GetComponent<Enemy>().atk);
+            this.TakeDamage(enemy.atk);
+            enemy._lastAtkTime = Time.time;
         }
     }
 }

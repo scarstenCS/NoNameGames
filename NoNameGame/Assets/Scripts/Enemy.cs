@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private Transform playerPos;
     public float speed = 3;
+    public float cooldown = 1.5f;
+    public float _lastAtkTime;
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()

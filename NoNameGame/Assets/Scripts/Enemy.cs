@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
+            AudioManager.SfxEnemyHit();
             BasicAttack.atkStage = 2;
             hp--;
         }

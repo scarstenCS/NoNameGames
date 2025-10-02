@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 // https://www.youtube.com/watch?v=DU7cgVsU2rM
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip playerAttack, playerHit, enemyHit;
+    public AudioClip[] playerAttack, playerHit, enemyHit;
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
@@ -32,27 +32,30 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    private void PlaySound(AudioClip[] clip)
+    {
+        int idx = Random.Range(0, clip.Length);
+        audioSource.clip = clip[idx];
+        audioSource.Play();
+    }
 
     static public void SfxPlayerAttack()
     {
-        audioSource.clip = Instance.playerAttack;
-        audioSource.Play();
+        Instance.PlaySound(Instance.playerAttack);
     }
 
     static public void SfxEnemyHit()
     {
-        audioSource.clip = Instance.enemyHit;
-        audioSource.Play();
+        Instance.PlaySound(Instance.enemyHit);
     }
 
     static public void SfxPlayerHit()
     {
-        audioSource.clip = Instance.playerHit;
-        audioSource.Play();
+        Instance.PlaySound(Instance.playerHit);
     }
 
 
-    static public void setMasterVol(float value)
+     public void setMasterVol(float value)
     {
         Instance.audioMixer.SetFloat("masterVolume", Mathf.Log10(value) * 20f);
     }

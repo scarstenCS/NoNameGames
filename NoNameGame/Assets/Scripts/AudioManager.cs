@@ -11,8 +11,10 @@ public class AudioManager : MonoBehaviour
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-    [SerializeField] private static AudioSource audioSource;
 
+
+    [SerializeField] private static AudioSource audioSource;
+    [SerializeField] private AudioMixer audioMixer;
     void Awake()
     {
         _instance = this;
@@ -47,6 +49,22 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.clip = Instance.playerHit;
         audioSource.Play();
+    }
+
+
+    static public void setMasterVol(float value)
+    {
+        Instance.audioMixer.SetFloat("masterVolume", Mathf.Log10(value) * 20f);
+    }
+
+    static public void setSFXVol(float value)
+    {
+        Instance.audioMixer.SetFloat("sfxVolume", Mathf.Log10(value) * 20f);
+    }
+
+    static public void setMusicVol(float value)
+    {
+        Instance.audioMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20f);
     }
 
 }

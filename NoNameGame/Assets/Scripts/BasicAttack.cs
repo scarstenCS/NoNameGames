@@ -51,8 +51,9 @@ public class BasicAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
-        if (atkStage != 0) return;
+        if (atkStage != 0 || GameManager.isPaused) return;
 
+        AudioManager.SfxPlayerAttack();
         atkStage++;
         //rb2d.AddForce(transform.right * projectileSpeed);
     }

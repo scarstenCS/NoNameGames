@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
-            Spawner.enemyCount--;
+            WaveManager.enemiesLeft--;
 
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
+            AudioManager.SfxEnemyHit();
             BasicAttack.atkStage = 2;
             hp--;
         }

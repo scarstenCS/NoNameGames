@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 334100870}
   - component: {fileID: 578259506}
   m_Layer: 0
-  m_Name: Recovery GameObject (578259506)
+  m_Name: Music Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

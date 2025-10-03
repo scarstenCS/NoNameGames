@@ -6,8 +6,10 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("Wire in Inspector")]
     public DialogueUI ui;
-    public MonoBehaviour[] combatInputControllers;
+    public Behaviour[] combatInputControllers;
     public KeyCode advanceKey = KeyCode.Mouse0; // Left mouse button
+
+    public PlayerInput playerInput; // drag your Player's PlayerInput here in Inspector
 
     int index = -1;
     DialogueSequence seq;
@@ -54,8 +56,12 @@ public class DialogueManager : MonoBehaviour
 
     void SetCombatEnabled(bool enabled)
     {
-        foreach (var c in combatInputControllers)
-            if (c) c.enabled = enabled;
+        foreach (var c in combatInputControllers) if (c) c.enabled = enabled;
+        if (playerInput)
+        {
+            if (enabled) playerInput.ActivateInput();
+            else playerInput.DeactivateInput();
+        }
     }
     bool WasAdvancePressed()
     {

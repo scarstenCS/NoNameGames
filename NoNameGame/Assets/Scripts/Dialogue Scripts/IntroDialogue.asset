@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - speaker: Knight
+    text: Heey Hooo heyyy hoooo
+    portrait: {fileID: -6807835881720664423, guid: 9a815bb5e64241340bd1177af8b7da3f,
+      type: 3}
+  - speaker: Granpa
+    text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....
+      hi
+    portrait: {fileID: 7928668133385318909, guid: 9a815bb5e64241340bd1177af8b7da3f,
+      type: 3}
   pausesCombat: 1

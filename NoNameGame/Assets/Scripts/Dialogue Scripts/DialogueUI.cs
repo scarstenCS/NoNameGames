@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+
+public class DialogueUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Wire in Inspector")]
+    public GameObject rootPanel;    // overall dialogue panel
+    public TMP_Text speakerText;
+    public TMP_Text bodyText;
+    public Image portraitImage;     
+    public GameObject continueHint; 
 
-    // Update is called once per frame
-    void Update()
+    public void Show(bool on) => rootPanel.SetActive(on);
+
+    public void Render(string speaker, string body, Sprite portrait)
     {
-        
+        if (speakerText) speakerText.text = speaker ?? "";
+        if (bodyText) bodyText.text = body ?? "";
+        if (portraitImage) portraitImage.sprite = portrait;
     }
 }

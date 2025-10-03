@@ -1,18 +1,66 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class DialogueManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Wire in Inspector")]
+    public DialogueUI ui;
+    public MonoBehaviour[] combatInputControllers;
+    public KeyCode advanceKey = KeyCode.Mouse0; // Left mouse button
+
+    int index = -1;
+    DialogueSequence seq;
+    bool active;
+
+    public bool IsActive => active; //
+
+    public void StartSequence(DialogueSequence s)
     {
-        
+        if (active || s == null) return;
+        seq = s;
+        index = -1; // Start before first line
+        if (ui) ui.Show(true); // Show dialogue UI
+        SetCombatEnabled(!s.pausesCombat); // Disable combat if needed
+        active = true; // Mark dialogue as active
+        Next();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!active) return;
+        if (WasAdvancePressed()) Next();
+    }
+
+    void Next()
+    {
+        index++;  // Move to next line
+        if (seq == null || seq.lines == null || index >= seq.lines.Length)  // Check if sequence is valid
+        {
+            EndSequence();
+            return;
+        }
+        var line = seq.lines[index]; // Get current line
+        ui.Render(line.speaker, line.text, line.portrait);  // Render line in UI
+    }
+
+    void EndSequence()
+    {
+        active = false;
+        if (ui) ui.Show(false); // Hide dialogue UI
+        SetCombatEnabled(true);
+        seq = null;
+    }
+
+    void SetCombatEnabled(bool enabled)
+    {
+        foreach (var c in combatInputControllers)
+            if (c) c.enabled = enabled;
+    }
+    bool WasAdvancePressed()
+    {
+        // left click was pressed this frame
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) return true;
+        return false;
     }
 }

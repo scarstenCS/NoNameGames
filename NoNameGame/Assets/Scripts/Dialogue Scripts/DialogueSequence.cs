@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueSequence : MonoBehaviour
+[CreateAssetMenu(fileName="NewDialogue", menuName="Dialogue/Sequence")]
+public class DialogueSequence : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [System.Serializable]
+    public struct Line {
+        public string speaker;
+        [TextArea(2, 5)] public string text;
+        public Sprite portrait; 
     }
+    public Line[] lines;
+    public bool pausesCombat = true; // Possibly pause combat during dialogue
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

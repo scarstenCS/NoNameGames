@@ -22,6 +22,16 @@ public class UpgradeManager : MonoBehaviour
         player.basicWeaponDmg += ammount;
         Debug.Log($"Basic weapon damage increased by {ammount}");
     }
+    public void IncreaseWeaponDistance(int ammount)
+    {
+        player.basicWeaponDistance += ammount;
+        Debug.Log($"Basic weapon distance increased by {ammount}");
+    }
+    public void IncreaseWeaponSpeed(int ammount)
+    {
+        player.basicWeaponDmg += ammount;
+        Debug.Log($"Basic weapon speed increased by {ammount}");
+    }
 
     public void IncreasePlayerSpeed(int ammount)
     {

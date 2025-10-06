@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     public Player player;
-    static public UpgradeManager Instance;
+    static public UpgradeManager Instance {get{ return _instance; }}
     static private UpgradeManager _instance;
     private void Awake()
     {
@@ -22,18 +22,18 @@ public class UpgradeManager : MonoBehaviour
         player.basicWeaponDmg += ammount;
         Debug.Log($"Basic weapon damage increased by {ammount}");
     }
-    public void IncreaseWeaponDistance(int ammount)
+    public void IncreaseWeaponDistance(float ammount)
     {
         player.basicWeaponDistance += ammount;
         Debug.Log($"Basic weapon distance increased by {ammount}");
     }
-    public void IncreaseWeaponSpeed(int ammount)
+    public void IncreaseWeaponSpeed(float ammount)
     {
-        player.basicWeaponDmg += ammount;
+        player.basicWeaponSpeed += ammount;
         Debug.Log($"Basic weapon speed increased by {ammount}");
     }
 
-    public void IncreasePlayerSpeed(int ammount)
+    public void IncreasePlayerSpeed(float ammount)
     {
         player.Speed += ammount;
         Debug.Log($"Player speed increased by {ammount}");

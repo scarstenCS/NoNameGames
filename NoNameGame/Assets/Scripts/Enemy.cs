@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+            UpgradeManager.Instance.IncreaseWeaponSpeed(5f); //! Remove this line. This is just to test the upgrade system
             WaveManager.enemiesLeft--;
 
         }

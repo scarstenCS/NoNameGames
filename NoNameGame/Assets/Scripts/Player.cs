@@ -29,6 +29,32 @@ public class Player : MonoBehaviour
             ba.Damage = value;
         }
     }
+    /// <summary>
+    /// Max distance for basic weapon
+    /// </summary>
+    public float basicWeaponDistance
+    {
+        get
+        {
+            return ba.projectileMaxDistance;
+        }
+        set
+        {
+            ba.projectileMaxDistance = value;
+        }
+    }
+    
+    public float basicWeaponSpeed
+    {
+        get
+        {
+            return ba.projectileSpeed;
+        }
+        set
+        {
+            ba.projectileSpeed = value;
+        }
+    }
     public event Action<int, int> HealthChanged;
 
 

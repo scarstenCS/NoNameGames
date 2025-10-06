@@ -26,7 +26,7 @@ public class UpgradeManager : MonoBehaviour
     public void IncreasePlayerSpeed(int ammount)
     {
         player.Speed += ammount;
-        Debug.Log($"Player speed increased bu {ammount}");
+        Debug.Log($"Player speed increased by {ammount}");
     }
     
 }

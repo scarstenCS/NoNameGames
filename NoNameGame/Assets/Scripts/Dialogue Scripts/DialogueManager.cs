@@ -9,13 +9,13 @@ public class DialogueManager : MonoBehaviour
     public Behaviour[] combatInputControllers;
     public KeyCode advanceKey = KeyCode.Mouse0; // Left mouse button
 
-    public PlayerInput playerInput; // drag your Player's PlayerInput here in Inspector
+    public PlayerInput playerInput; 
 
     int index = -1;
     DialogueSequence seq;
     bool active;
 
-    public bool IsActive => active; //
+    public bool IsActive => active; 
 
     public void StartSequence(DialogueSequence s)
     {

@@ -11,9 +11,9 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     { 
-         Debug.Log($"Hit {other.name} / tag={other.tag} / layer={LayerMask.LayerToName(other.gameObject.layer)}");
+        //Debug.Log($"Hit {other.name} / tag={other.tag} / layer={LayerMask.LayerToName(other.gameObject.layer)}");
         if (!other.CompareTag("Player")) return; // Only trigger for player
         if (manager && sequence) manager.StartSequence(sequence);
-        if (oneShot) gameObject.SetActive(false);
+        if (oneShot) gameObject.SetActive(false); // Disable after triggering once
     }
 }

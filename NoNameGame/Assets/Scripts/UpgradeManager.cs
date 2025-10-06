@@ -12,6 +12,8 @@ public class UpgradeManager : MonoBehaviour
         _instance = this;
     }
 
+    //? Feel free to remove all the debug.logs if the API is working
+
     /// <summary>
     /// increased player's max health
     /// </summary>

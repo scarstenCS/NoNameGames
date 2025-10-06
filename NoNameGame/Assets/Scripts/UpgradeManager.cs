@@ -15,6 +15,18 @@ public class UpgradeManager : MonoBehaviour
     public void IncreaseMaxHealth(int ammout)
     {
         player.maxHealth += ammout;
+        Debug.Log($"Max health increased by {ammout}");
+    }
+    public void IncreaseWeaponDamage(int ammount)
+    {
+        player.basicWeaponDmg += ammount;
+        Debug.Log($"Basic weapon damage increased by {ammount}");
+    }
+
+    public void IncreasePlayerSpeed(int ammount)
+    {
+        player.Speed += ammount;
+        Debug.Log($"Player speed increased bu {ammount}");
     }
     
 }

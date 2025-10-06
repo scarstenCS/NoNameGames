@@ -33,8 +33,21 @@ public class Player : MonoBehaviour
 
 
     public float startSpeed = 1;
-    private float playerSpeed;
+    public float Speed
+    {
+        get
+        {
+            return playerSpeed;
+        }
+        set
+        {
+            playerSpeed += Math.Abs(value);
+        }
+    }
+    float playerSpeed;
     
+
+
     public int minX = -2;
     public int maxX = 2;
     public int minY = -2;

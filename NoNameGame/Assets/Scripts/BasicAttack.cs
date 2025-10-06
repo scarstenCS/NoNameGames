@@ -14,7 +14,7 @@ public class BasicAttack : MonoBehaviour
     public float projectileSpeed = 5,
     projectileMaxDistance = 5;
 
-    public int weaponDamage = 1;
+    public int Damage = 1;
     private float projectileDistance;
     private Rigidbody2D rb2d, rbProjectile;
     private Transform t, projectileT, playerT;

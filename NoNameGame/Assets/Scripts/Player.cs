@@ -13,6 +13,22 @@ public class Player : MonoBehaviour
     private int health;
     public int Health => health;
 
+
+    /// <summary>
+    /// Damage for basic attack
+    /// </summary>
+    public int basicWeaponDmg
+    {
+        get
+        {
+            return ba.Damage;
+        }
+
+        set
+        {
+            ba.Damage = value;
+        }
+    }
     public event Action<int, int> HealthChanged;
 
 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -56,9 +56,13 @@ public class Player : MonoBehaviour
         }
     }
     public event Action<int, int> HealthChanged;
-
+    public event Action OnDied;
+    bool isDead = false;
 
     public float startSpeed = 1;
+
+    private float playerSpeed;
+
     public float Speed
     {
         get
@@ -70,9 +74,6 @@ public class Player : MonoBehaviour
             playerSpeed += Math.Abs(value);
         }
     }
-    float playerSpeed;
-    
-
 
     public int minX = -2;
     public int maxX = 2;
@@ -119,7 +120,7 @@ public class Player : MonoBehaviour
         if (amount <= 0) return;
         health = Mathf.Max(0, health - amount);
         HealthChanged?.Invoke(health, maxHealth);
-        // TODO: if (health == 0) HandleDeath();
+        if (health == 0) HandleDeath();
     }
     /// <summary>
     /// heals the player
@@ -172,5 +173,14 @@ public class Player : MonoBehaviour
             this.TakeDamage(enemy.atk);
             enemy._lastAtkTime = Time.time;
         }
+    }
+
+    private void HandleDeath()
+    {
+        // TODO: Implement death handling (e.g., play animation, disable player controls, etc.)'
+        gameObject.SetActive(false);
+        isDead = true;
+        OnDied?.Invoke();
+        
     }
 }

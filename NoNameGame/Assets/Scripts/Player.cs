@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         }
         set
         {
-            playerSpeed += Math.Abs(value);
+            playerSpeed = value;
         }
     }
 

@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c84c3bbc04de4a41a7d79f44d20911e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 20
   startSpeed: 5
   minX: -5
   maxX: 5
@@ -292,6 +292,7 @@ MonoBehaviour:
   player: {fileID: 3096818584895333015}
   projectileSpeed: 10
   projectileMaxDistance: 5
+  Damage: 1
 --- !u!50 &2227057740444288077
 Rigidbody2D:
   serializedVersion: 4

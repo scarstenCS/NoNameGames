@@ -13,13 +13,67 @@ public class Player : MonoBehaviour
     private int health;
     public int Health => health;
 
+
+    /// <summary>
+    /// Damage for basic attack
+    /// </summary>
+    public int basicWeaponDmg
+    {
+        get
+        {
+            return ba.Damage;
+        }
+
+        set
+        {
+            ba.Damage = value;
+        }
+    }
+    /// <summary>
+    /// Max distance for basic weapon
+    /// </summary>
+    public float basicWeaponDistance
+    {
+        get
+        {
+            return ba.projectileMaxDistance;
+        }
+        set
+        {
+            ba.projectileMaxDistance = value;
+        }
+    }
+    
+    public float basicWeaponSpeed
+    {
+        get
+        {
+            return ba.projectileSpeed;
+        }
+        set
+        {
+            ba.projectileSpeed = value;
+        }
+    }
     public event Action<int, int> HealthChanged;
     public event Action OnDied;
     bool isDead = false;
 
-
     public float startSpeed = 1;
+
     private float playerSpeed;
+
+    public float Speed
+    {
+        get
+        {
+            return playerSpeed;
+        }
+        set
+        {
+            playerSpeed += Math.Abs(value);
+        }
+    }
 
     public int minX = -2;
     public int maxX = 2;

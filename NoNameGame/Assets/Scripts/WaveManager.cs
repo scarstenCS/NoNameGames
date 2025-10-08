@@ -16,6 +16,8 @@ public class WaveManager : MonoBehaviour
     public static int maxEnemies;
     public static int enemiesLeft;
     public static int enemyCount;
+    static public GameObject _waveDoneText;
+    [SerializeField] GameObject waveDoneText;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,12 +25,18 @@ public class WaveManager : MonoBehaviour
     }
     void Start()
     {
+        _waveDoneText = waveDoneText;
         mainCamera = Camera.main;
         spawnrate = 2f;
         maxEnemies = (int)waveTable[waveCount];
         enemiesLeft = maxEnemies;
         enemyCount = 0;
         StartCoroutine(Phase());
+    }
+
+    void OnEnable()
+    {
+        if (_waveDoneText) _waveDoneText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,7 +64,9 @@ public class WaveManager : MonoBehaviour
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);
             Debug.Log("Wave Done");
+            if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(5f);
+            if (_waveDoneText) _waveDoneText.SetActive(false);
             waveCount++;
             maxEnemies = (int)waveTable[waveCount];
             enemyCount = 0;

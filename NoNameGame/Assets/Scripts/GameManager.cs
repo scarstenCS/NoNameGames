@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     static public GameManager Instance;
     static public bool isPaused = false;
     private PlayerControls controls;
-    static public GameObject _gameOverPanel, _mainMenuSelected;
+    static public GameObject _gameOverPanel, _mainMenuSelected, _mainMenuSelected2;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject mainMenuSelected;
+    [SerializeField] GameObject mainMenuSelected2;
     void Awake()
     {
         _instance = this;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         _pauseMenu = pauseMenu;
         _gameOverPanel = gameOverPanel;
         _mainMenuSelected = mainMenuSelected;
-        
+        _mainMenuSelected2 = mainMenuSelected2;
     }
 
     static public void PlayerTakeDamage(int ammout)
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
+        if (isPaused) 
+            if (_mainMenuSelected2 && EventSystem.current)
+                EventSystem.current.SetSelectedGameObject(_mainMenuSelected2);
     }
 
     static public void PlayerDied()

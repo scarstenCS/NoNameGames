@@ -50,13 +50,13 @@ public class WaveManager : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         if (player.transform.position.x > GameManager.minX + 1 && player.transform.position.x < GameManager.maxX - 1)
         {
-            positions.Add(new Vector3(GameManager.minX, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
-            positions.Add(new Vector3(GameManager.maxX, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
+            positions.Add(new Vector3(GameManager.minX-1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
+            positions.Add(new Vector3(GameManager.maxX+1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
         }
         if (player.transform.position.y > GameManager.minY + 1 && player.transform.position.y < GameManager.maxY - 1)
         {
-            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.minY));
-            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.maxY));
+            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.minY-1));
+            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.maxY+1));
         }
         // Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0, 2)) };
         // GameObject e = Instantiate(enemyPrefab, mainCamera.ViewportToWorldPoint(positions[Random.Range(0, positions.Count)]), Quaternion.identity);

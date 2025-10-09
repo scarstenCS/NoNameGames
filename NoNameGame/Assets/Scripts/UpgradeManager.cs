@@ -7,6 +7,8 @@ public class UpgradeManager : MonoBehaviour
     public Player player;
     static public UpgradeManager Instance {get{ return _instance; }}
     static private UpgradeManager _instance;
+
+    public GameObject upgradeWindow;
     private void Awake()
     {
         _instance = this;
@@ -20,7 +22,7 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="ammout">ammount to increase by</param>
     public void IncreaseMaxHealth(int ammout)
     {
-        player.maxHealth += ammout;
+        player.MaxHealth += ammout;
         Debug.Log($"Max health increased by {ammout}");
     }
     /// <summary>
@@ -61,5 +63,21 @@ public class UpgradeManager : MonoBehaviour
         player.Speed += ammount;
         Debug.Log($"Player speed increased by {ammount}");
     }
+
+    public void ShowUpgradeWindow()
+    {
+        upgradeWindow.SetActive(true);
+    }
+
+    public void HideUpgradeWindow()
+    {
+        upgradeWindow.SetActive(false);
+    }
+
+    static public bool isWindowClosed()
+    {
+        return !Instance.upgradeWindow.activeInHierarchy;
+    }
+
     
 }

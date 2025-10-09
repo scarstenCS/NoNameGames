@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
-    public GameObject player, pauseMenu;
-    static private GameObject _player, _pauseMenu;
+    public GameObject player, pauseMenu, menuButton;
+    static private GameObject _player, _pauseMenu, _menuButton;
     static public GameManager Instance;
     static public bool isPaused = false;
     private PlayerControls controls;
-    static public GameObject _gameOverPanel, _mainMenuSelected, _mainMenuSelected2;
+    static public GameObject _gameOverPanel, _mainMenuSelected;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject mainMenuSelected;
-    [SerializeField] GameObject mainMenuSelected2;
     void Awake()
     {
         _instance = this;
@@ -25,9 +24,9 @@ public class GameManager : MonoBehaviour
     {
         _player = player;
         _pauseMenu = pauseMenu;
+        _menuButton = menuButton;
         _gameOverPanel = gameOverPanel;
         _mainMenuSelected = mainMenuSelected;
-        _mainMenuSelected2 = mainMenuSelected2;
     }
 
     static public void PlayerTakeDamage(int ammout)
@@ -43,10 +42,8 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
+        _menuButton.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
-        if (isPaused) 
-            if (_mainMenuSelected2 && EventSystem.current)
-                EventSystem.current.SetSelectedGameObject(_mainMenuSelected2);
     }
 
     static public void PlayerDied()

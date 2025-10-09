@@ -20,7 +20,7 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="ammout">ammount to increase by</param>
     public void IncreaseMaxHealth(int ammout)
     {
-        player.maxHealth += ammout;
+        player.MaxHealth += ammout;
         Debug.Log($"Max health increased by {ammout}");
     }
     /// <summary>

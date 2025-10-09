@@ -71,6 +71,11 @@ public class WaveManager : MonoBehaviour
             dialogueTrigger.OnWaveEnd();
             yield return new WaitForSeconds(5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);
+
+            UpgradeManager.Instance.ShowUpgradeWindow();
+
+            yield return new WaitUntil(UpgradeManager.isWindowClosed);
+            // reset vars for new wave
             waveCount++;
             maxEnemies = (int)waveTable[waveCount];
             enemyCount = 0;

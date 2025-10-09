@@ -7,6 +7,8 @@ public class UpgradeManager : MonoBehaviour
     public Player player;
     static public UpgradeManager Instance {get{ return _instance; }}
     static private UpgradeManager _instance;
+
+    public GameObject upgradeWindow;
     private void Awake()
     {
         _instance = this;
@@ -61,5 +63,21 @@ public class UpgradeManager : MonoBehaviour
         player.Speed += ammount;
         Debug.Log($"Player speed increased by {ammount}");
     }
+
+    public void ShowUpgradeWindow()
+    {
+        upgradeWindow.SetActive(true);
+    }
+
+    public void HideUpgradeWindow()
+    {
+        upgradeWindow.SetActive(false);
+    }
+
+    static public bool isWindowClosed()
+    {
+        return !Instance.upgradeWindow.activeInHierarchy;
+    }
+
     
 }

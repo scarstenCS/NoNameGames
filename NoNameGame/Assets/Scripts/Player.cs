@@ -166,6 +166,11 @@ public class Player : MonoBehaviour
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
         t.position = new Vector3(Mathf.Clamp(t.position.x, minX, maxX), Mathf.Clamp(t.position.y, minY, maxY));
 
+
+        if (move.ReadValue<Vector2>()!= Vector2.zero)
+        {
+            gameObject.GetComponent<AnimatedEntity>().
+        }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();

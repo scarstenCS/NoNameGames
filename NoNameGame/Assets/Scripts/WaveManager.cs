@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
     static public WaveManager Instance;
+    [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
     static private ArrayList waveTable = new ArrayList { 10, 10, 15, 15, 15, 1, 20, 20, 25, 25, 25, 1 };
     public GameObject enemyPrefab;
     public Camera mainCamera;
@@ -56,6 +57,8 @@ public class WaveManager : MonoBehaviour
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);
             Debug.Log("Wave Done");
+            yield return new WaitForSeconds(0.5f);
+            dialogueTrigger.OnWaveEnd();
             yield return new WaitForSeconds(5f);
             waveCount++;
             maxEnemies = (int)waveTable[waveCount];

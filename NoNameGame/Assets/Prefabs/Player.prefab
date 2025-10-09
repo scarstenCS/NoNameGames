@@ -220,12 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c84c3bbc04de4a41a7d79f44d20911e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 200
   startSpeed: 5
-  minX: -5
-  maxX: 5
-  minY: -5
-  maxY: 5
   basicAttackObj: {fileID: 4020625129868841038}
 --- !u!58 &8199912590941039346
 CircleCollider2D:

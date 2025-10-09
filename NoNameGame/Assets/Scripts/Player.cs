@@ -75,10 +75,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int minX = -2;
-    public int maxX = 2;
-    public int minY = -2;
-    public int maxY = 2;
+    
     public PlayerControls controls;
 
     private InputAction move;
@@ -149,7 +146,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
-        t.position = new Vector3(Mathf.Clamp(t.position.x, minX, maxX), Mathf.Clamp(t.position.y, minY, maxY));
+        t.position = new Vector3(Mathf.Clamp(t.position.x, GameManager.minX, GameManager.maxX), Mathf.Clamp(t.position.y, GameManager.minY, GameManager.maxY));
 
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {

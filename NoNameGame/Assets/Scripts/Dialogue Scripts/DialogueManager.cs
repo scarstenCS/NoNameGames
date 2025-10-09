@@ -69,4 +69,9 @@ public class DialogueManager : MonoBehaviour
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) return true;
         return false;
     }
+
+    public bool isDialogueFinished()
+    {
+        return !active;
+    }
 }

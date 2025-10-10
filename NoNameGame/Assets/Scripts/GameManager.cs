@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
-    public GameObject player, pauseMenu;
-    static private GameObject _player, _pauseMenu;
+    public GameObject player, pauseMenu, menuButton;
+    static private GameObject _player, _pauseMenu, _menuButton;
     static public GameManager Instance;
     static public bool isPaused = false;
     private PlayerControls controls;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         _player = player;
         _pauseMenu = pauseMenu;
+        _menuButton = menuButton;
         _gameOverPanel = gameOverPanel;
         _mainMenuSelected = mainMenuSelected;
         
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
+        _menuButton.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
     }
 

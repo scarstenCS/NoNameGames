@@ -17,7 +17,7 @@ MonoBehaviour:
     text: Hey those red squares are pretty scary eh?
     portrait: {fileID: -6807835881720664423, guid: 9a815bb5e64241340bd1177af8b7da3f,
       type: 3}
-  - speaker: Granpa
+  - speaker: Grandpa
     text: Yeah whats their problem?
     portrait: {fileID: 7928668133385318909, guid: 9a815bb5e64241340bd1177af8b7da3f,
       type: 3}

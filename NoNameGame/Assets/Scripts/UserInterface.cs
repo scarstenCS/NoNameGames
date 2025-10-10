@@ -41,15 +41,15 @@ public class UserInterface : MonoBehaviour
         healthText.text = $"Health: {current} / {max}";
     }
 
-        public void SetEnemiesLeft(int count)
+    public void SetEnemiesLeft(int count)
     {
         if (!enemiesLeftText) return;
-        //TODO: When enemies enter, fix this function
+        enemiesLeftText.text = $"Enemies Left: {count}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SetEnemiesLeft(WaveManager.enemiesLeft);
     }
 }

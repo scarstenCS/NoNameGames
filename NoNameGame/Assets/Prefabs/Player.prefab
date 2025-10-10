@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 3096818584895333001}
   - component: {fileID: 3096818584895333003}
   - component: {fileID: 8199912590941039346}
-  - component: {fileID: 4713269187744890182}
+  - component: {fileID: 112383774099633305}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -243,26 +243,25 @@ CircleCollider2D:
   m_Offset: {x: -0.0013634264, y: -0.010135949}
   serializedVersion: 2
   m_Radius: 0.2976786
---- !u!114 &4713269187744890182
-MonoBehaviour:
+--- !u!95 &112383774099633305
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096818584895333015}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fdd9792be3f1bd409c85e97fe4defbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultAnimationCycle:
-  - {fileID: -8641802642409029792, guid: 6b801dd7d1a67c147b413753e2fccf00, type: 3}
-  - {fileID: 1284884675866880519, guid: 6b801dd7d1a67c147b413753e2fccf00, type: 3}
-  - {fileID: -654205148098320520, guid: 6b801dd7d1a67c147b413753e2fccf00, type: 3}
-  - {fileID: -3125024498828027006, guid: 6b801dd7d1a67c147b413753e2fccf00, type: 3}
-  - {fileID: -1485936648587838527, guid: 6b801dd7d1a67c147b413753e2fccf00, type: 3}
-  Framerate: 12
-  SpriteRenderer: {fileID: 3096818584895333001}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f04602a3dce7bd641aab82f3a94e2c26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4020625129868841038
 GameObject:
   m_ObjectHideFlags: 0

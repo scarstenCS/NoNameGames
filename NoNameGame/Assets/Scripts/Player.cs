@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Transform t;
+    private SpriteRenderer sr;
     public const string enemyTag = "Enemy";
 
     private int _maxHealth =20;
@@ -105,6 +106,10 @@ public class Player : MonoBehaviour
 
     private BasicAttack ba;
 
+    Animator animator;
+
+    public Animation idle;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -158,14 +163,23 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke(health, MaxHealth);
 
         ba = basicAttackObj.GetComponent<BasicAttack>();
+
+        animator = gameObject.GetComponent<Animator>();
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
+        Vector2 inputVector = move.ReadValue<Vector2>();
+        t.position += (Vector3)inputVector * Time.deltaTime * playerSpeed;
         t.position = new Vector3(Mathf.Clamp(t.position.x, minX, maxX), Mathf.Clamp(t.position.y, minY, maxY));
 
+        sr.flipX = inputVector.x > 0;
+
+        animator.SetBool("isWalking", move.ReadValue<Vector2>() != Vector2.zero);
+        
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();

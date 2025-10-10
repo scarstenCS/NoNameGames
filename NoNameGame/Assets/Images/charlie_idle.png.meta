@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 6b801dd7d1a67c147b413753e2fccf00
+guid: 86986f0c4ed49c1498df7bc0d35a40ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2200106238681898535
-    second: llama_0
+      213: -1352392630972233968
+    second: charlie_idle_0
   - first:
-      213: -8641802642409029792
-    second: llama_1
+      213: 2011542577149031069
+    second: charlie_idle_1
   - first:
-      213: 1284884675866880519
-    second: llama_2
+      213: 3820849921086122254
+    second: charlie_idle_2
   - first:
-      213: -654205148098320520
-    second: llama_3
+      213: -2117946335341220185
+    second: charlie_idle_3
   - first:
-      213: -3125024498828027006
-    second: llama_4
+      213: 913135522513122892
+    second: charlie_idle_4
   - first:
-      213: -1485936648587838527
-    second: llama_5
+      213: -949221322101178136
+    second: charlie_idle_5
+  - first:
+      213: 3550937758446534517
+    second: charlie_idle_6
+  - first:
+      213: -7743965991945299772
+    second: charlie_idle_7
+  - first:
+      213: 3405782318084854925
+    second: charlie_idle_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +73,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 52, y: 96, z: 18, w: 6}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -102,30 +111,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -141,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: llama_0
+      name: charlie_idle_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 99
-        width: 24
-        height: 31
+        x: 34
+        y: 257
+        width: 60
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d1ae375807a771e0800000000000000
-      internalID: -2200106238681898535
+      spriteID: 0174b0241165b3de0800000000000000
+      internalID: -1352392630972233968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: llama_1
+      name: charlie_idle_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 99
-        width: 24
-        height: 36
+        x: 162
+        y: 257
+        width: 60
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f7d207846221880800000000000000
-      internalID: -8641802642409029792
+      spriteID: d92ba89f05f6aeb10800000000000000
+      internalID: 2011542577149031069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: llama_2
+      name: charlie_idle_2
       rect:
         serializedVersion: 2
-        x: 5
-        y: 54
-        width: 24
-        height: 36
+        x: 290
+        y: 257
+        width: 60
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a636a1ec3d4d110800000000000000
-      internalID: 1284884675866880519
+      spriteID: e09ea6e62c2660530800000000000000
+      internalID: 3820849921086122254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: llama_3
+      name: charlie_idle_3
       rect:
         serializedVersion: 2
-        x: 54
-        y: 55
-        width: 24
-        height: 36
+        x: 29
+        y: 129
+        width: 68
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8772e5942ebcbe6f0800000000000000
-      internalID: -654205148098320520
+      spriteID: 7ae65a4870b8b92e0800000000000000
+      internalID: -2117946335341220185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: llama_4
+      name: charlie_idle_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 5
-        width: 24
-        height: 36
+        x: 157
+        y: 129
+        width: 68
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28b56f086cea1a4d0800000000000000
-      internalID: -3125024498828027006
+      spriteID: c467f237beb1cac00800000000000000
+      internalID: 913135522513122892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: llama_5
+      name: charlie_idle_5
       rect:
         serializedVersion: 2
-        x: 56
-        y: 3
-        width: 24
-        height: 33
+        x: 290
+        y: 129
+        width: 60
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +245,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cbff2ead74e06be0800000000000000
-      internalID: -1485936648587838527
+      spriteID: 8e0ceea9c30b3d2f0800000000000000
+      internalID: -949221322101178136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_idle_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1
+        width: 60
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f3abfd317774130800000000000000
+      internalID: 3550937758446534517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_idle_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1
+        width: 60
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c81569a5f7e78490800000000000000
+      internalID: -7743965991945299772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_idle_8
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1
+        width: 60
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8411c349f4c34f20800000000000000
+      internalID: 3405782318084854925
       vertices: []
       indices: 
       edges: []

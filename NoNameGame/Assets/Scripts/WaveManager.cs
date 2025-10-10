@@ -47,19 +47,49 @@ public class WaveManager : MonoBehaviour
     }
     public void Spawn()
     {
+        
         List<Vector3> positions = new List<Vector3>();
         if (player.transform.position.x > GameManager.minX + 1 && player.transform.position.x < GameManager.maxX - 1)
         {
-            positions.Add(new Vector3(GameManager.minX-1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
-            positions.Add(new Vector3(GameManager.maxX+1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
+            positions.Add(new Vector3(GameManager.minX - 1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
+            positions.Add(new Vector3(GameManager.maxX + 1, Random.Range((float)GameManager.minY, (float)GameManager.maxY)));
         }
         if (player.transform.position.y > GameManager.minY + 1 && player.transform.position.y < GameManager.maxY - 1)
         {
-            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.minY-1));
-            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.maxY+1));
+            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.minY - 1));
+            positions.Add(new Vector3(Random.Range((float)GameManager.minX, (float)GameManager.maxX), GameManager.maxY + 1));
         }
         // Vector3[] positions = { new Vector3(Random.Range(0, 2), Random.Range(0f, 1f)), new Vector3(Random.Range(0f, 1f), Random.Range(0, 2)) };
         // GameObject e = Instantiate(enemyPrefab, mainCamera.ViewportToWorldPoint(positions[Random.Range(0, positions.Count)]), Quaternion.identity);
+        // ...after building 'positions' and BEFORE the Instantiate line:
+        if (positions.Count == 0)
+        {
+            const float margin = .5f;
+            const float cornerW = 1f;
+            const float cornerH = 1f;
+
+            float minX = GameManager.minX, maxX = GameManager.maxX;
+            float minY = GameManager.minY, maxY = GameManager.maxY;
+            float px = player.transform.position.x, py = player.transform.position.y;
+
+            bool nearLeft   = px <= minX + margin;
+            bool nearRight  = px >= maxX - margin;
+            bool nearBottom = py <= minY + margin;
+            bool nearTop    = py >= maxY - margin;
+
+            Vector3 fallback;
+
+            if (nearRight && nearBottom)fallback = new Vector3(Random.Range(minX - cornerW, minX - margin),
+                Random.Range(maxY + margin, maxY + cornerH), 0f);
+            else if (nearLeft && nearBottom) fallback = new Vector3(Random.Range(maxX + margin, maxX + cornerW),
+                Random.Range(maxY + margin, maxY + cornerH), 0f);
+            else if (nearRight && nearTop) fallback = new Vector3(Random.Range(minX - cornerW, minX - margin),
+                Random.Range(minY - cornerH, minY - margin), 0f);
+            else fallback = new Vector3(Random.Range(maxX + margin, maxX + cornerW),
+                Random.Range(minY - cornerH, minY - margin), 0f);
+
+            positions.Add(fallback);
+        }
         GameObject e = Instantiate(enemyPrefab, positions[Random.Range(0, positions.Count)], Quaternion.identity);
         e.GetComponent<Enemy>().player = player;
         enemyCount++;

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
-  m_Name: BeforeCombatDialouge
+  m_Name: 2
   m_EditorClassIdentifier: 
   lines:
   - speaker: Knight
-    text: I am glad this is such peaceful road with no enemies whatsoever.
+    text: Seems like your pretty good at this killin stuff
     portrait: {fileID: -6807835881720664423, guid: 9a815bb5e64241340bd1177af8b7da3f,
       type: 3}
   - speaker: Grandpa
-    text: Uhh, i would not be so sure. Quick throw your pointy thing at the enemy
+    text: yeah they never seem to stop, I wonder why that happens?...
     portrait: {fileID: 7928668133385318909, guid: 9a815bb5e64241340bd1177af8b7da3f,
       type: 3}
   pausesCombat: 1

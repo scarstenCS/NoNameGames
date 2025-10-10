@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System;                 // <-- add this
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,8 +8,23 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Transform t;
+    private SpriteRenderer sr;
     public const string enemyTag = "Enemy";
-    public int maxHealth = 20;
+
+    private int _maxHealth =20;
+    public int MaxHealth
+    {
+
+        get
+        {
+            return _maxHealth;
+        }
+        set
+        {
+            _maxHealth = value;
+            HealthChanged?.Invoke(health, MaxHealth);
+        }
+    }
     private int health;
     public int Health => health;
 
@@ -71,7 +86,7 @@ public class Player : MonoBehaviour
         }
         set
         {
-            playerSpeed += Math.Abs(value);
+            playerSpeed = value;
         }
     }
 
@@ -87,6 +102,10 @@ public class Player : MonoBehaviour
     public GameObject basicAttackObj;
 
     private BasicAttack ba;
+
+    Animator animator;
+
+    public Animation idle;
 
     private void Awake()
     {
@@ -116,7 +135,7 @@ public class Player : MonoBehaviour
     {
         if (amount <= 0) return;
         health = Mathf.Max(0, health - amount);
-        HealthChanged?.Invoke(health, maxHealth);
+        HealthChanged?.Invoke(health, MaxHealth);
         if (health == 0) HandleDeath();
     }
     /// <summary>
@@ -126,28 +145,38 @@ public class Player : MonoBehaviour
     public void Heal(int amount)
     {
         if (amount <= 0) return;
-        health = Mathf.Min(maxHealth, health + amount);
-        HealthChanged?.Invoke(health, maxHealth);
+        health = Mathf.Min(MaxHealth, health + amount);
+        HealthChanged?.Invoke(health, MaxHealth);
     }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        health = MaxHealth;
         t = GetComponent<Transform>();
         playerSpeed = startSpeed;
 
-        HealthChanged?.Invoke(health, maxHealth);
+        HealthChanged?.Invoke(health, MaxHealth);
 
         ba = basicAttackObj.GetComponent<BasicAttack>();
+
+        animator = gameObject.GetComponent<Animator>();
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.position += (Vector3)move.ReadValue<Vector2>() * Time.deltaTime * playerSpeed;
-        t.position = new Vector3(Mathf.Clamp(t.position.x, GameManager.minX, GameManager.maxX), Mathf.Clamp(t.position.y, GameManager.minY, GameManager.maxY));
+        Vector2 inputVector = move.ReadValue<Vector2>();
+        t.position += (Vector3)inputVector * Time.deltaTime * playerSpeed;
+        t.position = new Vector3(Mathf.Clamp(t.position.x, minX, maxX), Mathf.Clamp(t.position.y, minY, maxY));
 
+        sr.flipX = inputVector.x > 0;
+
+        animator.SetBool("isWalking", move.ReadValue<Vector2>() != Vector2.zero);
+        
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();

@@ -5,6 +5,21 @@ TextureImporter:
   - first:
       213: -2200106238681898535
     second: llama_0
+  - first:
+      213: -8641802642409029792
+    second: llama_1
+  - first:
+      213: 1284884675866880519
+    second: llama_2
+  - first:
+      213: -654205148098320520
+    second: llama_3
+  - first:
+      213: -3125024498828027006
+    second: llama_4
+  - first:
+      213: -1485936648587838527
+    second: llama_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,10 +144,10 @@ TextureImporter:
       name: llama_0
       rect:
         serializedVersion: 2
-        x: 52
+        x: 4
         y: 99
-        width: 25
-        height: 37
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,6 +157,111 @@ TextureImporter:
       bones: []
       spriteID: 9d1ae375807a771e0800000000000000
       internalID: -2200106238681898535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llama_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 99
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f7d207846221880800000000000000
+      internalID: -8641802642409029792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llama_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 54
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a636a1ec3d4d110800000000000000
+      internalID: 1284884675866880519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llama_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 55
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8772e5942ebcbe6f0800000000000000
+      internalID: -654205148098320520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llama_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 5
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b56f086cea1a4d0800000000000000
+      internalID: -3125024498828027006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llama_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 3
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbff2ead74e06be0800000000000000
+      internalID: -1485936648587838527
       vertices: []
       indices: 
       edges: []

@@ -26,7 +26,7 @@ public class UserInterface : MonoBehaviour
     void Start()
     {
         Debug.Log($"[DEBUG] Initializing UI");
-        if (player != null) OnHealthChanged(player.Health, player.maxHealth);
+        if (player != null) OnHealthChanged(player.Health, player.MaxHealth);
         // Debug.Log($"[DEBUG] Player health: {player.Health} / {player.maxHealth}"); // Debug line
         if (enemiesLeftText != null) enemiesLeftText.text = "Enemies left: 0";
 

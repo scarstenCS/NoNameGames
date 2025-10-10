@@ -178,13 +178,8 @@ public class Player : MonoBehaviour
 
         sr.flipX = inputVector.x > 0;
 
-        if (move.ReadValue<Vector2>() != Vector2.zero)
-        {
-
-        }
-        else
-        {
-        }
+        animator.SetBool("isWalking", move.ReadValue<Vector2>() != Vector2.zero);
+        
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();

@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             WaveManager.enemiesLeft--;
-
+            
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
     }

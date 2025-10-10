@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
     static public GameObject _gameOverPanel, _mainMenuSelected;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject mainMenuSelected;
-    static public int minX = -8;
-    static public int maxX = 8;
-    static public int minY = -7;
-    static public int maxY = 7;
+    static public float minX = -10f;
+    static public float maxX = 4.45f;
+    static public float minY = -6f;
+    static public float maxY = 5.31f;
     void Awake()
     {
         _instance = this;

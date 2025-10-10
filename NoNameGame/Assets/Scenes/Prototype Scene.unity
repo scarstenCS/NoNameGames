@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1634825064}
   pauseMenu: {fileID: 107085618}
+  menuButton: {fileID: 0}
   gameOverPanel: {fileID: 0}
   mainMenuSelected: {fileID: 0}
 --- !u!4 &59755427
@@ -595,7 +596,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 380564538}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1380,6 +1381,7 @@ RectTransform:
   - {fileID: 2038787662}
   - {fileID: 107085619}
   - {fileID: 284229304}
+  - {fileID: 664365526}
   - {fileID: 2062344364}
   - {fileID: 1124107746}
   - {fileID: 72964481}
@@ -2117,7 +2119,7 @@ PrefabInstance:
     - target: {fileID: 2938227918578806350, guid: 115691bf11c8e4249b661ee10e07e505,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2938227918578806350, guid: 115691bf11c8e4249b661ee10e07e505,
         type: 3}
@@ -2580,7 +2582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &664365526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2588,13 +2590,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664365525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2076752836}
-  m_Father: {fileID: 284229304}
-  m_RootOrder: 2
+  m_Father: {fileID: 380564538}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3111,7 +3113,7 @@ RectTransform:
   - {fileID: 1475492965}
   - {fileID: 1942109873}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3338,6 +3340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1634825064}
   pauseMenu: {fileID: 112435494}
+  menuButton: {fileID: 664365525}
   gameOverPanel: {fileID: 1124107745}
   mainMenuSelected: {fileID: 1942109872}
 --- !u!4 &1378162021
@@ -4188,7 +4191,7 @@ RectTransform:
   - {fileID: 531388937}
   - {fileID: 407476600}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4314,7 +4317,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4327,7 +4330,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2

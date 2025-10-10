@@ -5,8 +5,9 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public DialogueSequence sequence;
+    public List<DialogueSequence> sequencesByWave = new List<DialogueSequence>();
     public DialogueManager manager;
-    public bool oneShot = true;
+    public bool oneShot = false;
     static private DialogueTrigger _instance;
     static public DialogueTrigger Instance;
 
@@ -25,11 +26,27 @@ public class DialogueTrigger : MonoBehaviour
         if (oneShot) gameObject.SetActive(false); // Disable after triggering once
     }
 
-    public void OnWaveEnd()
+    public void OnWaveEnd(int waveNumber)
     {
-        //Debug.Log($"Hit {other.name} / tag={other.tag} / layer={LayerMask.LayerToName(other.gameObject.layer)}");
-        if (manager && sequence) manager.StartSequence(sequence);
-        if (oneShot) gameObject.SetActive(false); // Disable after triggering once
+        //Debug.Log($"Wave {waveNumber} ended");
+        var seq = GetSequenceForWave(waveNumber);
+        if (manager && seq) manager.StartSequence(seq);
+        if (oneShot) gameObject.SetActive(false);
 
+    }
+    
+    private DialogueSequence GetSequenceForWave(int waveNumber)
+    {
+        // Prefer a wave-specific sequence if valid and assigned
+        if (waveNumber >= 0 &&
+            sequencesByWave != null &&
+            waveNumber < sequencesByWave.Count &&
+            sequencesByWave[waveNumber] != null)
+        {
+            return sequencesByWave[waveNumber];
+        }
+
+        // Fallback to the single 'sequence' field if no per-wave match
+        return sequence;
     }
 }

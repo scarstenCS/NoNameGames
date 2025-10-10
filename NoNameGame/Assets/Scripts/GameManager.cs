@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-
+        isPaused = false; 
     }
 
     private void Start()

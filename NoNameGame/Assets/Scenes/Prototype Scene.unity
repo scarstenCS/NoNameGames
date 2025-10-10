@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 785250096}
-  upgradeWindow: {fileID: 0}
+  upgradeWindow: {fileID: 189565054}
 --- !u!1 &72964480
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +801,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5492327299704888852, guid: 56e052ce6780a7d4886b1ea95e8485b6,
     type: 3}
   m_PrefabInstance: {fileID: 5492327299450134691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &189565054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2938227918578806351, guid: 115691bf11c8e4249b661ee10e07e505,
+    type: 3}
+  m_PrefabInstance: {fileID: 512783199}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &214304222
 GameObject:

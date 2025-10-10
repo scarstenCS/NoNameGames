@@ -222,10 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 5
-  minX: -5
-  maxX: 5
-  minY: -5
-  maxY: 5
   basicAttackObj: {fileID: 4020625129868841038}
 --- !u!58 &8199912590941039346
 CircleCollider2D:

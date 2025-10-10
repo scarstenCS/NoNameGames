@@ -80,6 +80,8 @@ public class WaveManager : MonoBehaviour
             maxEnemies = (int)waveTable[waveCount];
             enemyCount = 0;
             enemiesLeft = maxEnemies;
+            Player p = player.GetComponent<Player>();
+            p.Heal(p.MaxHealth);
         }
     }
 }

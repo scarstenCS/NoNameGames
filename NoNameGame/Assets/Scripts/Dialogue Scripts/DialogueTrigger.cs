@@ -45,8 +45,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             return sequencesByWave[waveNumber];
         }
-
-        // Fallback to the single 'sequence' field if no per-wave match
-        return sequence;
+        return sequence; // Fallback to default sequence
     }
 }

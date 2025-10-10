@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9670a8df2d95278418492051529d5463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequence: {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
+  sequence: {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   sequencesByWave:
   - {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
   - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}

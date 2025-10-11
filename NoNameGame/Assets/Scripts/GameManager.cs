@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
     static public GameObject _gameOverPanel, _mainMenuSelected;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject mainMenuSelected;
-    static public float minX = -10f;
-    static public float maxX = 4.45f;
-    static public float minY = -6f;
-    static public float maxY = 5.31f;
+    static public float
+    minX = -10f,
+    maxX = 4.45f,
+    minY = -6f,
+    maxY = 5.31f;
+
+    static private float timeScale = 1f;
+
     void Awake()
     {
         _instance = this;
@@ -48,7 +52,7 @@ public class GameManager : MonoBehaviour
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
         _menuButton.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0f : 1f;
+        Time.timeScale = isPaused ? 0f : timeScale;
     }
 
     static public void PlayerDied()
@@ -58,6 +62,17 @@ public class GameManager : MonoBehaviour
 
         if (_mainMenuSelected && EventSystem.current)
             EventSystem.current.SetSelectedGameObject(_mainMenuSelected);
+    }
+
+    /// <summary>
+    /// sets time scale while saving value in timescale privale variable
+    /// </summary>
+    /// <param name="time"></param>
+    static public void ChangeTimeScale(float time)
+    {
+        timeScale = time;
+        Time.timeScale = timeScale;
+        
     }
 
     public void GoToMainMenu()

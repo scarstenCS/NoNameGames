@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
 
         if (move.ReadValue<Vector2>() != Vector2.zero)
         {
-            if (inputVector.x != 0)
+            if (inputVector.x != 0 && Time.timeScale!= 0)
             {
                 sr.flipX = inputVector.x > 0;
             }

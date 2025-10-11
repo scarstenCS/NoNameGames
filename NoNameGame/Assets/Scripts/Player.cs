@@ -173,10 +173,18 @@ public class Player : MonoBehaviour
         t.position += (Vector3)inputVector * Time.deltaTime * playerSpeed;
         t.position = new Vector3(Mathf.Clamp(t.position.x, GameManager.minX, GameManager.maxX), Mathf.Clamp(t.position.y, GameManager.minY, GameManager.maxY));
 
-        sr.flipX = inputVector.x > 0;
-
-        animator.SetBool("isWalking", move.ReadValue<Vector2>() != Vector2.zero);
-        
+        if (move.ReadValue<Vector2>() != Vector2.zero)
+        {
+            if (inputVector.x != 0)
+            {
+                sr.flipX = inputVector.x > 0;
+            }
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
             ba.Attack();

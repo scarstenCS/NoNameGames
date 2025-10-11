@@ -66,11 +66,13 @@ public class UpgradeManager : MonoBehaviour
 
     public void ShowUpgradeWindow()
     {
+        GameManager.ChangeTimeScale(0f);
         upgradeWindow.SetActive(true);
     }
 
     public void HideUpgradeWindow()
     {
+        GameManager.ChangeTimeScale(1f);
         upgradeWindow.SetActive(false);
     }
 

@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
         active = false;
         if (ui) ui.Show(false); // Hide dialogue UI
         SetCombatEnabled(true);
+        Time.timeScale = 1f;
         seq = null;
     }
 

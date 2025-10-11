@@ -30,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         //Debug.Log($"Wave {waveNumber} ended");
         var seq = GetSequenceForWave(waveNumber);
+        Time.timeScale = 0f; 
         if (manager && seq) manager.StartSequence(seq);
         if (oneShot) gameObject.SetActive(false);
 

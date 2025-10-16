@@ -206,6 +206,11 @@ public class Player : MonoBehaviour
             AudioManager.SfxPlayerHit();
             this.TakeDamage(enemy.atk);
             enemy._lastAtkTime = Time.time;
+        } else if (other.tag == "Bullet")
+        {
+            TurretBullet bullet = other.GetComponent<TurretBullet>();
+            AudioManager.SfxPlayerHit();
+            this.TakeDamage(bullet.damage);
         }
     }
 

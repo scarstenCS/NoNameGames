@@ -2778,6 +2778,8 @@ MonoBehaviour:
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,
     type: 3}
+  tBulletPrefab: {fileID: 3546407658342801539, guid: 36d007c3bf6285a4c8d9dfe8486b1e36,
+    type: 3}
   mainCamera: {fileID: 519420031}
   player: {fileID: 1634825064}
   waveDoneText: {fileID: 72964480}

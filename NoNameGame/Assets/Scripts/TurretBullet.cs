@@ -5,12 +5,12 @@ using UnityEngine;
 public class TurretBullet : MonoBehaviour
 {
     public int damage = 1;
-    public float speed = 7f;
+    public float speed = 2.5f;
     public float lifetime = 3f;
     public string attackTag = "PlayerAttack";
     private Rigidbody2D rb;
-
-    public Vector2 initialDirection = Vector2.right;
+    private float startTime;
+    public Vector3 initialDirection;
 
 
     void Awake()
@@ -23,20 +23,26 @@ public class TurretBullet : MonoBehaviour
 
     void Start()
     {
-        Vector2 dir = initialDirection.sqrMagnitude > Mathf.Epsilon
-                        ? initialDirection.normalized
-                        : Vector2.right;    // fallback, just shoot right
+        startTime = Time.time;
+        // dir = initialDirection.sqrMagnitude > Mathf.Epsilon
+        //                 ? initialDirection.normalized
+        //                 : Vector2.right;    // fallback, just shoot right
 
-        rb.velocity = dir * speed;
-
-
-        // auto-despawn so bullets do not live forever
-        Destroy(gameObject, lifetime);
+        // rb.velocity = dir * speed;
+    }
+    void Update()
+    {
+        if (Time.time - startTime >= lifetime)
+        {
+            // auto-despawn so bullets do not live forever
+            Destroy(this);
+        }
+        transform.position += Vector3.Normalize(initialDirection) * speed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             GameManager.PlayerTakeDamage(damage);
             Destroy(gameObject);

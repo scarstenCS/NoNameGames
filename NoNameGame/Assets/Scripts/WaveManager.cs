@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
+    public GameObject tBulletPrefab;
     public Camera mainCamera;
     public GameObject player;
     private static WaitForSeconds wait;
@@ -110,6 +111,7 @@ public class WaveManager : MonoBehaviour
     {
         GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
         e.GetComponent<TurretEnemy>().player = player;
+        e.GetComponent<TurretEnemy>().bulletPrefab = tBulletPrefab;
         enemyCount++;
     }
     public IEnumerator Phase()

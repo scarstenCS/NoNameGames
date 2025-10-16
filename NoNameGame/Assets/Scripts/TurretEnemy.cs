@@ -20,7 +20,7 @@ public class TurretEnemy : MonoBehaviour
     public int bulletDamage = 1;
 
     private float _nextShootTime;
-    private float offset = 0.35f;
+    private float offset = 0.5f;
 
     void Start()
     {
@@ -48,22 +48,26 @@ public class TurretEnemy : MonoBehaviour
     void FireOnce()
     {
         // aiming at playr
-        Vector2 dir = ((Vector2)(playerPos.position - transform.position)).normalized;
+        Vector3 dir = Vector3.Normalize(playerPos.position - transform.position);
 
         // bullet spawn position
-        Vector3 spawnPos = transform.position + (Vector3)(dir * offset);
+        Vector3 spawnPos = transform.position + dir;
 
         GameObject go = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
-
-        if (go.TryGetComponent<TurretBullet>(out var tb)) {
-            tb.initialDirection = dir;
-            tb.speed = bulletSpeed;
-            tb.lifetime = bulletLifetime;
-            tb.damage = bulletDamage;
-        } else if (go.TryGetComponent<Rigidbody2D>(out var rb)) {
-            rb.velocity = dir * bulletSpeed;
-            Destroy(go, bulletLifetime);
-        }
+        TurretBullet tb = go.GetComponent<TurretBullet>();
+        tb.initialDirection = dir;
+        tb.speed = bulletSpeed;
+        tb.lifetime = bulletLifetime;
+        tb.damage = bulletDamage;
+        // if (go.TryGetComponent<TurretBullet>(out var tb)) {
+        //     tb.initialDirection = dir;
+        //     tb.speed = bulletSpeed;
+        //     tb.lifetime = bulletLifetime;
+        //     tb.damage = bulletDamage;
+        // } else if (go.TryGetComponent<Rigidbody2D>(out var rb)) {
+        //     rb.velocity = dir * bulletSpeed;
+        //     Destroy(go, bulletLifetime);
+        // }
 
         // // avoid instant self-hit
         // if (TryGetComponent<Collider2D>(out var turretCol) &&
@@ -73,10 +77,15 @@ public class TurretEnemy : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag == "Bullet")
+        {
+            Debug.Log("E");
+        }
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
+            Debug.Log("HIT");
             AudioManager.SfxEnemyHit();
             BasicAttack.atkStage = 2;
             hp--;

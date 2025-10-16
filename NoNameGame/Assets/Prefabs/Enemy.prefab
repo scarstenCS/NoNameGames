@@ -101,6 +101,8 @@ MonoBehaviour:
   attackTag: PlayerAttack
   player: {fileID: 0}
   speed: 2
+  cooldown: 1.5
+  _lastAtkTime: 0
 --- !u!61 &1368833097484963463
 BoxCollider2D:
   m_ObjectHideFlags: 0

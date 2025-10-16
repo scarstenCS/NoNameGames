@@ -2776,6 +2776,8 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
+  turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+    type: 3}
   mainCamera: {fileID: 519420031}
   player: {fileID: 1634825064}
   waveDoneText: {fileID: 72964480}

@@ -40,12 +40,12 @@ public class TurretBullet : MonoBehaviour
         {
             GameManager.PlayerTakeDamage(damage);
             Destroy(gameObject);
-        } else if (other.tag == attackTag && BasicAttack.atkStage != 0)
+        }
+        else if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
             Destroy(gameObject);
             BasicAttack.atkStage = 2;
         }
 
     }
-
 }

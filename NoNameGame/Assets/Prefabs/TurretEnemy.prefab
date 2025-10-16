@@ -99,7 +99,8 @@ MonoBehaviour:
   attackTag: PlayerAttack
   cooldown: 1
   player: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 3546407658342801539, guid: 36d007c3bf6285a4c8d9dfe8486b1e36,
+    type: 3}
   shootCooldown: 1.25
   bulletSpeed: 7
   bulletLifetime: 3

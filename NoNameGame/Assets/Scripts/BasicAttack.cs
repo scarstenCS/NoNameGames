@@ -15,7 +15,7 @@ public class BasicAttack : MonoBehaviour
     projectileMaxDistance = 5;
 
     public int Damage = 1;
-    private float projectileDistance;
+    // private float projectileDistance;
     private Rigidbody2D rb2d, rbProjectile;
     private Transform t, projectileT, playerT;
 
@@ -28,7 +28,7 @@ public class BasicAttack : MonoBehaviour
         t = GetComponent<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
         projectileT = GetComponent<Transform>();
-        projectileDistance = projectileMaxDistance;
+        // projectileDistance = projectileMaxDistance;
         playerT = player.GetComponent<Transform>();
         rbProjectile = projectile.GetComponent<Rigidbody2D>();
     }
@@ -73,7 +73,7 @@ public class BasicAttack : MonoBehaviour
                 break;
             case 1:
                 projectileT.position += transform.right * projectileSpeed * Time.deltaTime;
-                if (originDir.magnitude >= projectileDistance)
+                if (originDir.magnitude >= projectileMaxDistance)
                 {
                     atkStage++;
                 }

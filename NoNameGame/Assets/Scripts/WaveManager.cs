@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     static private WaveManager _instance;
     static public WaveManager Instance;
     [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
-    static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
+    static private ArrayList waveTable = new ArrayList { 1, 15, 20, 25, 30, 1 };
     public GameObject enemyPrefab;
     public Camera mainCamera;
     public GameObject player;

@@ -36,16 +36,13 @@ public class UpgradeManager : MonoBehaviour
         playerSpeedIncrease = 0.5f
     };
     [SerializeField] private TMP_Text[] buttonLabels;
+    [SerializeField] private TMP_Text[] descLabels;
     private readonly List<UpgradeOption> options = new List<UpgradeOption>();
     private List<UpgradeOption> _offered = new List<UpgradeOption>();
     private void Awake()
     {
         _instance = this;
         BuildOptions();
-        UnityEngine.Debug.Log("Built upgrade options: " + options.Count);
-        UnityEngine.Debug.Log("upgrade option 1: " + options[0].optionName);
-        UnityEngine.Debug.Log("upgrade option 2: " + options[1].optionName);
-        UnityEngine.Debug.Log("upgrade option 3: " + options[2].optionName);
     }
 
 
@@ -54,16 +51,17 @@ public class UpgradeManager : MonoBehaviour
         GameManager.ChangeTimeScale(0f);
         upgradeWindow.SetActive(true);
         _offered = OfferedUpgradeOptions();
-        UnityEngine.Debug.Log("Offered upgrade options: " + _offered.Count);
         for (int i = 0; i < buttonLabels.Length; i++)
         {
             if (i < _offered.Count)
             {
-                buttonLabels[i].text = $"{_offered[i].optionName}\n{_offered[i].description}";
+                buttonLabels[i].text = $"{_offered[i].optionName}";
+                descLabels[i].text = $"{_offered[i].description}";
             }
             else
             {
                 buttonLabels[i].text = "N/A";
+                descLabels[i].text = "N/A";
             }
         }
 

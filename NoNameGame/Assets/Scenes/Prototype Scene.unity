@@ -2774,6 +2774,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
+  waves:
+  - numRunner: 10
+    numTurret: 0
+    boss: 0
+  - numRunner: 10
+    numTurret: 3
+    boss: 0
+  - numRunner: 13
+    numTurret: 5
+    boss: 0
+  - numRunner: 18
+    numTurret: 7
+    boss: 0
+  - numRunner: 20
+    numTurret: 10
+    boss: 0
+  - numRunner: 0
+    numTurret: 0
+    boss: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,

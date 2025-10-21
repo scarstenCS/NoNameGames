@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+    public struct Wave
+    {
+        public int numRunner;
+        public int numTurret;
+        public bool boss;
+    }
 public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
     static public WaveManager Instance;
     [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
-    static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
+    // static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
+    public List<Wave> waves;
+    private int _waveCount = 0;
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject tBulletPrefab;
@@ -15,19 +24,12 @@ public class WaveManager : MonoBehaviour
     public GameObject player;
     private static WaitForSeconds wait;
     public static float spawnrate;
-    private int waveCount = 0;
     public static int maxEnemies;
     public static int enemiesLeft;
     public static int enemyCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
-    [System.Serializable]
-    public struct Wave
-    {
-        public int numRunner;
-        public int numTurret;
-        public bool boss;
-    }
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -38,7 +40,7 @@ public class WaveManager : MonoBehaviour
         _waveDoneText = waveDoneText;
         mainCamera = Camera.main;
         spawnrate = 2f;
-        maxEnemies = (int)waveTable[waveCount];
+        maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
         enemiesLeft = maxEnemies;
         enemyCount = 0;
         StartCoroutine(Phase());
@@ -57,7 +59,7 @@ public class WaveManager : MonoBehaviour
     public void Spawn()
     {
         float rand = Random.Range(0f, 1f);
-        if (rand <= 0.6f)
+        if (rand <= 0.7f)
         {
             SpawnEnemy();
         }
@@ -123,7 +125,7 @@ public class WaveManager : MonoBehaviour
     }
     public IEnumerator Phase()
     {
-        while (waveCount < waveTable.Count && !GameManager.isPaused)
+        while (_waveCount < waves.Count && !GameManager.isPaused)
         {
             while (enemyCount < maxEnemies)
             {
@@ -135,7 +137,7 @@ public class WaveManager : MonoBehaviour
             if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);
-            dialogueTrigger.OnWaveEnd(waveCount);
+            dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
             if (_waveDoneText) _waveDoneText.SetActive(false);
 
@@ -143,12 +145,13 @@ public class WaveManager : MonoBehaviour
 
             yield return new WaitUntil(UpgradeManager.isWindowClosed);
             // reset vars for new wave
-            waveCount++;
-            maxEnemies = (int)waveTable[waveCount];
+            _waveCount++;
+            maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
             enemyCount = 0;
             enemiesLeft = maxEnemies;
             Player p = player.GetComponent<Player>();
             p.Heal(p.MaxHealth);
         }
+        // game done
     }
 }

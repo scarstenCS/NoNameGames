@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerAttack
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

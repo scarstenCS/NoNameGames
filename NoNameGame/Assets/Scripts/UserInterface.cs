@@ -36,7 +36,6 @@ public class UserInterface : MonoBehaviour
     {
         
         if (!healthText) return;
-        Debug.Log($"[DEBUG] Health changed: {current} / {max}"); // Debug line
 
         healthText.text = $"Health: {current} / {max}";
     }

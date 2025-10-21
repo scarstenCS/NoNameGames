@@ -21,6 +21,13 @@ public class WaveManager : MonoBehaviour
     public static int enemyCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
+    [System.Serializable]
+    public struct Wave
+    {
+        public int numRunner;
+        public int numTurret;
+        public bool boss;
+    }
     // Start is called before the first frame update
     void Awake()
     {

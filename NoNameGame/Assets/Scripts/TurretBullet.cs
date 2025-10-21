@@ -35,13 +35,14 @@ public class TurretBullet : MonoBehaviour
         if (Time.time - startTime >= lifetime)
         {
             // auto-despawn so bullets do not live forever
-            Destroy(this);
+            Destroy(gameObject);
         }
         transform.position += Vector3.Normalize(initialDirection) * speed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Debug.Log(other.tag);
         if (other.tag == "Player")
         {
             GameManager.PlayerTakeDamage(damage);
@@ -52,6 +53,9 @@ public class TurretBullet : MonoBehaviour
             Destroy(gameObject);
             BasicAttack.atkStage = 2;
         }
-
+        else if (other.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }

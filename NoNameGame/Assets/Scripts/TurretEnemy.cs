@@ -79,13 +79,8 @@ public class TurretEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Bullet")
-        {
-            Debug.Log("E");
-        }
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
-            Debug.Log("HIT");
             AudioManager.SfxEnemyHit();
             BasicAttack.atkStage = 2;
             hp--;

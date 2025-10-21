@@ -120,6 +120,13 @@ public class UpgradeManager : MonoBehaviour
             icon = null,
             applyUpgrade = () => IncreasePlayerSpeed(d.playerSpeedIncrease)
         });
+        options.Add(new UpgradeOption()
+        {
+            optionName = "Extra Basic Attack Pierce",
+            description = "Increases your basic attack pierce by 1.",
+            icon = null,
+            applyUpgrade = () => ExtraBasicAttack()
+        });
     }
     public List<UpgradeOption> OfferedUpgradeOptions()
     {

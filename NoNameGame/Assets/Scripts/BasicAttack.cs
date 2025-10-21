@@ -13,7 +13,7 @@ public class BasicAttack : MonoBehaviour
 
     public float projectileSpeed = 5,
     projectileMaxDistance = 5;
-    static public float maxPierce = 1;
+    static public float maxPierce = 0;
     static public float pierce = 0;
 
     public int Damage = 1;

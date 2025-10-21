@@ -202,4 +202,8 @@ public class UpgradeManager : MonoBehaviour
         player.Speed += ammount;
         //Debug.Log($"Player speed increased by {ammount}");
     }
+    public void ExtraBasicAttack()
+    {
+        player.basicWeaponPierce += 1;
+    }
 }

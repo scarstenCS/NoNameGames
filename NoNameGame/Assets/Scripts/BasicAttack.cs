@@ -13,6 +13,8 @@ public class BasicAttack : MonoBehaviour
 
     public float projectileSpeed = 5,
     projectileMaxDistance = 5;
+    static public float maxPierce = 1;
+    static public float pierce = 0;
 
     public int Damage = 1;
     // private float projectileDistance;
@@ -70,6 +72,7 @@ public class BasicAttack : MonoBehaviour
 
             case 0:
                 origin = transform.position;
+                pierce = maxPierce;
                 break;
             case 1:
                 projectileT.position += transform.right * projectileSpeed * Time.deltaTime;

@@ -70,6 +70,18 @@ public class Player : MonoBehaviour
             ba.projectileSpeed = value;
         }
     }
+
+    public float basicWeaponPierce
+    {
+        get
+        {
+            return BasicAttack.maxPierce;
+        }
+        set
+        {
+            BasicAttack.maxPierce = value;
+        }
+    }
     public event Action<int, int> HealthChanged;
     public event Action OnDied;
     bool isDead = false;

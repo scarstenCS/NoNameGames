@@ -2787,10 +2787,10 @@ MonoBehaviour:
   - numRunner: 10
     numTurret: 0
     boss: 0
-  - numRunner: 10
+  - numRunner: 12
     numTurret: 3
     boss: 0
-  - numRunner: 13
+  - numRunner: 15
     numTurret: 5
     boss: 0
   - numRunner: 18

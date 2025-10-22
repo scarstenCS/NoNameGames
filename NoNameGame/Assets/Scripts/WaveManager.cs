@@ -127,9 +127,9 @@ public class WaveManager : MonoBehaviour
     }
     public IEnumerator Phase()
     {
-        while (_waveCount < waves.Count && !GameManager.isPaused)
+        while (_waveCount+1 < waves.Count && !GameManager.isPaused)
         {
-            while (runnerCount+turretCount < maxEnemies)
+            while (runnerCount + turretCount < maxEnemies)
             {
                 yield return new WaitForSeconds(spawnrate);
                 Spawn();
@@ -143,18 +143,22 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
             if (_waveDoneText) _waveDoneText.SetActive(false);
 
-            UpgradeManager.Instance.ShowUpgradeWindow();
+            if (_waveCount+1 < waves.Count)
+            {
+                UpgradeManager.Instance.ShowUpgradeWindow();
 
-            yield return new WaitUntil(UpgradeManager.isWindowClosed);
-            // reset vars for new wave
-            _waveCount++;
-            maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
-            runnerCount = 0;
-            turretCount = 0;
-            enemiesLeft = maxEnemies;
-            Player p = player.GetComponent<Player>();
-            p.Heal(p.MaxHealth);
+                yield return new WaitUntil(UpgradeManager.isWindowClosed);
+                // reset vars for new wave
+                maxEnemies = waves[_waveCount + 1].numRunner + waves[_waveCount + 1].numTurret;
+                _waveCount++;
+                runnerCount = 0;
+                turretCount = 0;
+                enemiesLeft = maxEnemies;
+                Player p = player.GetComponent<Player>();
+                p.Heal(p.MaxHealth);
+            }
         }
         // game done
+        GameManager.Instance.GoToMainMenu();
     }
 }

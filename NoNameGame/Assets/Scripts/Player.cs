@@ -209,16 +209,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     Debug.Log(other);
-    //     if (other.tag == "Player")
-    //     {
-    //         this.TakeDamage(other.GetComponent<TurretBullet>().damage);
-    //         Destroy(other.gameObject);
-    //     }
-    // }
-
     private void HandleDeath()
     {
         // TODO: Implement death handling (e.g., play animation, disable player controls, etc.)'

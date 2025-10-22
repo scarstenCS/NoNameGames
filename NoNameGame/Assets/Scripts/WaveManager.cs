@@ -26,7 +26,8 @@ public class WaveManager : MonoBehaviour
     public static float spawnrate;
     public static int maxEnemies;
     public static int enemiesLeft;
-    public static int enemyCount;
+    public static int runnerCount;
+    public static int turretCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
     
@@ -42,7 +43,8 @@ public class WaveManager : MonoBehaviour
         spawnrate = 2f;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
         enemiesLeft = maxEnemies;
-        enemyCount = 0;
+        runnerCount = 0;
+        turretCount = 0;
         StartCoroutine(Phase());
     }
 
@@ -58,8 +60,8 @@ public class WaveManager : MonoBehaviour
     }
     public void Spawn()
     {
-        float rand = Random.Range(0f, 1f);
-        if (rand <= 0.7f)
+        float rand = Random.Range(0, 2);
+        if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
         {
             SpawnEnemy();
         }
@@ -114,20 +116,20 @@ public class WaveManager : MonoBehaviour
         }
         GameObject e = Instantiate(enemyPrefab, positions[Random.Range(0, positions.Count)], Quaternion.identity);
         e.GetComponent<Enemy>().player = player;
-        enemyCount++;
+        runnerCount++;
     }
     public void SpawnTurret()
     {
         GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
         e.GetComponent<TurretEnemy>().player = player;
         e.GetComponent<TurretEnemy>().bulletPrefab = tBulletPrefab;
-        enemyCount++;
+        turretCount++;
     }
     public IEnumerator Phase()
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
-            while (enemyCount < maxEnemies)
+            while (runnerCount+turretCount < maxEnemies)
             {
                 yield return new WaitForSeconds(spawnrate);
                 Spawn();
@@ -147,7 +149,8 @@ public class WaveManager : MonoBehaviour
             // reset vars for new wave
             _waveCount++;
             maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
-            enemyCount = 0;
+            runnerCount = 0;
+            turretCount = 0;
             enemiesLeft = maxEnemies;
             Player p = player.GetComponent<Player>();
             p.Heal(p.MaxHealth);

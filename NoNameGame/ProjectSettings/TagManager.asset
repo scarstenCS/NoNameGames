@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerAttack
+  - Bullet
+  - Enemy1
   - Enemy
   layers:
   - Default

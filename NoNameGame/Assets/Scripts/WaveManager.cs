@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
     static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public GameObject enemyPrefab;
+    public GameObject turretPrefab;
+    public GameObject tBulletPrefab;
     public Camera mainCamera;
     public GameObject player;
     private static WaitForSeconds wait;
@@ -47,7 +49,18 @@ public class WaveManager : MonoBehaviour
     }
     public void Spawn()
     {
-        
+        float rand = Random.Range(0f, 1f);
+        if (rand <= 0.6f)
+        {
+            SpawnEnemy();
+        }
+        else
+        {
+            SpawnTurret();
+        }
+    }
+    public void SpawnEnemy()
+    {
         List<Vector3> positions = new List<Vector3>();
         if (player.transform.position.x > GameManager.minX + 1 && player.transform.position.x < GameManager.maxX - 1)
         {
@@ -94,7 +107,13 @@ public class WaveManager : MonoBehaviour
         e.GetComponent<Enemy>().player = player;
         enemyCount++;
     }
-
+    public void SpawnTurret()
+    {
+        GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
+        e.GetComponent<TurretEnemy>().player = player;
+        e.GetComponent<TurretEnemy>().bulletPrefab = tBulletPrefab;
+        enemyCount++;
+    }
     public IEnumerator Phase()
     {
         while (waveCount < waveTable.Count && !GameManager.isPaused)
@@ -106,7 +125,6 @@ public class WaveManager : MonoBehaviour
             }
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);
-            Debug.Log("Wave Done");
             if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);

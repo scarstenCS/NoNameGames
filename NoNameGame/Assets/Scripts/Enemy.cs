@@ -41,9 +41,8 @@ public class Enemy : MonoBehaviour
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
     }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.tag == attackTag && BasicAttack.atkStage != 0)
         {
             AudioManager.SfxEnemyHit();

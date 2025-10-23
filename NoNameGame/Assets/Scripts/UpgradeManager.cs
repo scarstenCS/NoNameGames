@@ -213,4 +213,9 @@ public class UpgradeManager : MonoBehaviour
     {
         player.basicWeaponPierce += 1;
     }
+    public void IncreasedBasicAttackSize()
+    {
+        Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
+        player.basicWeaponSize += scaleChange;
+    }
 }

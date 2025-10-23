@@ -82,6 +82,17 @@ public class Player : MonoBehaviour
             BasicAttack.maxPierce = value;
         }
     }
+    public Vector3 basicWeaponSize
+    {
+        get
+        {
+            return BasicAttack.projectileT.localScale;
+        }
+        set
+        {
+            BasicAttack.projectileT.localScale = value;
+        }
+    }
     public event Action<int, int> HealthChanged;
     public event Action OnDied;
     bool isDead = false;

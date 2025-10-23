@@ -19,9 +19,9 @@ public class BasicAttack : MonoBehaviour
     public int Damage = 1;
     // private float projectileDistance;
     private Rigidbody2D rb2d, rbProjectile;
-    private Transform t, projectileT, playerT;
+    private Transform t, playerT;
 
-
+    static public Transform projectileT;
     private Vector2 origin;
 
     static public int atkStage = 0;

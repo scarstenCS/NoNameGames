@@ -1575,9 +1575,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequence: {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   sequencesByWave:
+  - {fileID: 11400000, guid: 12247298336e01e49909a825288e2bc8, type: 2}
   - {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
   - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}
-  - {fileID: 0}
   - {fileID: 0}
   manager: {fileID: 1604894115}
   oneShot: 1
@@ -2913,21 +2913,31 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     boss: 0
+    upgradeInWave: 0
   - numRunner: 1
     numTurret: 0
     boss: 0
+    upgradeInWave: 0
   - numRunner: 10
+    numTurret: 0
+    boss: 0
+    upgradeInWave: 1
+  - numRunner: 12
     numTurret: 3
     boss: 0
+    upgradeInWave: 1
   - numRunner: 15
     numTurret: 5
     boss: 0
+    upgradeInWave: 1
   - numRunner: 18
     numTurret: 7
     boss: 0
+    upgradeInWave: 1
   - numRunner: 20
     numTurret: 10
     boss: 0
+    upgradeInWave: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,

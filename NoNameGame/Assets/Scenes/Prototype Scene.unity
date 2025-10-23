@@ -2910,11 +2910,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
     boss: 0
   - numRunner: 1
-    numTurret: 1
+    numTurret: 0
+    boss: 0
+  - numRunner: 10
+    numTurret: 3
     boss: 0
   - numRunner: 15
     numTurret: 5

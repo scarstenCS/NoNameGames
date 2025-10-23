@@ -20,10 +20,10 @@ public class TurretEnemy : MonoBehaviour
     public int bulletDamage = 1;
 
     private float _nextShootTime;
-    private float offset = 0.5f;
 
     void Start()
     {
+        _nextShootTime = Time.time + shootCooldown;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
     }

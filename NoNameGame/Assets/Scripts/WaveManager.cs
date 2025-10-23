@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
     // static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public List<Wave> waves;
-    private int _waveCount = 0;
+    private int _waveCount;
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject tBulletPrefab;
@@ -39,6 +39,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         _waveDoneText = waveDoneText;
+        _waveCount = 0;
         mainCamera = Camera.main;
         spawnrate = 2f;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
@@ -129,7 +130,7 @@ public class WaveManager : MonoBehaviour
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
-            while (runnerCount+turretCount < maxEnemies)
+            while (runnerCount + turretCount < maxEnemies)
             {
                 yield return new WaitForSeconds(spawnrate);
                 Spawn();
@@ -143,18 +144,23 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
             if (_waveDoneText) _waveDoneText.SetActive(false);
 
-            UpgradeManager.Instance.ShowUpgradeWindow();
-
-            yield return new WaitUntil(UpgradeManager.isWindowClosed);
-            // reset vars for new wave
             _waveCount++;
-            maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
-            runnerCount = 0;
-            turretCount = 0;
-            enemiesLeft = maxEnemies;
-            Player p = player.GetComponent<Player>();
-            p.Heal(p.MaxHealth);
+
+            if (_waveCount < waves.Count)
+            {
+                UpgradeManager.Instance.ShowUpgradeWindow();
+
+                yield return new WaitUntil(UpgradeManager.isWindowClosed);
+                // reset vars for new wave
+                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
+                runnerCount = 0;
+                turretCount = 0;
+                enemiesLeft = maxEnemies;
+                Player p = player.GetComponent<Player>();
+                p.Heal(p.MaxHealth);
+            }
         }
         // game done
+        GameManager.Instance.GoToMainMenu();
     }
 }

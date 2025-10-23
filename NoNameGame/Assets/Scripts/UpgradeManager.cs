@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using TMPro;
-
+ using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour
 {
     public Player player;
@@ -37,6 +37,7 @@ public class UpgradeManager : MonoBehaviour
     };
     [SerializeField] private TMP_Text[] buttonLabels;
     [SerializeField] private TMP_Text[] descLabels;
+    [SerializeField] private Image[] buttonImages;
     private readonly List<UpgradeOption> options = new List<UpgradeOption>();
     private List<UpgradeOption> _offered = new List<UpgradeOption>();
     private void Awake()
@@ -51,16 +52,23 @@ public class UpgradeManager : MonoBehaviour
         GameManager.ChangeTimeScale(0f);
         upgradeWindow.SetActive(true);
         _offered = OfferedUpgradeOptions();
-        for (int i = 0; i < buttonLabels.Length; i++)
+        for (int i = 0; i < descLabels.Length; i++)
         {
             if (i < _offered.Count)
             {
                 buttonLabels[i].text = $"{_offered[i].optionName}";
+                if (_offered[i].icon != null){
+                    buttonImages[i].sprite = _offered[i].icon;
+                }
+                else{
+                    buttonImages[i].sprite = Resources.Load<Sprite>("Sprites/heart-plus");
+                }
                 descLabels[i].text = $"{_offered[i].description}";
             }
             else
             {
                 buttonLabels[i].text = "N/A";
+                buttonImages[i].sprite = null;
                 descLabels[i].text = "N/A";
             }
         }
@@ -85,7 +93,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Max Health",
             description = "Increases your maximum health by 5 points.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/heart-plus"),
             applyUpgrade = () => IncreaseMaxHealth(d.healthIncrease)
         });
 
@@ -117,7 +125,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Player Speed",
             description = "Increases your player speed by 0.5 units.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/wingfoot"),
             applyUpgrade = () => IncreasePlayerSpeed(d.playerSpeedIncrease)
         });
         options.Add(new UpgradeOption()
@@ -131,7 +139,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Basic Attack Size",
             description = "Increases your basic attack size.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/resize"),
             applyUpgrade = () => IncreasedBasicAttackSize()
         });
     }

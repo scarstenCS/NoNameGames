@@ -38,8 +38,10 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TMP_Text[] buttonLabels;
     [SerializeField] private TMP_Text[] descLabels;
     [SerializeField] private Image[] buttonImages;
+    [SerializeField] private BasicAttack launcher;
     private readonly List<UpgradeOption> options = new List<UpgradeOption>();
     private List<UpgradeOption> _offered = new List<UpgradeOption>();
+    [SerializeField] private GameObject basicAttackPrefab; // assign in Inspector
     private void Awake()
     {
         _instance = this;
@@ -133,7 +135,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Extra Basic Attack Pierce",
             description = "Increases your basic attack pierce by 1.",
             icon = null,
-            applyUpgrade = () => ExtraBasicAttack()
+            applyUpgrade = () => ExtraPierce()
         });
         options.Add(new UpgradeOption()
         {
@@ -141,6 +143,13 @@ public class UpgradeManager : MonoBehaviour
             description = "Increases your basic attack size.",
             icon = Resources.Load<Sprite>("Images/resize"),
             applyUpgrade = () => IncreasedBasicAttackSize()
+        });
+        options.Add(new UpgradeOption()
+        {
+            optionName = "Increase Shots Per Attack",
+            description = "Increases the number of projectiles fired per basic attack.",
+            icon = Resources.Load<Sprite>("Images/multiple-arrows"),
+            applyUpgrade = () => IncreaseShotsPerAttack()
         });
     }
     public List<UpgradeOption> OfferedUpgradeOptions()
@@ -224,7 +233,7 @@ public class UpgradeManager : MonoBehaviour
         player.Speed += ammount;
         //Debug.Log($"Player speed increased by {ammount}");
     }
-    public void ExtraBasicAttack()
+    public void ExtraPierce()
     {
         player.basicWeaponPierce += 1;
     }
@@ -233,4 +242,13 @@ public class UpgradeManager : MonoBehaviour
         Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
         player.basicWeaponSize += scaleChange;
     }
+    public void IncreaseShotsPerAttack()
+    {
+        var launching = FindObjectOfType<BasicAttack>();
+        launcher.numberOfProjectiles += 1;
+        launcher.spreadDegree = Mathf.Min(launcher.spreadDegree + 1.5f, 25f);
+        launcher.randomJitter = Mathf.Min(launcher.randomJitter + 0.5f, 6f);
+        UnityEngine.Debug.Log($"Increased shots per attack to {launcher.numberOfProjectiles}");
+    }
+
 }

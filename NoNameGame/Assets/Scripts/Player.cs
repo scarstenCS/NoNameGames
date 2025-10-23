@@ -75,24 +75,24 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return BasicAttack.maxPierce;
+            return ba.maxPierce;
         }
         set
         {
-            BasicAttack.maxPierce = value;
+            ba.maxPierce = value;
         }
     }
     public Vector3 basicWeaponSize
     {
         get
         {
-            return BasicAttack.projectileT.localScale;
+            return ba.projectileT.localScale;
         }
         set
         {
-            BasicAttack.projectileT.localScale = value;
+            ba.projectileT.localScale = value;
         }
-    }
+    } 
     public event Action<int, int> HealthChanged;
     public event Action OnDied;
     bool isDead = false;
@@ -112,7 +112,17 @@ public class Player : MonoBehaviour
             playerSpeed = value;
         }
     }
-
+    public int totalBasicAttacksCount
+    {
+        get
+        {
+            return ba.numberOfProjectiles;
+        }
+        set
+        {
+            ba.numberOfProjectiles = value;
+        }
+    }
     
     public PlayerControls controls;
 
@@ -200,6 +210,7 @@ public class Player : MonoBehaviour
         {
             if (inputVector.x != 0 && Time.timeScale!= 0)
             {
+                
                 sr.flipX = inputVector.x > 0;
             }
             animator.SetBool("isWalking", true);
@@ -210,6 +221,7 @@ public class Player : MonoBehaviour
         }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
+
             ba.Attack();
         }
 
@@ -238,6 +250,7 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         isDead = true;
         OnDied?.Invoke();
-        
+
     }
+
 }

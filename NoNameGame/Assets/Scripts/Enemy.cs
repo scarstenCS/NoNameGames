@@ -43,17 +43,19 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        var proj = other.GetComponent<BasicAttack>();
+        proj = other.GetComponentInParent<BasicAttack>();
 
-        if (other.tag == attackTag && BasicAttack.atkStage != 0)
+        if (other.tag == attackTag && proj.atkStage != 0)
         {
             AudioManager.SfxEnemyHit();
-            if (BasicAttack.pierce <= 0)
+            if (proj.pierce <= 0)
             {
-                BasicAttack.atkStage = 2;
+                proj.atkStage = 2;
             }
             else
             {
-                BasicAttack.pierce -= 1;
+                proj.pierce -= 1;
             }
             hp--;
         }

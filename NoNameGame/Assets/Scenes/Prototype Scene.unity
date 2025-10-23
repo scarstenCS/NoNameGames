@@ -584,6 +584,7 @@ MonoBehaviour:
   - {fileID: 2938227917164338296}
   - {fileID: 2938227917388877965}
   - {fileID: 2938227917840244981}
+  basicAttackPrefab: {fileID: 2024047383}
 --- !u!1 &72964480
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +979,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 59755430}
-        m_MethodName: IncreasedBasicAttackSize
+        m_MethodName: IncreaseShotsPerAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5072,6 +5073,12 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 10, y: 10}
   m_UseGraphicAlpha: 1
+--- !u!1 &2024047383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020625129868841038, guid: 74acb248ad4fde64b9007f7ef803641d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3096818584581831865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028002147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,7 +5530,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3096818584581831865}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2024047383}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a31dab2faf92e6344810536f7170b8b6, type: 3}
@@ -5921,11 +5928,11 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.48235294, g: 0.15641688, b: 0.15641688, a: 1}
-    m_PressedColor: {r: 0.25938946, g: 0.3074591, b: 0.6320754, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.2
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -6065,7 +6072,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.48235294, g: 0.15641688, b: 0.15641688, a: 1}
-    m_PressedColor: {r: 0.25938946, g: 0.3074591, b: 0.6320754, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6477,7 +6484,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.48235294, g: 0.15641688, b: 0.15641688, a: 1}
-    m_PressedColor: {r: 0.25938946, g: 0.3074591, b: 0.6320754, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6795,6 +6802,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 909721399624263273, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: firePivot
+      value: 
+      objectReference: {fileID: 785250098}
+    - target: {fileID: 909721399624263273, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: isProjectile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 909721399624263273, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2024047383}
     - target: {fileID: 2227057740444288077, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_Constraints

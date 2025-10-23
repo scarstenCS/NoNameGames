@@ -593,6 +593,7 @@ MonoBehaviour:
   - {fileID: 2938227917164338296}
   - {fileID: 2938227917388877965}
   - {fileID: 2938227917840244981}
+  launcher: {fileID: 0}
   basicAttackPrefab: {fileID: 2024047383}
 --- !u!1 &72964480
 GameObject:
@@ -2909,11 +2910,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 10
+  - numRunner: 1
     numTurret: 0
     boss: 0
-  - numRunner: 12
-    numTurret: 3
+  - numRunner: 1
+    numTurret: 1
     boss: 0
   - numRunner: 15
     numTurret: 5

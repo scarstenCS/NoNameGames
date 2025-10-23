@@ -105,7 +105,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Weapon Damage",
             description = "Increases your basic weapon damage by 2 points.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyUpgrade = () => IncreaseWeaponDamage(d.weaponDamageIncrease)
         });
 
@@ -113,7 +113,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Weapon Distance",
             description = "Increases your basic weapon distance by 3 units.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/arrow-dunk"),
             applyUpgrade = () => IncreaseWeaponDistance(d.weaponDistanceIncrease)
         });
 
@@ -121,7 +121,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Weapon Speed",
             description = "Increases your basic weapon speed by 1 unit.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/supersonic-bullet"),
             applyUpgrade = () => IncreaseWeaponSpeed(d.weaponSpeedIncrease)
         });
 
@@ -136,7 +136,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Extra Basic Attack Pierce",
             description = "Increases your basic attack pierce by 1.",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/pierced-body"),
             applyUpgrade = () => ExtraPierce()
         });
         options.Add(new UpgradeOption()

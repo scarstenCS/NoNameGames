@@ -13,8 +13,8 @@ public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
     static public WaveManager Instance;
-    [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
-    // static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
+    [SerializeField] private DialogueTrigger dialogueTrigger; 
+    static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public List<Wave> waves;
     private int _waveCount = 0;
     public GameObject enemyPrefab;

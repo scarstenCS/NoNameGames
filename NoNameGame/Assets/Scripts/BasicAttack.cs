@@ -65,7 +65,6 @@ public class BasicAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
-        UnityEngine.Debug.Log("isPaused = "+ GameManager.isPaused);
         if (isProjectile || GameManager.isPaused) return;
 
         // Gate by "in-air" vs capacity
@@ -123,7 +122,7 @@ public class BasicAttack : MonoBehaviour
         inAir += shotsThisPress;        
 
         AudioManager.SfxPlayerAttack();
-        UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
+        //UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
     }
     private void OnEnable()
     {
@@ -138,7 +137,6 @@ public class BasicAttack : MonoBehaviour
     private void PreformAttack()
     {
         if (!isProjectile) return;
-        if (GameManager.isPaused) return;
 
         switch (atkStage)
         {

@@ -24,4 +24,7 @@ MonoBehaviour:
     text: "Isn\u2019t this sam\u2019s boomerang\u2026? I haven\u2019t seen this in
       years. I\u2019ll have to give it back to him once I find him."
     portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
+  - speaker: Charlie
+    text: Aaahhh!! What is that??!!
+    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
   pausesCombat: 1

@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
-  m_Name: 1
+  m_Name: 0
   m_EditorClassIdentifier: 
   lines:
   - speaker: Charlie
-    text: Why would Sam be in this place..?
+    text: A parking lot? Alright, I can work with this, I just need to find the name
+      of the store.
     portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
   - speaker: Charlie
-    text: "Hopefully there\u2019s some sort of clue that I can use\u2026"
+    text: What's this?
     portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
   - speaker: Charlie
-    text: ...
-    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
-  - speaker: Charlie
-    text: "Ugh! There\u2019s more of those things?!"
+    text: "Isn\u2019t this sam\u2019s boomerang\u2026? I haven\u2019t seen this in
+      years. I\u2019ll have to give it back to him once I find him."
     portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
   pausesCombat: 1

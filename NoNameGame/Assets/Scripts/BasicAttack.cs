@@ -65,27 +65,36 @@ public class BasicAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        UnityEngine.Debug.Log("isPaused = "+ GameManager.isPaused);
         if (isProjectile || GameManager.isPaused) return;
 
         // Gate by "in-air" vs capacity
         if (blockWhileInAir)
         {
-            if (inAir > 0) return;                       // fire only when all have returned
+            if (inAir > 0) return;                      
         }
         else
         {
-            if (inAir >= numberOfProjectiles) return;    // fire only if at least one slot is free
+            if (inAir >= numberOfProjectiles) return;   
         }
 
-        // Aim (compute baseAngle here instead of relying on a field)
-        Vector2 firePos = firePivot ? (Vector2)firePivot.position : (Vector2)transform.position;
-        Vector2 mouseWorld = Camera.main ? (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) : firePos + (Vector2)transform.right;
-        Vector2 aim = (mouseWorld - firePos).normalized;
-        float baseAngle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
+        Vector2 firePos;
+        //set the position of the projectile being fired. 
+        if (firePivot != null)
+        {
+            firePos = firePivot.position;   
+        }
+        else
+        {
+            firePos = transform.position;   
+        }
 
-        // You can choose to spawn 1 per press, or a fan of K where K = free slots
         int freeSlots = Mathf.Max(0, numberOfProjectiles - inAir);
-        int shotsThisPress = blockWhileInAir ? Mathf.Max(1, numberOfProjectiles) : Mathf.Clamp(1, 1, freeSlots); // here: 1 per press
+
+        int allowedProjectiles = Mathf.Max(0, freeSlots);
+        int desiredProjectiles = Mathf.Max(1, numberOfProjectiles);
+        int shotsThisPress = Mathf.Min(desiredProjectiles, allowedProjectiles);
+
         float totalFan = spreadDegree * (shotsThisPress - 1);
         float startAngle = baseAngle - totalFan * 0.5f;
 
@@ -96,7 +105,6 @@ public class BasicAttack : MonoBehaviour
 
             GameObject proj = Instantiate(projectilePrefab, firePos, rotation);
             var ba = proj.GetComponent<BasicAttack>();
-            if (!ba) { Destroy(proj); continue; }
 
             // Hand off runtime params
             ba.isProjectile = true;
@@ -106,13 +114,13 @@ public class BasicAttack : MonoBehaviour
             ba.maxPierce = maxPierce;
             ba.pierce = ba.maxPierce;
 
-            // connect projectile -> launcher, set origin and stage
+            //set the projectile in motion
             ba.launcher = this;
-            ba._origin = firePos;        // make _origin field public or provide InitProjectile(origin)
+            ba._origin = firePos;        
             ba.atkStage = 1;
         }
 
-        inAir += shotsThisPress;         // <— increment active count ON THE LAUNCHER
+        inAir += shotsThisPress;        
 
         AudioManager.SfxPlayerAttack();
         UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
@@ -130,6 +138,7 @@ public class BasicAttack : MonoBehaviour
     private void PreformAttack()
     {
         if (!isProjectile) return;
+        if (GameManager.isPaused) return;
 
         switch (atkStage)
         {
@@ -152,7 +161,7 @@ public class BasicAttack : MonoBehaviour
                     if (launcher != null)
                     {
                         launcher.inAir = Mathf.Max(0, launcher.inAir - 1);
-                        // optional: Debug.Log($"Returned. In-air now {launcher.inAir}/{launcher.numberOfProjectiles}");
+                        // Debug.Log($"Returned. In-air now {launcher.inAir}/{launcher.numberOfProjectiles}");
                     }
                     Destroy(gameObject);
                 }

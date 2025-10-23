@@ -52,6 +52,7 @@ public class UpgradeManager : MonoBehaviour
     public void ShowUpgradeWindow()
     {
         GameManager.ChangeTimeScale(0f);
+        GameManager.isPaused = true;
         upgradeWindow.SetActive(true);
         _offered = OfferedUpgradeOptions();
         for (int i = 0; i < descLabels.Length; i++)
@@ -79,6 +80,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void HideUpgradeWindow()
     {
+        GameManager.isPaused = false;
         GameManager.ChangeTimeScale(1f);
         upgradeWindow.SetActive(false);
     }

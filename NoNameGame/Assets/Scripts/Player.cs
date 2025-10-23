@@ -227,6 +227,7 @@ public class Player : MonoBehaviour
 
         if (pauseGame.triggered && pauseGame.ReadValue<float>() > 0)
         {
+            //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
     }

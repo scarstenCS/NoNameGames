@@ -47,6 +47,7 @@ public class TurretBullet : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.tag == "Player")
         {
+            AudioManager.SfxPlayerHit();
             GameManager.PlayerTakeDamage(damage);
             Destroy(gameObject);
         }

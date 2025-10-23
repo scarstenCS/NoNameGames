@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     static private GameManager _instance;
     public GameObject player, pauseMenu, menuButton;
     static private GameObject _player, _pauseMenu, _menuButton;
-    static public GameManager Instance;
+    static public GameManager Instance { get { return _instance; } }
     static public bool isPaused = false;
     private PlayerControls controls;
     static public GameObject _gameOverPanel, _mainMenuSelected;

@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
     // static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public List<Wave> waves;
-    private int _waveCount = 0;
+    private int _waveCount;
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject tBulletPrefab;
@@ -39,6 +39,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         _waveDoneText = waveDoneText;
+        _waveCount = 0;
         mainCamera = Camera.main;
         spawnrate = 2f;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
@@ -127,7 +128,7 @@ public class WaveManager : MonoBehaviour
     }
     public IEnumerator Phase()
     {
-        while (_waveCount+1 < waves.Count && !GameManager.isPaused)
+        while (_waveCount < waves.Count && !GameManager.isPaused)
         {
             while (runnerCount + turretCount < maxEnemies)
             {
@@ -143,14 +144,15 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
             if (_waveDoneText) _waveDoneText.SetActive(false);
 
-            if (_waveCount+1 < waves.Count)
+            _waveCount++;
+
+            if (_waveCount < waves.Count)
             {
                 UpgradeManager.Instance.ShowUpgradeWindow();
 
                 yield return new WaitUntil(UpgradeManager.isWindowClosed);
                 // reset vars for new wave
-                maxEnemies = waves[_waveCount + 1].numRunner + waves[_waveCount + 1].numTurret;
-                _waveCount++;
+                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
                 runnerCount = 0;
                 turretCount = 0;
                 enemiesLeft = maxEnemies;

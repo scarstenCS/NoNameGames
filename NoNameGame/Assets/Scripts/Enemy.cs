@@ -40,12 +40,22 @@ public class Enemy : MonoBehaviour
         }
         transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == attackTag && BasicAttack.atkStage != 0)
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        var proj = other.GetComponent<BasicAttack>();
+        proj = other.GetComponentInParent<BasicAttack>();
+
+        if (other.tag == attackTag && proj.atkStage != 0)
         {
             AudioManager.SfxEnemyHit();
-            BasicAttack.atkStage = 2;
+            if (proj.pierce <= 0)
+            {
+                proj.atkStage = 2;
+            }
+            else
+            {
+                proj.pierce -= 1;
+            }
             hp--;
         }
     }

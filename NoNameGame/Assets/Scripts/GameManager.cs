@@ -83,21 +83,21 @@ public class GameManager : MonoBehaviour
     }
     void OnEnable()
     {
-        // If no player assigned in Inspector, find one and assign its GameObject
+        
         if (!player)
         {
             Player found = FindObjectOfType<Player>();
             if (found) player = found.gameObject;
         }
 
-        // Subscribe to OnDied on the Player component
+        
         if (player)
         {
             Player comp = player.GetComponent<Player>();
             if (comp) comp.OnDied += HandlePlayerDied;
         }
 
-        if (_gameOverPanel) _gameOverPanel.SetActive(false); // start hidden
+        if (_gameOverPanel) _gameOverPanel.SetActive(false); 
     }
 
     void OnDisable()

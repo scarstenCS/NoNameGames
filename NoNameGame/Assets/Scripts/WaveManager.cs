@@ -8,13 +8,13 @@ using UnityEngine;
         public int numRunner;
         public int numTurret;
         public bool boss;
+        public bool upgradeInWave;
     }
 public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
     static public WaveManager Instance;
-    [SerializeField] private DialogueTrigger dialogueTrigger; 
-    static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
+    [SerializeField] private DialogueTrigger dialogueTrigger; // assign in Inspector
     public List<Wave> waves;
     private int _waveCount;
     public GameObject enemyPrefab;
@@ -137,7 +137,7 @@ public class WaveManager : MonoBehaviour
             }
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);
-            if (_waveDoneText) _waveDoneText.SetActive(true);
+            // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);
             dialogueTrigger.OnWaveEnd(_waveCount);
@@ -148,9 +148,12 @@ public class WaveManager : MonoBehaviour
 
             if (_waveCount < waves.Count)
             {
-                UpgradeManager.Instance.ShowUpgradeWindow();
+                if (waves[_waveCount-1].upgradeInWave == true)
+                {
+                    UpgradeManager.Instance.ShowUpgradeWindow();
+                    yield return new WaitUntil(UpgradeManager.isWindowClosed);
+                }
 
-                yield return new WaitUntil(UpgradeManager.isWindowClosed);
                 // reset vars for new wave
                 maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
                 runnerCount = 0;

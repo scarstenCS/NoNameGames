@@ -308,20 +308,7 @@ MonoBehaviour:
   player: {fileID: 3096818584895333015}
   projectileSpeed: 10
   projectileMaxDistance: 5
-  maxPierce: 0
-  pierce: 0
   Damage: 1
-  projectileT: {fileID: 0}
-  atkStage: 0
-  numberOfProjectiles: 1
-  inAir: 0
-  launcher: {fileID: 0}
-  spreadDegree: 10
-  randomJitter: 3
-  projectilePrefab: {fileID: 0}
-  firePivot: {fileID: 0}
-  isProjectile: 0
-  blockWhileInAir: 1
 --- !u!50 &2227057740444288077
 Rigidbody2D:
   serializedVersion: 4

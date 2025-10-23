@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
     private void OnCollisionStay2D(Collision2D coll)
     {
         GameObject other = coll.collider.gameObject;
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy1")
         {
             Enemy enemy = other.GetComponent<Enemy>();
             if (Time.time - enemy._lastAtkTime < enemy.cooldown) return;
@@ -244,6 +244,16 @@ public class Player : MonoBehaviour
             enemy._lastAtkTime = Time.time;
         }
     }
+
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     Debug.Log(other);
+    //     if (other.tag == "Player")
+    //     {
+    //         this.TakeDamage(other.GetComponent<TurretBullet>().damage);
+    //         Destroy(other.gameObject);
+    //     }
+    // }
 
     private void HandleDeath()
     {

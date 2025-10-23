@@ -448,12 +448,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack:
-  - {fileID: 8300000, guid: fcc01ef5b8fdb2549b8642898fead245, type: 3}
+  - {fileID: 8300000, guid: 0c3a43210915edf40b84bcff8ad14497, type: 3}
+  - {fileID: 8300000, guid: a25bfd246edf57346b391bf12a9e3f57, type: 3}
+  - {fileID: 8300000, guid: 774e40ec278747e4bb0e7b09e3b0bdcf, type: 3}
+  - {fileID: 8300000, guid: 578ad00b71a6c26458905a27cc36714b, type: 3}
+  - {fileID: 8300000, guid: 6098991875031104eb591301c002a3f5, type: 3}
   playerHit:
   - {fileID: 8300000, guid: 500ff3601ac7af54280dce4c413be984, type: 3}
   enemyHit:
-  - {fileID: 8300000, guid: 98e1368ea4f879b41bc3a58eedf55b99, type: 3}
-  - {fileID: 8300000, guid: 1710443b2e6a0fb49b84aa6e5dd3008f, type: 3}
+  - {fileID: 8300000, guid: f4491922fb2bd694d93a8714696c08b2, type: 3}
+  - {fileID: 8300000, guid: dcd459f33f95a6244a4af4cc8d79d520, type: 3}
+  - {fileID: 8300000, guid: c08a8e4a108aa264e9113f32dcec7a1b, type: 3}
+  - {fileID: 8300000, guid: 80f4b4d6184fc87479cc5fb9605c40d4, type: 3}
+  - {fileID: 8300000, guid: 08590a7367f6a3442a40bc262b948f90, type: 3}
+  - {fileID: 8300000, guid: 2f647b4913d1e374fa18d5246783aa28, type: 3}
+  - {fileID: 8300000, guid: c916f392165ae5441b80164836110e8c, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:
@@ -1056,7 +1065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &214304223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2899,7 +2908,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
+  waves:
+  - numRunner: 10
+    numTurret: 0
+    boss: 0
+  - numRunner: 10
+    numTurret: 3
+    boss: 0
+  - numRunner: 13
+    numTurret: 5
+    boss: 0
+  - numRunner: 18
+    numTurret: 7
+    boss: 0
+  - numRunner: 20
+    numTurret: 10
+    boss: 0
+  - numRunner: 0
+    numTurret: 0
+    boss: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
+    type: 3}
+  turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+    type: 3}
+  tBulletPrefab: {fileID: 3546407658342801539, guid: 36d007c3bf6285a4c8d9dfe8486b1e36,
     type: 3}
   mainCamera: {fileID: 519420031}
   player: {fileID: 1634825064}
@@ -4883,7 +4915,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0.75
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5135,12 +5167,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec2140b37ca13a448939b6437ce6606b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3185368fdbf9d6449ada99325b787213, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.4, y: 6.5}
+  m_Size: {x: 35, y: 25.002441}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

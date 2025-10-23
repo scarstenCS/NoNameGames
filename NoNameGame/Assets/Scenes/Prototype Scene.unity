@@ -593,7 +593,7 @@ MonoBehaviour:
   - {fileID: 2938227917164338296}
   - {fileID: 2938227917388877965}
   - {fileID: 2938227917840244981}
-  launcher: {fileID: 0}
+  launcher: {fileID: 2086606188}
   basicAttackPrefab: {fileID: 2024047383}
 --- !u!1 &72964480
 GameObject:

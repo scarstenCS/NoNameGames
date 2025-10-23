@@ -246,7 +246,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void IncreaseShotsPerAttack()
     {
-        var launching = FindObjectOfType<BasicAttack>();
+        var launching = GetComponent<BasicAttack>();
         launcher.numberOfProjectiles += 1;
         launcher.spreadDegree = Mathf.Min(launcher.spreadDegree + 1.5f, 25f);
         launcher.randomJitter = Mathf.Min(launcher.randomJitter + 0.5f, 6f);

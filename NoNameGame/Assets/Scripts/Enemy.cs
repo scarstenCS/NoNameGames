@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private SpriteRenderer sr;
     public int hp = 1;
     public int atk = 1;
 
@@ -16,11 +17,15 @@ public class Enemy : MonoBehaviour
     public float cooldown = 1.5f;
     public float _lastAtkTime;
     private Rigidbody2D rb;
+    Animator animator;
+    public Animation idle;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
+        animator.SetBool("isWalking", true);
     }
 
     void Awake()
@@ -36,9 +41,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             WaveManager.enemiesLeft--;
-            
+
         }
-        transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        Vector3 change = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        transform.position += change;
+        sr.flipX = change.x >= 0;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

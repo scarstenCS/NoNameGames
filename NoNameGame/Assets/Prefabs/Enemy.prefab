@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 2
   cooldown: 1.5
   _lastAtkTime: 0
+  idle: {fileID: 0}
 --- !u!61 &1368833097484963463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 6862735822618058116}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b7b9df5222ae0440a8a10aa5497f34b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

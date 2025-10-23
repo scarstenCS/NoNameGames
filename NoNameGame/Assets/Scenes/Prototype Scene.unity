@@ -899,7 +899,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 59755430}
-        m_MethodName: ExtraBasicAttack
+        m_MethodName: IncreasedBasicAttackSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

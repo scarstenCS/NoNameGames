@@ -127,6 +127,13 @@ public class UpgradeManager : MonoBehaviour
             icon = null,
             applyUpgrade = () => ExtraBasicAttack()
         });
+        options.Add(new UpgradeOption()
+        {
+            optionName = "Increase Basic Attack Size",
+            description = "Increases your basic attack size.",
+            icon = null,
+            applyUpgrade = () => IncreasedBasicAttackSize()
+        });
     }
     public List<UpgradeOption> OfferedUpgradeOptions()
     {

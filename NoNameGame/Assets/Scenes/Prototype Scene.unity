@@ -1609,7 +1609,7 @@ MonoBehaviour:
   sequence: {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   sequencesByWave:
   - {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
-  - {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
+  - {fileID: 11400000, guid: af4ca04d2393c9f46920d58c7c17b591, type: 2}
   - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}
   - {fileID: 11400000, guid: d897b4baec3052343adce123bb6153cb, type: 2}
   - {fileID: 11400000, guid: 3af65dfd67ee2a645b29db9165ddf944, type: 2}
@@ -3512,11 +3512,11 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     boss: 0
-    upgradeInWave: 1
+    upgradeInWave: 0
   - numRunner: 1
     numTurret: 0
     boss: 0
-    upgradeInWave: 1
+    upgradeInWave: 0
   - numRunner: 1
     numTurret: 0
     boss: 0

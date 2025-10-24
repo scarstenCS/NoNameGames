@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
         {
             ba.numberOfProjectiles = value;
         }
-    }
+    }   
     
     public PlayerControls controls;
 
@@ -253,5 +253,6 @@ public class Player : MonoBehaviour
         OnDied?.Invoke();
 
     }
+
 
 }

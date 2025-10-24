@@ -25,6 +25,7 @@ public class UpgradeManager : MonoBehaviour
         public float weaponDistanceIncrease;
         public float weaponSpeedIncrease;
         public float playerSpeedIncrease;
+        public float basicAttackSizeIncrease;
     }
     [SerializeField]
     private UpgradeValues defaults = new UpgradeValues
@@ -32,8 +33,10 @@ public class UpgradeManager : MonoBehaviour
         healthIncrease = 5,
         weaponDamageIncrease = 2,
         weaponDistanceIncrease = 3f,
-        weaponSpeedIncrease = 1f,
-        playerSpeedIncrease = 0.5f
+        weaponSpeedIncrease = 1.25f,
+        playerSpeedIncrease = 1.25f,
+        basicAttackSizeIncrease = 1.25f
+
     };
     [SerializeField] private TMP_Text[] buttonLabels;
     [SerializeField] private TMP_Text[] descLabels;
@@ -41,6 +44,10 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private BasicAttack launcher;
     private readonly List<UpgradeOption> options = new List<UpgradeOption>();
     private List<UpgradeOption> _offered = new List<UpgradeOption>();
+    public int totalUpgrades
+    {
+        get { return options.Count; }
+    }
     [SerializeField] private GameObject basicAttackPrefab; // assign in Inspector
     private void Awake()
     {
@@ -96,7 +103,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Max Health",
-            description = "Increases your maximum health by 5 points.",
+            description = "Increases your maximum health by " + d.healthIncrease + " points.",
             icon = Resources.Load<Sprite>("Images/heart-plus"),
             applyUpgrade = () => IncreaseMaxHealth(d.healthIncrease)
         });
@@ -104,7 +111,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Weapon Damage",
-            description = "Increases your basic weapon damage by 2 points.",
+            description = "Increases your basic weapon damage by " + d.weaponDamageIncrease + " points.",
             icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyUpgrade = () => IncreaseWeaponDamage(d.weaponDamageIncrease)
         });
@@ -112,15 +119,15 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Weapon Distance",
-            description = "Increases your basic weapon distance by 3 units.",
+            description = "Increases your basic weapon distance by " + d.weaponDistanceIncrease + " feet.",
             icon = Resources.Load<Sprite>("Images/arrow-dunk"),
             applyUpgrade = () => IncreaseWeaponDistance(d.weaponDistanceIncrease)
         });
 
         options.Add(new UpgradeOption()
-        {
+        {   
             optionName = "Increase Weapon Speed",
-            description = "Increases your basic weapon speed by 1 unit.",
+            description = "Increases your basic weapon speed by " + (d.weaponSpeedIncrease-1)*100 + " %.",
             icon = Resources.Load<Sprite>("Images/supersonic-bullet"),
             applyUpgrade = () => IncreaseWeaponSpeed(d.weaponSpeedIncrease)
         });
@@ -128,7 +135,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Player Speed",
-            description = "Increases your player speed by 0.5 units.",
+            description = "Increases your player speed by " + (d.playerSpeedIncrease-1)*100 + " %.",
             icon = Resources.Load<Sprite>("Images/wingfoot"),
             applyUpgrade = () => IncreasePlayerSpeed(d.playerSpeedIncrease)
         });
@@ -142,14 +149,14 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Basic Attack Size",
-            description = "Increases your basic attack size.",
+            description = "Increases your basic attack size by " + (d.basicAttackSizeIncrease-1)*100 + " %.",
             icon = Resources.Load<Sprite>("Images/resize"),
-            applyUpgrade = () => IncreasedBasicAttackSize()
+            applyUpgrade = () => IncreasedBasicAttackSize(d.basicAttackSizeIncrease)
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Shots Per Attack",
-            description = "Increases the number of projectiles fired per basic attack.",
+            description = "Increases the number of projectiles fired per shot.",
             icon = Resources.Load<Sprite>("Images/striking-arrows"),
             applyUpgrade = () => IncreaseShotsPerAttack()
         });
@@ -222,7 +229,7 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="ammount">Ammount to increase by</param>
     public void IncreaseWeaponSpeed(float ammount)
     {
-        player.basicWeaponSpeed += ammount;
+        player.basicWeaponSpeed = player.basicWeaponSpeed * ammount;
         //Debug.Log($"Basic weapon speed increased by {ammount}");
     }
 
@@ -239,10 +246,9 @@ public class UpgradeManager : MonoBehaviour
     {
         player.basicWeaponPierce += 1;
     }
-    public void IncreasedBasicAttackSize()
+    public void IncreasedBasicAttackSize(float sizeIncrease)
     {
-        Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
-        player.basicWeaponSize += scaleChange;
+        player.basicWeaponSize = sizeIncrease * player.basicWeaponSize;
     }
     public void IncreaseShotsPerAttack()
     {

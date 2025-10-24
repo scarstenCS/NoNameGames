@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Cryptography;
@@ -70,30 +70,22 @@ public class BasicAttack : MonoBehaviour
         // Gate by "in-air" vs capacity
         if (blockWhileInAir)
         {
-            if (inAir > 0) return;                      
+            if (inAir > 0) return;                       // fire only when all have returned
         }
         else
         {
-            if (inAir >= numberOfProjectiles) return;   
+            if (inAir >= numberOfProjectiles) return;    // fire only if at least one slot is free
         }
 
-        Vector2 firePos;
-        //set the position of the projectile being fired. 
-        if (firePivot != null)
-        {
-            firePos = firePivot.position;   
-        }
-        else
-        {
-            firePos = transform.position;   
-        }
+        // Aim (compute baseAngle here instead of relying on a field)
+        Vector2 firePos = firePivot ? (Vector2)firePivot.position : (Vector2)transform.position;
+        Vector2 mouseWorld = Camera.main ? (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) : firePos + (Vector2)transform.right;
+        Vector2 aim = (mouseWorld - firePos).normalized;
+        float baseAngle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
 
+        // You can choose to spawn 1 per press, or a fan of K where K = free slots
         int freeSlots = Mathf.Max(0, numberOfProjectiles - inAir);
-
-        int allowedProjectiles = Mathf.Max(0, freeSlots);
-        int desiredProjectiles = Mathf.Max(1, numberOfProjectiles);
-        int shotsThisPress = Mathf.Min(desiredProjectiles, allowedProjectiles);
-
+        int shotsThisPress = blockWhileInAir ? Mathf.Max(1, numberOfProjectiles) : Mathf.Clamp(1, 1, freeSlots); // here: 1 per press
         float totalFan = spreadDegree * (shotsThisPress - 1);
         float startAngle = baseAngle - totalFan * 0.5f;
 
@@ -104,6 +96,7 @@ public class BasicAttack : MonoBehaviour
 
             GameObject proj = Instantiate(projectilePrefab, firePos, rotation);
             var ba = proj.GetComponent<BasicAttack>();
+            if (!ba) { Destroy(proj); continue; }
 
             // Hand off runtime params
             ba.isProjectile = true;
@@ -113,16 +106,17 @@ public class BasicAttack : MonoBehaviour
             ba.maxPierce = maxPierce;
             ba.pierce = ba.maxPierce;
 
-            //set the projectile in motion
+            // connect projectile -> launcher, set origin and stage
             ba.launcher = this;
-            ba._origin = firePos;        
+            ba._origin = firePos;        // make _origin field public or provide InitProjectile(origin)
             ba.atkStage = 1;
         }
 
-        inAir += shotsThisPress;        
+        inAir += shotsThisPress;         // <— increment active count ON THE LAUNCHER
 
         AudioManager.SfxPlayerAttack();
-        //UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
+        UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
+        
     }
     private void OnEnable()
     {
@@ -159,13 +153,38 @@ public class BasicAttack : MonoBehaviour
                     if (launcher != null)
                     {
                         launcher.inAir = Mathf.Max(0, launcher.inAir - 1);
-                        // Debug.Log($"Returned. In-air now {launcher.inAir}/{launcher.numberOfProjectiles}");
+                        // optional: Debug.Log($"Returned. In-air now {launcher.inAir}/{launcher.numberOfProjectiles}");
                     }
                     Destroy(gameObject);
                 }
                 break;
         }
     }
+
+        // switch (atkStage)
+        // {
+
+        //     case 0:
+        //         origin = transform.position;
+        //         pierce = maxPierce;
+        //         break;
+        //     case 1:
+        //         projectileT.position += transform.right * projectileSpeed * Time.deltaTime;
+        //         if (originDir.magnitude >= projectileMaxDistance)
+        //         {
+        //             atkStage++;
+        //         }
+        //         break;
+        //     case 2:
+        //         rbProjectile.rotation = Mathf.Atan2(playerDir.y, playerDir.x);
+        //         projectileT.position -= transform.right * projectileSpeed * Time.deltaTime;
+        //         if (playerDir.magnitude <= 0.5)
+        //         {
+        //             projectileT.position = playerT.position;
+        //             atkStage = 0;
+        //         }
+        //         break;
+        // }
 }
         
     

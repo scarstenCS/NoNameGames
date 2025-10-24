@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
     public GameObject player, pauseMenu, menuButton;
     static private GameObject _player, _pauseMenu, _menuButton;
     static public GameManager Instance { get { return _instance; } }
+    private UpgradeManager upgradeManager;
     static public bool isPaused = false;
     private PlayerControls controls;
     static public GameObject _gameOverPanel, _mainMenuSelected;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject mainMenuSelected;
+    private Player playerStats;
+    [SerializeField] TMP_Text[] statsLabels;
     static public float
     minX = -10f,
     maxX = 4.45f,
@@ -49,10 +54,28 @@ public class GameManager : MonoBehaviour
     /// </summary>
     static public void TogglePause()
     {
+        
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
         _menuButton.SetActive(isPaused);
+        UnityEngine.Debug.Log("ispaused: " + isPaused);
         Time.timeScale = isPaused ? 0f : timeScale;
+        Player p = _player.GetComponent<Player>();
+        int numberOfUpgrades = UpgradeManager.Instance.totalUpgrades;
+        //updates stats labels
+        if (Instance != null && Instance.statsLabels != null)
+        {
+            Instance.statsLabels[0].text = " : Speed is " + p.Speed;
+            Instance.statsLabels[1].text = " : Max Health is " + p.MaxHealth;
+            Instance.statsLabels[2].text = " : Boomerang Distance is " + p.basicWeaponDistance;
+            Instance.statsLabels[3].text = " : Boomerang Damage is " + p.basicWeaponDmg;
+            Instance.statsLabels[4].text = " : Boomerang Speed is " + p.basicWeaponSpeed;
+            Instance.statsLabels[5].text = " : Number of Boomerang(s) is " + p.totalBasicAttacksCount;
+            Instance.statsLabels[6].text = " : Boomerang Pierce is " + p.basicWeaponPierce;
+            Instance.statsLabels[7].text = " : Boomerang Size is " + (p.basicWeaponSize.x * 100).ToString("F0") + "%";
+
+        }
+
     }
 
     static public void PlayerDied()
@@ -112,6 +135,12 @@ public class GameManager : MonoBehaviour
     void HandlePlayerDied()
     {
         PlayerDied();
+    }
+    public void TogglePauseButton()
+    {
+        
+        TogglePause();
+
     }
 
 }

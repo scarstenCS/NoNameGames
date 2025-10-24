@@ -19,11 +19,11 @@ MonoBehaviour:
   - speaker: Charlie
     text: "I don\u2019t think he can hear me. This app is terrible, I need to find
       him quickly and get out of here."
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: ???
     text: "Why didn\u2019t he come visit?"
     portrait: {fileID: 0}
   - speaker: Charlie
     text: "\u2026"
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   pausesCombat: 1

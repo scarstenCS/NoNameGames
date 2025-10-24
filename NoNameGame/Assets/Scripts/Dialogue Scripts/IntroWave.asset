@@ -15,14 +15,14 @@ MonoBehaviour:
   lines:
   - speaker: Charlie
     text: Why would Sam be in this place..?
-    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
+    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
     text: "Hopefully there\u2019s some sort of clue that I can use\u2026"
-    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
+    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
     text: ...
-    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
+    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
     text: "Ugh! There\u2019s more of those things?!"
-    portrait: {fileID: 21300000, guid: 692db56476aa6b046804ac2a52569bab, type: 3}
+    portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
   pausesCombat: 1

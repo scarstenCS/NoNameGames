@@ -150,7 +150,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Increase Shots Per Attack",
             description = "Increases the number of projectiles fired per basic attack.",
-            icon = Resources.Load<Sprite>("Images/multiple-arrows"),
+            icon = Resources.Load<Sprite>("Images/striking-arrows"),
             applyUpgrade = () => IncreaseShotsPerAttack()
         });
     }

@@ -1578,10 +1578,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   - {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
   - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d897b4baec3052343adce123bb6153cb, type: 2}
+  - {fileID: 11400000, guid: 3af65dfd67ee2a645b29db9165ddf944, type: 2}
+  - {fileID: 11400000, guid: 86b4190eb8d672d4bacc25c0d4d7ee0f, type: 2}
+  - {fileID: 11400000, guid: 4cc6b5e73d63616429cbbc55db761f20, type: 2}
+  - {fileID: 11400000, guid: df506a0d31b752a4e8c617e212a3e9d0, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
 --- !u!4 &312574714

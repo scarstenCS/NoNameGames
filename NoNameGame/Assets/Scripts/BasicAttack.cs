@@ -166,31 +166,6 @@ public class BasicAttack : MonoBehaviour
                 break;
         }
     }
-
-        // switch (atkStage)
-        // {
-
-        //     case 0:
-        //         origin = transform.position;
-        //         pierce = maxPierce;
-        //         break;
-        //     case 1:
-        //         projectileT.position += transform.right * projectileSpeed * Time.deltaTime;
-        //         if (originDir.magnitude >= projectileMaxDistance)
-        //         {
-        //             atkStage++;
-        //         }
-        //         break;
-        //     case 2:
-        //         rbProjectile.rotation = Mathf.Atan2(playerDir.y, playerDir.x);
-        //         projectileT.position -= transform.right * projectileSpeed * Time.deltaTime;
-        //         if (playerDir.magnitude <= 0.5)
-        //         {
-        //             projectileT.position = playerT.position;
-        //             atkStage = 0;
-        //         }
-        //         break;
-        // }
 }
         
     

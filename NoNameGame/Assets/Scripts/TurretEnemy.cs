@@ -92,7 +92,7 @@ public class TurretEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-            hp--;
+            hp-=proj.Damage;
         }
     }
 }

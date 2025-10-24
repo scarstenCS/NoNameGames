@@ -148,7 +148,7 @@ public class WaveManager : MonoBehaviour
 
             if (_waveCount < waves.Count)
             {
-                if (waves[_waveCount].upgradeInWave)
+                if (waves[_waveCount-1].upgradeInWave)
                 {
                     UpgradeManager.Instance.ShowUpgradeWindow();
                     yield return new WaitUntil(UpgradeManager.isWindowClosed);

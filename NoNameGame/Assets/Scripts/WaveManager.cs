@@ -8,13 +8,13 @@ using UnityEngine;
         public int numRunner;
         public int numTurret;
         public bool boss;
+        public bool upgradeInWave;
     }
 public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
     static public WaveManager Instance;
     [SerializeField] private DialogueTrigger dialogueTrigger; 
-    static private ArrayList waveTable = new ArrayList { 10, 15, 20, 25, 30, 1 };
     public List<Wave> waves;
     private int _waveCount;
     public GameObject enemyPrefab;
@@ -148,16 +148,18 @@ public class WaveManager : MonoBehaviour
 
             if (_waveCount < waves.Count)
             {
-                UpgradeManager.Instance.ShowUpgradeWindow();
-
-                yield return new WaitUntil(UpgradeManager.isWindowClosed);
+                if (waves[_waveCount].upgradeInWave)
+                {
+                    UpgradeManager.Instance.ShowUpgradeWindow();
+                    yield return new WaitUntil(UpgradeManager.isWindowClosed);
+                }
                 // reset vars for new wave
                 maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
                 runnerCount = 0;
                 turretCount = 0;
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
-                p.Heal(p.MaxHealth);
+                // p.Heal(p.MaxHealth);
             }
         }
         // game done

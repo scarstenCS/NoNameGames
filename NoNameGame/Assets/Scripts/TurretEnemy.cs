@@ -9,6 +9,7 @@ public class TurretEnemy : MonoBehaviour
     public int atk = 0;
     public string attackTag = "PlayerAttack";
     public float cooldown = 1.0f;
+    Animator animator;
 
     public GameObject player;
     private Transform playerPos;
@@ -18,6 +19,8 @@ public class TurretEnemy : MonoBehaviour
     public float bulletSpeed = 7f;
     public float bulletLifetime = 3f;
     public int bulletDamage = 1;
+    private float clipLength = 0.2f;
+    public float fireAt = 0.50f; // portion of cooldown to fire at
 
     private float _nextShootTime;
 
@@ -27,22 +30,36 @@ public class TurretEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
+        //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
+
     }
 
     void Update()
     {
         Vector3 move = Vector3.Normalize(playerPos.position - transform.position);
         sr.flipX = move.x > 0;
+        
+
         if (hp <= 0)
         {
             Destroy(gameObject);
             WaveManager.enemiesLeft--;
+            animator.SetBool("Dead", true);
+
         }
 
         if (Time.time >= _nextShootTime)
         {
-            FireOnce();
+            animator.ResetTrigger("Shoot");
+            animator.SetTrigger("Shoot");
+            StartCoroutine(FireAfterDelay(shootCooldown * fireAt));
             _nextShootTime = Time.time + shootCooldown;
+
+        }
+        IEnumerator FireAfterDelay(float delay) {
+            yield return new WaitForSeconds(delay);
+            if (hp > 0) FireOnce();
         }
         
     }

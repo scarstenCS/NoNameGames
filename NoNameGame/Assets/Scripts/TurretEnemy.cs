@@ -13,7 +13,7 @@ public class TurretEnemy : MonoBehaviour
     public GameObject player;
     private Transform playerPos;
     public GameObject bulletPrefab;
-
+    private SpriteRenderer sr;
     public float shootCooldown = 1.25f;
     public float bulletSpeed = 7f;
     public float bulletLifetime = 3f;
@@ -26,10 +26,13 @@ public class TurretEnemy : MonoBehaviour
         _nextShootTime = Time.time + shootCooldown;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
+        Vector3 move = Vector3.Normalize(playerPos.position - transform.position);
+        sr.flipX = move.x > 0;
         if (hp <= 0)
         {
             Destroy(gameObject);

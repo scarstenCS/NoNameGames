@@ -3517,7 +3517,7 @@ MonoBehaviour:
     numTurret: 0
     boss: 0
     upgradeInWave: 0
-  - numRunner: 1
+  - numRunner: 10
     numTurret: 0
     boss: 0
     upgradeInWave: 1

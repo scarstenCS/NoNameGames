@@ -70,29 +70,6 @@ public class Player : MonoBehaviour
             ba.projectileSpeed = value;
         }
     }
-
-    public float basicWeaponPierce
-    {
-        get
-        {
-            return ba.maxPierce;
-        }
-        set
-        {
-            ba.maxPierce = value;
-        }
-    }
-    public Vector3 basicWeaponSize
-    {
-        get
-        {
-            return ba.projectileT.localScale;
-        }
-        set
-        {
-            ba.projectileT.localScale = value;
-        }
-    } 
     public event Action<int, int> HealthChanged;
     public event Action OnDied;
     bool isDead = false;
@@ -112,17 +89,7 @@ public class Player : MonoBehaviour
             playerSpeed = value;
         }
     }
-    public int totalBasicAttacksCount
-    {
-        get
-        {
-            return ba.numberOfProjectiles;
-        }
-        set
-        {
-            ba.numberOfProjectiles = value;
-        }
-    }
+
     
     public PlayerControls controls;
 
@@ -210,7 +177,6 @@ public class Player : MonoBehaviour
         {
             if (inputVector.x != 0 && Time.timeScale!= 0)
             {
-                
                 sr.flipX = inputVector.x > 0;
             }
             animator.SetBool("isWalking", true);
@@ -221,13 +187,11 @@ public class Player : MonoBehaviour
         }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
-
             ba.Attack();
         }
 
         if (pauseGame.triggered && pauseGame.ReadValue<float>() > 0)
         {
-            //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
     }
@@ -251,7 +215,6 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         isDead = true;
         OnDied?.Invoke();
-
+        
     }
-
 }

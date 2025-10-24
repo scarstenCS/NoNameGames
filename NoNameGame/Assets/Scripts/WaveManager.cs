@@ -137,7 +137,7 @@ public class WaveManager : MonoBehaviour
             }
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);
-            if (_waveDoneText) _waveDoneText.SetActive(true);
+            // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);
             dialogueTrigger.OnWaveEnd(_waveCount);

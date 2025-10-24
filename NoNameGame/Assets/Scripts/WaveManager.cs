@@ -159,7 +159,7 @@ public class WaveManager : MonoBehaviour
                 turretCount = 0;
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
-                // p.Heal(p.MaxHealth);
+                p.Heal(p.MaxHealth);
             }
         }
         // game done

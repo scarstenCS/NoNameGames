@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-            hp-=proj.basicWeaponDmg;
+            hp-=proj.Damage;
         }
     }
 }

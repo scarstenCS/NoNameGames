@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public int hp = 1;
     public int atk = 1;
-
+    private SpriteRenderer sr;
     public string attackTag = "PlayerAttack";
 
     public GameObject player;
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Awake()
@@ -36,9 +37,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             WaveManager.enemiesLeft--;
-            
+
         }
-        transform.position += Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        Vector3 move = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        transform.position += move;
+        sr.flipX = move.x > 0;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
+  m_Name: 10
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Charlie
+    text: Sam!! Can you hear me now??
+    portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
+  - speaker: ???
+    text: "It doesn\u2019t matter anymore."
+    portrait: {fileID: 0}
+  - speaker: Charlie
+    text: What is he talking about!?
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: "What did you come back here for? Did you just want to rub it in my face,
+      that you\u2019re doing just fine and your life is so much better now\u2014
+      while I\u2019m stuck here, stupid as ever? "
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: "Why don\u2019t you just leave and go back to your life. No one cared when
+      I was around before, so why come looking now?"
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: You, and everyone else, just leave me alone.
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: You and everyone else have never understood what I needed.
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: You and everyone else just end up leaving me. I will never forgive you.
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: "You and everyone else, I don\u2019t want to see you after you abandoned
+      me"
+    portrait: {fileID: 0}
+  - speaker: ???
+    text: No one ever cared about me. You probably just want to rub it in my face
+      that I am a disgrace. Just LEAVE ME ALONE
+    portrait: {fileID: 0}
+  pausesCombat: 1

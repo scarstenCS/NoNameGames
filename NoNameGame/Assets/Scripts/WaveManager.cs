@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
         _waveDoneText = waveDoneText;
         _waveCount = 0;
         mainCamera = Camera.main;
-        spawnrate = 2f;
+        spawnrate = 1.5f;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
         enemiesLeft = maxEnemies;
         runnerCount = 0;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+//using System.Numerics;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,7 +17,7 @@ public class BasicAttack : MonoBehaviour
     projectileMaxDistance = 5;
     public float maxPierce = 0;
     public float pierce = 0;
-
+    [SerializeField] private Animator animator; 
     public int Damage = 1;
     // private float projectileDistance;
     private Rigidbody2D rb2d, rbProjectile;
@@ -24,6 +25,7 @@ public class BasicAttack : MonoBehaviour
 
     public Transform projectileT;
     private Vector2 origin;
+    [SerializeField] Transform spinVisual; 
 
     public int atkStage = 0;
     public int numberOfProjectiles = 1;
@@ -35,6 +37,8 @@ public class BasicAttack : MonoBehaviour
     [SerializeField] public GameObject projectilePrefab;
     [SerializeField] public Transform firePivot;
     [SerializeField] public bool isProjectile = false;
+    [SerializeField] float spinSpeed = 720f; // deg/sec
+    private Vector2 travelDestination;
     public bool blockWhileInAir = true;
     private Vector2 _origin;
     void Start()
@@ -115,8 +119,9 @@ public class BasicAttack : MonoBehaviour
 
             //set the projectile in motion
             ba.launcher = this;
-            ba._origin = firePos;        
+            ba._origin = firePos;
             ba.atkStage = 1;
+            ba.travelDestination = (Vector2)ba.transform.right;
         }
 
         inAir += shotsThisPress;        
@@ -130,29 +135,43 @@ public class BasicAttack : MonoBehaviour
         {
             _origin = transform.position;
             pierce = maxPierce;
+
             if (atkStage == 0) atkStage = 1;
+            travelDestination = (Vector2)transform.right;
         }
     }
 
     private void PreformAttack()
     {
         if (!isProjectile) return;
+        animator = gameObject.GetComponent<Animator>();
 
         switch (atkStage)
         {
             case 1: // outbound
-                transform.position += transform.right * projectileSpeed * Time.deltaTime;
+                transform.position += (Vector3)(travelDestination * projectileSpeed * Time.deltaTime);
+                if (spinVisual != null)
+                {
+                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                }
                 if (Vector2.Distance(_origin, transform.position) >= projectileMaxDistance)
                     atkStage = 2;
+                    
                 break;
 
             case 2: // return
                 Vector2 toPlayer = (Vector2)playerT.position - (Vector2)transform.position;
                 float ang = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg;
+                travelDestination = toPlayer.normalized;
                 transform.rotation = Quaternion.Euler(0, 0, ang);
+                
+                if (spinVisual != null)
+                {
+                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                }
 
                 // move toward player
-                transform.position += transform.right * projectileSpeed * Time.deltaTime;
+                transform.position += (Vector3)(travelDestination * projectileSpeed * Time.deltaTime);
 
                 if (toPlayer.sqrMagnitude <= 0.25f)
                 {

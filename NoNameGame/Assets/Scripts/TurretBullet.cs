@@ -42,16 +42,26 @@ public class TurretBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        var proj = other.GetComponent<BasicAttack>();
+        proj = other.GetComponentInParent<BasicAttack>();
+        // Debug.Log(other.tag);
         if (other.tag == "Player")
         {
             AudioManager.SfxPlayerHit();
             GameManager.PlayerTakeDamage(damage);
             Destroy(gameObject);
         }
-        else if (other.tag == attackTag && BasicAttack.atkStage != 0)
+        else if (other.tag == attackTag && proj.atkStage != 0)
         {
             Destroy(gameObject);
-            BasicAttack.atkStage = 2;
+            if (proj.pierce <= 0)
+            {
+                proj.atkStage = 2;
+            }
+            else
+            {
+                proj.pierce -= 1;
+            }
         }
         else if (other.tag == "Enemy")
         {

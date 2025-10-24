@@ -1616,6 +1616,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 86b4190eb8d672d4bacc25c0d4d7ee0f, type: 2}
   - {fileID: 11400000, guid: 4cc6b5e73d63616429cbbc55db761f20, type: 2}
   - {fileID: 11400000, guid: df506a0d31b752a4e8c617e212a3e9d0, type: 2}
+  - {fileID: 11400000, guid: f06de065b0480e64cad87b624898bc77, type: 2}
+  - {fileID: 11400000, guid: 41db97c315bf7d94bb313795f166dffa, type: 2}
+  - {fileID: 11400000, guid: 33f7b1e754ed3df4d9957a1c7bc3a69b, type: 2}
+  - {fileID: 11400000, guid: ef5ec720f3343d741a9f77c504592182, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
 --- !u!4 &312574714
@@ -2933,7 +2937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: -700}
+  m_AnchoredPosition: {x: -450, y: -720}
   m_SizeDelta: {x: 110, y: 29.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &531388938
@@ -3539,6 +3543,22 @@ MonoBehaviour:
     upgradeInWave: 1
   - numRunner: 25
     numTurret: 10
+    boss: 0
+    upgradeInWave: 1
+  - numRunner: 25
+    numTurret: 15
+    boss: 0
+    upgradeInWave: 1
+  - numRunner: 30
+    numTurret: 15
+    boss: 0
+    upgradeInWave: 1
+  - numRunner: 33
+    numTurret: 17
+    boss: 0
+    upgradeInWave: 1
+  - numRunner: 35
+    numTurret: 20
     boss: 0
     upgradeInWave: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
@@ -8416,7 +8436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2062344364
 RectTransform:
   m_ObjectHideFlags: 0

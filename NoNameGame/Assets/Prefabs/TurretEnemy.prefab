@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 563468809425296227}
   - component: {fileID: -7805707930408660618}
   - component: {fileID: 35107874217306199}
+  - component: {fileID: -1991020653991676024}
   m_Layer: 10
   m_Name: TurretEnemy
   m_TagString: Enemy
@@ -145,3 +146,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.1028947, y: 0.15736917}
   m_Size: {x: 2.3963125, y: 4.805264}
   m_Direction: 0
+--- !u!95 &-1991020653991676024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537362400255028654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 497372ecb4dd1514faa8daaff93c39d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

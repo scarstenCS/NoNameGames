@@ -9,6 +9,7 @@ public class TurretEnemy : MonoBehaviour
     public int atk = 0;
     public string attackTag = "PlayerAttack";
     public float cooldown = 1.0f;
+    Animator animator;
 
     public GameObject player;
     private Transform playerPos;
@@ -18,8 +19,10 @@ public class TurretEnemy : MonoBehaviour
     public float bulletSpeed = 7f;
     public float bulletLifetime = 3f;
     public int bulletDamage = 1;
+    private float clipLength = 0.2f;
 
     private float _nextShootTime;
+    private bool isDead = false;
 
     void Start()
     {
@@ -27,24 +30,42 @@ public class TurretEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        if (animator == null) { Debug.LogError("TurretEnemy: Animator missing."); enabled = false; return; }
+        animator.SetBool("Dead", false);
+        //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
+
     }
 
     void Update()
     {
-        Vector3 move = Vector3.Normalize(playerPos.position - transform.position);
-        sr.flipX = move.x > 0;
-        if (hp <= 0)
+        if (isDead) return; 
+
+        if (playerPos != null)
         {
-            Destroy(gameObject);
-            WaveManager.enemiesLeft--;
+            Vector3 move = Vector3.Normalize(playerPos.position - transform.position);
+            sr.flipX = move.x > 0;
         }
+
+        
+        if (hp <= 0 && !isDead) Die(); 
 
         if (Time.time >= _nextShootTime)
         {
-            FireOnce();
+            
+            animator.SetTrigger("Shoot");
             _nextShootTime = Time.time + shootCooldown;
         }
-        
+    }
+    public void onShootAnimationEvent()
+    {
+        if (playerPos == null) return;
+        if (hp <= 0) return;
+        FireOnce();
+        animator.ResetTrigger("Shoot");
+    }
+    public void AnimEventDestroySelf() {
+        Destroy(gameObject);
     }
 
 
@@ -95,7 +116,21 @@ public class TurretEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-            hp-=proj.Damage;
+            hp -= proj.Damage;
+
         }
+    }
+    
+    private void Die()
+    {
+        WaveManager.enemiesLeft--;
+        UnityEngine.Debug.Log("isDead before: " + isDead);
+        if (!isDead)
+        {
+            animator.SetBool("Dead", true);
+        }
+        isDead = true;
+        UnityEngine.Debug.Log("TurretEnemy died.");
+        UnityEngine.Debug.Log("isDead: " + isDead);
     }
 }

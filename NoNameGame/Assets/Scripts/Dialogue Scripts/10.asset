@@ -18,7 +18,7 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "It doesn\u2019t matter anymore."
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: What are you talking about!?
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
@@ -26,15 +26,26 @@ MonoBehaviour:
     text: "What did you come back here for? Did you just want to rub it in my face,
       that you\u2019re doing just fine and your life is so much better now\u2014
       while I\u2019m stuck here, stupid as ever? "
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
-  - speaker: Charlie
-    text: 'Huh? What?? No!! '
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: ???
     text: "Why don\u2019t you just leave and go back to your life. No one cared when
-      I was around before, so why come looking now? You, and everyone else\u2026  "
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+      I was around before, so why come looking now?"
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: ???
-    text: 'Just leave me alone! '
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    text: You, and everyone else, just leave me alone.
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+  - speaker: ???
+    text: You and everyone else have never understood what I needed.
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+  - speaker: ???
+    text: You and everyone else just end up leaving me. I will never forgive you.
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+  - speaker: ???
+    text: "You and everyone else, I don\u2019t want to see you after you abandoned
+      me"
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+  - speaker: ???
+    text: No one ever cared about me. You probably just want to rub it in my face
+      that I am a disgrace. Just LEAVE ME ALONE
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   pausesCombat: 1

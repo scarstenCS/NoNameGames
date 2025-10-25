@@ -21,13 +21,13 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
   - speaker: ???
     text: "\u2026leave\u2026.e\u2026.alone"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: "Who said that? Who\u2019s there?\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "Your\u2026 fault\u2026"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: What??!
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}

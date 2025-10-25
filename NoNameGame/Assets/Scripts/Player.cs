@@ -232,18 +232,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D coll)
-    {
-        GameObject other = coll.collider.gameObject;
-        if (other.tag == "Enemy1")
-        {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if (Time.time - enemy._lastAtkTime < enemy.cooldown) return;
-            AudioManager.SfxPlayerHit();
-            this.TakeDamage(enemy.atk);
-            enemy._lastAtkTime = Time.time;
-        }
-    }
+    // private void OnCollisionStay2D(Collision2D coll)
+    // {
+    //     GameObject other = coll.collider.gameObject;
+    //     if (other.tag == "Enemy1")
+    //     {
+    //         enemy1Punch();
+    //     }
+    // }
 
     private void HandleDeath()
     {
@@ -253,6 +249,14 @@ public class Player : MonoBehaviour
         OnDied?.Invoke();
 
     }
+    // private void enemy1Punch()
+    // {
+    //     Enemy enemy = other.GetComponent<Enemy>();
+    //     if (Time.time - enemy._lastAtkTime < enemy.cooldown) return;
+    //         AudioManager.SfxPlayerHit();
+    //         this.TakeDamage(enemy.atk);
+    //         enemy._lastAtkTime = Time.time;
+    // }
 
 
 }

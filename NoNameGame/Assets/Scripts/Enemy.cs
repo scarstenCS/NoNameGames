@@ -24,7 +24,8 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
-        animator.SetBool("isWalking", true);
+        animator = gameObject.GetComponent<Animator>();
+        
     }
 
     void Awake()
@@ -47,7 +48,8 @@ public class Enemy : MonoBehaviour
         sr.flipX = change.x >= 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
 
@@ -62,7 +64,23 @@ public class Enemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-            hp-=proj.Damage;
+            hp -= proj.Damage;
         }
+    }
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        GameObject other = coll.collider.gameObject;
+        if (other.tag == "Player")
+        {
+            enemy1Punch(other);
+        }
+    }
+    private void enemy1Punch(GameObject other)
+    {
+        Player player = other.GetComponent<Player>();
+        if (Time.time - this._lastAtkTime < this.cooldown) return;
+            AudioManager.SfxPlayerHit();
+            player.TakeDamage(this.atk);
+            this._lastAtkTime = Time.time;
     }
 }

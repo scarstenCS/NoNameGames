@@ -19,7 +19,6 @@ public class TurretEnemy : MonoBehaviour
     public float bulletSpeed = 7f;
     public float bulletLifetime = 3f;
     public int bulletDamage = 1;
-    private float clipLength = 0.2f;
 
     private float _nextShootTime;
     private bool isDead = false;

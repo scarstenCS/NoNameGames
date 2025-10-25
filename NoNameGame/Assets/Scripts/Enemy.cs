@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     Animator animator;
     public Animation idle;
+    private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +26,24 @@ public class Enemy : MonoBehaviour
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
-        
+        animator.SetBool("Dead", false);
+        animator.SetFloat("WalkSpeed", 1f + speed/1.5f);
     }
 
     void Awake()
     {
-        float multiplier = Random.Range(0f, 1f);
+        float multiplier = Random.Range(0f, 1.5f);
         speed += multiplier * 2;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hp <= 0)
-        {
-            Destroy(gameObject);
-            WaveManager.enemiesLeft--;
+        if (isDead) return;
 
-        }
+        if (hp <= 0 && !isDead) Die(); 
+        
         Vector3 change = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
         transform.position += change;
         sr.flipX = change.x >= 0;
@@ -72,15 +73,29 @@ public class Enemy : MonoBehaviour
         GameObject other = coll.collider.gameObject;
         if (other.tag == "Player")
         {
-            enemy1Punch(other);
+            animator.SetTrigger("Punch");
         }
     }
-    private void enemy1Punch(GameObject other)
+    private void Punch()
     {
-        Player player = other.GetComponent<Player>();
-        if (Time.time - this._lastAtkTime < this.cooldown) return;
-            AudioManager.SfxPlayerHit();
-            player.TakeDamage(this.atk);
-            this._lastAtkTime = Time.time;
+        int dmg = atk;
+        GameManager.PlayerTakeDamage(dmg);
+        AudioManager.SfxPlayerHit();
+        animator.ResetTrigger("Punch");
+    }
+    private void Die()
+    {
+        WaveManager.enemiesLeft--;
+
+        if (!isDead)
+        {
+            animator.SetBool("Dead", true);
+        }
+        isDead = true;
+
+        UnityEngine.Debug.Log("isDead: " + isDead);
+    }
+    public void AnimEventDestroySelf() {
+        Destroy(gameObject);
     }
 }

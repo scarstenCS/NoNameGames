@@ -21,7 +21,7 @@ MonoBehaviour:
     text: What's this?
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
-    text: "Isn\u2019t this sam\u2019s boomerang\u2026? I haven\u2019t seen this in
+    text: "Isn\u2019t this Sam\u2019s boomerang\u2026? I haven\u2019t seen this in
       years. I\u2019ll have to give it back once I find him."
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie

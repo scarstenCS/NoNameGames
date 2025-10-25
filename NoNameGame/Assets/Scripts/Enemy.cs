@@ -92,8 +92,6 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
         }
         isDead = true;
-
-        UnityEngine.Debug.Log("isDead: " + isDead);
     }
     public void AnimEventDestroySelf() {
         Destroy(gameObject);

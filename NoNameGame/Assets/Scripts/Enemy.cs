@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private SpriteRenderer sr;
     public int hp = 1;
     public int atk = 1;
-    private SpriteRenderer sr;
     public string attackTag = "PlayerAttack";
 
     public GameObject player;
@@ -16,35 +16,41 @@ public class Enemy : MonoBehaviour
     public float cooldown = 1.5f;
     public float _lastAtkTime;
     private Rigidbody2D rb;
+    Animator animator;
+    public Animation idle;
+    private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
-        sr = GetComponent<SpriteRenderer>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
+        animator.SetBool("Dead", false);
+        animator.SetFloat("WalkSpeed", 1f + speed/1.5f);
     }
 
     void Awake()
     {
-        float multiplier = Random.Range(0f, 1f);
+        float multiplier = Random.Range(0f, 1.5f);
         speed += multiplier * 2;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hp <= 0)
-        {
-            Destroy(gameObject);
-            WaveManager.enemiesLeft--;
+        if (isDead) return;
 
-        }
-        Vector3 move = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
-        transform.position += move;
-        sr.flipX = move.x > 0;
+        if (hp <= 0 && !isDead) Die(); 
+        
+        Vector3 change = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        transform.position += change;
+        sr.flipX = change.x >= 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
 
@@ -59,7 +65,37 @@ public class Enemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-            hp-=proj.Damage;
+            hp -= proj.Damage;
         }
+    }
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        GameObject other = coll.collider.gameObject;
+        if (other.tag == "Player")
+        {
+            animator.SetTrigger("Punch");
+        }
+    }
+    private void Punch()
+    {
+        int dmg = atk;
+        GameManager.PlayerTakeDamage(dmg);
+        AudioManager.SfxPlayerHit();
+        animator.ResetTrigger("Punch");
+    }
+    private void Die()
+    {
+        WaveManager.enemiesLeft--;
+
+        if (!isDead)
+        {
+            animator.SetBool("Dead", true);
+        }
+        isDead = true;
+
+        UnityEngine.Debug.Log("isDead: " + isDead);
+    }
+    public void AnimEventDestroySelf() {
+        Destroy(gameObject);
     }
 }

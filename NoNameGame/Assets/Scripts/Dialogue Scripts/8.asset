@@ -15,14 +15,14 @@ MonoBehaviour:
   lines:
   - speaker: ???
     text: "It\u2019s all too much\u2026online or not.\n"
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
   - speaker: Charlie
     text: "I don\u2019t think he can hear me. This app is dangerous, I need to find
       him quickly and get out of here! He doesn\u2019t sound like himself. "
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: ???
     text: "Why didn\u2019t he come visit?"
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
   - speaker: Charlie
     text: "\u2026"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}

@@ -15,11 +15,11 @@ MonoBehaviour:
   lines:
   - speaker: ???
     text: "\u2026I was trying\u2026"
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: Sam, is that you? Can you hear me?
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: ...
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   pausesCombat: 1

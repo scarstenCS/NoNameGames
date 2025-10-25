@@ -15,13 +15,13 @@ MonoBehaviour:
   lines:
   - speaker: ???
     text: "\u2026leave\u2026.e\u2026.alone"
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: "Who said that? Who\u2019s there?"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "Your\u2026 fault\u2026"
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: What??
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}

@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sr;
     public int hp = 1;
     public int atk = 1;
-    private SpriteRenderer sr;
     public string attackTag = "PlayerAttack";
 
     public GameObject player;
@@ -24,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
-        sr = GetComponent<SpriteRenderer>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
         animator.SetBool("isWalking", true);
     }
 

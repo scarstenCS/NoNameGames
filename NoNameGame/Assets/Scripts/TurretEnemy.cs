@@ -30,10 +30,8 @@ public class TurretEnemy : MonoBehaviour
         playerPos = player.GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        if (animator == null) { Debug.LogError("TurretEnemy: Animator missing."); enabled = false; return; }
         animator.SetBool("Dead", false);
         //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
-
     }
 
     void Update()
@@ -123,13 +121,10 @@ public class TurretEnemy : MonoBehaviour
     private void Die()
     {
         WaveManager.enemiesLeft--;
-        UnityEngine.Debug.Log("isDead before: " + isDead);
         if (!isDead)
         {
             animator.SetBool("Dead", true);
         }
         isDead = true;
-        UnityEngine.Debug.Log("TurretEnemy died.");
-        UnityEngine.Debug.Log("isDead: " + isDead);
     }
 }

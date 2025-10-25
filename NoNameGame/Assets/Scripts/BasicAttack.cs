@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 //using System.Numerics;
@@ -120,8 +120,6 @@ public class BasicAttack : MonoBehaviour
         inAir += shotsThisPress;         // <— increment active count ON THE LAUNCHER
 
         AudioManager.SfxPlayerAttack();
-        UnityEngine.Debug.Log($"Fired {shotsThisPress}. In-air now {inAir}/{numberOfProjectiles}.");
-        
     }
     private void OnEnable()
     {
@@ -172,38 +170,12 @@ public class BasicAttack : MonoBehaviour
                     if (launcher != null)
                     {
                         launcher.inAir = Mathf.Max(0, launcher.inAir - 1);
-                        // optional: Debug.Log($"Returned. In-air now {launcher.inAir}/{launcher.numberOfProjectiles}");
                     }
                     Destroy(gameObject);
                 }
                 break;
         }
     }
-
-        // switch (atkStage)
-        // {
-
-        //     case 0:
-        //         origin = transform.position;
-        //         pierce = maxPierce;
-        //         break;
-        //     case 1:
-        //         projectileT.position += transform.right * projectileSpeed * Time.deltaTime;
-        //         if (originDir.magnitude >= projectileMaxDistance)
-        //         {
-        //             atkStage++;
-        //         }
-        //         break;
-        //     case 2:
-        //         rbProjectile.rotation = Mathf.Atan2(playerDir.y, playerDir.x);
-        //         projectileT.position -= transform.right * projectileSpeed * Time.deltaTime;
-        //         if (playerDir.magnitude <= 0.5)
-        //         {
-        //             projectileT.position = playerT.position;
-        //             atkStage = 0;
-        //         }
-        //         break;
-        // }
 }
         
     

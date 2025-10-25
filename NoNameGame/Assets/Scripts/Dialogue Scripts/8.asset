@@ -17,8 +17,8 @@ MonoBehaviour:
     text: "It\u2019s all too much\u2026"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
-    text: "I don\u2019t think he can hear me. This app is terrible, I need to find
-      him quickly and get out of here."
+    text: "I don\u2019t think he can hear me. This app is dangerous, I need to find
+      him quickly and get out of here! He doesn\u2019t sound like himself. "
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: ???
     text: "Why didn\u2019t he come visit?"
@@ -26,4 +26,11 @@ MonoBehaviour:
   - speaker: Charlie
     text: "\u2026"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
+  - speaker: Charlie
+    text: 'Is he talking about me? '
+    portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
+  - speaker: Charlie
+    text: "Sam! If you can hear me, we need to get out of here now! These things
+      are dangerous! \r"
+    portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
   pausesCombat: 1

@@ -123,6 +123,7 @@ public class TurretEnemy : MonoBehaviour
     private void Die()
     {
         WaveManager.enemiesLeft--;
+        UnityEngine.Debug.Log("isDead before: " + isDead);
         if (!isDead)
         {
             animator.SetBool("Dead", true);

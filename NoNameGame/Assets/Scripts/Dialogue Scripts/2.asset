@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   lines:
+  - speaker: Charlie
+    text: "This app must be seriously glitched for all of this to be happening! \r\n"
+    portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
+  - speaker: Charlie
+    text: Could Sam be stuck in the app?!
+    portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
   - speaker: ???
     text: "\u2026leave\u2026.e\u2026.alone"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
-    text: "Who said that? Who\u2019s there?"
+    text: "Who said that? Who\u2019s there?\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "Your\u2026 fault\u2026"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
-    text: What??
+    text: What??!
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   pausesCombat: 1

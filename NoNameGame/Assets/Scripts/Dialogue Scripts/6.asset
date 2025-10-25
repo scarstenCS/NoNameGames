@@ -20,7 +20,7 @@ MonoBehaviour:
     text: "\u2026I can\u2019t do anything\u2026"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: ???
-    text: "Stupid\u2026"
+    text: "Stupid\u2026 why am I like this? Is there something wrong with me?"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: "Sam! Where are you! What are you talking about?!\r"

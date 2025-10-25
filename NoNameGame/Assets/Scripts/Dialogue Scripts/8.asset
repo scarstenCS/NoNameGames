@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: ???
-    text: "It\u2019s all too much\u2026"
+    text: " It\u2019s all too much\u2026 online or not. The way everyone looks at
+      me\u2026 mom and dad\u2026\r"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: "I don\u2019t think he can hear me. This app is dangerous, I need to find
       him quickly and get out of here! He doesn\u2019t sound like himself. "
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: ???
-    text: "Why didn\u2019t he come visit?"
+    text: "Why didn\u2019t he come visit? Is it something I did? Maybe if I had been
+      better\u2026 I wish I weren\u2019t so stupid, maybe then I could understand."
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
     text: "\u2026"

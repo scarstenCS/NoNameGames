@@ -14,15 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Charlie
-    text: Why would Sam be in this place..?
+    text: "A parking lot? Why would Sam post a picture in this place..?\r"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
-    text: "Hopefully there\u2019s some sort of clue that I can use\u2026"
+    text: " Hopefully there\u2019s some sort of clue that I can use\u2026 "
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+  - speaker: Charlie
+    text: "It seems like he used to post a lot, then it dwindled down with this being
+      one of the last areas he was in. \r"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
-    text: ...
+    text: "I don\u2019t think many people have entered the post besides me.\r"
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+  - speaker: Charlie
+    text: "\u2026"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
   - speaker: Charlie
-    text: "Ugh! There\u2019s more of those things?!"
+    text: "I hope he\u2019s safe\u2026"
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+  - speaker: Charlie
+    text: "Ugh! There\u2019s more of those things? Where are they coming from?!\r"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
   pausesCombat: 1

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Charlie
-    text: Sam!! Can you hear me now??
+    text: "Sam!! Can you hear me now? I don\u2019t see any more of those robot things\u2026"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "It doesn\u2019t matter anymore."
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
   - speaker: Charlie
-    text: What is he talking about!?
+    text: What are you talking about!?
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
   - speaker: ???
     text: "What did you come back here for? Did you just want to rub it in my face,

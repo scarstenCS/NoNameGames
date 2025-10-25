@@ -23,6 +23,9 @@ MonoBehaviour:
     text: "Stupid\u2026"
     portrait: {fileID: 0}
   - speaker: Charlie
-    text: "These things won\u2019t stop showing up, ugh! Sam! Where are you!"
+    text: "Sam! Where are you! What are you talking about?!\r"
+    portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
+  - speaker: Charlie
+    text: "There\u2019s more monsters?! I can\u2019t catch a break!"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
   pausesCombat: 1

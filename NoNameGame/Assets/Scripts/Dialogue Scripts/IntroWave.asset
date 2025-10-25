@@ -22,10 +22,10 @@ MonoBehaviour:
   - speaker: Charlie
     text: "It seems like he used to post a lot, then it dwindled down with this being
       one of the last areas he was in. \r"
-    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
+    portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
   - speaker: Charlie
     text: "I don\u2019t think many people have entered the post besides me.\r"
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
   - speaker: Charlie
     text: "\u2026"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}

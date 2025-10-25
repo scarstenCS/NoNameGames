@@ -3514,7 +3514,7 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   waves:
   - numRunner: 0
-    numTurret: 2
+    numTurret: 0
     boss: 0
     upgradeInWave: 0
   - numRunner: 1

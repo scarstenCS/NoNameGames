@@ -2885,7 +2885,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1845
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -8529,6 +8529,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3096818584581831865}
   m_PrefabAsset: {fileID: 0}
+--- !u!222 &2024047386
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024047383}
+  m_CullTransparentMesh: 0
 --- !u!1 &2028002147
 GameObject:
   m_ObjectHideFlags: 0
@@ -10692,6 +10700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168378482321470703, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5168378482321470703, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}

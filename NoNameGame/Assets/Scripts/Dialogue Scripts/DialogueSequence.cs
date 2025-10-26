@@ -10,6 +10,7 @@ public class DialogueSequence : ScriptableObject
         public string speaker;
         [TextArea(2, 5)] public string text;
         public Sprite portrait; 
+        public AudioClip voiceClip;
     }
     public Line[] lines;
     public bool pausesCombat = true; // Possibly pause combat during dialogue

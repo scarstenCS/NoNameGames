@@ -16,35 +16,45 @@ MonoBehaviour:
   - speaker: Charlie
     text: "Sam!! Can you hear me now? I don\u2019t see any more of those robot things\u2026"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   - speaker: ???
     text: "It doesn\u2019t matter anymore."
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: What are you talking about!?
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: ???
     text: What did you come back here for?
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: ???
     text: " Did you just want to rub it in my face, that you\u2019re doing just fine
       and your life is so much better now\u2014 while I\u2019m stuck here, stupid
       as ever?\r\n"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: 'Huh? What!? No! '
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   - speaker: ???
     text: You and everyone else have never understood me.
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: ???
     text: "No one cared when I was around before, so why come looking now? Is seeing
       me struggle through the screen not enough for you, so you didn\u2019t come
       in person, is that it?"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: ???
     text: " You, and everyone else\u2026"
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: ???
     text: Just leave me alone.
     portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   pausesCombat: 1

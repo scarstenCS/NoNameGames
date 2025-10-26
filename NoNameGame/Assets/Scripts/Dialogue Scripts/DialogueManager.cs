@@ -46,13 +46,28 @@ public class DialogueManager : MonoBehaviour
         }
         var line = seq.lines[index]; // Get current line
         ui.Render(line.speaker, line.text, line.portrait);  // Render line in UI
-        if (line.voiceClip) AudioSource.PlayClipAtPoint(line.voiceClip, Camera.main.transform.position);
+        // reuse a single AudioSource on this GameObject to avoid overlapping voices
+        if (line.voiceClip)
+        {
+            var src = GetComponent<AudioSource>();
+            if (src == null) src = gameObject.AddComponent<AudioSource>();
+            src.spatialBlend = 0f; // make it 2D (so it isn't positioned in world space)
+            src.loop = false;
+            src.Stop();
+            src.clip = line.voiceClip;
+            src.Play();
+        }
     }
 
     void EndSequence()
     {
         active = false;
         if (ui) ui.Show(false); // Hide dialogue UI
+        var src = GetComponent<AudioSource>();
+        if (src == null) src = gameObject.AddComponent<AudioSource>();
+        src.spatialBlend = 0f; // make it 2D (so it isn't positioned in world space)
+        src.loop = false;
+        src.Stop();
         SetCombatEnabled(true);
         Time.timeScale = 1f;
         seq = null;

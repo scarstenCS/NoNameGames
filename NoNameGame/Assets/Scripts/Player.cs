@@ -169,7 +169,12 @@ public class Player : MonoBehaviour
         if (amount <= 0) return;
         health = Mathf.Max(0, health - amount);
         HealthChanged?.Invoke(health, MaxHealth);
-        if (health == 0) animator.SetBool("Dead", true);
+        if (health == 0 && !isDead)
+        {
+            isDead = true;
+            AudioManager.SfxPlayerDeath();
+            animator.SetBool("Dead", true);
+        } 
     }
     /// <summary>
     /// heals the player

@@ -355,6 +355,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d3f5fae93dc45ea4e8c3708acc34ff3c, type: 3}
   enemy2Spawn:
   - {fileID: 8300000, guid: b8162dc975b35434d8a17837defe117e, type: 3}
+  enemy1Death:
+  - {fileID: 8300000, guid: 0745132e1abf5c947955a1bd4cec746e, type: 3}
+  enemy2Death:
+  - {fileID: 8300000, guid: ddac9c7ea4b8e1d45a4b2e2f1bdadbe2, type: 3}
+  playerDeath:
+  - {fileID: 8300000, guid: fe22e66b6d131d048ae05ac76338c35b, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:

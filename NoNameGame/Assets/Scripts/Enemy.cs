@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        float multiplier = Random.Range(0f, 1.5f);
+        float multiplier = Random.Range(0f, 1.25f);
         speed += multiplier * 2;
         
     }

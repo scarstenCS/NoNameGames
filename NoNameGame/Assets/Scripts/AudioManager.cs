@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 // https://www.youtube.com/watch?v=DU7cgVsU2rM
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit;
+    public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn;
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
@@ -48,10 +48,21 @@ public class AudioManager : MonoBehaviour
     {
         Instance.PlaySound(Instance.enemy1Hit);
     }
-
+    static public void SfxEnemy1Spawn()
+    {
+        Instance.PlaySound(Instance.enemy1Spawn);
+    }
     static public void SfxEnemy2Hit()
     {
         Instance.PlaySound(Instance.enemy2Hit);
+    }
+    static public void SfxEnemy2Spawn()
+    {
+        Instance.PlaySound(Instance.enemy2Spawn);
+    }
+    static public void SfxTurretShoot()
+    {
+        Instance.PlaySound(Instance.turretShoot);
     }
 
     static public void SfxPlayerHit()

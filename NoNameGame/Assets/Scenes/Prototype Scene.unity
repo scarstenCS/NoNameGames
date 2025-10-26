@@ -342,6 +342,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f787c9dcb782eed41a1a7a6bc309b9e2, type: 3}
   - {fileID: 8300000, guid: 96b90bc1553535d4aba5d65c8f0cbce4, type: 3}
   - {fileID: 8300000, guid: db864149df7019b458a9f20b350907fa, type: 3}
+  turretShoot:
+  - {fileID: 8300000, guid: 585bd0a1e0fbf8f4fb5e0079eeab8227, type: 3}
+  - {fileID: 8300000, guid: 2751e6e68149a904e9b3fbaf98dd0c76, type: 3}
+  - {fileID: 8300000, guid: ab42f92e1c4211e4ab13037ac336b61e, type: 3}
+  - {fileID: 8300000, guid: 45b62ee94b7de1b468c43bb0365d00d5, type: 3}
+  - {fileID: 8300000, guid: 5835aef87a93b474bb0b571a5b27f858, type: 3}
+  - {fileID: 8300000, guid: c194a60613e75a74c9d6e3e3795f2657, type: 3}
+  - {fileID: 8300000, guid: 3fd41b472f0d9084aafab87e581b7a16, type: 3}
+  - {fileID: 8300000, guid: 2e4101b3d73dd5b418b44df8c3f094e2, type: 3}
+  enemy1Spawn:
+  - {fileID: 8300000, guid: d3f5fae93dc45ea4e8c3708acc34ff3c, type: 3}
+  enemy2Spawn:
+  - {fileID: 8300000, guid: b8162dc975b35434d8a17837defe117e, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:

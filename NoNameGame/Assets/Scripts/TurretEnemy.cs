@@ -25,6 +25,7 @@ public class TurretEnemy : MonoBehaviour
 
     void Start()
     {
+        AudioManager.SfxEnemy2Spawn();
         _nextShootTime = Time.time + shootCooldown;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
@@ -80,21 +81,7 @@ public class TurretEnemy : MonoBehaviour
         tb.speed = bulletSpeed;
         tb.lifetime = bulletLifetime;
         tb.damage = bulletDamage;
-        // if (go.TryGetComponent<TurretBullet>(out var tb)) {
-        //     tb.initialDirection = dir;
-        //     tb.speed = bulletSpeed;
-        //     tb.lifetime = bulletLifetime;
-        //     tb.damage = bulletDamage;
-        // } else if (go.TryGetComponent<Rigidbody2D>(out var rb)) {
-        //     rb.velocity = dir * bulletSpeed;
-        //     Destroy(go, bulletLifetime);
-        // }
-
-        // // avoid instant self-hit
-        // if (TryGetComponent<Collider2D>(out var turretCol) &&
-        //     go.TryGetComponent<Collider2D>(out var bulletCol)) {
-        //     Physics2D.IgnoreCollision(turretCol, bulletCol, true);
-        // }
+        AudioManager.SfxTurretShoot();
     }
 
 

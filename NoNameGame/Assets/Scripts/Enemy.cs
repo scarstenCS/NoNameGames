@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.SfxEnemy1Spawn();
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();

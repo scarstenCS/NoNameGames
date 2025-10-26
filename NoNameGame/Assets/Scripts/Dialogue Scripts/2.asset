@@ -16,7 +16,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: "This app must be seriously glitched for all of this to be happening! \r\n"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   - speaker: Charlie
     text: Could Sam be stuck in the app?!
     portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
@@ -36,5 +36,5 @@ MonoBehaviour:
   - speaker: Charlie
     text: What??!
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   pausesCombat: 1

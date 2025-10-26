@@ -110,6 +110,7 @@ public class TurretEnemy : MonoBehaviour
         WaveManager.enemiesLeft--;
         if (!isDead)
         {
+            AudioManager.SfxEnemy2Death();
             animator.SetBool("Dead", true);
         }
         isDead = true;

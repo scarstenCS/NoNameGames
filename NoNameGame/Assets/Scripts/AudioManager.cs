@@ -70,10 +70,6 @@ public class AudioManager : MonoBehaviour
     {
         Instance.PlaySound(Instance.playerHit);
     }
-    static public void SfxPlayerDeath()
-    {
-        Instance.PlaySound(Instance.playerDeath, 1f);
-    }
     static public void SfxEnemy2Death()
     {
         Instance.PlaySound(Instance.enemy2Death, 1.25f);

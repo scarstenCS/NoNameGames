@@ -9,6 +9,9 @@ using UnityEngine;
         public int numTurret;
         public bool boss;
         public bool upgradeInWave;
+        public float spawnrate;
+        public int hpIncrease;
+        public int dmgIncrease;
     }
 public class WaveManager : MonoBehaviour
 {
@@ -23,7 +26,6 @@ public class WaveManager : MonoBehaviour
     public Camera mainCamera;
     public GameObject player;
     private static WaitForSeconds wait;
-    public static float spawnrate;
     public static int maxEnemies;
     public static int enemiesLeft;
     public static int runnerCount;
@@ -41,7 +43,6 @@ public class WaveManager : MonoBehaviour
         _waveDoneText = waveDoneText;
         _waveCount = 0;
         mainCamera = Camera.main;
-        spawnrate = 1.5f;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
         enemiesLeft = maxEnemies;
         runnerCount = 0;
@@ -116,14 +117,20 @@ public class WaveManager : MonoBehaviour
             positions.Add(fallback);
         }
         GameObject e = Instantiate(enemyPrefab, positions[Random.Range(0, positions.Count)], Quaternion.identity);
-        e.GetComponent<Enemy>().player = player;
+        Enemy enemy = e.GetComponent<Enemy>();
+        enemy.player = player;
+        enemy.hp += waves[_waveCount].hpIncrease;
+        enemy.atk += waves[_waveCount].dmgIncrease;
         runnerCount++;
     }
     public void SpawnTurret()
     {
         GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
-        e.GetComponent<TurretEnemy>().player = player;
-        e.GetComponent<TurretEnemy>().bulletPrefab = tBulletPrefab;
+        TurretEnemy t = e.GetComponent<TurretEnemy>();
+        t.player = player;
+        t.bulletPrefab = tBulletPrefab;
+        t.hp += waves[_waveCount].hpIncrease;
+        t.atk += waves[_waveCount].dmgIncrease;
         turretCount++;
     }
     public IEnumerator Phase()
@@ -132,7 +139,7 @@ public class WaveManager : MonoBehaviour
         {
             while (runnerCount + turretCount < maxEnemies)
             {
-                yield return new WaitForSeconds(spawnrate);
+                yield return new WaitForSeconds(waves[_waveCount].spawnrate);
                 Spawn();
             }
             // wait 5 secs once all enemies dead

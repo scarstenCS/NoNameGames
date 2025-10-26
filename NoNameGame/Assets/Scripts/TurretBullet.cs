@@ -63,9 +63,5 @@ public class TurretBullet : MonoBehaviour
                 proj.pierce -= 1;
             }
         }
-        else if (other.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
     }
 }

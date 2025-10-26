@@ -6,7 +6,6 @@ TagManager:
   tags:
   - PlayerAttack
   - Bullet
-  - Enemy1
   - Enemy
   layers:
   - Default

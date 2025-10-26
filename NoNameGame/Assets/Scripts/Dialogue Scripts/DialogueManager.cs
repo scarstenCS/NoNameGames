@@ -63,6 +63,11 @@ public class DialogueManager : MonoBehaviour
     {
         active = false;
         if (ui) ui.Show(false); // Hide dialogue UI
+        var src = GetComponent<AudioSource>();
+        if (src == null) src = gameObject.AddComponent<AudioSource>();
+        src.spatialBlend = 0f; // make it 2D (so it isn't positioned in world space)
+        src.loop = false;
+        src.Stop();
         SetCombatEnabled(true);
         Time.timeScale = 1f;
         seq = null;

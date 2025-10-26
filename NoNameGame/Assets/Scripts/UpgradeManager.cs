@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
     private UpgradeValues defaults = new UpgradeValues
     {
         healthIncrease = 5,
-        weaponDamageIncrease = 2,
+        weaponDamageIncrease = 1,
         weaponDistanceIncrease = 3f,
         weaponSpeedIncrease = 1.25f,
         playerSpeedIncrease = 1.25f,

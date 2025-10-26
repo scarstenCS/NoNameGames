@@ -33,7 +33,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: "\u2026"
     portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 0}
   - speaker: Charlie
     text: "I hope he\u2019s safe\u2026"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
@@ -41,5 +41,5 @@ MonoBehaviour:
   - speaker: Charlie
     text: "Ugh! There\u2019s more of those things? Where are they coming from?!\r"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
-    voiceClip: {fileID: 8300000, guid: 94b13f30c4ebe864088e81f0a41dda93, type: 3}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   pausesCombat: 1

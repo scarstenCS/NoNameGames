@@ -104,7 +104,7 @@ public class TurretEnemy : MonoBehaviour
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
         {
-            AudioManager.SfxEnemyHit();
+            AudioManager.SfxEnemy2Hit();
             if (proj.pierce <= 0)
             {
                 proj.atkStage = 2;

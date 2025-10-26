@@ -326,14 +326,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6098991875031104eb591301c002a3f5, type: 3}
   playerHit:
   - {fileID: 8300000, guid: 500ff3601ac7af54280dce4c413be984, type: 3}
-  enemyHit:
-  - {fileID: 8300000, guid: f4491922fb2bd694d93a8714696c08b2, type: 3}
+  enemy1Hit:
   - {fileID: 8300000, guid: dcd459f33f95a6244a4af4cc8d79d520, type: 3}
   - {fileID: 8300000, guid: c08a8e4a108aa264e9113f32dcec7a1b, type: 3}
   - {fileID: 8300000, guid: 80f4b4d6184fc87479cc5fb9605c40d4, type: 3}
   - {fileID: 8300000, guid: 08590a7367f6a3442a40bc262b948f90, type: 3}
   - {fileID: 8300000, guid: 2f647b4913d1e374fa18d5246783aa28, type: 3}
-  - {fileID: 8300000, guid: c916f392165ae5441b80164836110e8c, type: 3}
+  enemy2Hit:
+  - {fileID: 8300000, guid: 2db59425afc91aa4298eef4742de1d05, type: 3}
+  - {fileID: 8300000, guid: 3248ebe0ace68684fb5ef79f0d434b2b, type: 3}
+  - {fileID: 8300000, guid: f69d61667b8f46e44aefbfa494cc4770, type: 3}
+  - {fileID: 8300000, guid: e6c88b1ddacee034a878b10a3ae1406f, type: 3}
+  - {fileID: 8300000, guid: 99a3ee83d17f1a5478df32c60c252006, type: 3}
+  - {fileID: 8300000, guid: 4cad845979d94be47bdaf5e48c48d490, type: 3}
+  - {fileID: 8300000, guid: f787c9dcb782eed41a1a7a6bc309b9e2, type: 3}
+  - {fileID: 8300000, guid: 96b90bc1553535d4aba5d65c8f0cbce4, type: 3}
+  - {fileID: 8300000, guid: db864149df7019b458a9f20b350907fa, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:

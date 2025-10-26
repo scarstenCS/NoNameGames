@@ -84,6 +84,11 @@ public class AudioManager : MonoBehaviour
         Instance.PlaySound(Instance.enemy1Death, 0.5f);
     }
 
+    static public void SfxPlayerDeath()
+    {
+        Instance.PlaySound(Instance.playerDeath);
+    }
+
 
      public void setMainVol(float value)
     {

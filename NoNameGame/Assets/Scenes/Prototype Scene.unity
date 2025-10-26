@@ -360,7 +360,7 @@ MonoBehaviour:
   enemy2Death:
   - {fileID: 8300000, guid: ddac9c7ea4b8e1d45a4b2e2f1bdadbe2, type: 3}
   playerDeath:
-  - {fileID: 8300000, guid: fe22e66b6d131d048ae05ac76338c35b, type: 3}
+  - {fileID: 8300000, guid: 0c36f823d8deab4448e6cff787e592ea, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:
@@ -3646,8 +3646,8 @@ MonoBehaviour:
     spawnrate: 0
     hpIncrease: 0
     dmgIncrease: 0
-  - numRunner: 1
-    numTurret: 0
+  - numRunner: 0
+    numTurret: 1
     boss: 0
     upgradeInWave: 0
     spawnrate: 1.5

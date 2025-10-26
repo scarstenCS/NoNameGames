@@ -82,7 +82,7 @@ public class AudioManager : MonoBehaviour
 
     static public void SfxPlayerDeath()
     {
-        Instance.PlaySound(Instance.playerDeath);
+        Instance.PlaySound(Instance.playerDeath,5f);
     }
 
 

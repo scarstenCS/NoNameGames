@@ -1618,7 +1618,7 @@ MonoBehaviour:
   sequencesByWave:
   - {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   - {fileID: 11400000, guid: af4ca04d2393c9f46920d58c7c17b591, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}
   - {fileID: 11400000, guid: d897b4baec3052343adce123bb6153cb, type: 2}
   - {fileID: 11400000, guid: 3af65dfd67ee2a645b29db9165ddf944, type: 2}
   - {fileID: 11400000, guid: 86b4190eb8d672d4bacc25c0d4d7ee0f, type: 2}

@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     {
         int idx = Random.Range(0, clip.Length);
         audioSource.clip = clip[idx];
-        audioSource.Play();
+        audioSource.PlayOneShot(audioSource.clip, 1.0f);
     }
 
     static public void SfxPlayerAttack()

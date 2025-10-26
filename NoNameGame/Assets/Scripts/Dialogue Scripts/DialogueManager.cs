@@ -37,6 +37,8 @@ public class DialogueManager : MonoBehaviour
     void Next()
     {
         index++;  // Move to next line
+        //play the audio voice clip associated with this line
+        
         if (seq == null || seq.lines == null || index >= seq.lines.Length)  // Check if sequence is valid
         {
             EndSequence();
@@ -44,6 +46,7 @@ public class DialogueManager : MonoBehaviour
         }
         var line = seq.lines[index]; // Get current line
         ui.Render(line.speaker, line.text, line.portrait);  // Render line in UI
+        if (line.voiceClip) AudioSource.PlayClipAtPoint(line.voiceClip, Camera.main.transform.position);
     }
 
     void EndSequence()

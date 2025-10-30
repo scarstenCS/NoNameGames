@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
     {
         float multiplier = Random.Range(0f, 1.25f);
         speed += multiplier * 2;
-        
     }
 
     // Update is called once per frame
@@ -52,7 +51,15 @@ public class Enemy : MonoBehaviour
         
         Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
         Vector3 futurePos = playerPos.position + inputVec * followSkill * player.GetComponent<Player>().Speed;
-        Vector3 change = Vector3.Normalize(futurePos - transform.position) * Time.deltaTime * speed;
+        Vector3 change;
+        if ((futurePos-transform.position).magnitude <= 5)
+        {
+            change = playerPos.position - transform.position;
+        } else
+        {
+            change = futurePos - transform.position;
+        }
+        change = Vector3.Normalize(change) * Time.deltaTime * speed;
         transform.position += change;
         sr.flipX = change.x >= 0;
     }

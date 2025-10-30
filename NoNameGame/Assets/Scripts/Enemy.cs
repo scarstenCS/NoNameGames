@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public float speed = 3;
     public float cooldown = 1.5f;
     public float _lastAtkTime;
+    private float followSkill;
     private Rigidbody2D rb;
     Animator animator;
     public Animation idle;
@@ -29,7 +30,8 @@ public class Enemy : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
-        animator.SetFloat("WalkSpeed", 1f + speed/1.5f);
+        animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
+        followSkill = Random.Range(0f, 1f);
     }
 
     void Awake()
@@ -46,7 +48,9 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0 && !isDead) Die(); 
         
-        Vector3 change = Vector3.Normalize(playerPos.position - transform.position) * Time.deltaTime * speed;
+        Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
+        Vector3 futurePos = playerPos.position + inputVec * followSkill * player.GetComponent<Player>().Speed;
+        Vector3 change = Vector3.Normalize(futurePos - transform.position) * Time.deltaTime * speed;
         transform.position += change;
         sr.flipX = change.x >= 0;
     }

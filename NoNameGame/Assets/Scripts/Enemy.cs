@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public float cooldown = 1.5f;
     public float _lastAtkTime;
     private float followSkill;
+    public float followL;
+    public float followU;
     private Rigidbody2D rb;
     Animator animator;
     public Animation idle;
@@ -31,7 +33,7 @@ public class Enemy : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
-        followSkill = Random.Range(0f, 1f);
+        followSkill = Random.Range(followL, followU);
     }
 
     void Awake()

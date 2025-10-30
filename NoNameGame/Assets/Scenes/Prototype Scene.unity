@@ -3651,6 +3651,8 @@ MonoBehaviour:
     spawnrate: 0
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0
   - numRunner: 1
     numTurret: 0
     boss: 0
@@ -3658,6 +3660,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0
   - numRunner: 10
     numTurret: 0
     boss: 0
@@ -3665,6 +3669,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0.3
   - numRunner: 12
     numTurret: 3
     boss: 0
@@ -3672,6 +3678,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0.3
   - numRunner: 15
     numTurret: 5
     boss: 0
@@ -3679,6 +3687,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0.4
   - numRunner: 18
     numTurret: 7
     boss: 0
@@ -3686,6 +3696,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
+    followSkillLowerBound: 0
+    followSkillUpperBound: 0.5
   - numRunner: 20
     numTurret: 10
     boss: 0
@@ -3693,6 +3705,8 @@ MonoBehaviour:
     spawnrate: 1.5
     hpIncrease: 1
     dmgIncrease: 0
+    followSkillLowerBound: 0.3
+    followSkillUpperBound: 0.6
   - numRunner: 25
     numTurret: 10
     boss: 0
@@ -3700,6 +3714,8 @@ MonoBehaviour:
     spawnrate: 1.25
     hpIncrease: 1
     dmgIncrease: 1
+    followSkillLowerBound: 0.3
+    followSkillUpperBound: 0.7
   - numRunner: 25
     numTurret: 10
     boss: 0
@@ -3707,6 +3723,8 @@ MonoBehaviour:
     spawnrate: 1.25
     hpIncrease: 2
     dmgIncrease: 1
+    followSkillLowerBound: 0.3
+    followSkillUpperBound: 0.8
   - numRunner: 25
     numTurret: 15
     boss: 0
@@ -3714,6 +3732,8 @@ MonoBehaviour:
     spawnrate: 1.25
     hpIncrease: 2
     dmgIncrease: 1
+    followSkillLowerBound: 0.3
+    followSkillUpperBound: 0.9
   - numRunner: 30
     numTurret: 15
     boss: 0
@@ -3721,6 +3741,8 @@ MonoBehaviour:
     spawnrate: 1.25
     hpIncrease: 2
     dmgIncrease: 2
+    followSkillLowerBound: 0.3
+    followSkillUpperBound: 1
   - numRunner: 33
     numTurret: 17
     boss: 0
@@ -3728,6 +3750,8 @@ MonoBehaviour:
     spawnrate: 1
     hpIncrease: 2
     dmgIncrease: 2
+    followSkillLowerBound: 0.5
+    followSkillUpperBound: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,

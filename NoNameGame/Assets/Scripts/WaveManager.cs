@@ -12,8 +12,8 @@ using UnityEngine;
         public float spawnrate;
         public int hpIncrease;
         public int dmgIncrease;
-        public float followSkillLowerBound;
-        public float followSkillUpperBound;
+        public float skillLowerBound;
+        public float skillUpperBound;
     }
 public class WaveManager : MonoBehaviour
 {
@@ -124,8 +124,8 @@ public class WaveManager : MonoBehaviour
         Wave currWave = waves[_waveCount];
         enemy.hp += currWave.hpIncrease;
         enemy.atk += currWave.dmgIncrease;
-        enemy.followL = currWave.followSkillLowerBound;
-        enemy.followU = currWave.followSkillUpperBound;
+        enemy.followL = currWave.skillLowerBound;
+        enemy.followU = currWave.skillUpperBound;
         runnerCount++;
     }
     public void SpawnTurret()
@@ -134,8 +134,10 @@ public class WaveManager : MonoBehaviour
         TurretEnemy t = e.GetComponent<TurretEnemy>();
         t.player = player;
         t.bulletPrefab = tBulletPrefab;
-        t.hp += waves[_waveCount].hpIncrease;
-        t.atk += waves[_waveCount].dmgIncrease;
+        Wave currWave = waves[_waveCount];
+        t.hp += currWave.hpIncrease;
+        t.atk += currWave.dmgIncrease;
+        t.skill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         turretCount++;
     }
     public IEnumerator Phase()

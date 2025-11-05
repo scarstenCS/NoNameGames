@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-
+    const float drumsVolume = -3f;
 
     [SerializeField] private static AudioSource audioSource;
     [SerializeField] private AudioMixer audioMixer;
@@ -101,4 +101,13 @@ public class AudioManager : MonoBehaviour
         Instance.audioMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20f);
     }
 
+    public void stopDrums()
+    {
+        Instance.audioMixer.SetFloat("drumVolume", -80);
+    }
+    
+    public void startDrums()
+    {
+        Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
+    }
 }

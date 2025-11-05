@@ -147,6 +147,7 @@ public class WaveManager : MonoBehaviour
             // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             if (_waveDoneText) _waveDoneText.SetActive(false);
+            AudioManager.Instance.stopDrums();
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
             if (_waveDoneText) _waveDoneText.SetActive(false);
@@ -167,6 +168,9 @@ public class WaveManager : MonoBehaviour
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
                 p.Heal(p.MaxHealth);
+
+                //!!
+                AudioManager.Instance.startDrums();
             }
         }
         // game done

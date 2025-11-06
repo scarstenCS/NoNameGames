@@ -19,6 +19,7 @@ public class TurretEnemy : MonoBehaviour
     public float bulletSpeed = 7f;
     public float bulletLifetime = 3f;
     public int bulletDamage = 1;
+    public float skill;
 
     private float _nextShootTime;
     private bool isDead = false;
@@ -69,8 +70,10 @@ public class TurretEnemy : MonoBehaviour
 
     void FireOnce()
     {
-        // aiming at playr
-        Vector3 dir = Vector3.Normalize(playerPos.position - transform.position);
+        // aiming ahead of player
+        Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
+        Vector3 futurePos = playerPos.position + inputVec * skill * player.GetComponent<Player>().Speed;
+        Vector3 dir = Vector3.Normalize(futurePos - transform.position);
 
         // bullet spawn position
         Vector3 spawnPos = transform.position + dir;

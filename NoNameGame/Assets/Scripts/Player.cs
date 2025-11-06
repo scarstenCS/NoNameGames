@@ -135,7 +135,6 @@ public class Player : MonoBehaviour
     public GameObject basicAttackObj;
 
     private BasicAttack ba;
-
     Animator animator;
 
     public Animation idle;
@@ -256,14 +255,8 @@ public class Player : MonoBehaviour
         OnDied?.Invoke();
 
     }
-    // private void enemy1Punch()
-    // {
-    //     Enemy enemy = other.GetComponent<Enemy>();
-    //     if (Time.time - enemy._lastAtkTime < enemy.cooldown) return;
-    //         AudioManager.SfxPlayerHit();
-    //         this.TakeDamage(enemy.atk);
-    //         enemy._lastAtkTime = Time.time;
-    // }
-
-
+    public InputAction GetMove()
+    {
+        return move;
+    }
 }

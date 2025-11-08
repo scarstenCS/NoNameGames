@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +8,7 @@ using UnityEngine;
     {
         public int numRunner;
         public int numTurret;
-        public bool boss;
+        public int numBoss;
         public bool upgradeInWave;
         public float spawnrate;
         public int hpIncrease;
@@ -25,6 +26,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject tBulletPrefab;
+    public GameObject bossPrefab;
     public Camera mainCamera;
     public GameObject player;
     private static WaitForSeconds wait;
@@ -32,6 +34,7 @@ public class WaveManager : MonoBehaviour
     public static int enemiesLeft;
     public static int runnerCount;
     public static int turretCount;
+    public static int bossCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
     
@@ -44,11 +47,13 @@ public class WaveManager : MonoBehaviour
     {
         _waveDoneText = waveDoneText;
         _waveCount = 0;
+
         mainCamera = Camera.main;
-        maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
+        maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
         enemiesLeft = maxEnemies;
         runnerCount = 0;
         turretCount = 0;
+        bossCount = 0;
         StartCoroutine(Phase());
     }
 
@@ -65,8 +70,13 @@ public class WaveManager : MonoBehaviour
     public void Spawn()
     {
         float rand = Random.Range(0, 2);
+        if (waves[_waveCount].numBoss > bossCount)
+        {
+            SpawnBoss();
+        }
         if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
         {
+            
             SpawnEnemy();
         }
         else
@@ -140,13 +150,22 @@ public class WaveManager : MonoBehaviour
         t.skill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         turretCount++;
     }
+    public void SpawnBoss()
+    {
+        GameObject b = Instantiate(bossPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
+        BossEnemy bossComponent = b.GetComponent<BossEnemy>();
+        bossComponent.player = player;
+        Wave currWave = waves[_waveCount];
+        bossCount++;
+    }
     public IEnumerator Phase()
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
-            while (runnerCount + turretCount < maxEnemies)
+            while (runnerCount + turretCount + bossCount < maxEnemies)
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
+                UnityEngine.Debug.Log("Spawning Enemy");
                 Spawn();
             }
             // wait 5 secs once all enemies dead
@@ -168,9 +187,10 @@ public class WaveManager : MonoBehaviour
                     yield return new WaitUntil(UpgradeManager.isWindowClosed);
                 }
                 // reset vars for new wave
-                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
+                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
                 runnerCount = 0;
                 turretCount = 0;
+                bossCount = 0;
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
                 p.Heal(p.MaxHealth);

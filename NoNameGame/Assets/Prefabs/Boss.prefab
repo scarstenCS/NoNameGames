@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8972300130489234451}
+  - component: {fileID: 5672500473741149575}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -34,6 +35,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5672500473741149575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015104588219451607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 10
+  atk: 2
+  attackTag: PlayerAttack
+  player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
+  idle: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!1 &8992958714013761843
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,10 +148,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -171,6 +190,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8972300130489234451}
     m_Modifications:
+    - target: {fileID: 1636927650847982229, guid: e665194c42f052b439ad345c647b898f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
     - target: {fileID: 6862735822618058114, guid: e665194c42f052b439ad345c647b898f,
         type: 3}
       propertyPath: m_RootOrder
@@ -263,6 +288,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+    - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
       propertyPath: shootCooldown
       value: 1
       objectReference: {fileID: 0}
@@ -351,6 +382,12 @@ PrefabInstance:
       propertyPath: atk
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletSpeed

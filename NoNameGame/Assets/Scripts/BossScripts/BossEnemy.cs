@@ -13,7 +13,7 @@ public class BossEnemy : MonoBehaviour
     public string attackTag = "PlayerAttack";
 
     public GameObject player;
-    private Transform playerPos;
+    public Transform playerPos;
     private Rigidbody2D rb;
     Animator animator;
     public Animation idle;
@@ -27,10 +27,11 @@ public class BossEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+
         //rb = gameObject.GetComponent<Rigidbody2D>();
         maskEnemies = GetComponentsInChildren<HingeJoint>();
-        UnityEngine.Debug.Log("Start");
-
+        UnityEngine.Debug.Log("maskEnemies Count: " + maskEnemies.Length);
+        CachePlayerPos();
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
@@ -40,6 +41,8 @@ public class BossEnemy : MonoBehaviour
     void Update()
     {
         if (hp <= 0 && !isDead) Die(); 
+
+        if (playerPos == null) CachePlayerPos();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -81,6 +84,10 @@ public class BossEnemy : MonoBehaviour
     public void AnimEventDestroySelf() {
         Destroy(gameObject);
     }
-
+    void CachePlayerPos()
+    {
+        var p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) playerPos = p.transform;
+    }
        
 }

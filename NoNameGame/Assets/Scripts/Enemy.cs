@@ -28,7 +28,11 @@ public class Enemy : MonoBehaviour
     {
         AudioManager.SfxEnemy1Spawn();
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        playerPos = player.GetComponent<Transform>();
+        //Determine if part of boss
+        var boss = GetComponentInParent<BossEnemy>();
+        if (boss != null) playerPos = boss.playerPos;
+        else playerPos = player.GetComponent<Transform>();
+        
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);

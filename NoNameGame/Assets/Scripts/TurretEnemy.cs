@@ -30,7 +30,12 @@ public class TurretEnemy : MonoBehaviour
         AudioManager.SfxEnemy2Spawn();
         _nextShootTime = Time.time + shootCooldown;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        playerPos = player.GetComponent<Transform>();
+        
+        //Determine if part of boss prefab
+        var boss = GetComponentInParent<BossEnemy>();
+        if (boss != null) playerPos = boss.playerPos;
+        else playerPos = player.GetComponent<Transform>();
+
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
@@ -39,8 +44,8 @@ public class TurretEnemy : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return; 
-
+        if (isDead) return;
+        
         if (playerPos != null)
         {
             Vector3 move = Vector3.Normalize(playerPos.position - transform.position);

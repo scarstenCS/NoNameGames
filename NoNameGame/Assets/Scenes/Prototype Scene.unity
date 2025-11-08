@@ -3645,7 +3645,7 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   waves:
   - numRunner: 0
-    numTurret: 0
+    numTurret: 1
     numBoss: 1
     upgradeInWave: 0
     spawnrate: 0
@@ -10933,6 +10933,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5672500473741149575, guid: 8abf0e8fa173ba243b1df0197b782c3a,
+        type: 3}
+      propertyPath: maskEnemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8972300130489234451, guid: 8abf0e8fa173ba243b1df0197b782c3a,
         type: 3}
       propertyPath: m_RootOrder
@@ -10988,7 +10993,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5672500473741149575, guid: 8abf0e8fa173ba243b1df0197b782c3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8abf0e8fa173ba243b1df0197b782c3a, type: 3}
 --- !u!1 &8509289791208246606
 GameObject:

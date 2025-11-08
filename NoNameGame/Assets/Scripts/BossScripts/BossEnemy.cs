@@ -20,6 +20,8 @@ public class BossEnemy : MonoBehaviour
     private bool isDead = false;
     public AudioClip deathClip;
     public Component[] maskEnemies;
+    public Transform targetObject;
+     public float rotationSpeed = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,23 +31,33 @@ public class BossEnemy : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
 
         //rb = gameObject.GetComponent<Rigidbody2D>();
-        maskEnemies = GetComponentsInChildren<HingeJoint>();
+        maskEnemies = GetComponentsInChildren<TurretEnemy>();
         UnityEngine.Debug.Log("maskEnemies Count: " + maskEnemies.Length);
         CachePlayerPos();
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (hp <= 0 && !isDead) Die(); 
+        // Update is called once per frame
+        void Update()
+        {
+        if (hp <= 0 && !isDead) Die();
 
         if (playerPos == null) CachePlayerPos();
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+        if (maskEnemies.Length > 0)
+        {
+            foreach (TurretEnemy turret in maskEnemies)
+            {
+            if (turret != null)
+            {
+                turret.transform.RotateAround(transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+            }
+            }
+        }
+        }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
         UnityEngine.Debug.Log("GotHurt");
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();

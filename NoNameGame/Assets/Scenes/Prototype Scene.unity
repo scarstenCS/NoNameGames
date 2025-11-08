@@ -3644,18 +3644,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
-    boss: 1
+    numBoss: 1
     upgradeInWave: 0
     spawnrate: 0
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
-    boss: 0
+    numBoss: 0
     upgradeInWave: 0
     spawnrate: 1.5
     hpIncrease: 0
@@ -3664,7 +3664,7 @@ MonoBehaviour:
     skillUpperBound: 0
   - numRunner: 10
     numTurret: 0
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
@@ -3673,7 +3673,7 @@ MonoBehaviour:
     skillUpperBound: 0.3
   - numRunner: 12
     numTurret: 3
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
@@ -3682,7 +3682,7 @@ MonoBehaviour:
     skillUpperBound: 0.4
   - numRunner: 15
     numTurret: 5
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
@@ -3691,7 +3691,7 @@ MonoBehaviour:
     skillUpperBound: 0.5
   - numRunner: 18
     numTurret: 7
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
@@ -3700,7 +3700,7 @@ MonoBehaviour:
     skillUpperBound: 0.6
   - numRunner: 20
     numTurret: 10
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 1
@@ -3709,7 +3709,7 @@ MonoBehaviour:
     skillUpperBound: 0.7
   - numRunner: 25
     numTurret: 10
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.25
     hpIncrease: 1
@@ -3718,7 +3718,7 @@ MonoBehaviour:
     skillUpperBound: 0.8
   - numRunner: 25
     numTurret: 10
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.25
     hpIncrease: 2
@@ -3727,7 +3727,7 @@ MonoBehaviour:
     skillUpperBound: 0.9
   - numRunner: 25
     numTurret: 15
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.25
     hpIncrease: 2
@@ -3736,7 +3736,7 @@ MonoBehaviour:
     skillUpperBound: 1
   - numRunner: 30
     numTurret: 15
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.25
     hpIncrease: 2
@@ -3745,7 +3745,7 @@ MonoBehaviour:
     skillUpperBound: 1
   - numRunner: 33
     numTurret: 17
-    boss: 0
+    numBoss: 0
     upgradeInWave: 1
     spawnrate: 1
     hpIncrease: 2

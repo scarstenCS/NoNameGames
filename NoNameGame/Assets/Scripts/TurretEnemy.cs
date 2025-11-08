@@ -23,6 +23,7 @@ public class TurretEnemy : MonoBehaviour
 
     private float _nextShootTime;
     private bool isDead = false;
+    public GameObject isPartOfBoss;
 
     void Start()
     {
@@ -110,12 +111,18 @@ public class TurretEnemy : MonoBehaviour
     
     private void Die()
     {
-        WaveManager.enemiesLeft--;
-        if (!isDead)
+        if (isDead) return;
+
+        bool isBossTurret = GetComponentInParent<BossEnemy>() != null;
+
+        if (!isBossTurret)
         {
-            AudioManager.SfxEnemy2Death();
-            animator.SetBool("Dead", true);
+            // Only standalone turrets affect the wave counter
+            WaveManager.enemiesLeft--;
         }
+
+        AudioManager.SfxEnemy2Death();
+        animator.SetBool("Dead", true);
         isDead = true;
     }
 }

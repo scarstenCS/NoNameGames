@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8972300130489234451}
   - component: {fileID: 5672500473741149575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 3
   atk: 2
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
   idle: {fileID: 0}
   deathClip: {fileID: 0}
+  maskEnemies:
+  - {fileID: 748269104944531827}
+  - {fileID: 1023102288911277734}
+  - {fileID: 6321746078651073951}
 --- !u!1 &8992958714013761843
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,9 +69,10 @@ GameObject:
   - component: {fileID: 325234954892422157}
   - component: {fileID: 5179121618703256764}
   - component: {fileID: 1476470873482443689}
-  m_Layer: 0
+  - component: {fileID: 817578162063440855}
+  m_Layer: 10
   m_Name: Boss Center
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +188,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
+--- !u!114 &817578162063440855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992958714013761843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
+  atk: 1
+  attackTag: PlayerAttack
+  player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
+  idle: {fileID: 0}
+  deathClip: {fileID: 0}
+  maskEnemies: []
 --- !u!1001 &614195228144310301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,7 +298,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -375,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 30
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}

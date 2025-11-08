@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Diagnostics;
 
+//using System.ComponentModel;
+using System.Runtime.Serialization;
+using UnityEngine;
 public class BossEnemy : MonoBehaviour
 {
     private SpriteRenderer sr;
-    public int hp = 1;
+    public int hp = 10;
     public int atk = 1;
     public string attackTag = "PlayerAttack";
 
@@ -16,6 +19,7 @@ public class BossEnemy : MonoBehaviour
     public Animation idle;
     private bool isDead = false;
     public AudioClip deathClip;
+    public Component[] maskEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,10 @@ public class BossEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        //rb = gameObject.GetComponent<Rigidbody2D>();
+        maskEnemies = GetComponentsInChildren<HingeJoint>();
+        UnityEngine.Debug.Log("Start");
+
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
@@ -31,10 +39,11 @@ public class BossEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (hp <= 0 && !isDead) Die(); 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        UnityEngine.Debug.Log("GotHurt");
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
@@ -48,9 +57,29 @@ public class BossEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
+
             hp -= proj.Damage;
+            UnityEngine.Debug.Log("hp is: " + hp);
 
         }
+    }
+    private void Die()
+    {
+        if (isDead) return;
+
+        WaveManager.enemiesLeft--;
+        //AudioManager.SfxEnemy2Death();
+        //animator.SetBool("Dead", true);
+        isDead = true;
+        GameObject foo;
+        foo=transform.parent.gameObject;
+        transform.parent=null;
+        Destroy(foo);
+        //TODO: Let animation do this
+        AnimEventDestroySelf();
+    }
+    public void AnimEventDestroySelf() {
+        Destroy(gameObject);
     }
 
        

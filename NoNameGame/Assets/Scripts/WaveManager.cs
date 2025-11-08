@@ -72,11 +72,13 @@ public class WaveManager : MonoBehaviour
         float rand = Random.Range(0, 2);
         if (waves[_waveCount].numBoss > bossCount)
         {
+
             SpawnBoss();
         }
-        if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
+        
+        else if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
         {
-            
+
             SpawnEnemy();
         }
         else
@@ -86,6 +88,7 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnEnemy()
     {
+
         List<Vector3> positions = new List<Vector3>();
         if (player.transform.position.x > GameManager.minX + 1 && player.transform.position.x < GameManager.maxX - 1)
         {
@@ -152,6 +155,7 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnBoss()
     {
+        
         GameObject b = Instantiate(bossPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
         BossEnemy bossComponent = b.GetComponent<BossEnemy>();
         bossComponent.player = player;
@@ -165,7 +169,6 @@ public class WaveManager : MonoBehaviour
             while (runnerCount + turretCount + bossCount < maxEnemies)
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
-                UnityEngine.Debug.Log("Spawning Enemy");
                 Spawn();
             }
             // wait 5 secs once all enemies dead

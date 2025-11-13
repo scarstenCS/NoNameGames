@@ -76,7 +76,7 @@ public class UserInterface : MonoBehaviour
             }
         }
 
-        healthText.text = $"Health: {current} / {max}";
+        healthText.text = $"{current}";
     }
 
     public void SetEnemiesLeft(int count)

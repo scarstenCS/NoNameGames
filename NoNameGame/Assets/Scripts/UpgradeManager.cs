@@ -103,7 +103,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Max Health",
-            description = "Increases your maximum health by " + d.healthIncrease + " points.",
+            description = "+" + d.healthIncrease + " HP",
             icon = Resources.Load<Sprite>("Images/heart-plus"),
             applyUpgrade = () => IncreaseMaxHealth(d.healthIncrease)
         });
@@ -111,7 +111,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Weapon Damage",
-            description = "Increases your basic weapon damage by " + d.weaponDamageIncrease + " points.",
+            description = "+" + d.weaponDamageIncrease + " ATK",
             icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyUpgrade = () => IncreaseWeaponDamage(d.weaponDamageIncrease)
         });
@@ -119,7 +119,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Weapon Distance",
-            description = "Increases your basic weapon distance by " + d.weaponDistanceIncrease + " feet.",
+            description = "+" + d.weaponDistanceIncrease + " Range",
             icon = Resources.Load<Sprite>("Images/arrow-dunk"),
             applyUpgrade = () => IncreaseWeaponDistance(d.weaponDistanceIncrease)
         });
@@ -127,7 +127,7 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {   
             optionName = "Increase Weapon Speed",
-            description = "Increases your basic weapon speed by " + (d.weaponSpeedIncrease-1)*100 + " %.",
+            description = "+" + (d.weaponSpeedIncrease-1)*100 + "% ATK SPD",
             icon = Resources.Load<Sprite>("Images/supersonic-bullet"),
             applyUpgrade = () => IncreaseWeaponSpeed(d.weaponSpeedIncrease)
         });
@@ -135,28 +135,28 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Player Speed",
-            description = "Increases your player speed by " + (d.playerSpeedIncrease-1)*100 + " %.",
+            description = "+" + (d.playerSpeedIncrease-1)*100 + "% SPD",
             icon = Resources.Load<Sprite>("Images/wingfoot"),
             applyUpgrade = () => IncreasePlayerSpeed(d.playerSpeedIncrease)
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Extra Basic Attack Pierce",
-            description = "Increases your basic attack pierce by 1.",
+            description = "+1 Pierce",
             icon = Resources.Load<Sprite>("Images/pierced-body"),
             applyUpgrade = () => ExtraPierce()
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Basic Attack Size",
-            description = "Increases your basic attack size by " + (d.basicAttackSizeIncrease-1)*100 + " %.",
+            description = "+" + (d.basicAttackSizeIncrease-1)*100 + "% ATK Size",
             icon = Resources.Load<Sprite>("Images/resize"),
             applyUpgrade = () => IncreasedBasicAttackSize(d.basicAttackSizeIncrease)
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Shots Per Attack",
-            description = "Increases the number of projectiles fired per shot.",
+            description = "+1 Shot Spread",
             icon = Resources.Load<Sprite>("Images/striking-arrows"),
             applyUpgrade = () => IncreaseShotsPerAttack()
         });

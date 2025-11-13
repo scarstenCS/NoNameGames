@@ -15,9 +15,7 @@ public class Enemy : MonoBehaviour
     public float speed = 3;
     public float cooldown = 1.5f;
     public float _lastAtkTime;
-    private float followSkill;
-    public float followL;
-    public float followU;
+    public float followSkill;
     private Rigidbody2D rb;
     Animator animator;
     public Animation idle;
@@ -33,7 +31,10 @@ public class Enemy : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
-        followSkill = Random.Range(followL, followU);
+        if (followSkill >= 0.5)
+        {
+            this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        }
     }
 
     void Awake()

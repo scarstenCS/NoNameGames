@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
             WaveManager.enemiesLeft--;
         }
 
-        AudioManager.SfxEnemy2Death();
+        AudioManager.SfxEnemy1Death();
         animator.SetBool("Dead", true);
         isDead = true;
     }

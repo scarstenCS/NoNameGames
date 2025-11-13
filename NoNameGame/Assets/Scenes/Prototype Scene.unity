@@ -3648,7 +3648,7 @@ MonoBehaviour:
     numTurret: 0
     numBoss: 1
     upgradeInWave: 0
-    spawnrate: 0
+    spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0

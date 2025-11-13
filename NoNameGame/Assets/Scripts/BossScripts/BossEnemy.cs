@@ -21,7 +21,11 @@ public class BossEnemy : MonoBehaviour
     public AudioClip deathClip;
     public Component[] maskEnemies;
     public Transform targetObject;
-     public float rotationSpeed = 100f;
+    public float rotationSpeed = 360f;
+    public float speed = .25f;
+    public int teleportTrigger = 0;
+    public int currentHealthLost = 0;
+    public Transform bossRoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,10 @@ public class BossEnemy : MonoBehaviour
         maskEnemies = GetComponentsInChildren<TurretEnemy>();
         UnityEngine.Debug.Log("maskEnemies Count: " + maskEnemies.Length);
         CachePlayerPos();
+        teleportTrigger = Mathf.FloorToInt(hp/3);
+        if (bossRoot == null) {
+            bossRoot = transform.parent != null ? transform.parent : transform;
+        }
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
@@ -42,23 +50,37 @@ public class BossEnemy : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-        if (hp <= 0 && !isDead) Die();
+            if (hp <= 0 && !isDead) Die();
 
-        if (playerPos == null) CachePlayerPos();
-        if (maskEnemies.Length > 0)
-        {
-            foreach (TurretEnemy turret in maskEnemies)
+            if (playerPos == null) CachePlayerPos();
+
+            Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
+            Vector3 futurePos = playerPos.position + inputVec * player.GetComponent<Player>().Speed;
+            Vector3 change;
+            if ((futurePos-transform.position).magnitude <= 5)
             {
-            if (turret != null)
+                change = playerPos.position - transform.position;
+            } else
             {
-                turret.transform.RotateAround(transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+                change = futurePos - transform.position;
             }
+            change = Vector3.Normalize(change) * Time.deltaTime *speed;
+            //moves and rotates all turret enemies around boss
+            if (maskEnemies.Length > 0)
+            {
+                foreach (TurretEnemy turret in maskEnemies)
+                {
+                if (turret != null)
+                {
+                    turret.transform.RotateAround(transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+                    transform.position += (change);
+                }
+                }
             }
-        }
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-        UnityEngine.Debug.Log("GotHurt");
+        
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
@@ -74,7 +96,32 @@ public class BossEnemy : MonoBehaviour
             }
 
             hp -= proj.Damage;
-            UnityEngine.Debug.Log("hp is: " + hp);
+            currentHealthLost += proj.Damage;
+            if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && hp > 3)
+            {
+                //play teleport sound
+                //TODO: move entire prefab to random location
+                float minDistance = 7f;
+
+                CachePlayerPos();
+                Vector3 teleportLocation;
+                do
+                {
+                    float randX = Random.Range(GameManager.minX, GameManager.maxX);
+                    float randY = Random.Range(GameManager.minY, GameManager.maxY);
+                    teleportLocation = new Vector3(randX, randY, 0f);
+                }
+                while (Vector3.Distance(teleportLocation, playerPos.position) < minDistance);
+
+                UnityEngine.Debug.Log("Teleporting Boss to: " + teleportLocation);
+                UnityEngine.Debug.Log("Player is at: " + playerPos.position);
+
+                if (bossRoot != null)
+                {
+                    bossRoot.position = teleportLocation;
+                }
+                currentHealthLost = 0;
+            }
 
         }
     }

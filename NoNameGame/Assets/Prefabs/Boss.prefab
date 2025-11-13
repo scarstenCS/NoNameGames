@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 10
   atk: 2
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
@@ -61,7 +61,11 @@ MonoBehaviour:
   - {fileID: 7376971888745467898}
   - {fileID: 5534654291778040687}
   targetObject: {fileID: 0}
-  rotationSpeed: 50
+  rotationSpeed: 100
+  speed: 0.25
+  teleportTrigger: 0
+  currentHealthLost: 0
+  bossRoot: {fileID: 8972300130489234451}
 --- !u!1 &8992958714013761843
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 10
   atk: 1
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
@@ -215,6 +219,10 @@ MonoBehaviour:
   maskEnemies: []
   targetObject: {fileID: 0}
   rotationSpeed: 50
+  speed: 0.25
+  teleportTrigger: 0
+  currentHealthLost: 0
+  bossRoot: {fileID: 0}
 --- !u!1001 &1618598447533219523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}

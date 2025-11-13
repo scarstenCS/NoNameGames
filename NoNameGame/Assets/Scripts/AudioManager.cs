@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-    const float drumsVolume = -3f, drumFadeTime = 3f;
+    const float drumsVolume = -3f, drumFadeTime = 1.5f;
 
     [SerializeField] private static AudioSource audioSource;
     [SerializeField] private AudioMixer audioMixer;
@@ -100,9 +100,9 @@ public class AudioManager : MonoBehaviour
     public void stopDrums()
     {
         StopAllCoroutines();
-        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
+        //StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
 
-        //Instance.audioMixer.SetFloat("drumVolume", -80);
+        Instance.audioMixer.SetFloat("drumVolume", -80);
     }
     
     public void startDrums()

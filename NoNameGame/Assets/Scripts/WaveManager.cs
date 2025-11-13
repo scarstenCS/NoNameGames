@@ -37,6 +37,7 @@ public class WaveManager : MonoBehaviour
     public static int bossCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
+    bool bossRunnersSpawned = false;
     
     // Start is called before the first frame update
     void Awake()
@@ -62,10 +63,13 @@ public class WaveManager : MonoBehaviour
         if (_waveDoneText) _waveDoneText.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (bossCount == 1 && enemiesLeft == 1 && !bossRunnersSpawned)
+        {
+            StartCoroutine(BossSpawnRunners());     
+            bossRunnersSpawned = true;
+        }
     }
     public void Spawn()
     {
@@ -201,5 +205,25 @@ public class WaveManager : MonoBehaviour
         }
         // game done
         GameManager.Instance.GoToMainMenu();
+    }
+    public IEnumerator BossSpawnRunners()
+    {
+            yield return new WaitForSeconds(5f);
+            maxEnemies += 3;
+            enemiesLeft += 3;
+            Wave currWave = waves[_waveCount];
+            currWave.numRunner += 3;
+            waves[_waveCount] = currWave;
+            UnityEngine.Debug.Log("wave updated: " + waves[_waveCount].numRunner);
+            UnityEngine.Debug.Log("RunnerCount: " + runnerCount);
+            //_waveCount < waves.Count
+            UnityEngine.Debug.Log("Waves Count: " + waves.Count);
+            UnityEngine.Debug.Log("___WavesCount: " + _waveCount);
+            UnityEngine.Debug.Log("Maxenemies: " + maxEnemies);
+            for (int i = 0; i < 3; i++)
+            {
+                SpawnEnemy();
+            }
+            bossRunnersSpawned = false;
     }
 }

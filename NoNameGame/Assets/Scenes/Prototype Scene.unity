@@ -3645,7 +3645,7 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   waves:
   - numRunner: 0
-    numTurret: 1
+    numTurret: 0
     numBoss: 1
     upgradeInWave: 0
     spawnrate: 0

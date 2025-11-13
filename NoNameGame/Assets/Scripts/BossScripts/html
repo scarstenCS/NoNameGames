@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enemy Spawner Simulator</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 20px auto; }
+    .controls { margin-bottom: 10px; }
+    .enemy-list { margin-top: 10px; }
+    .enemy { border: 1px solid #ccc; padding: 6px; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+    .log { margin-top: 10px; font-size: 0.9rem; color: #555; white-space: pre-line; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Enemy Spawner Simulator</h1>
+  <div class="controls">
+    <span id="wave-label">Wave: 0</span>
+    <button id="next-wave-btn">Next Wave</button>
+    <button id="clear-btn">Clear Enemies</button>
+  </div>
+
+  <div id="enemy-count"></div>
+  <div id="enemy-list" class="enemy-list"></div>
+
+  <div class="log" id="log"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

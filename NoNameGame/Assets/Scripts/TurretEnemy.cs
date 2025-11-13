@@ -39,7 +39,7 @@ public class TurretEnemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
-        //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
+        animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
     }
 
     void Update()

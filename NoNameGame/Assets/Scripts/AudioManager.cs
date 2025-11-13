@@ -100,7 +100,7 @@ public class AudioManager : MonoBehaviour
     public void stopDrums()
     {
         StopAllCoroutines();
-        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, 80f,drumsVolume));
+        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
 
         //Instance.audioMixer.SetFloat("drumVolume", -80);
     }
@@ -108,22 +108,22 @@ public class AudioManager : MonoBehaviour
     public void startDrums()
     {
         StopAllCoroutines();
-        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, 80f));
+        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, -80f));
 
         //Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
     }
 
     private IEnumerator fadeTrack(string trackName,float fadeTime,float from,float to)
     {
+        Debug.Log("fading");
         // was loosly following this https://www.youtube.com/watch?v=1VXeyeLthdQ
         float elapsedTime = 0f;
         
         while (elapsedTime < fadeTime)
         {
             
-            Instance.audioMixer.SetFloat(trackName,-Mathf.Lerp(to,from,elapsedTime/fadeTime));
+            Instance.audioMixer.SetFloat(trackName,Mathf.Lerp(to,from,elapsedTime/fadeTime));
             elapsedTime += Time.deltaTime;
-            Debug.Log(elapsedTime);
             yield return null;
         }
         

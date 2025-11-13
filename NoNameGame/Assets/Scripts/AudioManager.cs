@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-    const float drumsVolume = -3f, drumFadeTime = 10f;
+    const float drumsVolume = -3f, drumFadeTime = 3f;
 
     [SerializeField] private static AudioSource audioSource;
     [SerializeField] private AudioMixer audioMixer;
@@ -99,25 +99,31 @@ public class AudioManager : MonoBehaviour
 
     public void stopDrums()
     {
-        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, -80f));
+        StopAllCoroutines();
+        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, 80f,drumsVolume));
+
         //Instance.audioMixer.SetFloat("drumVolume", -80);
     }
     
     public void startDrums()
     {
-        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
+        StopAllCoroutines();
+        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, 80f));
+
         //Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
     }
 
     private IEnumerator fadeTrack(string trackName,float fadeTime,float from,float to)
     {
+        // was loosly following this https://www.youtube.com/watch?v=1VXeyeLthdQ
         float elapsedTime = 0f;
         
         while (elapsedTime < fadeTime)
         {
             
-            Instance.audioMixer.SetFloat(trackName,Mathf.Lerp(to,from,elapsedTime/fadeTime));
+            Instance.audioMixer.SetFloat(trackName,-Mathf.Lerp(to,from,elapsedTime/fadeTime));
             elapsedTime += Time.deltaTime;
+            Debug.Log(elapsedTime);
             yield return null;
         }
         

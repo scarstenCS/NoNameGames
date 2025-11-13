@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 56acabe40836d6f43af814abfb6dbce5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7224777796934267934
+    second: charlie_walk_blue_0
+  - first:
+      213: 5801739201629136644
+    second: charlie_walk_blue_1
+  - first:
+      213: -5737687030172256173
+    second: charlie_walk_blue_2
+  - first:
+      213: 5233347680674554299
+    second: charlie_walk_blue_3
+  - first:
+      213: 8022276887417319965
+    second: charlie_walk_blue_4
+  - first:
+      213: 1668848239890069736
+    second: charlie_walk_blue_5
+  - first:
+      213: 4042859562288781482
+    second: charlie_walk_blue_6
+  - first:
+      213: -8398100840369830075
+    second: charlie_walk_blue_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +95,189 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: charlie_walk_blue_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 258
+        width: 60
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e147567b021934460800000000000000
+      internalID: 7224777796934267934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 258
+        width: 60
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4072090a01be38050800000000000000
+      internalID: 5801739201629136644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 256
+        width: 60
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358773eab04af50b0800000000000000
+      internalID: -5737687030172256173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 130
+        width: 64
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1a8b4fcf590a840800000000000000
+      internalID: 5233347680674554299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_4
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 129
+        width: 64
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12f554435ad45f60800000000000000
+      internalID: 8022276887417319965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_5
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 131
+        width: 60
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8feaad1a0f82710800000000000000
+      internalID: 1668848239890069736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa893071a5f1b1830800000000000000
+      internalID: 4042859562288781482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charlie_walk_blue_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 2
+        width: 60
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547c8ddd7c3f37b80800000000000000
+      internalID: -8398100840369830075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -143,8 +143,7 @@ public class WaveManager : MonoBehaviour
         Wave currWave = waves[_waveCount];
         enemy.hp += currWave.hpIncrease;
         enemy.atk += currWave.dmgIncrease;
-        enemy.followL = currWave.skillLowerBound;
-        enemy.followU = currWave.skillUpperBound;
+        enemy.followSkill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         runnerCount++;
     }
     public void SpawnTurret()

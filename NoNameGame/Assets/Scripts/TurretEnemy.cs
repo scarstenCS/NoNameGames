@@ -20,7 +20,6 @@ public class TurretEnemy : MonoBehaviour
     public float bulletLifetime = 3f;
     public int bulletDamage = 1;
     public float skill;
-
     private float _nextShootTime;
     private bool isDead = false;
     public bool isPartOfBoss;
@@ -60,6 +59,11 @@ public class TurretEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
+        if (skill >= 0.5)
+        {
+            this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        }
+        //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
     }
 
     void Update()

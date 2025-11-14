@@ -150,6 +150,11 @@ public class TurretEnemy : MonoBehaviour
             // Only standalone turrets affect the wave counter
             WaveManager.enemiesLeft--;
         }
+        else
+        {
+            BossEnemy boss = GetComponentInParent<BossEnemy>();
+            boss.numOfTurretsAlive--;
+        }
 
         AudioManager.SfxEnemy2Death();
         animator.SetBool("Dead", true);
@@ -164,6 +169,7 @@ public class TurretEnemy : MonoBehaviour
         this.shootCooldown = cooldownInitial/difficulty;
         this.bulletSpeed = bulletSpeedInitial*difficulty;
         this.bulletDamage = bulletDamageInitial*difficulty;
+
 
     }
 }

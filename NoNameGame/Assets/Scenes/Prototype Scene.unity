@@ -3763,6 +3763,8 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   player: {fileID: 1634825064}
   waveDoneText: {fileID: 72964480}
+  numBossRunners: 3
+  timeBeforeBossRunnersSpawn: 5
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0
@@ -10937,6 +10939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maskEnemies.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006251104366405737, guid: 8abf0e8fa173ba243b1df0197b782c3a,
+        type: 3}
+      propertyPath: shootCooldown
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8972300130489234451, guid: 8abf0e8fa173ba243b1df0197b782c3a,
         type: 3}

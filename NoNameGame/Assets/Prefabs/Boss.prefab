@@ -70,6 +70,9 @@ MonoBehaviour:
   - {x: 2.25, y: 0, z: 0}
   - {x: -1.125, y: 1.9486, z: 0}
   - {x: -1.125, y: -1.9486, z: 0}
+  difficulty: 1
+  delayResummonMasks: 1
+  numOfTurretsAlive: 3
 --- !u!1 &8992958714013761843
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +234,9 @@ MonoBehaviour:
   - {x: 2.25, y: 0, z: 0}
   - {x: -1.125, y: 1.9486, z: 0}
   - {x: -1.125, y: -1.9486, z: 0}
+  difficulty: 1
+  delayResummonMasks: 1
+  numOfTurretsAlive: 3
 --- !u!1001 &1618598447533219523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -267,12 +273,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletSpeed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -282,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletLifetime
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028652, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -357,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_Name
-      value: MaskBarage (1)
+      value: MaskMix
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -407,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -428,22 +434,22 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletSpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletDamage
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: shootCooldown
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletLifetime
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028652, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -543,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -559,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -569,12 +575,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: shootCooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletLifetime
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028652, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}

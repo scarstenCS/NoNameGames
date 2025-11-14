@@ -125,7 +125,7 @@ public class BossEnemy : MonoBehaviour
         //animator.SetBool("Dead", true);
         isDead = true;
         GameObject boss;
-        boss=transform.parent.gameObject;
+        boss = transform.parent.gameObject;
         transform.parent=null;
         Destroy(boss);
         //TODO: Let animation do this
@@ -145,8 +145,8 @@ public class BossEnemy : MonoBehaviour
         isResummoningMasks = true;
         //yield return new WaitForSeconds(3f); 
 
-        maskEnemies = bossRoot.GetComponentsInChildren<TurretEnemy>(true);
-        UnityEngine.Debug.Log("maskenemies length after getcomponents: " + maskEnemies.Length);
+        maskEnemies = bossRoot.GetComponentsInChildren<TurretEnemy>(true); //even inactive ones
+
         for (int i = 0; i < maskPositions.Length; i++)
         {
             TurretEnemy turret = maskEnemies[i];

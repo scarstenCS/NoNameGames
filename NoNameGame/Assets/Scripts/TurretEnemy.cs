@@ -24,6 +24,7 @@ public class TurretEnemy : MonoBehaviour
     private float _nextShootTime;
     private bool isDead = false;
     public bool isPartOfBoss;
+    private int hpMax;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class TurretEnemy : MonoBehaviour
             playerPos = player.GetComponent<Transform>();
             isPartOfBoss = false;
         }   
+        hpMax = hp;
 
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -143,7 +145,7 @@ public class TurretEnemy : MonoBehaviour
     }
     public void ResetHealth()
     {
-        hp = 2;
+        this.hp = hpMax;
         isDead = false;
         animator.SetBool("Dead", false);
     }

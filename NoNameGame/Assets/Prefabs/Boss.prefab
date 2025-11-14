@@ -66,6 +66,10 @@ MonoBehaviour:
   teleportTrigger: 0
   currentHealthLost: 0
   bossRoot: {fileID: 8972300130489234451}
+  maskPositions:
+  - {x: 2.25, y: 0, z: 0}
+  - {x: -1.125, y: 1.9486, z: 0}
+  - {x: -1.125, y: -1.9486, z: 0}
 --- !u!1 &8992958714013761843
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +226,11 @@ MonoBehaviour:
   speed: 0.25
   teleportTrigger: 0
   currentHealthLost: 0
-  bossRoot: {fileID: 0}
+  bossRoot: {fileID: 8972300130489234451}
+  maskPositions:
+  - {x: 2.25, y: 0, z: 0}
+  - {x: -1.125, y: 1.9486, z: 0}
+  - {x: -1.125, y: -1.9486, z: 0}
 --- !u!1001 &1618598447533219523
 PrefabInstance:
   m_ObjectHideFlags: 0

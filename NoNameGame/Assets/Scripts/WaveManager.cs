@@ -214,12 +214,6 @@ public class WaveManager : MonoBehaviour
             Wave currWave = waves[_waveCount];
             currWave.numRunner += 3;
             waves[_waveCount] = currWave;
-            UnityEngine.Debug.Log("wave updated: " + waves[_waveCount].numRunner);
-            UnityEngine.Debug.Log("RunnerCount: " + runnerCount);
-            //_waveCount < waves.Count
-            UnityEngine.Debug.Log("Waves Count: " + waves.Count);
-            UnityEngine.Debug.Log("___WavesCount: " + _waveCount);
-            UnityEngine.Debug.Log("Maxenemies: " + maxEnemies);
             for (int i = 0; i < 3; i++)
             {
                 SpawnEnemy();

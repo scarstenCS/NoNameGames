@@ -23,7 +23,7 @@ public class TurretEnemy : MonoBehaviour
 
     private float _nextShootTime;
     private bool isDead = false;
-    public GameObject isPartOfBoss;
+    public bool isPartOfBoss;
 
     void Start()
     {
@@ -33,8 +33,14 @@ public class TurretEnemy : MonoBehaviour
         
         //Determine if part of boss prefab
         var boss = GetComponentInParent<BossEnemy>();
-        if (boss != null) playerPos = boss.playerPos;
-        else playerPos = player.GetComponent<Transform>();
+        if (boss != null) {
+            playerPos = boss.playerPos;
+            isPartOfBoss = true;
+        }
+        else {
+            playerPos = player.GetComponent<Transform>();
+            isPartOfBoss = false;
+        }   
 
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -70,7 +76,12 @@ public class TurretEnemy : MonoBehaviour
         animator.ResetTrigger("Shoot");
     }
     public void AnimEventDestroySelf() {
-        Destroy(gameObject);
+        UnityEngine.Debug.Log("part of boss: " + isPartOfBoss);
+        if(isPartOfBoss == true) gameObject.SetActive(false);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -129,5 +140,11 @@ public class TurretEnemy : MonoBehaviour
         AudioManager.SfxEnemy2Death();
         animator.SetBool("Dead", true);
         isDead = true;
+    }
+    public void ResetHealth()
+    {
+        hp = 2;
+        isDead = false;
+        animator.SetBool("Dead", false);
     }
 }

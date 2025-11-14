@@ -40,7 +40,7 @@ public class UserInterface : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"[DEBUG] Initializing UI");
+       // Debug.Log($"[DEBUG] Initializing UI");
         if (damagedTakenImage)
         {
             damagedTakenRectTransform = damagedTakenImage.GetComponent<RectTransform>();
@@ -63,7 +63,7 @@ public class UserInterface : MonoBehaviour
             float damagePercent = 1f - ((float)current / (float)max);
             float maxWidth = 64f; // adjust based on your image size
             damagedTakenRectTransform.sizeDelta = new Vector2(damagePercent * maxWidth, 8f);
-            UnityEngine.Debug.Log($"[DEBUG] Damage Percent: {damagePercent}");
+            //UnityEngine.Debug.Log($"[DEBUG] Damage Percent: {damagePercent}");
             if (damagePercent <= 0.001f || damagePercent >= 0.999f)
             {
                 //UnityEngine.Debug.Log($"[DEBUG] Setting animator speed to 1f");

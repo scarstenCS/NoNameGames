@@ -31,8 +31,9 @@ public class BossEnemy : MonoBehaviour
     private bool isResummoningMasks = false;
     private bool isResummoningMasksDelayed = false;
     public int difficulty = 1;
-    public float delayResummonMasks = 1f;
-    public float numOfTurretsAlive = 3;
+    private float delayResummonMasks = 10f;
+    public float numOfTurretsAlive;
+    private Coroutine delayResummonRoutine;
 
     void Start()
     {
@@ -66,6 +67,8 @@ public class BossEnemy : MonoBehaviour
             transform.localPosition = Vector3.zero;
         }
         maskEnemies = GetComponentsInChildren<TurretEnemy>();
+        UnityEngine.Debug.Log("mask enemies length: " + maskEnemies.Length);
+        numOfTurretsAlive = maskEnemies.Length;
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
@@ -80,10 +83,11 @@ public class BossEnemy : MonoBehaviour
             // Boss movement logic
             // center is the reference point for the boss and its mask enemies
             MovementAndRotation();
-            UnityEngine.Debug.Log("mask enemies: " + this.numOfTurretsAlive);
-            if (this.numOfTurretsAlive < 2 )
+            //UnityEngine.Debug.Log("mask enemies: " + this.numOfTurretsAlive);
+
+            if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
             {
-                StartCoroutine(DelayResummonMaskEnemies());
+                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
             }
  
         }
@@ -103,9 +107,20 @@ public class BossEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
-
-            hp -= proj.Damage;
-            currentHealthLost += proj.Damage;
+            UnityEngine.Debug.Log("num of turrets alive: " + this.numOfTurretsAlive);
+            if(this.numOfTurretsAlive == 0)
+            {
+                //double damage if no masks are alive
+                hp -= proj.Damage;
+                currentHealthLost += proj.Damage;
+                UnityEngine.Debug.Log("Boss took normal damage!");
+            }
+            else
+            {
+                hp -= 1;
+                currentHealthLost += 1;
+                UnityEngine.Debug.Log("Boss took reduced damage!");
+            }
             if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && hp > 3)
             {
                 // pick a teleport location away from player
@@ -155,7 +170,12 @@ public class BossEnemy : MonoBehaviour
         //increase difficulty and stop previous delay if player does enough damage quickly
         if (difficultyIncrease) {
             difficulty++;
-            StopCoroutine(DelayResummonMaskEnemies());
+        }
+        if(delayResummonRoutine!=null)
+        {
+            StopCoroutine(delayResummonRoutine);
+            delayResummonRoutine = null;
+            isResummoningMasksDelayed = false;
         }
         for (int i = 0; i < maskPositions.Length; i++)
         {
@@ -170,7 +190,7 @@ public class BossEnemy : MonoBehaviour
                 // Reset masks and increase difficulty
                 turret.ResetMasks(difficulty);
         }
-        numOfTurretsAlive = 3;
+        this.numOfTurretsAlive = 3;
         isResummoningMasks = false;
         }
 
@@ -179,8 +199,10 @@ public class BossEnemy : MonoBehaviour
     IEnumerator DelayResummonMaskEnemies()
     {
         if (isResummoningMasksDelayed) yield break;
+        UnityEngine.Debug.Log("Delaying resummon of masks...");
         isResummoningMasksDelayed = true;
         yield return new WaitForSeconds(delayResummonMasks);
+        delayResummonRoutine = null;
         isResummoningMasksDelayed = false;
         StartCoroutine(ResummonMaskEnemies(false));
     }

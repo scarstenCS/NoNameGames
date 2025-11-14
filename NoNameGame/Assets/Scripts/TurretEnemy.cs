@@ -90,6 +90,7 @@ public class TurretEnemy : MonoBehaviour
         animator.ResetTrigger("Shoot");
     }
     public void AnimEventDestroySelf() {
+        if (!isDead) return;
         UnityEngine.Debug.Log("part of boss: " + isPartOfBoss);
         if(isPartOfBoss == true) gameObject.SetActive(false);
         else
@@ -162,6 +163,7 @@ public class TurretEnemy : MonoBehaviour
     }
     public void ResetMasks(int difficulty)
     {
+        BossEnemy boss = GetComponentInParent<BossEnemy>();
         this.hp = hpMax * difficulty;
         isDead = false;
         animator.SetBool("Dead", false);
@@ -169,6 +171,7 @@ public class TurretEnemy : MonoBehaviour
         this.shootCooldown = cooldownInitial/difficulty;
         this.bulletSpeed = bulletSpeedInitial*difficulty;
         this.bulletDamage = bulletDamageInitial*difficulty;
+        boss.numOfTurretsAlive=3;
 
 
     }

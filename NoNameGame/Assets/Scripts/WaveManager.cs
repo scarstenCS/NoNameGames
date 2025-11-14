@@ -146,11 +146,14 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => enemiesLeft == 0);
             // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
+            if (_waveDoneText) _waveDoneText.SetActive(true);
+
             AudioManager.Instance.stopDrums();
+            AudioManager.SfxWaveComplete();
+            yield return new WaitForSeconds(2);
+            if (_waveDoneText) _waveDoneText.SetActive(false);
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
 
             _waveCount++;
 

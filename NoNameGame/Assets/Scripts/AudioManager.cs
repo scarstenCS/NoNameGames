@@ -9,7 +9,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn
-    ,enemy1Death, enemy2Death,playerDeath;
+    ,enemy1Death, enemy2Death,playerDeath,waveComplete;
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
@@ -79,6 +79,11 @@ public class AudioManager : MonoBehaviour
     static public void SfxPlayerDeath()
     {
         Instance.PlaySound(Instance.playerDeath);
+    }
+
+    static public void SfxWaveComplete()
+    {
+        Instance.PlaySound(Instance.waveComplete);
     }
 
 

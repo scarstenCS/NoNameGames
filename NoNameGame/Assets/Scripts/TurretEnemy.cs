@@ -8,7 +8,7 @@ public class TurretEnemy : MonoBehaviour
     public int hp = 2;
     public int atk = 0;
     public string attackTag = "PlayerAttack";
-    public float cooldown = 1.0f;
+    //public float cooldown = 1.0f;
     Animator animator;
 
     public GameObject player;
@@ -25,6 +25,13 @@ public class TurretEnemy : MonoBehaviour
     private bool isDead = false;
     public bool isPartOfBoss;
     private int hpMax;
+    private int atkInitial;
+    private float cooldownInitial;
+    private float bulletSpeedInitial;
+    private int bulletDamageInitial;
+    private float bulletshootCooldownInitial;
+
+
 
     void Start()
     {
@@ -43,6 +50,11 @@ public class TurretEnemy : MonoBehaviour
             isPartOfBoss = false;
         }   
         hpMax = hp;
+        atkInitial = atk;
+        cooldownInitial = shootCooldown;
+        bulletSpeedInitial = bulletSpeed;
+        bulletDamageInitial = bulletDamage;
+        bulletshootCooldownInitial = shootCooldown;
 
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -143,10 +155,15 @@ public class TurretEnemy : MonoBehaviour
         animator.SetBool("Dead", true);
         isDead = true;
     }
-    public void ResetHealth()
+    public void ResetMasks(int difficulty)
     {
-        this.hp = hpMax;
+        this.hp = hpMax * difficulty;
         isDead = false;
         animator.SetBool("Dead", false);
+        this.atk = atkInitial * difficulty;
+        this.shootCooldown = cooldownInitial/difficulty;
+        this.bulletSpeed = bulletSpeedInitial*difficulty;
+        this.bulletDamage = bulletDamageInitial*difficulty;
+
     }
 }

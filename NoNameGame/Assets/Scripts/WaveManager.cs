@@ -38,6 +38,8 @@ public class WaveManager : MonoBehaviour
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
     bool bossRunnersSpawned = false;
+    public int numBossRunners = 3;
+    public float timeBeforeBossRunnersSpawn = 5f;
     
     // Start is called before the first frame update
     void Awake()
@@ -208,16 +210,19 @@ public class WaveManager : MonoBehaviour
     }
     public IEnumerator BossSpawnRunners()
     {
-            yield return new WaitForSeconds(5f);
-            maxEnemies += 3;
-            enemiesLeft += 3;
-            Wave currWave = waves[_waveCount];
-            currWave.numRunner += 3;
-            waves[_waveCount] = currWave;
-            for (int i = 0; i < 3; i++)
-            {
-                SpawnEnemy();
-            }
-            bossRunnersSpawned = false;
+
+        BossEnemy boss = FindObjectOfType<BossEnemy>();
+        yield return new WaitForSeconds(timeBeforeBossRunnersSpawn);
+        int difficulty = boss.difficulty;
+        maxEnemies += numBossRunners*difficulty;
+        enemiesLeft += numBossRunners*difficulty;
+        Wave currWave = waves[_waveCount];
+        currWave.numRunner += numBossRunners*difficulty;
+        waves[_waveCount] = currWave;
+        for (int i = 0; i < numBossRunners*difficulty; i++)
+        {
+            SpawnEnemy();
+        }
+        bossRunnersSpawned = false;
     }
 }

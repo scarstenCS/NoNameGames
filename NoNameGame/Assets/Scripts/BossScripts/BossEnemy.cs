@@ -27,13 +27,9 @@ public class BossEnemy : MonoBehaviour
     public int teleportTrigger = 0;
     public int currentHealthLost = 0;
     public Transform bossRoot;
-    public  Vector3[] maskPositions = new Vector3[]
-    {   
-        new Vector3(2.25f, 0f, 0f),
-        new Vector3(-1.125f, 1.9486f, 0f),
-        new Vector3(-1.125f, -1.9486f, 0f)
-    };
+    public  Vector3[] maskPositions;
     private bool isResummoningMasks = false;
+    public int difficulty = 1;
 
     void Start()
     {
@@ -146,18 +142,20 @@ public class BossEnemy : MonoBehaviour
         //yield return new WaitForSeconds(3f); 
 
         maskEnemies = bossRoot.GetComponentsInChildren<TurretEnemy>(true); //even inactive ones
-
+        //increase difficulty
+        difficulty++;
         for (int i = 0; i < maskPositions.Length; i++)
         {
             TurretEnemy turret = maskEnemies[i];
             if (turret != null)
             {
+                //reset position and parent
                 turret.transform.SetParent(bossRoot != null ? bossRoot : transform, worldPositionStays: false);
                 turret.transform.localPosition = maskPositions[i];
                 turret.gameObject.SetActive(true);
 
-                // Reset health if you have this method
-                turret.ResetHealth();
+                // Reset masks and increase difficulty
+                turret.ResetMasks(difficulty);
         }
 
         isResummoningMasks = false;
@@ -186,11 +184,13 @@ public class BossEnemy : MonoBehaviour
     }
     void MovementAndRotation()
     {
+        //set reference point for movement and rotation
         Transform center = bossRoot != null ? bossRoot : transform;
         Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
         Vector3 futurePos = playerPos.position + inputVec * player.GetComponent<Player>().Speed;
         
         Vector3 change;
+        //move towards player
         if ((futurePos-center.position).magnitude <= 5)
         {
             change = playerPos.position - center.position;

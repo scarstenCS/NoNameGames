@@ -94,7 +94,6 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-
         List<Vector3> positions = new List<Vector3>();
         if (player.transform.position.x > GameManager.minX + 1 && player.transform.position.x < GameManager.maxX - 1)
         {
@@ -160,12 +159,35 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnBoss()
     {
-        
-        GameObject b = Instantiate(bossPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
+        UnityEngine.Debug.Log("Spawning Boss");
+        Vector3 spawnLocation = bossSpawnLocation();
+
+        GameObject b = Instantiate(bossPrefab, spawnLocation, Quaternion.identity);
+
         BossEnemy bossComponent = b.GetComponent<BossEnemy>();
         bossComponent.player = player;
         Wave currWave = waves[_waveCount];
         bossCount++;
+    }
+    Vector3 bossSpawnLocation()
+    {
+        var p = GameObject.FindGameObjectWithTag("Player");
+        Transform playerPos = null;
+        if (p != null) playerPos = p.transform;
+
+        float minDistance = 4.5f;
+        float maxDistance = 6.5f;
+
+        Vector3 spawnLocation;
+        do
+        {
+            float randX = Random.Range(GameManager.minX, GameManager.maxX);
+            float randY = Random.Range(GameManager.minY, GameManager.maxY);
+            spawnLocation = new Vector3(randX, randY, 0f);
+        }
+        while (Vector3.Distance(spawnLocation, playerPos.position) < minDistance || Vector3.Distance(spawnLocation, playerPos.position) > maxDistance);
+
+        return spawnLocation;
     }
     public IEnumerator Phase()
     {

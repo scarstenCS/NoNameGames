@@ -73,7 +73,7 @@ public class BossEnemy : MonoBehaviour
         numOfTurretsAlive = maskEnemies.Length;
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
-        //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
+        //animator.SetFloat("FloatSpeed", 1f + speed / 1.5f);
         maxHealth = hp;
         ui = FindObjectOfType<UserInterface>();
         if (ui != null)
@@ -152,7 +152,7 @@ public class BossEnemy : MonoBehaviour
         if (isDead) return;
 
         WaveManager.enemiesLeft--;
-        //AudioManager.SfxEnemy2Death();
+        //AudioManager.SfxBossDeath();
         //animator.SetBool("Dead", true);
         isDead = true;
         if (ui != null)

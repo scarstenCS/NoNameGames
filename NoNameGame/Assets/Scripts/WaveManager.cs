@@ -152,10 +152,19 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => enemiesLeft == 0);
             // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
+
+
+            AudioManager.Instance.stopDrums();
+            if (_waveCount >1)
+            {
+                if (_waveDoneText) _waveDoneText.SetActive(true);
+                AudioManager.SfxWaveComplete();
+                yield return new WaitForSeconds(2);
+                if (_waveDoneText) _waveDoneText.SetActive(false);
+            }
+
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
 
             _waveCount++;
 
@@ -173,6 +182,9 @@ public class WaveManager : MonoBehaviour
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
                 p.Heal(p.MaxHealth);
+
+                //!!
+                AudioManager.Instance.startDrums();
             }
         }
         // game done

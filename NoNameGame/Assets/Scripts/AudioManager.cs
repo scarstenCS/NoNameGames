@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -8,11 +9,11 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn
-    ,enemy1Death, enemy2Death,playerDeath;
+    ,enemy1Death, enemy2Death,playerDeath,waveComplete;
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-
+    const float drumsVolume = -3f, drumFadeTime = 1.5f;
 
     [SerializeField] private static AudioSource audioSource;
     [SerializeField] private AudioMixer audioMixer;
@@ -27,11 +28,6 @@ public class AudioManager : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void PlaySound(AudioClip[] clip, float volume = 1.0f)
     {
@@ -85,6 +81,11 @@ public class AudioManager : MonoBehaviour
         Instance.PlaySound(Instance.playerDeath);
     }
 
+    static public void SfxWaveComplete()
+    {
+        Instance.PlaySound(Instance.waveComplete);
+    }
+
 
      public void setMainVol(float value)
     {
@@ -101,4 +102,35 @@ public class AudioManager : MonoBehaviour
         Instance.audioMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20f);
     }
 
+    public void stopDrums()
+    {
+        StopAllCoroutines();
+        //StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
+
+        Instance.audioMixer.SetFloat("drumVolume", -80);
+    }
+    
+    public void startDrums()
+    {
+        StopAllCoroutines();
+        StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, -80f));
+
+        //Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
+    }
+
+    private IEnumerator fadeTrack(string trackName,float fadeTime,float from,float to)
+    {
+        Debug.Log("fading");
+        // was loosly following this https://www.youtube.com/watch?v=1VXeyeLthdQ
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < fadeTime)
+        {
+            
+            Instance.audioMixer.SetFloat(trackName,Mathf.Lerp(to,from,elapsedTime/fadeTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+    }
 }

@@ -82,7 +82,7 @@ public class UserInterface : MonoBehaviour
     public void SetEnemiesLeft(int count)
     {
         if (!enemiesLeftText) return;
-        enemiesLeftText.text = $"Enemies Left: {count}";
+        enemiesLeftText.text = $"{count}";
     }
 
     // Update is called once per frame

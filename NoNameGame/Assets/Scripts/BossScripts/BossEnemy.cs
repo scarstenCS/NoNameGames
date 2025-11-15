@@ -36,6 +36,7 @@ public class BossEnemy : MonoBehaviour
     private Coroutine delayResummonRoutine;
     private UserInterface ui;
     private int maxHealth;
+    [SerializeField] private DialogueTrigger dialogueTrigger; 
 
     void Start()
     {
@@ -81,6 +82,8 @@ public class BossEnemy : MonoBehaviour
             ui.SetActiveBossHealthBar(true);
             ui.OnBossHealthChanged(hp, maxHealth);
         }
+
+        dialogueTrigger = FindObjectOfType<DialogueTrigger>();
     }
 
         // Update is called once per frame
@@ -236,6 +239,7 @@ public class BossEnemy : MonoBehaviour
         {
             center.position = teleportLocation;
         }
+        TeleportDialogue();
     }
     void MovementAndRotation()
     {
@@ -267,5 +271,10 @@ public class BossEnemy : MonoBehaviour
             }
             }
         }
+    }
+    void TeleportDialogue()
+    {
+    
+        dialogueTrigger.OnWaveEnd(difficulty);
     }
 }

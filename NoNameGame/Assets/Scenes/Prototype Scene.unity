@@ -2094,7 +2094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &429194073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3686,9 +3686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
-    numBoss: 0
+    numBoss: 1
     upgradeInWave: 0
     spawnrate: 0.2
     hpIncrease: 0

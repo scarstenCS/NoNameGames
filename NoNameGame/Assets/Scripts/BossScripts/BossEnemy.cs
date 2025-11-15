@@ -36,7 +36,13 @@ public class BossEnemy : MonoBehaviour
     private Coroutine delayResummonRoutine;
     private UserInterface ui;
     private int maxHealth;
-    [SerializeField] private DialogueTrigger dialogueTrigger; 
+    [SerializeField] private DialogueTrigger dialogueTrigger;
+    private Renderer[] bossRenderers; 
+
+    [SerializeField] private float turretDeathAnimTime = 1f;
+    readonly int finalWaveNumber = 10;   
+
+
 
     void Start()
     {
@@ -84,6 +90,9 @@ public class BossEnemy : MonoBehaviour
         }
 
         dialogueTrigger = FindObjectOfType<DialogueTrigger>();
+
+        Transform root = bossRoot != null ? bossRoot : transform;
+        bossRenderers = root.GetComponentsInChildren<Renderer>(includeInactive: true);
     }
 
         // Update is called once per frame
@@ -136,12 +145,28 @@ public class BossEnemy : MonoBehaviour
             if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && hp > 3)
             {
                 // pick a teleport location away from player
-                Teleport();
+                //gameObject.GetComponent<Renderer>().enabled = false;
+                //Transform[] transform = GetComponentsInChildren<Renderer>(includeInactive: true);
+                
+                gameObject.GetComponent<Renderer>().enabled = true;
+                //gameObject.GetComponent<Renderer>().enabled = true;
+                //Invoke(nameof(Teleport), 0.5f);
+                foreach (var turret in maskEnemies)
+                {
+                    if (turret != null 
+                        && turret.gameObject.activeInHierarchy  
+                        && !turret.IsDead)                     
+                    {
+                        turret.Kill(forTeleport: true);
+                    }
+                }
+                int cachedDifficulty = difficulty;
+                StartCoroutine(TeleportDialogue(cachedDifficulty));
 
                 currentHealthLost = 0;
 
                 // always resummon masks after a teleport
-                StartCoroutine(ResummonMaskEnemies(true));
+                //StartCoroutine(ResummonMaskEnemies(true));
             }
             if (ui != null)
             {
@@ -214,7 +239,6 @@ public class BossEnemy : MonoBehaviour
     IEnumerator DelayResummonMaskEnemies()
     {
         if (isResummoningMasksDelayed) yield break;
-        UnityEngine.Debug.Log("Delaying resummon of masks...");
         isResummoningMasksDelayed = true;
         yield return new WaitForSeconds(delayResummonMasks);
         delayResummonRoutine = null;
@@ -239,7 +263,7 @@ public class BossEnemy : MonoBehaviour
         {
             center.position = teleportLocation;
         }
-        TeleportDialogue();
+        //TeleportDialogue();
     }
     void MovementAndRotation()
     {
@@ -272,9 +296,30 @@ public class BossEnemy : MonoBehaviour
             }
         }
     }
-    void TeleportDialogue()
+    IEnumerator TeleportDialogue(int cachedDifficulty)
     {
-    
-        dialogueTrigger.OnWaveEnd(difficulty);
+        cachedDifficulty = cachedDifficulty + finalWaveNumber;
+        UnityEngine.Debug.Log("Starting teleport dialogue for dialogue Sequence " + cachedDifficulty);
+        yield return new WaitForSeconds(turretDeathAnimTime);
+        dialogueTrigger.OnWaveEnd(cachedDifficulty);
+        yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+        
+        Teleport();
+        SetBossVisible(true); 
+        StartCoroutine(ResummonMaskEnemies(true));
+        
+    }
+    private void SetBossVisible(bool visible)
+    {
+        if (bossRenderers == null) return;
+
+        foreach (var r in bossRenderers)
+        {
+            if (r != null)
+                r.enabled = visible;
+        }
     }
 }

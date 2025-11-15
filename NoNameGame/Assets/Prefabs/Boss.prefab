@@ -73,6 +73,7 @@ MonoBehaviour:
   difficulty: 1
   numOfTurretsAlive: 3
   dialogueTrigger: {fileID: 0}
+  turretDeathAnimTime: 1
 --- !u!212 &1367494858145847321
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -26,7 +26,11 @@ public class Enemy : MonoBehaviour
     {
         AudioManager.SfxEnemy1Spawn();
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        playerPos = player.GetComponent<Transform>();
+        //Determine if part of boss
+        var boss = GetComponentInParent<BossEnemy>();
+        if (boss != null) playerPos = boss.playerPos;
+        else playerPos = player.GetComponent<Transform>();
+        
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
@@ -101,13 +105,18 @@ public class Enemy : MonoBehaviour
     }
     private void Die()
     {
-        WaveManager.enemiesLeft--;
+        if (isDead) return;
 
-        if (!isDead)
+        bool isBossTurret = GetComponentInParent<BossEnemy>() != null;
+
+        if (!isBossTurret)
         {
-            AudioManager.SfxEnemy1Death();
-            animator.SetBool("Dead", true);
+            // Only standalone turrets affect the wave counter
+            WaveManager.enemiesLeft--;
         }
+
+        AudioManager.SfxEnemy1Death();
+        animator.SetBool("Dead", true);
         isDead = true;
     }
     public void AnimEventDestroySelf() {

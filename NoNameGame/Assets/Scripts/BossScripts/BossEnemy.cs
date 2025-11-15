@@ -34,6 +34,8 @@ public class BossEnemy : MonoBehaviour
     private float delayResummonMasks = 10f;
     public float numOfTurretsAlive;
     private Coroutine delayResummonRoutine;
+    private UserInterface ui;
+    private int maxHealth;
 
     void Start()
     {
@@ -72,7 +74,14 @@ public class BossEnemy : MonoBehaviour
         //animator = gameObject.GetComponent<Animator>();
         //animator.SetBool("Dead", false);
         //animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
+        maxHealth = hp;
+        ui = FindObjectOfType<UserInterface>();
+        if (ui != null)
+        {
+            ui.SetActiveBossHealthBar(true);
+            ui.OnBossHealthChanged(hp, maxHealth);
         }
+    }
 
         // Update is called once per frame
         void Update()
@@ -131,8 +140,10 @@ public class BossEnemy : MonoBehaviour
                 // always resummon masks after a teleport
                 StartCoroutine(ResummonMaskEnemies(true));
             }
-
-
+            if (ui != null)
+            {
+                ui.OnBossHealthChanged(hp, maxHealth);
+            }
 
         }
     }
@@ -144,10 +155,10 @@ public class BossEnemy : MonoBehaviour
         //AudioManager.SfxEnemy2Death();
         //animator.SetBool("Dead", true);
         isDead = true;
-        GameObject boss;
-        boss = transform.parent.gameObject;
-        transform.parent = null;
-        Destroy(boss);
+        if (ui != null)
+        {
+            ui.SetActiveBossHealthBar(false);
+        }
         //TODO: Let animation do this
         AnimEventDestroySelf();
     }

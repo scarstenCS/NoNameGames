@@ -14,6 +14,9 @@ public class UserInterface : MonoBehaviour
     public Animator animator;
     private RectTransform damagedTakenRectTransform; // cache RectTransform
     private float _lastSpeed = 1f;
+    public GameObject bossHealth;
+    public RectTransform bossDamagedTakenRectTransform;
+    public TMP_Text bossHealthText;
     
 
     // Start is called before the first frame update
@@ -48,6 +51,10 @@ public class UserInterface : MonoBehaviour
         if (player != null) OnHealthChanged(player.Health, player.MaxHealth);
         // Debug.Log($"[DEBUG] Player health: {player.Health} / {player.maxHealth}"); // Debug line
         if (enemiesLeftText != null) enemiesLeftText.text = "Enemies left: 0";
+        if (bossHealth != null)
+        {
+            bossHealth.SetActive(false);
+        }
        
 
     }
@@ -79,10 +86,30 @@ public class UserInterface : MonoBehaviour
         healthText.text = $"{current}";
     }
 
+    public void OnBossHealthChanged(int current, int max)
+    {
+
+        if (!bossHealthText) return;
+        //now I would like to add functionality to the animator to increase as damge is taken
+        //if (animator == null) animator = damagedTakenImage.GetComponent<Animator>();
+        if (bossDamagedTakenRectTransform)
+        {
+            float damagePercent = (float)current / (float)max;
+            float maxWidth = 475f; 
+            bossDamagedTakenRectTransform.sizeDelta = new Vector2(damagePercent * maxWidth, 35f);
+
+        }
+
+        bossHealthText.text = $"{current}";
+    }
     public void SetEnemiesLeft(int count)
     {
         if (!enemiesLeftText) return;
         enemiesLeftText.text = $"Enemies Left: {count}";
+    }
+    public void SetActiveBossHealthBar(bool isActive)
+    {
+        bossHealth.SetActive(isActive);
     }
 
     // Update is called once per frame

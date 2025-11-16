@@ -8,7 +8,7 @@ public class TurretEnemy : MonoBehaviour
     public int hp = 2;
     public int atk = 0;
     public string attackTag = "PlayerAttack";
-    public float cooldown = 1.0f;
+    //public float cooldown = 1.0f;
     Animator animator;
 
     public GameObject player;
@@ -22,16 +22,43 @@ public class TurretEnemy : MonoBehaviour
     public float skill;
     private float _nextShootTime;
     private bool isDead = false;
+    public bool isPartOfBoss;
+    private int hpMax;
+    private int atkInitial;
+    private float cooldownInitial;
+    private float bulletSpeedInitial;
+    private int bulletDamageInitial;
+    private float bulletshootCooldownInitial;
+
+
 
     void Start()
     {
         AudioManager.SfxEnemy2Spawn();
         _nextShootTime = Time.time + shootCooldown;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        playerPos = player.GetComponent<Transform>();
+        
+        //Determine if part of boss prefab
+        var boss = GetComponentInParent<BossEnemy>();
+        if (boss != null) {
+            playerPos = boss.playerPos;
+            isPartOfBoss = true;
+        }
+        else {
+            playerPos = player.GetComponent<Transform>();
+            isPartOfBoss = false;
+        }   
+        hpMax = hp;
+        atkInitial = atk;
+        cooldownInitial = shootCooldown;
+        bulletSpeedInitial = bulletSpeed;
+        bulletDamageInitial = bulletDamage;
+        bulletshootCooldownInitial = shootCooldown;
+
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
+        animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
         if (skill >= 0.5)
         {
             this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
@@ -41,8 +68,8 @@ public class TurretEnemy : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return; 
-
+        if (isDead) return;
+        
         if (playerPos != null)
         {
             Vector3 move = Vector3.Normalize(playerPos.position - transform.position);
@@ -67,7 +94,13 @@ public class TurretEnemy : MonoBehaviour
         animator.ResetTrigger("Shoot");
     }
     public void AnimEventDestroySelf() {
-        Destroy(gameObject);
+        if (!isDead) return;
+        UnityEngine.Debug.Log("part of boss: " + isPartOfBoss);
+        if(isPartOfBoss == true) gameObject.SetActive(false);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -113,12 +146,37 @@ public class TurretEnemy : MonoBehaviour
     
     private void Die()
     {
-        WaveManager.enemiesLeft--;
-        if (!isDead)
+        if (isDead) return;
+
+        bool isBossTurret = GetComponentInParent<BossEnemy>() != null;
+
+        if (!isBossTurret)
         {
-            AudioManager.SfxEnemy2Death();
-            animator.SetBool("Dead", true);
+            // Only standalone turrets affect the wave counter
+            WaveManager.enemiesLeft--;
         }
+        else
+        {
+            BossEnemy boss = GetComponentInParent<BossEnemy>();
+            boss.numOfTurretsAlive--;
+        }
+
+        AudioManager.SfxEnemy2Death();
+        animator.SetBool("Dead", true);
         isDead = true;
+    }
+    public void ResetMasks(int difficulty)
+    {
+        BossEnemy boss = GetComponentInParent<BossEnemy>();
+        this.hp = hpMax * difficulty;
+        isDead = false;
+        animator.SetBool("Dead", false);
+        this.atk = atkInitial * difficulty;
+        this.shootCooldown = cooldownInitial/difficulty;
+        this.bulletSpeed = bulletSpeedInitial*difficulty;
+        this.bulletDamage = bulletDamageInitial*difficulty;
+        boss.numOfTurretsAlive=3;
+
+
     }
 }

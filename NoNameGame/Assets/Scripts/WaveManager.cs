@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +8,7 @@ using UnityEngine;
     {
         public int numRunner;
         public int numTurret;
-        public bool boss;
+        public int numBoss;
         public bool upgradeInWave;
         public float spawnrate;
         public int hpIncrease;
@@ -25,6 +26,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject tBulletPrefab;
+    public GameObject bossPrefab;
     public Camera mainCamera;
     public GameObject player;
     private static WaitForSeconds wait;
@@ -32,8 +34,12 @@ public class WaveManager : MonoBehaviour
     public static int enemiesLeft;
     public static int runnerCount;
     public static int turretCount;
+    public static int bossCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
+    bool bossRunnersSpawned = false;
+    public int numBossRunners = 3;
+    public float timeBeforeBossRunnersSpawn = 5f;
     
     // Start is called before the first frame update
     void Awake()
@@ -44,11 +50,13 @@ public class WaveManager : MonoBehaviour
     {
         _waveDoneText = waveDoneText;
         _waveCount = 0;
+
         mainCamera = Camera.main;
-        maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
+        maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
         enemiesLeft = maxEnemies;
         runnerCount = 0;
         turretCount = 0;
+        bossCount = 0;
         StartCoroutine(Phase());
     }
 
@@ -57,16 +65,26 @@ public class WaveManager : MonoBehaviour
         if (_waveDoneText) _waveDoneText.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (bossCount == 1 && enemiesLeft == 1 && !bossRunnersSpawned)
+        {
+            StartCoroutine(BossSpawnRunners());     
+            bossRunnersSpawned = true;
+        }
     }
     public void Spawn()
     {
         float rand = Random.Range(0, 2);
-        if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
+        if (waves[_waveCount].numBoss > bossCount)
         {
+
+            SpawnBoss();
+        }
+        
+        else if ((rand == 0 && runnerCount < waves[_waveCount].numRunner) || turretCount == waves[_waveCount].numTurret)
+        {
+
             SpawnEnemy();
         }
         else
@@ -139,11 +157,43 @@ public class WaveManager : MonoBehaviour
         t.skill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         turretCount++;
     }
+    public void SpawnBoss()
+    {
+        UnityEngine.Debug.Log("Spawning Boss");
+        Vector3 spawnLocation = bossSpawnLocation();
+
+        GameObject b = Instantiate(bossPrefab, spawnLocation, Quaternion.identity);
+
+        BossEnemy bossComponent = b.GetComponent<BossEnemy>();
+        bossComponent.player = player;
+        Wave currWave = waves[_waveCount];
+        bossCount++;
+    }
+    Vector3 bossSpawnLocation()
+    {
+        var p = GameObject.FindGameObjectWithTag("Player");
+        Transform playerPos = null;
+        if (p != null) playerPos = p.transform;
+
+        float minDistance = 4.5f;
+        float maxDistance = 6.5f;
+
+        Vector3 spawnLocation;
+        do
+        {
+            float randX = Random.Range(GameManager.minX, GameManager.maxX);
+            float randY = Random.Range(GameManager.minY, GameManager.maxY);
+            spawnLocation = new Vector3(randX, randY, 0f);
+        }
+        while (Vector3.Distance(spawnLocation, playerPos.position) < minDistance || Vector3.Distance(spawnLocation, playerPos.position) > maxDistance);
+
+        return spawnLocation;
+    }
     public IEnumerator Phase()
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
-            while (runnerCount + turretCount < maxEnemies)
+            while (runnerCount + turretCount + bossCount < maxEnemies)
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
                 Spawn();
@@ -152,10 +202,19 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => enemiesLeft == 0);
             // if (_waveDoneText) _waveDoneText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
+
+
+            AudioManager.Instance.stopDrums();
+            if (_waveCount >1)
+            {
+                if (_waveDoneText) _waveDoneText.SetActive(true);
+                AudioManager.SfxWaveComplete();
+                yield return new WaitForSeconds(2);
+                if (_waveDoneText) _waveDoneText.SetActive(false);
+            }
+
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
-            if (_waveDoneText) _waveDoneText.SetActive(false);
 
             _waveCount++;
 
@@ -167,15 +226,36 @@ public class WaveManager : MonoBehaviour
                     yield return new WaitUntil(UpgradeManager.isWindowClosed);
                 }
                 // reset vars for new wave
-                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret;
+                maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
                 runnerCount = 0;
                 turretCount = 0;
+                bossCount = 0;
                 enemiesLeft = maxEnemies;
                 Player p = player.GetComponent<Player>();
                 p.Heal(p.MaxHealth);
+
+                //!!
+                AudioManager.Instance.startDrums();
             }
         }
         // game done
         GameManager.Instance.GoToMainMenu();
+    }
+    public IEnumerator BossSpawnRunners()
+    {
+
+        BossEnemy boss = FindObjectOfType<BossEnemy>();
+        yield return new WaitForSeconds(timeBeforeBossRunnersSpawn);
+        int difficulty = boss.difficulty;
+        maxEnemies += numBossRunners*difficulty;
+        enemiesLeft += numBossRunners*difficulty;
+        Wave currWave = waves[_waveCount];
+        currWave.numRunner += numBossRunners*difficulty;
+        waves[_waveCount] = currWave;
+        for (int i = 0; i < numBossRunners*difficulty; i++)
+        {
+            SpawnEnemy();
+        }
+        bossRunnersSpawned = false;
     }
 }

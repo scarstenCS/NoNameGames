@@ -14,26 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Charlie
-    text: A parking lot? Alright, I can work with this. I just need to find the name
-      of the store.
-    portrait: {fileID: 21300000, guid: 9589ba998a31dac4898c1cbb35cc2718, type: 3}
+    text: "It\u2019s even bleaker once you enter the game\u2026 What was he thinking
+      when he made this? "
+    portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
     voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
-  - speaker: Charlie
-    text: What's this?
-    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
-  - speaker: Charlie
-    text: "Isn\u2019t this Sam\u2019s boomerang\u2026? I haven\u2019t seen this in
-      years. I\u2019ll have to give it back once I find him."
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
-  - speaker: Charlie
-    text: "Is that a person? That can\u2019t be right. The app only allows one person
-      inside virtual worlds.."
-    portrait: {fileID: 21300000, guid: 9589ba998a31dac4898c1cbb35cc2718, type: 3}
-    voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
-  - speaker: Charlie
-    text: Umm.. is it approaching me?!
-    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   pausesCombat: 1

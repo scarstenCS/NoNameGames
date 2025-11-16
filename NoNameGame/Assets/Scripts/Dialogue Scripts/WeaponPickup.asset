@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
+  m_Name: WeaponPickup
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 
+    text: What's that on the floor?
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: 
+    text: "Huh, is this a weapon? There\u2019s some text above it\u2026 \u201CTry
+      it out. Survive.\u201D"
+    portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
+    voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
+  - speaker: 
+    text: Hmm, I should try it out before the game starts.
+    portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  pausesCombat: 1

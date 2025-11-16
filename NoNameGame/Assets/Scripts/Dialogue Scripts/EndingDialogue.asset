@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7057a16be2d77dd4fa0366c56605ed7f, type: 3}
+  m_Name: EndingDialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Sam
+    text: Ugh!
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Charlie
+    text: "Please tell me you\u2019re done sending those things after me!"
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+  - speaker: Sam
+    text: "\u2026"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 0}
+  - speaker: Charlie
+    text: "\u2026 Sam, I\u2019m sorry. I don\u2019t know how I can fix this, but
+      I don\u2019t want you getting hurt. This is reckless! I know that me leaving
+      was\u2026"
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Charlie
+    text: "I was just avoiding mom and dad, I know they can be crazy control freaks\u2026
+      You didn\u2019t do anything wrong."
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Charlie
+    text: "I just didn\u2019t think they\u2019d pressure you like they did with me. "
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Sam
+    text: " \u2026 They don\u2019t get how I\u2019m just different from you. I can
+      make things, things people can play and like.\r"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Sam
+    text: " I spent days just on this app, I didn\u2019t want to deal with them yelling
+      at me to be more like you. \r"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Sam
+    text: " But everything I make just gets worse and worse\u2026 people aren\u2019t
+      looking at what I make anymore\u2026 why make something if no one cares?"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Charlie
+    text: "\u2026Sam, we need to sit down to talk about this. This isn\u2019t the
+      right place for us to talk. I know I wasn\u2019t here for you earlier but I\u2019ll
+      book a flight. I have a break coming up soon."
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Sam
+    text: "Really? You\u2019re <i>actually</i> coming home?"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Charlie
+    text: Yeah, yeah, I am. But, <i>you</i> need to go home first.
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Sam
+    text: "\u2026 Ok, I will. But are you actually going to come home? I don\u2019t
+      know what I\u2019m supposed to tell mom and dad once I go back\u2026\r"
+    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+  - speaker: Charlie
+    text: "Don\u2019t worry. I promise I\u2019ll be there soon, and we can do whatever
+      you want once I\u2019m there.\r"
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  pausesCombat: 1

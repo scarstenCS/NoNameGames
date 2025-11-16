@@ -227,25 +227,18 @@ public class Player : MonoBehaviour
         }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
-
+            animator.SetBool("isAttacking", true);
             ba.Attack();
+        } else
+        {
+            animator.SetBool("isAttacking", false);
         }
-
         if (pauseGame.triggered && pauseGame.ReadValue<float>() > 0)
         {
             //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
     }
-
-    // private void OnCollisionStay2D(Collision2D coll)
-    // {
-    //     GameObject other = coll.collider.gameObject;
-    //     if (other.tag == "Enemy1")
-    //     {
-    //         enemy1Punch();
-    //     }
-    // }
 
     private void HandleDeath()
     {

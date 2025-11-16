@@ -62,7 +62,7 @@ public class BasicAttack : MonoBehaviour
             rb2d.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             baseAngle = rb2d.rotation;
         }
-        PreformAttack();
+        PerformAttack();
     }
     /// <summary>
     /// Attempt to start an attack
@@ -133,7 +133,7 @@ public class BasicAttack : MonoBehaviour
         }
     }
 
-    private void PreformAttack()
+    private void PerformAttack()
     {
         if (!isProjectile) return;
         animator = gameObject.GetComponent<Animator>();

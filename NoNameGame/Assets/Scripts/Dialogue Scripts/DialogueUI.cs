@@ -11,15 +11,32 @@ public class DialogueUI : MonoBehaviour
     public GameObject rootPanel;    // overall dialogue panel
     public TMP_Text speakerText;
     public TMP_Text bodyText;
-    public Image portraitImage;     
-    public GameObject continueHint; 
+    public Image portraitImage;
+    public GameObject continueHint;
+
+    const float defaultCharPrintSpeed = 0.025f; 
 
     public void Show(bool on) => rootPanel.SetActive(on);
 
     public void Render(string speaker, string body, Sprite portrait)
     {
+        StopAllCoroutines();
         if (speakerText) speakerText.text = speaker ?? "";
-        if (bodyText) bodyText.text = body ?? "";
+        StartCoroutine(BodyTextByCharacter(body, defaultCharPrintSpeed));
+        //if (bodyText) bodyText.text = body ?? "";
         if (portraitImage) portraitImage.sprite = portrait;
+    }
+
+    private IEnumerator BodyTextByCharacter(string text, float charPrintSpeed)
+    {
+        bodyText.text = "";
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            bodyText.text += text[i];
+           //Debug.Log(i);
+            yield return new WaitForSecondsRealtime(charPrintSpeed);
+        }
+        yield return null;
     }
 }

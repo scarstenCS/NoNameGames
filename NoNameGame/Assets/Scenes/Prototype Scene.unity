@@ -334,15 +334,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08590a7367f6a3442a40bc262b948f90, type: 3}
   - {fileID: 8300000, guid: 2f647b4913d1e374fa18d5246783aa28, type: 3}
   enemy2Hit:
-  - {fileID: 8300000, guid: 2db59425afc91aa4298eef4742de1d05, type: 3}
-  - {fileID: 8300000, guid: 3248ebe0ace68684fb5ef79f0d434b2b, type: 3}
-  - {fileID: 8300000, guid: f69d61667b8f46e44aefbfa494cc4770, type: 3}
-  - {fileID: 8300000, guid: e6c88b1ddacee034a878b10a3ae1406f, type: 3}
-  - {fileID: 8300000, guid: 99a3ee83d17f1a5478df32c60c252006, type: 3}
-  - {fileID: 8300000, guid: 4cad845979d94be47bdaf5e48c48d490, type: 3}
-  - {fileID: 8300000, guid: f787c9dcb782eed41a1a7a6bc309b9e2, type: 3}
-  - {fileID: 8300000, guid: 96b90bc1553535d4aba5d65c8f0cbce4, type: 3}
-  - {fileID: 8300000, guid: db864149df7019b458a9f20b350907fa, type: 3}
+  - {fileID: 8300000, guid: e47eb53ecdf3afa4da4fc6cc629bf94e, type: 3}
   turretShoot:
   - {fileID: 8300000, guid: 585bd0a1e0fbf8f4fb5e0079eeab8227, type: 3}
   - {fileID: 8300000, guid: 2751e6e68149a904e9b3fbaf98dd0c76, type: 3}

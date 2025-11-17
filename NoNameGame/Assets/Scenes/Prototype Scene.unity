@@ -1649,6 +1649,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41db97c315bf7d94bb313795f166dffa, type: 2}
   - {fileID: 11400000, guid: 33f7b1e754ed3df4d9957a1c7bc3a69b, type: 2}
   - {fileID: 11400000, guid: ef5ec720f3343d741a9f77c504592182, type: 2}
+  - {fileID: 11400000, guid: ffecb51a39a0b1a4a8f32b91d99f393c, type: 2}
+  - {fileID: 11400000, guid: 65ce8434a5f0761479d526da1166c2fd, type: 2}
+  - {fileID: 11400000, guid: a064351ac88fa3f468afcfb3345cab63, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
 --- !u!4 &312574714
@@ -3688,8 +3691,17 @@ MonoBehaviour:
   waves:
   - numRunner: 0
     numTurret: 0
-    numBoss: 1
-    upgradeInWave: 0
+    numBoss: 0
+    upgradeInWave: 1
+    spawnrate: 0.2
+    hpIncrease: 0
+    dmgIncrease: 0
+    skillLowerBound: 0
+    skillUpperBound: 0
+  - numRunner: 0
+    numTurret: 0
+    numBoss: 0
+    upgradeInWave: 1
     spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
@@ -3698,17 +3710,8 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     numBoss: 1
-    upgradeInWave: 0
-    spawnrate: 1.5
-    hpIncrease: 0
-    dmgIncrease: 0
-    skillLowerBound: 0
-    skillUpperBound: 0
-  - numRunner: 10
-    numTurret: 0
-    numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0

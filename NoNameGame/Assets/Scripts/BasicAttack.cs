@@ -172,6 +172,7 @@ public class BasicAttack : MonoBehaviour
                         launcher.inAir = Mathf.Max(0, launcher.inAir - 1);
                     }
                     Destroy(gameObject);
+                    player.GetComponent<Player>().animator.SetBool("isAttacking", false);
                 }
                 break;
         }

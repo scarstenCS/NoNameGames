@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     public GameObject basicAttackObj;
 
     private BasicAttack ba;
-    Animator animator;
+    public Animator animator;
 
     public Animation idle;
 
@@ -227,11 +227,10 @@ public class Player : MonoBehaviour
         }
         if (basicAtkAction.triggered && basicAtkAction.ReadValue<float>() > 0)
         {
+            UnityEngine.Debug.Log("Attack");
             animator.SetBool("isAttacking", true);
+            
             ba.Attack();
-        } else
-        {
-            animator.SetBool("isAttacking", false);
         }
         if (pauseGame.triggered && pauseGame.ReadValue<float>() > 0)
         {
@@ -252,4 +251,5 @@ public class Player : MonoBehaviour
     {
         return move;
     }
+    
 }

@@ -963,7 +963,8 @@ MonoBehaviour:
     Lead Writer (Script Writer), Visual Artist\r<size=100%><color=\"white\">\n\nIbrahim
     Mansoor: <color=#354196><size=80%>Lead Designer, Audio (Composer)\r<size=100%><color=\"white\">\n\nLiam
     Parrell: <color=#354196><size=80%>Lead Programmer\r<size=100%><color=\"white\">\n\nHilary
-    Vuong: <color=#354196><size=80%>Visuals Lead, Writer<size=100%><color=\"white\">"
+    Vuong: <color=#354196><size=80%>Visuals Lead, Writer<size=100%><color=\"white\">\n\nMacKenzie
+    Luong: <color=#354196><size=80%>Executive Producer and brings good vibes<size=100%><color=\"white\">"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f3121d3f197429409f9da22c9b1a746, type: 2}
   m_sharedMaterial: {fileID: -5365450341428492243, guid: 7f3121d3f197429409f9da22c9b1a746,
@@ -1345,7 +1346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00001812, y: -460}
+  m_AnchoredPosition: {x: 34, y: -460}
   m_SizeDelta: {x: 308.92902, y: 97.990234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056344310

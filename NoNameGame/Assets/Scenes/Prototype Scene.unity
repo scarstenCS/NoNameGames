@@ -3784,9 +3784,9 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   waves:
   - numRunner: 0
-    numTurret: 0
-    numBoss: 1
-    upgradeInWave: 0
+    numTurret: 1
+    numBoss: 0
+    upgradeInWave: 1
     spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
@@ -3794,7 +3794,7 @@ MonoBehaviour:
     skillUpperBound: 0
   - numRunner: 0
     numTurret: 0
-    numBoss: 0
+    numBoss: 1
     upgradeInWave: 1
     spawnrate: 0.2
     hpIncrease: 0
@@ -4782,7 +4782,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &893256366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4859,7 +4859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

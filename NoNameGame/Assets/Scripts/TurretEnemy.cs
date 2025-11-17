@@ -159,6 +159,11 @@ public class TurretEnemy : MonoBehaviour
         {
             // Only standalone turrets affect the wave counter
             WaveManager.enemiesLeft--;
+            UserInterface ui = FindObjectOfType<UserInterface>();
+            if (ui != null)
+            {
+                ui.AddScore(20);
+            }
         }
         else
         {

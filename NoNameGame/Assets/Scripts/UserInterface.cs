@@ -17,6 +17,8 @@ public class UserInterface : MonoBehaviour
     public GameObject bossHealth;
     public RectTransform bossDamagedTakenRectTransform;
     public TMP_Text bossHealthText;
+    public TMP_Text scoreText;
+    public int totalScore = 0;
     
 
     // Start is called before the first frame update
@@ -55,7 +57,7 @@ public class UserInterface : MonoBehaviour
         {
             bossHealth.SetActive(false);
         }
-       
+        if (scoreText != null) scoreText.text = "Score: 0";
 
     }
 
@@ -110,6 +112,25 @@ public class UserInterface : MonoBehaviour
     public void SetActiveBossHealthBar(bool isActive)
     {
         bossHealth.SetActive(isActive);
+    }
+    public void AddScore(int score)
+    {
+        UnityEngine.Debug.Log("Adding score: " + score);
+        totalScore += score;
+        if (!scoreText) return;
+        scoreText.text = $"Score: {totalScore}";
+    }
+
+    public void ReduceScore(int score)
+    {
+        totalScore -= score;
+        if (totalScore < 0) totalScore = 0;
+        if (!scoreText) return;
+        scoreText.text = $"Score: {totalScore}";
+    }
+    public int GetTotalScore()
+    {
+        return totalScore;
     }
 
     // Update is called once per frame

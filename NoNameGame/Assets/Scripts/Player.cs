@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     public Animation idle;
+    private UserInterface ui;
 
     private void Awake()
     {
@@ -175,7 +176,13 @@ public class Player : MonoBehaviour
             move.Disable();
             basicAtkAction.Disable();
             animator.SetBool("Dead", true);
+            
+
         } 
+        if (ui != null)
+        {
+            ui.ReduceScore(5*amount);
+        }
     }
     /// <summary>
     /// heals the player
@@ -203,6 +210,7 @@ public class Player : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
 
         sr = GetComponent<SpriteRenderer>();
+        ui = FindObjectOfType<UserInterface>();
     }
 
     // Update is called once per frame

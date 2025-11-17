@@ -114,6 +114,11 @@ public class Enemy : MonoBehaviour
         {
             // Only standalone turrets affect the wave counter
             WaveManager.enemiesLeft--;
+            UserInterface ui = FindObjectOfType<UserInterface>();
+            if (ui != null)
+            {
+                ui.AddScore(10);
+            }
         }
 
         AudioManager.SfxEnemy1Death();

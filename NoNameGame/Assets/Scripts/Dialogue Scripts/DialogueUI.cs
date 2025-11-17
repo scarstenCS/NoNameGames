@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 
 public class DialogueUI : MonoBehaviour
@@ -14,8 +15,12 @@ public class DialogueUI : MonoBehaviour
     public Image portraitImage;
     public GameObject continueHint;
 
+    public bool isAnimating = false;
+
     const float defaultCharPrintSpeed = 0.025f; 
 
+    // the number of characters that fit on a line in a 16:9 ratio
+    const int charsPerLine = 42;
     public void Show(bool on) => rootPanel.SetActive(on);
 
     public void Render(string speaker, string body, Sprite portrait)
@@ -29,14 +34,36 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator BodyTextByCharacter(string text, float charPrintSpeed)
     {
+        List<string> words = text.Split(' ').ToList();
+        isAnimating = true;
         bodyText.text = "";
 
-        for (int i = 0; i < text.Length; i++)
+        int lineLen =0;
+
+
+        for (int i = 0; i < words.Count(); i++)
         {
-            bodyText.text += text[i];
-           //Debug.Log(i);
-            yield return new WaitForSecondsRealtime(charPrintSpeed);
+            lineLen += words[i].Length +1;
+
+            // add newline if word won't fit on line
+            if (lineLen > charsPerLine)
+            {
+                lineLen=0;
+                bodyText.text += "\n";
+            }
+
+
+            // add word
+            for(int c =0; c < words[i].Length;c++){
+                bodyText.text += words[i][c];
+
+                if (isAnimating) yield return new WaitForSecondsRealtime(charPrintSpeed);
+            }
+            bodyText.text += " ";
         }
+        //bodyText.text = text;
+
+        isAnimating =false;
         yield return null;
     }
 }

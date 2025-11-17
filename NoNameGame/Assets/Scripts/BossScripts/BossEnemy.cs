@@ -357,17 +357,13 @@ public class BossEnemy : MonoBehaviour
     IEnumerator FinalDialogue(int cachedDifficulty)
     {
         int index = finalWaveNumber + cachedDifficulty;
-        UnityEngine.Debug.Log($"Starting final dialogue for index {index}");
         yield return new WaitForSeconds(turretDeathAnimTime);
 
         dialogueTrigger.OnWaveEnd(index);
-        UnityEngine.Debug.Log("OnWaveEnd called for index " + index);
 
         yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
-        UnityEngine.Debug.Log("WaitUntil finished for final dialogue");
 
         yield return new WaitForSeconds(0.1f);
-        UnityEngine.Debug.Log("Boss dying now.");
         yield return StartCoroutine(Die());
     }
     int EnemiesAliveNow()

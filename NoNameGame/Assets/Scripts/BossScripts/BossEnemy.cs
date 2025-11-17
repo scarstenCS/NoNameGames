@@ -5,6 +5,7 @@ using System.Diagnostics;
 //using System.ComponentModel;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class BossEnemy : MonoBehaviour
 {
     private SpriteRenderer sr;
@@ -43,6 +44,7 @@ public class BossEnemy : MonoBehaviour
     readonly int finalWaveNumber = 11;   
 
     private bool calledFinalDialogue = false;
+    [SerializeField] private CanvasGroup fadeCanvas;
 
     void Start()
     {
@@ -97,6 +99,7 @@ public class BossEnemy : MonoBehaviour
 
         Transform root = bossRoot != null ? bossRoot : transform;
         bossRenderers = root.GetComponentsInChildren<Renderer>(includeInactive: true);
+        fadeCanvas = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     }
 
         // Update is called once per frame
@@ -117,7 +120,7 @@ public class BossEnemy : MonoBehaviour
                 speed = 0f;
                 if(EnemiesAliveNow() == 1)
                 {
-                    UnityEngine.Debug.Log("WaveManager.enemiesLeft: " + WaveManager.enemiesLeft);
+                    
                     if(calledFinalDialogue == false)
                     {
                         calledFinalDialogue = true;
@@ -220,10 +223,13 @@ public class BossEnemy : MonoBehaviour
         }
         //TODO: Let animation do this
         AnimEventDestroySelf();
+
         yield break;
     }
     public void AnimEventDestroySelf() {
-        Destroy(gameObject);
+        StopAllCoroutines();
+        StartCoroutine(FadeCanvasGroup(fadeCanvas, fadeCanvas.alpha, 1f, 2f));
+        
     }
     void CachePlayerPos()
     {
@@ -373,5 +379,17 @@ public class BossEnemy : MonoBehaviour
             + WaveManager.bossCount 
             + WaveManager.enemiesLeft 
             - WaveManager.maxEnemies;
+    }
+    IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, timer / duration);
+            yield return null; 
+        }
+        canvasGroup.alpha = endAlpha; 
+        SceneManager.LoadScene("Credits");
     }
 }

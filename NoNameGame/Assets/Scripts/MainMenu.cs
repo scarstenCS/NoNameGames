@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.SfxSelect();
         SceneManager.LoadScene(gameSceneName);
     }
 }

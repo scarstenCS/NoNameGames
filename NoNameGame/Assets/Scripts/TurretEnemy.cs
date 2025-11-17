@@ -144,6 +144,7 @@ public class TurretEnemy : MonoBehaviour
                 proj.pierce -= 1;
             }
             hp -= proj.Damage;
+            FlashRed();
 
         }
     }
@@ -180,8 +181,15 @@ public class TurretEnemy : MonoBehaviour
         this.bulletSpeed = bulletSpeedInitial*difficulty;
         this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
-
-
+    }
+    void FlashRed()
+    {
+        sr.color = new Color(1.0f, 0.0f, 0.0f, 0.5f); // semi-transparent red
+        Invoke("ResetColor", 0.1f);
+    }
+    void ResetColor()
+    {
+        sr.color = Color.white;
     }
     public void Kill(bool forTeleport = false)
     {

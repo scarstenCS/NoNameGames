@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
         isPaused = !_pauseMenu.activeSelf;
         _pauseMenu.SetActive(isPaused);
         _menuButton.SetActive(isPaused);
-        UnityEngine.Debug.Log("ispaused: " + isPaused);
         Time.timeScale = isPaused ? 0f : timeScale;
         Player p = _player.GetComponent<Player>();
         int numberOfUpgrades = UpgradeManager.Instance.totalUpgrades;
@@ -100,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Debug.Log("Going to Main Menu");
+        AudioManager.SfxSelect();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
@@ -138,7 +137,7 @@ public class GameManager : MonoBehaviour
     }
     public void TogglePauseButton()
     {
-        
+        AudioManager.SfxSelect();
         TogglePause();
 
     }

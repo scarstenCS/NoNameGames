@@ -356,6 +356,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fe22e66b6d131d048ae05ac76338c35b, type: 3}
   waveComplete:
   - {fileID: 8300000, guid: 63242fb28af189d49bcf590a133e0d5c, type: 3}
+  UISelect:
+  - {fileID: 8300000, guid: cbac35d294036634a9bd7aedf3a620ee, type: 3}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:
@@ -2664,7 +2666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 177.7, y: -11.6}
+  m_AnchoredPosition: {x: 177.7, y: -10}
   m_SizeDelta: {x: 204.33563, y: 44.42562}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476313681
@@ -3784,34 +3786,34 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 312574713}
   waves:
   - numRunner: 0
-    numTurret: 1
+    numTurret: 0
+    numBoss: 0
+    upgradeInWave: 0
+    spawnrate: 1.5
+    hpIncrease: 0
+    dmgIncrease: 0
+    skillLowerBound: 0
+    skillUpperBound: 0
+  - numRunner: 1
+    numTurret: 0
+    numBoss: 0
+    upgradeInWave: 0
+    spawnrate: 1.5
+    hpIncrease: 0
+    dmgIncrease: 0
+    skillLowerBound: 0
+    skillUpperBound: 0
+  - numRunner: 10
+    numTurret: 0
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 0.2
-    hpIncrease: 0
-    dmgIncrease: 0
-    skillLowerBound: 0
-    skillUpperBound: 0
-  - numRunner: 0
-    numTurret: 0
-    numBoss: 1
-    upgradeInWave: 1
-    spawnrate: 0.2
-    hpIncrease: 0
-    dmgIncrease: 0
-    skillLowerBound: 0
-    skillUpperBound: 0
-  - numRunner: 0
-    numTurret: 0
-    numBoss: 1
-    upgradeInWave: 1
-    spawnrate: 0.2
+    spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-  - numRunner: 12
-    numTurret: 3
+  - numRunner: 15
+    numTurret: 0
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 1.5
@@ -3889,6 +3891,15 @@ MonoBehaviour:
     spawnrate: 1
     hpIncrease: 2
     dmgIncrease: 2
+    skillLowerBound: 0.5
+    skillUpperBound: 1
+  - numRunner: 0
+    numTurret: 0
+    numBoss: 1
+    upgradeInWave: 0
+    spawnrate: 0.2
+    hpIncrease: 0
+    dmgIncrease: 0
     skillLowerBound: 0.5
     skillUpperBound: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,

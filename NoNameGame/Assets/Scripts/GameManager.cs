@@ -8,8 +8,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
-    public GameObject player, pauseMenu, menuButton;
-    static private GameObject _player, _pauseMenu, _menuButton;
+    public Player p;
+    public GameObject player, pauseMenu, menuButton, bkgd, redBkgd;
+    static private GameObject _player, _pauseMenu, _menuButton, _bkgd, _redBkgd;
     static public GameManager Instance { get { return _instance; } }
     private UpgradeManager upgradeManager;
     static public bool isPaused = false;
@@ -40,7 +41,23 @@ public class GameManager : MonoBehaviour
         _menuButton = menuButton;
         _gameOverPanel = gameOverPanel;
         _mainMenuSelected = mainMenuSelected;
-        
+        _bkgd = bkgd;
+        _redBkgd = redBkgd;
+        p = player.GetComponent<Player>();
+        bkgd.SetActive(true);
+        redBkgd.SetActive(false);
+    }
+    private void Update()
+    {
+        if (p.Health <= ((double)p.MaxHealth*0.33))
+        {
+            redBkgd.SetActive(true);
+            bkgd.SetActive(false);
+        } else
+        {
+            redBkgd.SetActive(false);
+            bkgd.SetActive(true);
+        }
     }
 
     static public void PlayerTakeDamage(int ammout)

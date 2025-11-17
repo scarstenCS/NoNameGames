@@ -40,6 +40,7 @@ public class WaveManager : MonoBehaviour
     bool bossRunnersSpawned = false;
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
+    private BossEnemy boss;
     
     // Start is called before the first frame update
     void Awake()
@@ -164,8 +165,8 @@ public class WaveManager : MonoBehaviour
 
         GameObject b = Instantiate(bossPrefab, spawnLocation, Quaternion.identity);
 
-        BossEnemy bossComponent = b.GetComponent<BossEnemy>();
-        bossComponent.player = player;
+        boss = b.GetComponent<BossEnemy>();
+        boss.player = player;
         Wave currWave = waves[_waveCount];
         bossCount++;
     }
@@ -221,6 +222,7 @@ public class WaveManager : MonoBehaviour
             }
 
             // show dialogue if applicable
+            if (boss.hp <= 0) yield break;
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
 
@@ -246,10 +248,15 @@ public class WaveManager : MonoBehaviour
     }
     public IEnumerator BossSpawnRunners()
     {
-
+        
         BossEnemy boss = FindObjectOfType<BossEnemy>();
+
         yield return new WaitForSeconds(timeBeforeBossRunnersSpawn);
+        UnityEngine.Debug.Log("Boss hp: " + boss.hp);
+        if(boss.hp <= 0) yield break;
+
         int difficulty = boss.difficulty;
+
         maxEnemies += numBossRunners*difficulty;
         enemiesLeft += numBossRunners*difficulty;
         Wave currWave = waves[_waveCount];

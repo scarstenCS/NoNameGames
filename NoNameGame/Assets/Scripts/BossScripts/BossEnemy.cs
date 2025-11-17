@@ -5,6 +5,7 @@ using System.Diagnostics;
 //using System.ComponentModel;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class BossEnemy : MonoBehaviour
 {
     private SpriteRenderer sr;
@@ -36,7 +37,14 @@ public class BossEnemy : MonoBehaviour
     private Coroutine delayResummonRoutine;
     private UserInterface ui;
     private int maxHealth;
-    [SerializeField] private DialogueTrigger dialogueTrigger; 
+    [SerializeField] private DialogueTrigger dialogueTrigger;
+    private Renderer[] bossRenderers; 
+
+    [SerializeField] private float turretDeathAnimTime = 1f;
+    readonly int finalWaveNumber = 11;   
+
+    private bool calledFinalDialogue = false;
+    [SerializeField] private CanvasGroup fadeCanvas;
 
     void Start()
     {
@@ -83,14 +91,45 @@ public class BossEnemy : MonoBehaviour
             ui.OnBossHealthChanged(hp, maxHealth);
         }
 
-        dialogueTrigger = FindObjectOfType<DialogueTrigger>();
+        if (dialogueTrigger == null)
+        {
+            dialogueTrigger = DialogueTrigger.Instance;
+        }
+        UnityEngine.Debug.Log("Boss dialogue trigger set to " + dialogueTrigger);
+
+        Transform root = bossRoot != null ? bossRoot : transform;
+        bossRenderers = root.GetComponentsInChildren<Renderer>(includeInactive: true);
+        fadeCanvas = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     }
 
         // Update is called once per frame
         void Update()
         {
-            if (hp <= 0 && !isDead) Die();
+            if (hp <= 0 && !isDead) {
+                foreach (var turret in maskEnemies)
+                {
+                    if (turret != null 
+                        && turret.gameObject.activeInHierarchy  
+                        && !turret.IsDead)                     
+                    {
+                        turret.Kill(forTeleport: true);
+                    }
+                }
+                int cachedDifficulty = difficulty;
+                hp = 0;
+                speed = 0f;
+                if(EnemiesAliveNow() == 1)
+                {
+                    
+                    if(calledFinalDialogue == false)
+                    {
+                        calledFinalDialogue = true;
+                        StartCoroutine(FinalDialogue(cachedDifficulty));
+                    }
+                }
 
+                
+            }
             if (playerPos == null) CachePlayerPos();
             // Boss movement logic
             // center is the reference point for the boss and its mask enemies
@@ -136,12 +175,28 @@ public class BossEnemy : MonoBehaviour
             if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && hp > 3)
             {
                 // pick a teleport location away from player
-                Teleport();
+                //gameObject.GetComponent<Renderer>().enabled = false;
+                //Transform[] transform = GetComponentsInChildren<Renderer>(includeInactive: true);
+                
+                gameObject.GetComponent<Renderer>().enabled = true;
+                //gameObject.GetComponent<Renderer>().enabled = true;
+                //Invoke(nameof(Teleport), 0.5f);
+                foreach (var turret in maskEnemies)
+                {
+                    if (turret != null 
+                        && turret.gameObject.activeInHierarchy  
+                        && !turret.IsDead)                     
+                    {
+                        turret.Kill(forTeleport: true);
+                    }
+                }
+                int cachedDifficulty = difficulty;
+                StartCoroutine(TeleportDialogue(cachedDifficulty));
 
                 currentHealthLost = 0;
 
                 // always resummon masks after a teleport
-                StartCoroutine(ResummonMaskEnemies(true));
+                //StartCoroutine(ResummonMaskEnemies(true));
             }
             if (ui != null)
             {
@@ -150,9 +205,13 @@ public class BossEnemy : MonoBehaviour
 
         }
     }
-    private void Die()
+    IEnumerator Die()
     {
-        if (isDead) return;
+        UnityEngine.Debug.Log("isDead: " + isDead);
+        if (!isDead)
+        {
+            isDead = true;
+        }
 
         WaveManager.enemiesLeft--;
         //AudioManager.SfxBossDeath();
@@ -164,9 +223,13 @@ public class BossEnemy : MonoBehaviour
         }
         //TODO: Let animation do this
         AnimEventDestroySelf();
+
+        yield break;
     }
     public void AnimEventDestroySelf() {
-        Destroy(gameObject);
+        StopAllCoroutines();
+        StartCoroutine(FadeCanvasGroup(fadeCanvas, fadeCanvas.alpha, 1f, 2f));
+        
     }
     void CachePlayerPos()
     {
@@ -214,7 +277,6 @@ public class BossEnemy : MonoBehaviour
     IEnumerator DelayResummonMaskEnemies()
     {
         if (isResummoningMasksDelayed) yield break;
-        UnityEngine.Debug.Log("Delaying resummon of masks...");
         isResummoningMasksDelayed = true;
         yield return new WaitForSeconds(delayResummonMasks);
         delayResummonRoutine = null;
@@ -239,7 +301,7 @@ public class BossEnemy : MonoBehaviour
         {
             center.position = teleportLocation;
         }
-        TeleportDialogue();
+        //TeleportDialogue();
     }
     void MovementAndRotation()
     {
@@ -272,9 +334,62 @@ public class BossEnemy : MonoBehaviour
             }
         }
     }
-    void TeleportDialogue()
+    IEnumerator TeleportDialogue(int cachedDifficulty)
     {
-    
-        dialogueTrigger.OnWaveEnd(difficulty);
+        cachedDifficulty = cachedDifficulty + finalWaveNumber;
+        UnityEngine.Debug.Log("Starting teleport dialogue for dialogue Sequence " + cachedDifficulty);
+        yield return new WaitForSeconds(turretDeathAnimTime);
+        dialogueTrigger.OnWaveEnd(cachedDifficulty);
+        yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+        
+        Teleport();
+        SetBossVisible(true); 
+        StartCoroutine(ResummonMaskEnemies(true));
+        
+    }
+    private void SetBossVisible(bool visible)
+    {
+        if (bossRenderers == null) return;
+
+        foreach (var r in bossRenderers)
+        {
+            if (r != null)
+                r.enabled = visible;
+        }
+    }
+    IEnumerator FinalDialogue(int cachedDifficulty)
+    {
+        int index = finalWaveNumber + cachedDifficulty;
+        yield return new WaitForSeconds(turretDeathAnimTime);
+
+        dialogueTrigger.OnWaveEnd(index);
+
+        yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
+
+        yield return new WaitForSeconds(0.1f);
+        yield return StartCoroutine(Die());
+    }
+    int EnemiesAliveNow()
+    {
+        return WaveManager.runnerCount 
+            + WaveManager.turretCount 
+            + WaveManager.bossCount 
+            + WaveManager.enemiesLeft 
+            - WaveManager.maxEnemies;
+    }
+    IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, timer / duration);
+            yield return null; 
+        }
+        canvasGroup.alpha = endAlpha; 
+        SceneManager.LoadScene("Credits");
     }
 }

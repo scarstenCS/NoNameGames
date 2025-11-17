@@ -22,6 +22,7 @@ public class TurretEnemy : MonoBehaviour
     public float skill;
     private float _nextShootTime;
     private bool isDead = false;
+     public bool IsDead => isDead; 
     public bool isPartOfBoss;
     private int hpMax;
     private int atkInitial;
@@ -29,6 +30,7 @@ public class TurretEnemy : MonoBehaviour
     private float bulletSpeedInitial;
     private int bulletDamageInitial;
     private float bulletshootCooldownInitial;
+    public float deathAnimSpeed = 1.75f;
 
 
 
@@ -101,6 +103,8 @@ public class TurretEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        animator.ResetTrigger("Shoot");
+        animator.SetFloat("DeathSpeed", 1f);
     }
 
 
@@ -187,4 +191,29 @@ public class TurretEnemy : MonoBehaviour
     {
         sr.color = Color.white;
     }
+    public void Kill(bool forTeleport = false)
+    {
+        if (forTeleport)
+        {
+            if (isDead) return;
+
+            isDead = true;
+            animator.ResetTrigger("Shoot");
+            animator.SetFloat("DeathSpeed", deathAnimSpeed);
+            animator.SetBool("Dead", true);
+            
+            
+            var boss = GetComponentInParent<BossEnemy>();
+            if (boss != null)
+            {
+                boss.numOfTurretsAlive--;
+            }
+
+            return;
+        }
+
+        Die();
+    }
+
+
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 1
   atk: 2
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
@@ -73,6 +73,7 @@ MonoBehaviour:
   difficulty: 1
   numOfTurretsAlive: 3
   dialogueTrigger: {fileID: 0}
+  turretDeathAnimTime: 1
 --- !u!212 &1367494858145847321
 SpriteRenderer:
   m_ObjectHideFlags: 0

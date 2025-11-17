@@ -1644,6 +1644,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41db97c315bf7d94bb313795f166dffa, type: 2}
   - {fileID: 11400000, guid: 33f7b1e754ed3df4d9957a1c7bc3a69b, type: 2}
   - {fileID: 11400000, guid: ef5ec720f3343d741a9f77c504592182, type: 2}
+  - {fileID: 11400000, guid: ffecb51a39a0b1a4a8f32b91d99f393c, type: 2}
+  - {fileID: 11400000, guid: 65ce8434a5f0761479d526da1166c2fd, type: 2}
+  - {fileID: 11400000, guid: a064351ac88fa3f468afcfb3345cab63, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
 --- !u!4 &312574714
@@ -3782,27 +3785,27 @@ MonoBehaviour:
   waves:
   - numRunner: 0
     numTurret: 0
-    numBoss: 0
+    numBoss: 1
     upgradeInWave: 0
     spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
-    spawnrate: 1.5
+    upgradeInWave: 1
+    spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-  - numRunner: 10
+  - numRunner: 0
     numTurret: 0
-    numBoss: 0
+    numBoss: 1
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 0.2
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
@@ -4742,8 +4745,10 @@ GameObject:
   - component: {fileID: 893256366}
   - component: {fileID: 893256365}
   - component: {fileID: 893256364}
+  - component: {fileID: 893256370}
+  - component: {fileID: 893256369}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: FadeToBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4757,7 +4762,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893256363}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -4840,6 +4845,43 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &893256369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893256363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &893256370
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893256363}
+  m_CullTransparentMesh: 0
 --- !u!114 &911767568
 MonoBehaviour:
   m_ObjectHideFlags: 0

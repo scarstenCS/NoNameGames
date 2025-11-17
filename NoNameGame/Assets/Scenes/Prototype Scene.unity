@@ -3920,17 +3920,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 15
+  - numRunner: 0
     numTurret: 0
     numBoss: 0
     upgradeInWave: 0
-    spawnrate: 0.1
+    spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
   - numRunner: 1
-    numTurret: 5
+    numTurret: 0
     numBoss: 0
     upgradeInWave: 0
     spawnrate: 1.5

@@ -222,7 +222,7 @@ public class WaveManager : MonoBehaviour
             }
 
             // show dialogue if applicable
-            if (boss.hp <= 0) yield break;
+            if (boss != null && boss.hp <= 0) yield break;
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
 

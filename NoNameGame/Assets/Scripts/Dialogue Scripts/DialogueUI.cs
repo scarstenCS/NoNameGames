@@ -14,6 +14,8 @@ public class DialogueUI : MonoBehaviour
     public Image portraitImage;
     public GameObject continueHint;
 
+    public bool isAnimating = false;
+
     const float defaultCharPrintSpeed = 0.025f; 
 
     public void Show(bool on) => rootPanel.SetActive(on);
@@ -29,14 +31,24 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator BodyTextByCharacter(string text, float charPrintSpeed)
     {
+        isAnimating = true;
         bodyText.text = "";
 
-        for (int i = 0; i < text.Length; i++)
+
+        for (int i = 0; i < text.Length && isAnimating; i++)
         {
+            // if (!isAnimating)
+            // {
+            //     bodyText.text = text;
+            //     break;
+            // }
             bodyText.text += text[i];
            //Debug.Log(i);
             yield return new WaitForSecondsRealtime(charPrintSpeed);
         }
+        bodyText.text = text;
+
+        isAnimating =false;
         yield return null;
     }
 }

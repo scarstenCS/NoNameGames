@@ -31,7 +31,16 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if (!active) return;
-        if (WasAdvancePressed()) Next();
+        if (WasAdvancePressed()) 
+        {
+            if (ui.isAnimating)
+            {
+                ui.isAnimating = false;
+            }
+            else{
+            Next();
+            }
+        }
     }
 
     void Next()

@@ -102,48 +102,52 @@ public class BossEnemy : MonoBehaviour
         fadeCanvas = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (hp <= 0 && !isDead) {
-                foreach (var turret in maskEnemies)
+    // Update is called once per frame
+    void Update()
+    {
+        if (hp <= 0 && !isDead) {
+            foreach (var turret in maskEnemies)
+            {
+                if (turret != null 
+                    && turret.gameObject.activeInHierarchy  
+                    && !turret.IsDead)                     
                 {
-                    if (turret != null 
-                        && turret.gameObject.activeInHierarchy  
-                        && !turret.IsDead)                     
-                    {
-                        turret.Kill(forTeleport: true);
-                    }
+                    turret.Kill(forTeleport: true);
                 }
-                int cachedDifficulty = difficulty;
-                hp = 0;
-                speed = 0f;
-                if(EnemiesAliveNow() == 1)
-                {
+            }
+            int cachedDifficulty = difficulty;
+            hp = 0;
+            speed = 0f;
+            if(EnemiesAliveNow() == 1)
+            {
                     
-                    if(calledFinalDialogue == false)
-                    {
+                if(calledFinalDialogue == false)
+                {
                         calledFinalDialogue = true;
                         StartCoroutine(FinalDialogue(cachedDifficulty));
-                    }
                 }
+            }
 
                 
-            }
-            if (playerPos == null) CachePlayerPos();
-            // Boss movement logic
-            // center is the reference point for the boss and its mask enemies
-            MovementAndRotation();
-            //UnityEngine.Debug.Log("mask enemies: " + this.numOfTurretsAlive);
-
-            if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
-            {
-                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
-            }
- 
         }
-        private void OnTriggerEnter2D(Collider2D other)
+        if (playerPos == null) CachePlayerPos();
+        // Boss movement logic
+        // center is the reference point for the boss and its mask enemies
+        MovementAndRotation();
+        //UnityEngine.Debug.Log("mask enemies: " + this.numOfTurretsAlive);
+
+        if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
         {
+                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
+        }
+        if (player.GetComponent<Player>().Health <= 0)
+        {
+            ui.SetActiveBossHealthBar(false);
+        }
+ 
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();

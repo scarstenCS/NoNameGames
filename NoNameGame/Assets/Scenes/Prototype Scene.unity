@@ -9616,6 +9616,7 @@ MonoBehaviour:
   bodyText: {fileID: 465053062}
   portraitImage: {fileID: 407476601}
   continueHint: {fileID: 531388936}
+  isAnimating: 0
 --- !u!1 &2076752835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11627,6 +11628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672500473741149575, guid: 8abf0e8fa173ba243b1df0197b782c3a,
+        type: 3}
+      propertyPath: hp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5672500473741149575, guid: 8abf0e8fa173ba243b1df0197b782c3a,
         type: 3}

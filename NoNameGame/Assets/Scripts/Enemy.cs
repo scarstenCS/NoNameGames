@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour
                 proj.pierce -= 1;
             }
             hp -= proj.Damage;
+            FlashRed();
         }
     }
     private void OnCollisionStay2D(Collision2D coll)
@@ -121,5 +122,14 @@ public class Enemy : MonoBehaviour
     }
     public void AnimEventDestroySelf() {
         Destroy(gameObject);
+    }
+    void FlashRed()
+    {
+        sr.color = Color.red;
+        Invoke("ResetColor", 0.1f);
+    }
+    void ResetColor()
+    {
+        sr.color = Color.white;
     }
 }

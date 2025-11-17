@@ -320,11 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack:
-  - {fileID: 8300000, guid: 0c3a43210915edf40b84bcff8ad14497, type: 3}
-  - {fileID: 8300000, guid: a25bfd246edf57346b391bf12a9e3f57, type: 3}
-  - {fileID: 8300000, guid: 774e40ec278747e4bb0e7b09e3b0bdcf, type: 3}
-  - {fileID: 8300000, guid: 578ad00b71a6c26458905a27cc36714b, type: 3}
-  - {fileID: 8300000, guid: 6098991875031104eb591301c002a3f5, type: 3}
+  - {fileID: 8300000, guid: 9fdc9718e5c399947ac2bc7d1471935a, type: 3}
   playerHit:
   - {fileID: 8300000, guid: 500ff3601ac7af54280dce4c413be984, type: 3}
   enemy1Hit:

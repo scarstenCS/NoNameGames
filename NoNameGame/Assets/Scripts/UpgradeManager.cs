@@ -180,16 +180,19 @@ public class UpgradeManager : MonoBehaviour
 
     public void button1Pressed()
     {
+        AudioManager.SfxSelect();
         _offered[0].applyUpgrade();
         HideUpgradeWindow();
     }
     public void button2Pressed()
     {
+        AudioManager.SfxSelect();
         _offered[1].applyUpgrade();
         HideUpgradeWindow();
     }
     public void button3Pressed()
     {
+        AudioManager.SfxSelect();
         _offered[2].applyUpgrade();
         HideUpgradeWindow();
     }

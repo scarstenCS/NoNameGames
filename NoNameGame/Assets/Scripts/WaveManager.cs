@@ -213,6 +213,14 @@ public class WaveManager : MonoBehaviour
                 if (_waveDoneText) _waveDoneText.SetActive(false);
             }
 
+            // Show upgrades if applicable
+            if (waves[_waveCount].upgradeInWave)
+            {
+                UpgradeManager.Instance.ShowUpgradeWindow();
+                yield return new WaitUntil(UpgradeManager.isWindowClosed);
+            }
+
+            // show dialogue if applicable
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
 
@@ -220,11 +228,6 @@ public class WaveManager : MonoBehaviour
 
             if (_waveCount < waves.Count)
             {
-                if (waves[_waveCount-1].upgradeInWave)
-                {
-                    UpgradeManager.Instance.ShowUpgradeWindow();
-                    yield return new WaitUntil(UpgradeManager.isWindowClosed);
-                }
                 // reset vars for new wave
                 maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
                 runnerCount = 0;

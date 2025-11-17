@@ -3790,7 +3790,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0
   - numRunner: 1
-    numTurret: 0
+    numTurret: 1
     numBoss: 0
     upgradeInWave: 0
     spawnrate: 1.5

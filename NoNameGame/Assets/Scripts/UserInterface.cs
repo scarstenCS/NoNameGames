@@ -115,9 +115,22 @@ public class UserInterface : MonoBehaviour
     }
     public void AddScore(int score)
     {
+        UnityEngine.Debug.Log("Adding score: " + score);
         totalScore += score;
         if (!scoreText) return;
         scoreText.text = $"Score: {totalScore}";
+    }
+
+    public void ReduceScore(int score)
+    {
+        totalScore -= score;
+        if (totalScore < 0) totalScore = 0;
+        if (!scoreText) return;
+        scoreText.text = $"Score: {totalScore}";
+    }
+    public int GetTotalScore()
+    {
+        return totalScore;
     }
 
     // Update is called once per frame

@@ -220,6 +220,7 @@ public class BossEnemy : MonoBehaviour
         if (ui != null)
         {
             ui.SetActiveBossHealthBar(false);
+            ui.AddScore(1000);
         }
         //TODO: Let animation do this
         AnimEventDestroySelf();
@@ -390,6 +391,8 @@ public class BossEnemy : MonoBehaviour
             yield return null; 
         }
         canvasGroup.alpha = endAlpha; 
+        SceneDataTransfer.totalScore = ui.GetTotalScore();
+        UnityEngine.Debug.Log("Total Score transferred: " + SceneDataTransfer.totalScore);
         SceneManager.LoadScene("Credits");
     }
 }

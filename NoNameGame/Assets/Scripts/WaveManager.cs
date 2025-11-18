@@ -41,6 +41,7 @@ public class WaveManager : MonoBehaviour
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
     private BossEnemy boss;
+    public int BaseEnemySpawn = 4;
     
     // Start is called before the first frame update
     void Awake()
@@ -197,7 +198,16 @@ public class WaveManager : MonoBehaviour
             while (runnerCount + turretCount + bossCount < maxEnemies)
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
-                Spawn();
+                int spawnAmount = Mathf.FloorToInt((BaseEnemySpawn+_waveCount)/3f);
+                while(spawnAmount > (maxEnemies - (runnerCount + turretCount + bossCount)))
+                {
+                    spawnAmount--;
+                }
+                for(int i = 0; i < spawnAmount; i++)
+                {
+                    Spawn();
+                }
+                //Spawn();
             }
             // wait 5 secs once all enemies dead
             yield return new WaitUntil(() => enemiesLeft == 0);

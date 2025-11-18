@@ -121,6 +121,13 @@ public class AudioManager : MonoBehaviour
         //Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
     }
 
+    public void StopMusic()
+    {
+        Instance.audioMixer.SetFloat("drumVolume", -80);
+        Instance.audioMixer.SetFloat("melodyVolume",-80);
+
+    }
+
     private IEnumerator fadeTrack(string trackName,float fadeTime,float from,float to)
     {
         Debug.Log("fading");

@@ -136,7 +136,7 @@ public class AudioManager : MonoBehaviour
         melodySrc.clip = bossMusic;
         drumSrc.Stop();
 
-        Instance.audioMixer.SetFloat("melodyVolume",0);
+        Instance.audioMixer.SetFloat("melodyVolume",6);
         melodySrc.Play();
     }
 

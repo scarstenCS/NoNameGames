@@ -161,8 +161,11 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnBoss()
     {
+        AudioManager.Instance.StartBossMusic();
         UnityEngine.Debug.Log("Spawning Boss");
         Vector3 spawnLocation = bossSpawnLocation();
+
+        
 
         GameObject b = Instantiate(bossPrefab, spawnLocation, Quaternion.identity);
 

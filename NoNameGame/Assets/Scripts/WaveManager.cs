@@ -15,6 +15,7 @@ using UnityEngine;
         public int dmgIncrease;
         public float skillLowerBound;
         public float skillUpperBound;
+        public int spawnAmount;
     }
 public class WaveManager : MonoBehaviour
 {
@@ -201,12 +202,12 @@ public class WaveManager : MonoBehaviour
             while (runnerCount + turretCount + bossCount < maxEnemies)
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
-                int spawnAmount = Mathf.FloorToInt((BaseEnemySpawn+_waveCount)/3f);
-                while(spawnAmount > (maxEnemies - (runnerCount + turretCount + bossCount)))
+                int cachedSpawnAmount = (int)waves[_waveCount].spawnAmount;
+                if(cachedSpawnAmount>  (maxEnemies - (runnerCount + turretCount + bossCount)))
                 {
-                    spawnAmount--;
+                    cachedSpawnAmount--;
                 }
-                for(int i = 0; i < spawnAmount; i++)
+                for(int i = 0; i < cachedSpawnAmount; i++)
                 {
                     Spawn();
                 }

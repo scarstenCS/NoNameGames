@@ -3609,9 +3609,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 671, y: 460}
-  m_SizeDelta: {x: 300, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 810, y: 451}
+  m_SizeDelta: {x: 300, y: 44.216972}
+  m_Pivot: {x: 0.5, y: 0.5000015}
 --- !u!114 &613510566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3697,7 +3697,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 2.7430649, w: 0}
+  m_margin: {x: 0, y: -2.891592, z: 2.7430649, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4012,6 +4012,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
+    spawnAmount: 0
   - numRunner: 0
     numTurret: 0
     numBoss: 0
@@ -4021,6 +4022,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
+    spawnAmount: 0
   - numRunner: 1
     numTurret: 0
     numBoss: 0
@@ -4030,96 +4032,107 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
+    spawnAmount: 0
   - numRunner: 10
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 3
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.4
+    spawnAmount: 5
   - numRunner: 15
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2.5
+    spawnrate: 3
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.5
-  - numRunner: 18
-    numTurret: 5
+    spawnAmount: 0
+  - numRunner: 0
+    numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2.5
+    spawnrate: 3
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0.1
     skillUpperBound: 0.6
+    spawnAmount: 0
   - numRunner: 20
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2.5
+    spawnrate: 4
     hpIncrease: 1
     dmgIncrease: 0
     skillLowerBound: 0.2
     skillUpperBound: 0.7
+    spawnAmount: 0
   - numRunner: 25
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2.25
+    spawnrate: 3.5
     hpIncrease: 1
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 0.8
+    spawnAmount: 0
   - numRunner: 25
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2.25
+    spawnrate: 3.5
     hpIncrease: 2
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 0.9
+    spawnAmount: 0
   - numRunner: 25
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2
+    spawnrate: 3
     hpIncrease: 2
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 1
+    spawnAmount: 0
   - numRunner: 30
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2
+    spawnrate: 3.25
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.4
     skillUpperBound: 1
+    spawnAmount: 0
   - numRunner: 33
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 2
+    spawnrate: 3
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.5
     skillUpperBound: 1
+    spawnAmount: 0
   - numRunner: 33
     numTurret: 17
     numBoss: 0
     upgradeInWave: 0
-    spawnrate: 2
+    spawnrate: 3
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.5
     skillUpperBound: 1
+    spawnAmount: 0
   - numRunner: 0
     numTurret: 0
     numBoss: 1
@@ -4129,6 +4142,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.5
     skillUpperBound: 1
+    spawnAmount: 0
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,

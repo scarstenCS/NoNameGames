@@ -15,7 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: Sam
     text: Ugh!
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: "Please tell me you\u2019re done sending those things after me!"
@@ -23,7 +23,7 @@ MonoBehaviour:
     voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   - speaker: Sam
     text: "\u2026"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: e48dbccbbe0ed894baeeb96814473e8a, type: 3}
     voiceClip: {fileID: 0}
   - speaker: Charlie
     text: "\u2026 Sam, I\u2019m sorry. I don\u2019t know how I can fix this, but
@@ -43,17 +43,17 @@ MonoBehaviour:
   - speaker: Sam
     text: " \u2026 They don\u2019t get how I\u2019m just different from you. I can
       make things, things people can play and like.\r"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Sam
     text: " I spent days just on this app, I didn\u2019t want to deal with them yelling
       at me to be more like you. \r"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Sam
-    text: " But everything I make just gets worse and worse\u2026 people aren\u2019t
+    text: "But everything I make just gets worse and worse\u2026 people aren\u2019t
       looking at what I make anymore\u2026 why make something if no one cares?"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: "\u2026Sam, we need to sit down to talk about this. This isn\u2019t the
@@ -63,7 +63,7 @@ MonoBehaviour:
     voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: Sam
     text: "Really? You\u2019re <i>actually</i> coming home?"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: Yeah, yeah, I am. But, <i>you</i> need to go home first.
@@ -72,7 +72,7 @@ MonoBehaviour:
   - speaker: Sam
     text: "\u2026 Ok, I will. But are you actually going to come home? I don\u2019t
       know what I\u2019m supposed to tell mom and dad once I go back\u2026\r"
-    portrait: {fileID: 21300000, guid: fa7584bf52c3f9c4aa3c0e70e93cfac3, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: "Don\u2019t worry. I promise I\u2019ll be there soon, and we can do whatever

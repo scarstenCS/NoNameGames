@@ -1634,6 +1634,7 @@ MonoBehaviour:
   sequence: {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
   sequencesByWave:
   - {fileID: 11400000, guid: 545439045e91f014f9b592d2e4b4c617, type: 2}
+  - {fileID: 11400000, guid: 67050cef174102f439e40afab3d55891, type: 2}
   - {fileID: 11400000, guid: af4ca04d2393c9f46920d58c7c17b591, type: 2}
   - {fileID: 11400000, guid: be0ac76910e2aba4a8f55dcd51d93c38, type: 2}
   - {fileID: 11400000, guid: d897b4baec3052343adce123bb6153cb, type: 2}
@@ -1645,9 +1646,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41db97c315bf7d94bb313795f166dffa, type: 2}
   - {fileID: 11400000, guid: 33f7b1e754ed3df4d9957a1c7bc3a69b, type: 2}
   - {fileID: 11400000, guid: ef5ec720f3343d741a9f77c504592182, type: 2}
-  - {fileID: 11400000, guid: ffecb51a39a0b1a4a8f32b91d99f393c, type: 2}
+  - {fileID: 11400000, guid: 6bd1d52092085224599ee200262fcdb0, type: 2}
   - {fileID: 11400000, guid: 65ce8434a5f0761479d526da1166c2fd, type: 2}
-  - {fileID: 11400000, guid: a064351ac88fa3f468afcfb3345cab63, type: 2}
+  - {fileID: 11400000, guid: d162b7fb6876fc54e9552213d96cd752, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
 --- !u!4 &312574714
@@ -3932,7 +3933,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-  - numRunner: 1
+  - numRunner: 0
     numTurret: 0
     numBoss: 0
     upgradeInWave: 0
@@ -3941,16 +3942,16 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-  - numRunner: 10
+  - numRunner: 1
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 1
+    upgradeInWave: 0
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-  - numRunner: 15
+  - numRunner: 10
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
@@ -3990,7 +3991,7 @@ MonoBehaviour:
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.25
+    spawnrate: 1.5
     hpIncrease: 1
     dmgIncrease: 1
     skillLowerBound: 0.3
@@ -4023,9 +4024,18 @@ MonoBehaviour:
     skillLowerBound: 0.4
     skillUpperBound: 1
   - numRunner: 33
-    numTurret: 17
+    numTurret: 15
     numBoss: 0
     upgradeInWave: 1
+    spawnrate: 1
+    hpIncrease: 2
+    dmgIncrease: 2
+    skillLowerBound: 0.5
+    skillUpperBound: 1
+  - numRunner: 33
+    numTurret: 17
+    numBoss: 0
+    upgradeInWave: 0
     spawnrate: 1
     hpIncrease: 2
     dmgIncrease: 2

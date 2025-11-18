@@ -15,14 +15,14 @@ MonoBehaviour:
   lines:
   - speaker: Charlie
     text: test 111
-    portrait: {fileID: 21300000, guid: 6dea22f8c3b2d4a4e9b766ae7f59f275, type: 3}
+    portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
     voiceClip: {fileID: 0}
   - speaker: 
     text: test 222
-    portrait: {fileID: 21300000, guid: 51f26c653d61e7c44ae636d3dc0df40a, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
     voiceClip: {fileID: 0}
   - speaker: 
     text: test 333
-    portrait: {fileID: 21300000, guid: 6fe3e72dfe6a3854a82a770fbb32a13c, type: 3}
+    portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
     voiceClip: {fileID: 0}
   pausesCombat: 1

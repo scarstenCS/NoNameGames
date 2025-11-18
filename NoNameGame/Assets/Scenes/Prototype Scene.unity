@@ -4005,7 +4005,7 @@ MonoBehaviour:
   waves:
   - numRunner: 0
     numTurret: 0
-    numBoss: 1
+    numBoss: 0
     upgradeInWave: 0
     spawnrate: 1.5
     hpIncrease: 0

@@ -142,8 +142,11 @@ public class AudioManager : MonoBehaviour
 
     public void StopMusic()
     {
-        Instance.audioMixer.SetFloat("drumVolume", -80);
-        Instance.audioMixer.SetFloat("melodyVolume",-80);
+
+        melodySrc.Stop();
+        drumSrc.Stop();
+        // Instance.audioMixer.SetFloat("drumVolume", -80);
+        // Instance.audioMixer.SetFloat("melodyVolume",-80);
 
     }
 

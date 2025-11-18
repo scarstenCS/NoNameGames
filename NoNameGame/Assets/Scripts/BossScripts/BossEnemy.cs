@@ -41,7 +41,7 @@ public class BossEnemy : MonoBehaviour
     private Renderer[] bossRenderers; 
 
     [SerializeField] private float turretDeathAnimTime = 1f;
-    readonly int finalWaveNumber = 11;   
+    readonly int finalWaveNumber = 12;   
 
     private bool calledFinalDialogue = false;
     [SerializeField] private CanvasGroup fadeCanvas;
@@ -270,7 +270,7 @@ public class BossEnemy : MonoBehaviour
                 turret.gameObject.SetActive(true);
 
                 // Reset masks and increase difficulty
-                speed = speed + (difficulty*0.1f);
+                speed = speed + (difficulty*0.05f);
                 turret.ResetMasks(difficulty);
         }
         this.numOfTurretsAlive = 3;

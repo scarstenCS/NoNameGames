@@ -181,10 +181,10 @@ public class TurretEnemy : MonoBehaviour
         this.hp = hpMax * difficulty;
         isDead = false;
         animator.SetBool("Dead", false);
-        this.atk = atkInitial * difficulty;
+        // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = bulletSpeedInitial*difficulty;
-        this.bulletDamage = bulletDamageInitial*difficulty;
+        this.bulletSpeed = bulletSpeedInitial*difficulty*0.25f;
+        // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }
     void Flash()

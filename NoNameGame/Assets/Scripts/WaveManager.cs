@@ -206,7 +206,7 @@ public class WaveManager : MonoBehaviour
 
 
             AudioManager.Instance.stopDrums();
-            if (_waveCount >1)
+            if (_waveCount >2)
             {
                 if (_waveDoneText) _waveDoneText.SetActive(true);
                 AudioManager.SfxWaveComplete();

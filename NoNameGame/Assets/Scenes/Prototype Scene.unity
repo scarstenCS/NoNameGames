@@ -4040,7 +4040,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0.4
   - numRunner: 15
-    numTurret: 5
+    numTurret: 0
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 2.5
@@ -4049,7 +4049,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0.5
   - numRunner: 18
-    numTurret: 7
+    numTurret: 5
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 2.5
@@ -11598,12 +11598,12 @@ PrefabInstance:
     - target: {fileID: 4333312619915833616, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.06769069
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4333312619915833616, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.06769069
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4333312619915833616, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
@@ -11624,8 +11624,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b0f8ffc77146f5844835ca48ade87ce7,
+      objectReference: {fileID: 21300000, guid: ef05dcdc256dde5498d780fc538814c3,
         type: 3}
+    - target: {fileID: 4465776288933132617, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465776288933132617, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.0724349
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465776288933132617, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4465776288933132617, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_DrawMode
@@ -11654,7 +11669,7 @@ PrefabInstance:
     - target: {fileID: 5168378482321470703, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168378482321470703, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1367494858145847321}
   - component: {fileID: 6860779204978472729}
   - component: {fileID: 762721180657688237}
+  - component: {fileID: 8896562585102603357}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Enemy
@@ -172,6 +173,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &8896562585102603357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015104588219451607}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ae7f205709de7b44985230844a61fcb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1618598447533219523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,6 +209,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -1991020653991676024, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1cd04eb0435b064c9b223ea4e4ef57a, type: 2}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
@@ -308,22 +333,33 @@ PrefabInstance:
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2686644281855782033, guid: 4599b905776c8014e8490d6c51813532,
+        type: 3}
+    - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.478028
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.5176471
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2cfb3f043fb37b4784c36e3ac18a647, type: 3}
@@ -345,6 +381,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -1991020653991676024, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1cd04eb0435b064c9b223ea4e4ef57a, type: 2}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
@@ -461,6 +502,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaskSkill (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2686644281855782033, guid: 4599b905776c8014e8490d6c51813532,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2cfb3f043fb37b4784c36e3ac18a647, type: 3}
 --- !u!4 &7376971888745467898 stripped
@@ -486,6 +533,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -1991020653991676024, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1cd04eb0435b064c9b223ea4e4ef57a, type: 2}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
@@ -605,8 +657,14 @@ PrefabInstance:
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_FlipY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2686644281855782033, guid: 4599b905776c8014e8490d6c51813532,
+        type: 3}
     - target: {fileID: 6537362400255028655, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: m_Color.b

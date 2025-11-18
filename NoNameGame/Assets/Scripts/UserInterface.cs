@@ -70,7 +70,7 @@ public class UserInterface : MonoBehaviour
         if (damagedTakenRectTransform)
         {
             float damagePercent = 1f - ((float)current / (float)max);
-            float maxWidth = 64f; // adjust based on your image size
+            float maxWidth = 67f; // adjust based on your image size
             damagedTakenRectTransform.sizeDelta = new Vector2(damagePercent * maxWidth, 8f);
             //UnityEngine.Debug.Log($"[DEBUG] Damage Percent: {damagePercent}");
             if (damagePercent <= 0.001f || damagePercent >= 0.999f)

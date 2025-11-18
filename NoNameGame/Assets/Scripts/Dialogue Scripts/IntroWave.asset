@@ -15,7 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: Charlie
     text: "Judging from the game\u2019s description, there\u2019s only a limited
-      time for me to find Sam\u2026 Hopefully, this game leads me to him. "
+      time for me to find Sam. Hopefully this game leads me to him. "
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
     voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: Charlie

@@ -281,7 +281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59755425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 822df6294790bce45a421d3bd62f48c3, type: 3}
   m_Name: 
@@ -4037,7 +4037,7 @@ MonoBehaviour:
     numTurret: 5
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 2.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
@@ -4046,7 +4046,7 @@ MonoBehaviour:
     numTurret: 7
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 2.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0.1
@@ -4055,7 +4055,7 @@ MonoBehaviour:
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 2.5
     hpIncrease: 1
     dmgIncrease: 0
     skillLowerBound: 0.2
@@ -4064,7 +4064,7 @@ MonoBehaviour:
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.5
+    spawnrate: 2.25
     hpIncrease: 1
     dmgIncrease: 1
     skillLowerBound: 0.3
@@ -4073,7 +4073,7 @@ MonoBehaviour:
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.25
+    spawnrate: 2.25
     hpIncrease: 2
     dmgIncrease: 1
     skillLowerBound: 0.3
@@ -4082,7 +4082,7 @@ MonoBehaviour:
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.25
+    spawnrate: 2
     hpIncrease: 2
     dmgIncrease: 1
     skillLowerBound: 0.3
@@ -4091,7 +4091,7 @@ MonoBehaviour:
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1.25
+    spawnrate: 2
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.4
@@ -4100,7 +4100,7 @@ MonoBehaviour:
     numTurret: 15
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 1
+    spawnrate: 2
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.5
@@ -4109,7 +4109,7 @@ MonoBehaviour:
     numTurret: 17
     numBoss: 0
     upgradeInWave: 0
-    spawnrate: 1
+    spawnrate: 2
     hpIncrease: 2
     dmgIncrease: 2
     skillLowerBound: 0.5
@@ -4136,6 +4136,7 @@ MonoBehaviour:
   waveDoneText: {fileID: 72964480}
   numBossRunners: 3
   timeBeforeBossRunnersSpawn: 5
+  BaseEnemySpawn: 4
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0

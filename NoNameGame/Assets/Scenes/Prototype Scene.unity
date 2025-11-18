@@ -264,7 +264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59755427}
-  - component: {fileID: 59755426}
   - component: {fileID: 59755428}
   - component: {fileID: 59755429}
   - component: {fileID: 59755430}
@@ -8155,7 +8154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 59755426}
+      - m_Target: {fileID: 0}
         m_MethodName: TogglePauseButton
         m_Mode: 1
         m_Arguments:

@@ -63,6 +63,7 @@ public class TurretEnemy : MonoBehaviour
         animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
         if (skill >= 0.5)
         {
+            if (isPartOfBoss == false)
             this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         }
         //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);

@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
-    const float drumsVolume = -3f, drumFadeTime = 1.5f;
+    const float drumsVolume = -6f, drumFadeTime = 1.5f;
 
     public AudioSource melodySrc, drumSrc;
 

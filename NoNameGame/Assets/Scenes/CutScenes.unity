@@ -151,7 +151,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 6be8eae22c232f54fad0c720c5fc2372, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.19
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1790183162}
   nextSceneName: Prototype Scene
-  streamingFileName: EerieVideo.mp4
+  streamingFileName: CutsceneVideo.mp4
 --- !u!4 &770350581
 Transform:
   m_ObjectHideFlags: 0
@@ -827,6 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,

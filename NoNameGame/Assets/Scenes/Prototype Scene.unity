@@ -3924,8 +3924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 312574713}
   waves:
-  - numRunner: 0
-    numTurret: 0
+  - numRunner: 3
+    numTurret: 3
     numBoss: 0
     upgradeInWave: 0
     spawnrate: 1.5

@@ -10,10 +10,14 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn
     ,enemy1Death, enemy2Death,playerDeath,waveComplete,UISelect;
+
+    public AudioClip normalMelody, bossMusic, normalDrums;
     static private AudioManager _instance;
     static public AudioManager Instance { get { return _instance; } }
 
     const float drumsVolume = -3f, drumFadeTime = 1.5f;
+
+    public AudioSource melodySrc, drumSrc;
 
     [SerializeField] private static AudioSource audioSource;
     [SerializeField] private AudioMixer audioMixer;
@@ -119,6 +123,21 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, -80f));
 
         //Instance.audioMixer.SetFloat("drumVolume", drumsVolume);
+    }
+
+    public void StartMusic()
+    {
+        
+    }
+
+    public void StartBossMusic()
+    {
+        melodySrc.Stop();
+        melodySrc.clip = bossMusic;
+        drumSrc.Stop();
+
+        Instance.audioMixer.SetFloat("melodyVolume",0);
+        melodySrc.Play();
     }
 
     public void StopMusic()

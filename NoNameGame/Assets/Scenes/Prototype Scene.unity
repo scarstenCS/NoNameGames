@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 59755428}
   - component: {fileID: 59755429}
   - component: {fileID: 59755430}
+  - component: {fileID: 59755426}
   m_Layer: 0
   m_Name: Admin
   m_TagString: Untagged
@@ -356,6 +357,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 63242fb28af189d49bcf590a133e0d5c, type: 3}
   UISelect:
   - {fileID: 8300000, guid: cbac35d294036634a9bd7aedf3a620ee, type: 3}
+  melodySrc: {fileID: 578259506}
+  drumSrc: {fileID: 334100871}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &59755429
 AudioSource:

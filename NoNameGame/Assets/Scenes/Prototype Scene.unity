@@ -4040,7 +4040,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0.4
   - numRunner: 15
-    numTurret: 5
+    numTurret: 0
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 2.5
@@ -4049,7 +4049,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0.5
   - numRunner: 18
-    numTurret: 7
+    numTurret: 5
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 2.5

@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
         {
             isDead = true;
             AudioManager.SfxPlayerDeath();
+            AudioManager.Instance.StopMusic();
             move.Disable();
             basicAtkAction.Disable();
             animator.SetBool("Dead", true);

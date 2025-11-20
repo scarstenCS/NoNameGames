@@ -4032,7 +4032,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-    spawnAmount: 0
+    spawnAmount: 1
   - numRunner: 10
     numTurret: 0
     numBoss: 0
@@ -4042,7 +4042,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.4
-    spawnAmount: 5
+    spawnAmount: 2
   - numRunner: 15
     numTurret: 0
     numBoss: 0
@@ -4052,7 +4052,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.5
-    spawnAmount: 0
+    spawnAmount: 2
   - numRunner: 0
     numTurret: 10
     numBoss: 0
@@ -4062,7 +4062,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.1
     skillUpperBound: 0.6
-    spawnAmount: 0
+    spawnAmount: 2
   - numRunner: 20
     numTurret: 10
     numBoss: 0
@@ -4072,7 +4072,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.2
     skillUpperBound: 0.7
-    spawnAmount: 0
+    spawnAmount: 2
   - numRunner: 25
     numTurret: 10
     numBoss: 0
@@ -4082,7 +4082,7 @@ MonoBehaviour:
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 0.8
-    spawnAmount: 0
+    spawnAmount: 2
   - numRunner: 25
     numTurret: 10
     numBoss: 0
@@ -4102,7 +4102,7 @@ MonoBehaviour:
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 30
     numTurret: 15
     numBoss: 0
@@ -4112,7 +4112,7 @@ MonoBehaviour:
     dmgIncrease: 2
     skillLowerBound: 0.4
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 33
     numTurret: 15
     numBoss: 0
@@ -4132,7 +4132,7 @@ MonoBehaviour:
     dmgIncrease: 2
     skillLowerBound: 0.5
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 0
     numTurret: 0
     numBoss: 1

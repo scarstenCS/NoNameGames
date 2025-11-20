@@ -42,7 +42,6 @@ public class WaveManager : MonoBehaviour
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
     private BossEnemy boss;
-    public int BaseEnemySpawn = 4;
     
     // Start is called before the first frame update
     void Awake()

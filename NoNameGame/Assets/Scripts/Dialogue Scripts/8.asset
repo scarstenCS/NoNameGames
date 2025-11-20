@@ -33,7 +33,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: 'Is he talking about me? '
     portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: Charlie
     text: " Mom and dad\u2026 could they have been pulling the same crap with Sam
       like they did with me? \r"

@@ -4063,7 +4063,7 @@ MonoBehaviour:
     skillLowerBound: 0.1
     skillUpperBound: 0.6
     spawnAmount: 2
-  - numRunner: 20
+  - numRunner: 10
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
@@ -4073,7 +4073,7 @@ MonoBehaviour:
     skillLowerBound: 0.2
     skillUpperBound: 0.7
     spawnAmount: 2
-  - numRunner: 25
+  - numRunner: 20
     numTurret: 10
     numBoss: 0
     upgradeInWave: 1
@@ -4092,7 +4092,7 @@ MonoBehaviour:
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 0.9
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 25
     numTurret: 15
     numBoss: 0
@@ -4122,7 +4122,7 @@ MonoBehaviour:
     dmgIncrease: 2
     skillLowerBound: 0.5
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 33
     numTurret: 17
     numBoss: 0

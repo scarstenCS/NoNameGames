@@ -202,12 +202,14 @@ public class WaveManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
                 int cachedSpawnAmount = (int)waves[_waveCount].spawnAmount;
-                if(cachedSpawnAmount>  (maxEnemies - (runnerCount + turretCount + bossCount)))
+                UnityEngine.Debug.Log("Cached Spawn Amount: " + cachedSpawnAmount);
+                if(cachedSpawnAmount >  (maxEnemies - (runnerCount + turretCount + bossCount)))
                 {
-                    cachedSpawnAmount--;
+                    cachedSpawnAmount = (maxEnemies - (runnerCount + turretCount + bossCount));
                 }
                 for(int i = 0; i < cachedSpawnAmount; i++)
                 {
+                    UnityEngine.Debug.Log("Summoning");
                     Spawn();
                 }
                 //Spawn();

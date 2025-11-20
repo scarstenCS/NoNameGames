@@ -31,7 +31,7 @@ MonoBehaviour:
   - speaker: Sam
     text: "This app was the only thing where I could be something, but even then\u2026
       It wasn't enough. Nothing I make is enough!"
-    portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
+    portrait: {fileID: 21300000, guid: 93443cf9059553c40926eeb200fdd2b1, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: "Okay, okay, I\u2019m sorry, but why didn\u2019t you say something? If
@@ -40,7 +40,7 @@ MonoBehaviour:
     voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: Sam
     text: Why would I tell you anything?
-    portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
     voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
   - speaker: Charlie
     text: "What?!\r"

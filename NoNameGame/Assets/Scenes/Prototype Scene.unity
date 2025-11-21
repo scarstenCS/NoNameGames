@@ -4060,8 +4060,8 @@ MonoBehaviour:
     spawnrate: 3
     hpIncrease: 0
     dmgIncrease: 0
-    skillLowerBound: 0.5
-    skillUpperBound: 0.5
+    skillLowerBound: 0
+    skillUpperBound: 0.3
     spawnAmount: 2
   - numRunner: 10
     numTurret: 10

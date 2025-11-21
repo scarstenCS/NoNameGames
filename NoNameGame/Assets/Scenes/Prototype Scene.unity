@@ -4163,6 +4163,7 @@ MonoBehaviour:
   waveDoneText: {fileID: 72964480}
   numBossRunners: 3
   timeBeforeBossRunnersSpawn: 5
+  maxTurretEnemiesAlive: 4
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0

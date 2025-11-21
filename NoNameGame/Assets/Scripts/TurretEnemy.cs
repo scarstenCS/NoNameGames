@@ -174,6 +174,7 @@ public class TurretEnemy : MonoBehaviour
         {
             // Only standalone turrets affect the wave counter
             WaveManager.enemiesLeft--;
+            WaveManager.turretEnemiesAlive--;
             UserInterface ui = FindObjectOfType<UserInterface>();
             if (ui != null)
             {

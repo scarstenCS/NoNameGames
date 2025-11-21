@@ -42,6 +42,8 @@ public class WaveManager : MonoBehaviour
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
     private BossEnemy boss;
+    public static int turretEnemiesAlive;
+    public int maxTurretEnemiesAlive = 4;
     
     // Start is called before the first frame update
     void Awake()
@@ -149,6 +151,7 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnTurret()
     {
+        if (turretEnemiesAlive >= maxTurretEnemiesAlive) return;
         GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
         TurretEnemy t = e.GetComponent<TurretEnemy>();
         t.player = player;
@@ -158,6 +161,7 @@ public class WaveManager : MonoBehaviour
         t.atk += currWave.dmgIncrease;
         t.skill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         turretCount++;
+        turretEnemiesAlive++;
     }
     public void SpawnBoss()
     {

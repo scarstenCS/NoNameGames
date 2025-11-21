@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 [System.Serializable]
     public struct Wave
     {
@@ -38,12 +39,14 @@ public class WaveManager : MonoBehaviour
     public static int bossCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
+    private TMP_Text waveChangeTMP;
     bool bossRunnersSpawned = false;
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
     private BossEnemy boss;
     public static int turretEnemiesAlive;
     public int maxTurretEnemiesAlive = 4;
+    public TextMeshProUGUI waveChangeText;
     
     // Start is called before the first frame update
     void Awake()
@@ -54,6 +57,7 @@ public class WaveManager : MonoBehaviour
     {
         _waveDoneText = waveDoneText;
         _waveCount = 0;
+        waveChangeTMP = _waveDoneText.GetComponent<TMP_Text>();
 
         mainCamera = Camera.main;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
@@ -228,6 +232,8 @@ public class WaveManager : MonoBehaviour
             if (_waveCount == 12) AudioManager.Instance.StopMusic();
             if (_waveCount >2)
             {
+                // The player sees round 3 as wave 1 complete (first two are tutorial)
+                waveChangeTMP.text = "Wave " + (_waveCount-2) + " Complete!";
                 if (_waveDoneText) _waveDoneText.SetActive(true);
                 AudioManager.SfxWaveComplete();
                 yield return new WaitForSeconds(2);

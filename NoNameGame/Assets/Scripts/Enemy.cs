@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
                 proj.pierce -= 1;
             }
             hp -= proj.Damage;
-            Flash();
+            if (hp > 0) Flash();
         }
     }
     private void OnCollisionStay2D(Collision2D coll)
@@ -130,7 +130,7 @@ public class Enemy : MonoBehaviour
     }
     void Flash()
     {
-        sr.color = sr.color = new Color(0.0f, 0.0f, 0.0f, 0.4f); // semi-transparent black
+        sr.color = sr.color = new Color(0.0f, 0.0f, 1.0f, 0.4f); // semi-transparent blue
         Invoke("ResetColor", 0.2f);
     }
     void ResetColor()

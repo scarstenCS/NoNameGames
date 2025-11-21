@@ -180,18 +180,21 @@ public class UpgradeManager : MonoBehaviour
 
     public void button1Pressed()
     {
+        player.GetComponent<Player>().animator.SetBool("isAttacking", false);
         AudioManager.SfxSelect();
         _offered[0].applyUpgrade();
         HideUpgradeWindow();
     }
     public void button2Pressed()
     {
+        player.GetComponent<Player>().animator.SetBool("isAttacking", false);
         AudioManager.SfxSelect();
         _offered[1].applyUpgrade();
         HideUpgradeWindow();
     }
     public void button3Pressed()
     {
+        player.GetComponent<Player>().animator.SetBool("isAttacking", false);
         AudioManager.SfxSelect();
         _offered[2].applyUpgrade();
         HideUpgradeWindow();

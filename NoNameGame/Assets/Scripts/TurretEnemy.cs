@@ -145,7 +145,7 @@ public class TurretEnemy : MonoBehaviour
                 proj.pierce -= 1;
             }
             hp -= proj.Damage;
-            Flash();
+            if (hp > 0) Flash();
 
         }
     }
@@ -190,7 +190,7 @@ public class TurretEnemy : MonoBehaviour
     }
     void Flash()
     {
-        sr.color = new Color(0.0f, 0.0f, 0.0f, 0.4f); // semi-transparent black
+        sr.color = new Color(0.0f, 0.0f, 1.0f, 0.4f); // semi-transparent blue
         Invoke("ResetColor", 0.2f);
     }
     void ResetColor()

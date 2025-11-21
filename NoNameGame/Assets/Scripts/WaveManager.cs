@@ -229,6 +229,7 @@ public class WaveManager : MonoBehaviour
                 if (_waveDoneText) _waveDoneText.SetActive(false);
             }
 
+            player.SetActive(false);
             // Show upgrades if applicable
             if (waves[_waveCount].upgradeInWave)
             {
@@ -240,6 +241,8 @@ public class WaveManager : MonoBehaviour
             if (boss != null && boss.hp <= 0) yield break;
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
+            player.GetComponent<Player>().animator.SetBool("isAttacking", false);
+            player.SetActive(true);
 
             _waveCount++;
 

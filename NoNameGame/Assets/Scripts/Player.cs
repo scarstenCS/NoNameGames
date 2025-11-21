@@ -220,14 +220,15 @@ public class Player : MonoBehaviour
         Vector2 inputVector = move.ReadValue<Vector2>();
         t.position += (Vector3)inputVector * Time.deltaTime * playerSpeed;
         t.position = new Vector3(Mathf.Clamp(t.position.x, GameManager.minX, GameManager.maxX), Mathf.Clamp(t.position.y, GameManager.minY, GameManager.maxY));
-
+        
+        sr.flipX = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()).x >= t.position.x;
         if (move.ReadValue<Vector2>() != Vector2.zero)
         {
-            if (inputVector.x != 0 && Time.timeScale!= 0)
-            {
+            // if (inputVector.x != 0 && Time.timeScale!= 0)
+            // {
                 
-                sr.flipX = inputVector.x > 0;
-            }
+            //     sr.flipX = inputVector.x > 0;
+            // }
             animator.SetBool("isWalking", true);
         }
         else

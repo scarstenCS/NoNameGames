@@ -18,4 +18,17 @@ MonoBehaviour:
       when he made this? "
     portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
     voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
+  - speaker: Charlie
+    text: What's that on the floor?
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+  - speaker: Charlie
+    text: "Huh, is this a weapon? There\u2019s some text above it\u2026 \u201CTry
+      it out. Survive.\u201D"
+    portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
+    voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
+  - speaker: Charlie
+    text: Hmm, I should try it out before the game starts.
+    portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
+    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   pausesCombat: 1

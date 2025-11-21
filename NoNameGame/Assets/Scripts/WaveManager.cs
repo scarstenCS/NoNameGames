@@ -20,7 +20,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
-    static public WaveManager Instance;
+    static public WaveManager Instance {get {return _instance;}}
     [SerializeField] private DialogueTrigger dialogueTrigger; 
     public List<Wave> waves;
     private int _waveCount;
@@ -205,7 +205,7 @@ public class WaveManager : MonoBehaviour
                 UnityEngine.Debug.Log("Cached Spawn Amount: " + cachedSpawnAmount);
                 if(cachedSpawnAmount >  (maxEnemies - (runnerCount + turretCount + bossCount)))
                 {
-                    cachedSpawnAmount = (maxEnemies - (runnerCount + turretCount + bossCount));
+                    cachedSpawnAmount = maxEnemies - (runnerCount + turretCount + bossCount);
                 }
                 for(int i = 0; i < cachedSpawnAmount; i++)
                 {
@@ -220,7 +220,8 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
 
-            AudioManager.Instance.stopDrums();
+            AudioManager.Instance.StopDrums();
+            if (_waveCount == 12) AudioManager.Instance.StopMusic();
             if (_waveCount >2)
             {
                 if (_waveDoneText) _waveDoneText.SetActive(true);
@@ -258,7 +259,7 @@ public class WaveManager : MonoBehaviour
                 p.Heal(p.MaxHealth);
 
                 //!!
-                AudioManager.Instance.startDrums();
+                AudioManager.Instance.StartDrums();
             }
         }
         // game done
@@ -285,5 +286,9 @@ public class WaveManager : MonoBehaviour
             SpawnEnemy();
         }
         bossRunnersSpawned = false;
+    }
+    public int GetWaveCount()
+    {
+        return _waveCount;
     }
 }

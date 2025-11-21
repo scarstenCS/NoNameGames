@@ -123,8 +123,9 @@ public class BossEnemy : MonoBehaviour
                     
                 if(calledFinalDialogue == false)
                 {
-                        calledFinalDialogue = true;
-                        StartCoroutine(FinalDialogue(cachedDifficulty));
+                    AudioManager.Instance.StopMusic();
+                    calledFinalDialogue = true;
+                    StartCoroutine(FinalDialogue(cachedDifficulty));
                 }
             }
 
@@ -167,12 +168,14 @@ public class BossEnemy : MonoBehaviour
             {
                 //double damage if no masks are alive
                 hp -= proj.Damage;
+                AudioManager.SfxBossHit();
                 currentHealthLost += proj.Damage;
                 UnityEngine.Debug.Log("Boss took normal damage!");
             }
             else
             {
                 hp -= 1;
+                AudioManager.SfxBossHit();
                 currentHealthLost += 1;
                 UnityEngine.Debug.Log("Boss took reduced damage!");
             }
@@ -272,6 +275,7 @@ public class BossEnemy : MonoBehaviour
                 // Reset masks and increase difficulty
                 speed = speed + (difficulty*0.05f);
                 turret.ResetMasks(difficulty);
+                AudioManager.SfxBossWhisp();
         }
         this.numOfTurretsAlive = 3;
         isResummoningMasks = false;
@@ -344,7 +348,10 @@ public class BossEnemy : MonoBehaviour
         cachedDifficulty = cachedDifficulty + finalWaveNumber;
         UnityEngine.Debug.Log("Starting teleport dialogue for dialogue Sequence " + cachedDifficulty);
         yield return new WaitForSeconds(turretDeathAnimTime);
+
+        AudioManager.Instance.StopDrums();
         dialogueTrigger.OnWaveEnd(cachedDifficulty);
+        AudioManager.Instance.StartDrums();
         yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < transform.childCount; i++)

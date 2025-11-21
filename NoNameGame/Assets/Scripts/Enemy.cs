@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public Animation idle;
     private bool isDead = false;
     public AudioClip deathClip;
+    private Color colour;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +36,11 @@ public class Enemy : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("WalkSpeed", 1f + speed / 1.5f);
+        colour = sr.color;
         if (followSkill >= 0.5)
         {
-            this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            colour = Color.red;
+            this.GetComponent<Renderer>().material.SetColor("_Color", colour);
         }
     }
 
@@ -135,6 +138,6 @@ public class Enemy : MonoBehaviour
     }
     void ResetColor()
     {
-        sr.color = Color.white;
+        sr.color = colour;
     }
 }

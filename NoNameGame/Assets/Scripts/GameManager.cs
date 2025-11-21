@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     static private GameManager _instance;
     public Player p;
-    public GameObject player, pauseMenu, menuButton, bkgd, redBkgd;
-    static private GameObject _player, _pauseMenu, _menuButton, _bkgd, _redBkgd;
+    public GameObject player, pauseMenu, menuButton, bkgd, redBkgd, crackedBkgd;
+    static private GameObject _player, _pauseMenu, _menuButton, _bkgd, _redBkgd, _crackedBkgd;
     static public GameManager Instance { get { return _instance; } }
     private UpgradeManager upgradeManager;
     static public bool isPaused = false;
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         _mainMenuSelected = mainMenuSelected;
         _bkgd = bkgd;
         _redBkgd = redBkgd;
+        _crackedBkgd = crackedBkgd;
         p = player.GetComponent<Player>();
         bkgd.SetActive(true);
         redBkgd.SetActive(false);
@@ -52,11 +53,14 @@ public class GameManager : MonoBehaviour
         if (p.Health <= ((double)p.MaxHealth*0.33))
         {
             redBkgd.SetActive(true);
-            bkgd.SetActive(false);
         } else
         {
             redBkgd.SetActive(false);
-            bkgd.SetActive(true);
+        }
+        if (WaveManager.Instance.GetWaveCount() == 8)
+        {
+            crackedBkgd.SetActive(true);
+            bkgd.SetActive(false);
         }
     }
 

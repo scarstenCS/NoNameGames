@@ -31,7 +31,7 @@ public class TurretEnemy : MonoBehaviour
     private int bulletDamageInitial;
     private float bulletshootCooldownInitial;
     public float deathAnimSpeed = 1.75f;
-
+    private Color colour;
 
 
     void Start()
@@ -61,10 +61,11 @@ public class TurretEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
-        if (skill >= 0.5)
+        colour = sr.color;
+        if (skill >= 0.5 && !isPartOfBoss)
         {
-            if (isPartOfBoss == false)
-            this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            colour = Color.red;
+            this.GetComponent<Renderer>().material.SetColor("_Color", colour);
         }
         //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
     }
@@ -135,7 +136,13 @@ public class TurretEnemy : MonoBehaviour
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
         {
-            AudioManager.SfxEnemy2Hit();
+            if (isPartOfBoss) {
+                AudioManager.SfxMaskHit();
+            }
+            else
+            {
+               AudioManager.SfxEnemy2Hit(); 
+            }
             if (proj.pierce <= 0)
             {
                 proj.atkStage = 2;
@@ -172,7 +179,7 @@ public class TurretEnemy : MonoBehaviour
             boss.numOfTurretsAlive--;
         }
 
-        AudioManager.SfxEnemy2Death();
+        if (!isPartOfBoss) AudioManager.SfxEnemy2Death();
         animator.SetBool("Dead", true);
         isDead = true;
     }
@@ -184,7 +191,7 @@ public class TurretEnemy : MonoBehaviour
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = bulletSpeedInitial*difficulty*0.25f;
+        this.bulletSpeed = bulletSpeedInitial;
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }
@@ -195,7 +202,7 @@ public class TurretEnemy : MonoBehaviour
     }
     void ResetColor()
     {
-        sr.color = Color.white;
+        sr.color = colour;
     }
     public void Kill(bool forTeleport = false)
     {

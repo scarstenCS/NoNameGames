@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -205,7 +205,7 @@ public class WaveManager : MonoBehaviour
                 int cachedSpawnAmount = (int)waves[_waveCount].spawnAmount;
                 if(cachedSpawnAmount>  (maxEnemies - (runnerCount + turretCount + bossCount)))
                 {
-                    cachedSpawnAmount--;
+                    cachedSpawnAmount = (maxEnemies - (runnerCount + turretCount + bossCount));
                 }
                 for(int i = 0; i < cachedSpawnAmount; i++)
                 {

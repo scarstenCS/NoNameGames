@@ -4032,17 +4032,17 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-    spawnAmount: 0
+    spawnAmount: 1
   - numRunner: 10
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
-    spawnrate: 3
+    spawnrate: 2.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.4
-    spawnAmount: 5
+    spawnAmount: 3
   - numRunner: 15
     numTurret: 0
     numBoss: 0
@@ -4052,7 +4052,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.5
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 0
     numTurret: 10
     numBoss: 0
@@ -4062,7 +4062,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.1
     skillUpperBound: 0.6
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 20
     numTurret: 10
     numBoss: 0
@@ -4072,7 +4072,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.2
     skillUpperBound: 0.7
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 25
     numTurret: 10
     numBoss: 0
@@ -4082,7 +4082,7 @@ MonoBehaviour:
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 0.8
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 25
     numTurret: 10
     numBoss: 0
@@ -4102,7 +4102,7 @@ MonoBehaviour:
     dmgIncrease: 1
     skillLowerBound: 0.3
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 30
     numTurret: 15
     numBoss: 0
@@ -4112,7 +4112,7 @@ MonoBehaviour:
     dmgIncrease: 2
     skillLowerBound: 0.4
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 33
     numTurret: 15
     numBoss: 0
@@ -4122,7 +4122,7 @@ MonoBehaviour:
     dmgIncrease: 2
     skillLowerBound: 0.5
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 3
   - numRunner: 33
     numTurret: 17
     numBoss: 0
@@ -4142,7 +4142,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0.5
     skillUpperBound: 1
-    spawnAmount: 0
+    spawnAmount: 1
   enemyPrefab: {fileID: 6862735822618058116, guid: e665194c42f052b439ad345c647b898f,
     type: 3}
   turretPrefab: {fileID: 6537362400255028654, guid: b2cfb3f043fb37b4784c36e3ac18a647,

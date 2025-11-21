@@ -81,8 +81,10 @@ public class TurretEnemy : MonoBehaviour
         }
 
         
-        if (hp <= 0 && !isDead) Die(); 
-
+        if (hp <= 0 && !isDead) {
+            UnityEngine.Debug.Log("Turret dying");
+            Die(); 
+        }
         if (Time.time >= _nextShootTime)
         {
             
@@ -98,6 +100,7 @@ public class TurretEnemy : MonoBehaviour
         animator.ResetTrigger("Shoot");
     }
     public void AnimEventDestroySelf() {
+        UnityEngine.Debug.Log("isDead: " + isDead);
         if (!isDead) return;
         UnityEngine.Debug.Log("part of boss: " + isPartOfBoss);
         if(isPartOfBoss == true) gameObject.SetActive(false);
@@ -151,7 +154,9 @@ public class TurretEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
+            
             hp -= proj.Damage;
+            UnityEngine.Debug.Log("HP: " + hp);
             if (hp > 0) Flash();
 
         }
@@ -159,9 +164,11 @@ public class TurretEnemy : MonoBehaviour
     
     private void Die()
     {
+        UnityEngine.Debug.Log("isDead: " + isDead);
         if (isDead) return;
 
         bool isBossTurret = GetComponentInParent<BossEnemy>() != null;
+        UnityEngine.Debug.Log("isBossTurret: " + isBossTurret);
 
         if (!isBossTurret)
         {
@@ -175,6 +182,7 @@ public class TurretEnemy : MonoBehaviour
         }
         else
         {
+            UnityEngine.Debug.Log("Part of boss turret dying");
             BossEnemy boss = GetComponentInParent<BossEnemy>();
             boss.numOfTurretsAlive--;
         }

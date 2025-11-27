@@ -56,7 +56,7 @@ public class DialogueUI : MonoBehaviour
             // add word
             for(int c =0; c < words[i].Length;c++){
 
-                AudioManager.Instance.PlaySound(printSFX);
+                AudioManager.Instance.PlayClip(printSFX);
                 bodyText.text += words[i][c];
 
                 if (isAnimating) yield return new WaitForSecondsRealtime(charPrintSpeed);

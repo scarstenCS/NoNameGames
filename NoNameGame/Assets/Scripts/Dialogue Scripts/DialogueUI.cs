@@ -23,16 +23,16 @@ public class DialogueUI : MonoBehaviour
     const int charsPerLine = 42;
     public void Show(bool on) => rootPanel.SetActive(on);
 
-    public void Render(string speaker, string body, Sprite portrait)
+    public void Render(string speaker, string body, Sprite portrait, AudioClip dialogueSFX)
     {
         StopAllCoroutines();
         if (speakerText) speakerText.text = speaker ?? "";
-        StartCoroutine(BodyTextByCharacter(body, defaultCharPrintSpeed));
+        StartCoroutine(BodyTextByCharacter(body, defaultCharPrintSpeed,dialogueSFX));
         //if (bodyText) bodyText.text = body ?? "";
         if (portraitImage) portraitImage.sprite = portrait;
     }
 
-    private IEnumerator BodyTextByCharacter(string text, float charPrintSpeed)
+    private IEnumerator BodyTextByCharacter(string text, float charPrintSpeed, AudioClip printSFX)
     {
         List<string> words = text.Split(' ').ToList();
         isAnimating = true;
@@ -55,6 +55,8 @@ public class DialogueUI : MonoBehaviour
 
             // add word
             for(int c =0; c < words[i].Length;c++){
+
+                AudioManager.Instance.PlaySound(printSFX);
                 bodyText.text += words[i][c];
 
                 if (isAnimating) yield return new WaitForSecondsRealtime(charPrintSpeed);

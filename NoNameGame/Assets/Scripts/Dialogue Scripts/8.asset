@@ -18,7 +18,7 @@ MonoBehaviour:
       me\u2026 mom and dad\u2026 I can\u2019t deal with it all. Nothing I make is
       good enough.\r"
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: " He still sounds a little far\u2026 The things he\u2019s saying, I don\u2019t
       know, I\u2019m starting to get worried. I need to find him quickly and get

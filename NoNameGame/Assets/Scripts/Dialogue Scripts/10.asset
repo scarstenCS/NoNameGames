@@ -17,7 +17,7 @@ MonoBehaviour:
     text: "Sam!! Can you hear me now? I don\u2019t see any more of those robot things
       \u2026 Did I complete the game?"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: Sam
     text: "\u2026 You made it this far? Why would <i>you</i> do that!?\r\n"
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}

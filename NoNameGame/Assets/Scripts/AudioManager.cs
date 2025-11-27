@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(audioSource.clip, volume);
     }
 
-    public void PlayClip(AudioClip clip, float volume = 1.0f)
+    public void PlayClip(AudioClip clip, float volume = 1.5f)
     {
         audioSource.clip  = clip;
         audioSource.PlayOneShot(audioSource.clip, volume);

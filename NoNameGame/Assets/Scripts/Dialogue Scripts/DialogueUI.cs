@@ -56,11 +56,14 @@ public class DialogueUI : MonoBehaviour
             // add word
             for(int c =0; c < words[i].Length;c++){
 
-                AudioManager.Instance.PlayClip(printSFX);
                 bodyText.text += words[i][c];
 
-                if (isAnimating) yield return new WaitForSecondsRealtime(charPrintSpeed);
+                if (isAnimating){
+                    AudioManager.Instance.PlayClip(printSFX);
+                     yield return new WaitForSecondsRealtime(charPrintSpeed);
+                }
             }
+
             bodyText.text += " ";
         }
         //bodyText.text = text;

@@ -33,10 +33,16 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    private void PlaySound(AudioClip[] clip, float volume = 1.0f)
+    public void PlaySound(AudioClip[] clip, float volume = 1.0f)
     {
         int idx = Random.Range(0, clip.Length);
         audioSource.clip = clip[idx];
+        audioSource.PlayOneShot(audioSource.clip, volume);
+    }
+
+    public void PlayClip(AudioClip clip, float volume = 1.5f)
+    {
+        audioSource.clip  = clip;
         audioSource.PlayOneShot(audioSource.clip, volume);
     }
     static public void SfxSelect()

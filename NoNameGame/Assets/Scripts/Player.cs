@@ -86,11 +86,11 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return ba.projectileT.localScale;
+            return ba.transform.localScale;
         }
         set
         {
-            ba.projectileT.localScale = value;
+            ba.transform.localScale = value;
         }
     } 
     public event Action<int, int> HealthChanged;

@@ -244,7 +244,7 @@ public class WaveManager : MonoBehaviour
             // Show upgrades if applicable
             if (waves[_waveCount].upgradeInWave)
             {
-                UpgradeManager.Instance.ShowUpgradeWindow();
+                UpgradeManager.Instance.ShowUpgradeWindow(_waveCount-2);
                 yield return new WaitUntil(UpgradeManager.isWindowClosed);
             }
 

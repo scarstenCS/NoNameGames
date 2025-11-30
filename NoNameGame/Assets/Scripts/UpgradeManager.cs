@@ -38,8 +38,8 @@ public class UpgradeManager : MonoBehaviour
         public int playerNumOfProjectilesDecrease;
         public int playerShieldAmountDecrease;
         public float playerShieldRechargeAmountDecrease;
-        public float weaponPierceDecrease;
-        public float weaponPierceIncrease;
+        public int weaponPierceDecrease;
+        public int weaponPierceIncrease;
     }
     private ChangeValues defaults = new ChangeValues
     {
@@ -118,11 +118,12 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField]
     private ChangeValues jealousyEnviousStrike = new ChangeValues {
         weaponDamageIncrease = 2,
-        healthDecrease = 5
+        healthDecrease = 5,
+        weaponPierceIncrease = 1
     };
 
     [SerializeField]
-    private ChangeValues jealousyCovetousHarvest = new ChangeValues {
+    private ChangeValues jealousySpitefulHeart = new ChangeValues {
         weaponDamageIncrease = 1,
         playerNumOfProjectilesIncrease = 1,
         healthDecrease = 3,
@@ -147,8 +148,6 @@ public class UpgradeManager : MonoBehaviour
         healthDecrease = 10,
         playerShieldAmountDecrease = 1
     };
-
-
     // DEPRESSION
     [SerializeField]
     private ChangeValues depressionWeightedShots = new ChangeValues {
@@ -164,7 +163,31 @@ public class UpgradeManager : MonoBehaviour
         weaponDamageDecrease = 1,
         playerSpeedDecrease = 0.2f
     };
-
+    // Major Upgrades!
+    [SerializeField]
+    private ChangeValues anxiety = new ChangeValues {
+        weaponSpeedIncrease = 0.30f,
+        playerSpeedIncrease = 0.20f,
+        playerShieldRechargeAmountIncrease = 0.50f,
+        weaponDistanceDecrease = 0.50f,
+        basicAttackSizeDecrease = 0.20f
+    };
+    [SerializeField]
+    private ChangeValues socialIsolation = new ChangeValues {
+        weaponDamageIncrease = 1,
+        weaponDistanceIncrease = 0.30f,
+        weaponPierceIncrease = 1,
+        basicAttackSizeDecrease = 0.30f,
+        playerShieldAmountDecrease = 1,
+        healthDecrease = 5
+    };
+    [SerializeField]
+    private ChangeValues heavyHearted = new ChangeValues {
+        healthIncrease = 15,
+        playerShieldAmountIncrease = 2,
+        basicAttackSizeIncrease = 0.4f ,
+        playerSpeedDecrease = 0.40f
+    };
 
     [SerializeField] private TMP_Text[] buttonLabels;
     [SerializeField] private TMP_Text[] descLabels;
@@ -184,12 +207,14 @@ public class UpgradeManager : MonoBehaviour
     }
 
 
-    public void ShowUpgradeWindow()
+    public void ShowUpgradeWindow(int waveNumber)
     {
+        //Saftey if wavenumber is less than 0. 
+        if(waveNumber <= 0) waveNumber = 1;
         GameManager.ChangeTimeScale(0f);
         GameManager.isPaused = true;
         upgradeWindow.SetActive(true);
-        _offered = OfferedChangeOptions();
+        _offered = OfferedChangeOptions(waveNumber);
         for (int i = 0; i < descLabels.Length; i++)
         {
             if (i < _offered.Count)
@@ -227,7 +252,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void BuildOptions()
     {
-        
+    
         options.Add(new ChangeOption
         {
             optionName = "Apathy: Numb to Pain",
@@ -271,7 +296,6 @@ public class UpgradeManager : MonoBehaviour
                 ChangePlayerShieldAmount(-lonelinessDistantHeart.playerShieldAmountDecrease);
                 ChangeBasicAttackSize(-lonelinessDistantHeart.basicAttackSizeDecrease);
                 ChangeWeaponDistance(lonelinessDistantHeart.weaponDistanceIncrease);
-
             }
         });
         options.Add(new ChangeOption()
@@ -325,27 +349,29 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Envious Strike",
                 description =
                 $"+{jealousyEnviousStrike.weaponDamageIncrease} DMG, " +
+                $"{-jealousyEnviousStrike.weaponPierceIncrease} pierce, "  +
                 $"{-jealousyEnviousStrike.healthDecrease} HP",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangeWeaponDamage(jealousyEnviousStrike.weaponDamageIncrease);
                 ChangeMaxHealth(-jealousyEnviousStrike.healthDecrease);
+                ChangePierce(jealousyEnviousStrike.weaponPierceIncrease);
             }
         });
         options.Add(new ChangeOption()
         {
-            optionName = "Jealousy: Envious Strike",
+            optionName = "Jealousy: Spiteful Heart",
                 description =
-                $"+{jealousyCovetousHarvest.weaponDamageIncrease} DMG, " +
-                $"{jealousyCovetousHarvest.playerNumOfProjectilesIncrease} projectiles, " +
-                $"+{-jealousyCovetousHarvest.healthDecrease} HP, " +
-                $"{-jealousyCovetousHarvest.playerShieldAmountDecrease} shields",
+                $"+{jealousySpitefulHeart.weaponDamageIncrease} DMG, " +
+                $"{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles, " +
+                $"+{-jealousySpitefulHeart.healthDecrease} HP, " +
+                $"{-jealousySpitefulHeart.playerShieldAmountDecrease} shields",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
-                ChangeWeaponDamage(jealousyCovetousHarvest.weaponDamageIncrease);
-                ChangeMaxHealth(-jealousyCovetousHarvest.healthDecrease);
-                ChangeShotsPerAttack(jealousyCovetousHarvest.playerNumOfProjectilesIncrease);
-                ChangePlayerShieldAmount(-jealousyCovetousHarvest.playerShieldAmountDecrease);
+                ChangeWeaponDamage(jealousySpitefulHeart.weaponDamageIncrease);
+                ChangeMaxHealth(-jealousySpitefulHeart.healthDecrease);
+                ChangeShotsPerAttack(jealousySpitefulHeart.playerNumOfProjectilesIncrease);
+                ChangePlayerShieldAmount(-jealousySpitefulHeart.playerShieldAmountDecrease);
             }
         });
         options.Add(new ChangeOption()
@@ -409,21 +435,79 @@ public class UpgradeManager : MonoBehaviour
             }
         });
     }
-    public List<ChangeOption> OfferedChangeOptions()
+    public List<ChangeOption> OfferedChangeOptions(int currentWave)
     {
         _offered.Clear();
-        List<int> usedIndices = new List<int>();
-        while (_offered.Count < 3 && _offered.Count < options.Count)
+        if (currentWave == 1 || currentWave == 5)
         {
-            int index = Random.Range(0, options.Count);
-            if (!usedIndices.Contains(index))
-            {
-                usedIndices.Add(index);
-                _offered.Add(options[index]);
-            }
+            // Example: Three major upgrade path options for the player to choose from
+            _offered.Add(new ChangeOption {
+                optionName = "Anxiety",
+                description =
+                    $"+{anxiety.weaponSpeedIncrease * 100f}% attack speed, " +
+                    $"+{anxiety.playerSpeedIncrease * 100f}% move speed, " +
+                    $"+{anxiety.playerShieldRechargeAmountIncrease * 100f}% faster shield recharge, " +
+                    $"{-anxiety.weaponDistanceDecrease * 100f}% range, " +
+                    $"{-anxiety.basicAttackSizeDecrease * 100f}% attack size",
+                icon = Resources.Load<Sprite>("Images/pressure-gauge"), // example icon
+                applyChange = () => {
+                    ChangeWeaponSpeed(anxiety.weaponSpeedIncrease);
+                    ChangePlayerSpeed(anxiety.playerSpeedIncrease);
+                    ChangePlayerShieldRecharge(anxiety.playerShieldRechargeAmountIncrease);
+                    ChangeWeaponDistance(-anxiety.weaponDistanceDecrease);
+                    ChangeBasicAttackSize(-anxiety.basicAttackSizeDecrease);
+                }
+            });
+            _offered.Add(new ChangeOption {
+                optionName = "Social Isolation",
+                description =
+                    $"+{socialIsolation.weaponDamageIncrease} ATK, " +
+                    $"{-socialIsolation.basicAttackSizeIncrease * 100f}% ATK size, " +
+                    $"{socialIsolation.weaponDistanceIncrease * 100f}% range, " +
+                    $"+{(int)socialIsolation.weaponPierceIncrease} pierce, " +
+                    $"{-socialIsolation.playerShieldAmountDecrease} shield, " +
+                    $"{-socialIsolation.healthDecrease} HP",
+                icon = Resources.Load<Sprite>("Images/solitary-shot"),
+                applyChange = () => {
+                    ChangeWeaponDamage(socialIsolation.weaponDamageIncrease);
+                    ChangeBasicAttackSize(-socialIsolation.basicAttackSizeIncrease);
+                    ChangeWeaponDistance(socialIsolation.weaponDistanceIncrease);
+                    ChangePierce((int)socialIsolation.weaponPierceIncrease);
+                    ChangePlayerShieldAmount(-socialIsolation.playerShieldAmountDecrease);
+                    ChangeMaxHealth(-socialIsolation.healthDecrease);
+                }
+            });
+            _offered.Add(new ChangeOption {
+                optionName = "Heavy-Hearted",
+                description =
+                    $"+{heavyHearted.healthIncrease} HP, " +
+                    $"+{heavyHearted.playerShieldAmountIncrease} shields, " +
+                    $"{-heavyHearted.playerSpeedDecrease * 100f}% move speed",
+                icon = Resources.Load<Sprite>("Images/all-in-coins"),
+                applyChange = () => {
+                    ChangeMaxHealth(heavyHearted.healthIncrease);
+                    ChangePlayerShieldAmount(heavyHearted.playerShieldAmountIncrease);
+                    ChangePlayerSpeed(-heavyHearted.playerSpeedDecrease);
+                }
+            });
+            // (Add other major options as needed, up to 3 shown at once due to UI)
+            return _offered;
         }
-        //TODO: Do I need to delete used indices?
-        return _offered;
+        else
+        {
+            List<int> usedIndices = new List<int>();
+            while (_offered.Count < 3 && _offered.Count < options.Count)
+            {
+                int index = Random.Range(0, options.Count);
+                if (!usedIndices.Contains(index))
+                {
+                    usedIndices.Add(index);
+                    _offered.Add(options[index]);
+                }
+            }
+            //TODO: Do I need to delete used indices?
+            return _offered;
+        }
     }
 
     public void button1Pressed()

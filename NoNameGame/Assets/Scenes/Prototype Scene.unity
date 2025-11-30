@@ -487,7 +487,7 @@ MonoBehaviour:
     weaponDistanceIncrease: 3
     weaponSpeedIncrease: 1.25
     playerSpeedIncrease: 1.25
-    basicAttackSizeIncrease: 1.33
+    basicAttackSizeIncrease: 2
   buttonLabels:
   - {fileID: 2938227917102148239}
   - {fileID: 2938227917464173513}
@@ -4013,7 +4013,7 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
+    upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
@@ -4023,7 +4023,7 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
+    upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
@@ -4164,6 +4164,7 @@ MonoBehaviour:
   numBossRunners: 3
   timeBeforeBossRunnersSpawn: 5
   maxTurretEnemiesAlive: 4
+  waveChangeText: {fileID: 0}
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0
@@ -7642,7 +7643,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612445734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: eadcd601ee1236149ab7c85c2e333a88, type: 2}
   m_CullingMode: 0
@@ -11607,6 +11608,11 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 2024047383}
+    - target: {fileID: 1406458778982074916, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2227057740444288077, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_Constraints
@@ -11688,6 +11694,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4015126218744946186, guid: 422c537d7fbf1cd469f99a4fd9f84bfc,
         type: 3}
+    - target: {fileID: 3096818584895333003, guid: 74acb248ad4fde64b9007f7ef803641d,
+        type: 3}
+      propertyPath: totalBlocksCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d,
         type: 3}
       propertyPath: m_Name

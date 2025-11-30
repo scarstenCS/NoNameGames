@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public const string enemyTag = "Enemy";
 
     private int _maxHealth =20;
+    private bool shieldGenerated;
     public int MaxHealth
     {
 
@@ -100,6 +101,9 @@ public class Player : MonoBehaviour
     public float startSpeed = 1;
 
     private float playerSpeed;
+    public int totalBlocksCount;
+    private int currentBlocksCount;
+    public float blockRegenerateTime = 5f;
 
     public float Speed
     {
@@ -123,7 +127,7 @@ public class Player : MonoBehaviour
             ba.numberOfProjectiles = value;
         }
     }   
-    
+   
     public PlayerControls controls;
 
     private InputAction move;
@@ -139,6 +143,8 @@ public class Player : MonoBehaviour
 
     public Animation idle;
     private UserInterface ui;
+    private Color color;
+
 
     private void Awake()
     {
@@ -166,9 +172,21 @@ public class Player : MonoBehaviour
     /// <param name="amount">the ammount of damage to do to player</param>
     public void TakeDamage(int amount)
     {
+        if(currentBlocksCount > 0)
+        {
+            currentBlocksCount--;
+            //flash blue and play sfx sound
+            sr.color = new Color(0.0f, 0.0f, 1.0f, 0.7f); // semi-transparent blue
+            Invoke("ResetColor", 0.2f);
+            return;
+        }
         if (amount <= 0) return;
+        sr.color = new Color(1.0f, 0.0f, 0.0f, 0.7f); // semi-transparent red
+        Invoke("ResetColor", 0.2f);
         health = Mathf.Max(0, health - amount);
         HealthChanged?.Invoke(health, MaxHealth);
+        StopCoroutine("regenerateBlocks");
+        shieldGenerated = false;
         if (health == 0 && !isDead)
         {
             isDead = true;
@@ -194,6 +212,8 @@ public class Player : MonoBehaviour
         if (amount <= 0) return;
         health = Mathf.Min(MaxHealth, health + amount);
         HealthChanged?.Invoke(health, MaxHealth);
+        //assumed when healed its the end of wave so reset blocks
+        currentBlocksCount = totalBlocksCount;
     }
 
 
@@ -211,7 +231,9 @@ public class Player : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
 
         sr = GetComponent<SpriteRenderer>();
+        color = sr.color;
         ui = FindObjectOfType<UserInterface>();
+        currentBlocksCount = totalBlocksCount;
     }
 
     // Update is called once per frame
@@ -224,11 +246,6 @@ public class Player : MonoBehaviour
         sr.flipX = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()).x >= t.position.x;
         if (move.ReadValue<Vector2>() != Vector2.zero)
         {
-            // if (inputVector.x != 0 && Time.timeScale!= 0)
-            // {
-                
-            //     sr.flipX = inputVector.x > 0;
-            // }
             animator.SetBool("isWalking", true);
         }
         else
@@ -247,6 +264,11 @@ public class Player : MonoBehaviour
             //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
+        if (currentBlocksCount < totalBlocksCount && !shieldGenerated)
+        {
+            shieldGenerated = true;
+            StartCoroutine("regenerateBlocks");
+        }
     }
 
     private void HandleDeath()
@@ -261,5 +283,19 @@ public class Player : MonoBehaviour
     {
         return move;
     }
-    
+    void ResetColor()
+    {
+        sr.color = color;
+    }
+    private IEnumerator regenerateBlocks()
+    {
+        if (currentBlocksCount < totalBlocksCount)
+        {
+            yield return new WaitForSeconds(blockRegenerateTime);
+            currentBlocksCount++;
+            sr.color = new Color(0.0f, 1.0f, 0.0f, 0.3f); // semi-transparent green
+            Invoke("ResetColor", 0.2f);
+            shieldGenerated = false;
+        }
+    }
 }

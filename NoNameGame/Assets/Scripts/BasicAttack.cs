@@ -144,7 +144,7 @@ public class BasicAttack : MonoBehaviour
                 transform.position += (Vector3)(travelDestination * projectileSpeed * Time.deltaTime);
                 if (spinVisual != null)
                 {
-                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                    //spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
                 }
                 if (Vector2.Distance(_origin, transform.position) >= projectileMaxDistance)
                     atkStage = 2;
@@ -159,7 +159,7 @@ public class BasicAttack : MonoBehaviour
                 
                 if (spinVisual != null)
                 {
-                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                    //spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
                 }
 
                 // move toward player

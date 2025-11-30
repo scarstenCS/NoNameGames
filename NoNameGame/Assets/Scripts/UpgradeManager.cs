@@ -30,7 +30,8 @@ public class UpgradeManager : MonoBehaviour
         public int playerNumOfProjectilesIncrease;
         public float playerShieldRechargeAmountIncrease;
     }
-        public struct DowngradeValues
+    [System.Serializable]
+    public struct DowngradeValues
     {
         public int healthDecrease;
         public int weaponDamageDecrease;
@@ -47,12 +48,12 @@ public class UpgradeManager : MonoBehaviour
     {
         healthIncrease = 5,
         weaponDamageIncrease = 1,
-        weaponDistanceIncrease = 3f,
-        weaponSpeedIncrease = 1.25f,
-        playerSpeedIncrease = 1.25f,
-        basicAttackSizeIncrease = 1.25f,
+        weaponDistanceIncrease = 0.5f,
+        weaponSpeedIncrease = 0.25f,
+        playerSpeedIncrease = 0.25f,
+        basicAttackSizeIncrease = 0.25f,
         playerShieldAmountIncrease = 1,
-        playerShieldRechargeAmountIncrease = 1,
+        playerShieldRechargeAmountIncrease = 0.33f,
         playerNumOfProjectilesIncrease = 1
 
     };
@@ -61,13 +62,13 @@ public class UpgradeManager : MonoBehaviour
     {
         healthDecrease = 5,
         weaponDamageDecrease = 1,
-        weaponDistanceDecrease = 3f,
-        weaponSpeedDecrease = 1.25f,
-        playerSpeedDecrease = 1.25f,
-        basicAttackSizeDecrease = 1.25f,
+        weaponDistanceDecrease = 0.5f,
+        weaponSpeedDecrease = 0.25f,
+        playerSpeedDecrease = 0.25f,
+        basicAttackSizeDecrease = 0.25f,
         playerShieldAmountDecrease = 1,
-        playerShieldRechargeAmountDecrease = 1,
-        playerNumOfProjectilesDecrease =1
+        playerShieldRechargeAmountDecrease = 0.33f,
+        playerNumOfProjectilesDecrease = 1
 
     };
     [SerializeField] private TMP_Text[] buttonLabels;
@@ -146,60 +147,83 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Weapon Damage",
-            description = "+" + dU.weaponDamageIncrease + " ATK",
+            description = "+" + dU.weaponDamageIncrease + " ATK but lose "+ dD.healthDecrease+" health",
             icon = Resources.Load<Sprite>("Images/charged-arrow"),
-            applyChange = () => ChangeWeaponDamage(dU.weaponDamageIncrease)
+            applyChange = () => 
+            {
+                ChangeWeaponDamage(dU.weaponDamageIncrease);
+                ChangeMaxHealth(-dD.healthDecrease);
+            }
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Shield Amount",
-            description = "+" + dU.playerShieldAmountIncrease + " shield",
+            description = "+" + dU.playerShieldAmountIncrease + " shield but lose" + dD.playerSpeedDecrease*100+"% speed.",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
-            applyChange = () => ChangePlayerShieldAmount(dU.playerShieldAmountIncrease)
+            applyChange = () => {
+                ChangePlayerShieldAmount(dU.playerShieldAmountIncrease);
+                ChangePlayerSpeed(dD.playerSpeedDecrease);
+
+            }
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Reduce Shield recharge time",
-            description = "+" + (dU.playerShieldRechargeAmountIncrease-1)*100 + "% reduced time",
+            description = "+" + dU.playerShieldRechargeAmountIncrease*100 + "% reduced time",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => ChangePlayerShieldRecharge(dU.playerShieldRechargeAmountIncrease)
         });
 
         options.Add(new UpgradeOption()
         {
-            optionName = "Increase Weapon Distance",
-            description = "+" + dU.weaponDistanceIncrease + " Range",
+            //want to add a way for the projectile to increase its size on the way back. 
+            optionName = "Increase Weapon Distance and weapon speed",
+            description = "+" + dU.weaponDistanceIncrease + " Range and + "+ dU.weaponSpeedIncrease*100+"% WeaponSpeed",
             icon = Resources.Load<Sprite>("Images/arrow-dunk"),
-            applyChange = () => ChangeWeaponDistance(dU.weaponDistanceIncrease)
+            applyChange = () => {
+                ChangeWeaponDistance(dU.weaponDistanceIncrease);
+                ChangeWeaponSpeed(dU.weaponSpeedIncrease);
+            }
         });
 
         options.Add(new UpgradeOption()
         {   
             optionName = "Increase Weapon Speed",
-            description = "+" + (dU.weaponSpeedIncrease-1)*100 + "% ATK SPD",
+            description = "+" + dU.weaponSpeedIncrease*100 + "% ATK SPD but reduce weapon size by "+dD.basicAttackSizeDecrease +"%",
             icon = Resources.Load<Sprite>("Images/supersonic-bullet"),
-            applyChange = () => ChangeWeaponSpeed(dU.weaponSpeedIncrease)
+            applyChange = () =>{
+                ChangeWeaponSpeed(dU.weaponSpeedIncrease);
+                ChangeBasicAttackSize(-dD.basicAttackSizeDecrease);
+            }
         });
 
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Player Speed",
-            description = "+" + (dU.playerSpeedIncrease-1)*100 + "% SPD",
+            description = "+" + dU.playerSpeedIncrease*100 + "% SPD",
             icon = Resources.Load<Sprite>("Images/wingfoot"),
-            applyChange = () => ChangePlayerSpeed(dU.playerSpeedIncrease)
+            applyChange = () => 
+            {
+                ChangePlayerSpeed(dU.playerSpeedIncrease);
+
+            }
         });
         options.Add(new UpgradeOption()
         {
             //gain peirce but lose armor
             optionName = "Extra Basic Attack Pierce",
-            description = "+1 Pierce",
+            description = "+1 Pierce but lose 1 shield",
             icon = Resources.Load<Sprite>("Images/pierced-body"),
-            applyChange = () => ChangePierce()
+            applyChange = () => 
+            {
+                ChangePierce(true);
+                ChangePlayerShieldAmount(dD.playerShieldAmountDecrease);
+            }
         });
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Basic Attack Size",
-            description = "+" + (dU.basicAttackSizeIncrease-1)*100 + "% ATK Size but lower attack speed by " + (dD.basicAttackSizeDecrease-1)*100 + "%",
+            description = "+" + dU.basicAttackSizeIncrease*100 + "% ATK Size but lower attack speed by " + (dD.basicAttackSizeDecrease-1)*100 + "%",
             icon = Resources.Load<Sprite>("Images/resize"),
             applyChange = () => {
                 ChangeBasicAttackSize(dU.basicAttackSizeIncrease);
@@ -210,9 +234,13 @@ public class UpgradeManager : MonoBehaviour
         options.Add(new UpgradeOption()
         {
             optionName = "Increase Shots Per Attack",
-            description = "+"+ (dU.playerNumOfProjectilesIncrease) + "  Shot projectiles",
+            description = "+"+ dU.playerNumOfProjectilesIncrease + "  Shot projectiles but lose " + dD.weaponDamageDecrease+ " Damage and "+ dD.weaponDistanceDecrease +" Range",
             icon = Resources.Load<Sprite>("Images/striking-arrows"),
-            applyChange = () => ChangeShotsPerAttack(dU.playerNumOfProjectilesIncrease)
+            applyChange = () => {
+                ChangeShotsPerAttack(dU.playerNumOfProjectilesIncrease);
+                ChangeWeaponDamage(-dD.weaponDamageDecrease);
+                ChangeWeaponDistance(-dD.weaponDistanceDecrease);
+            }
         });
     }
     public List<UpgradeOption> OfferedUpgradeOptions()
@@ -258,69 +286,111 @@ public class UpgradeManager : MonoBehaviour
     /// <summary>
     /// increased player's max health
     /// </summary>
-    /// <param name="ammout">ammount to increase by</param>
-    public void ChangeMaxHealth(int ammout)
+    /// <param name="amout">amount to increase by</param>
+    public void ChangeMaxHealth(int amount)
     {
-        player.MaxHealth += ammout;
+        if((player.MaxHealth += amount) <= 0)
+        {
+            player.MaxHealth = 1;
+        }
+        else
+        {
+            player.MaxHealth += amount;
+        }
+        
         //Debug.Log($"Max health increased by {ammout}");
     }
     /// <summary>
     /// Increases basic weapon damage 
     /// </summary>
-    /// <param name="ammount">ammount to increase by</param>
-    public void ChangeWeaponDamage(int ammount)
+    /// <param name="amount">amount to increase by</param>
+    public void ChangeWeaponDamage(int amount)
     {
-        player.basicWeaponDmg += ammount;
-        //Debug.Log($"Basic weapon damage increased by {ammount}");
+        if ((player.basicWeaponDmg += amount) <= 0)
+        {
+            player.basicWeaponDmg = 1;
+        }
+        else
+        {
+        player.basicWeaponDmg += amount;
+        }
+        
+        //Debug.Log($"Basic weapon damage increased by {amount}");
     }
 
     /// <summary>
     /// Increases basic weapon distance
     /// </summary>
-    /// <param name="ammount">ammount to increase by</param>
-    public void ChangeWeaponDistance(float ammount)
+    /// <param name="amount">amount to increase by</param>
+    public void ChangeWeaponDistance(float amount)
     {
-        player.basicWeaponDistance += ammount;
-        //Debug.Log($"Basic weapon distance increased by {ammount}");
+        if((player.basicWeaponDistance += amount) <= 0)
+        {
+            player.basicWeaponDistance = 0.2f;
+        }
+        else
+        {
+            player.basicWeaponDistance += amount;
+        }
+        
+        //Debug.Log($"Basic weapon distance increased by {amount}");
     }
     /// <summary>
     /// increases weapon speed
     /// </summary>
-    /// <param name="ammount">Ammount to increase by</param>
-    public void ChangeWeaponSpeed(float ammount)
+    /// <param name="amount">Amount to increase by</param>
+    public void ChangeWeaponSpeed(float amount)
     {
-        player.basicWeaponSpeed = player.basicWeaponSpeed * ammount;
-        //Debug.Log($"Basic weapon speed increased by {ammount}");
+        player.basicWeaponSpeed = player.basicWeaponSpeed + (player.basicWeaponSpeed * amount);
+        //Debug.Log($"Basic weapon speed increased by {amount}");
     }
 
     /// <summary>
     /// Increases Player speed
     /// </summary>
-    /// <param name="ammount">ammount to increase by</param>
-    public void ChangePlayerSpeed(float ammount)
+    /// <param name="amount">amount to increase by</param>
+    public void ChangePlayerSpeed(float amount)
     {
-        player.Speed += ammount;
-        //Debug.Log($"Player speed increased by {ammount}");
+        player.Speed += player.Speed + (player.Speed *amount);
+        //Debug.Log($"Player speed increased by {amount}");
     }
     public void ChangePlayerShieldRecharge(float newRecharge)
     {
-        if (newRecharge >0)
-        {
-                    player.sheildRegenerateTime = (player.sheildRegenerateTime *newRecharge) - player.sheildRegenerateTime;
 
-        }
+        player.sheildRegenerateTime = player.sheildRegenerateTime - (player.sheildRegenerateTime *newRecharge);
     }
     public void ChangePlayerShieldAmount(int shieldAmount)
     {
-        player.totalShieldCount = player.totalShieldCount + shieldAmount;
+        if((player.totalShieldCount = player.totalShieldCount + shieldAmount) < 0)
+        {
+            player.totalShieldCount = 0;
+        }
+        else
+        {
+            player.totalShieldCount = player.totalShieldCount + shieldAmount;
+        }
+        
     }
-    public void ChangePierce()
+    public void ChangePierce(bool positive)
     {
-        player.basicWeaponPierce += 1;
+        if(positive != true)
+        {
+            if ((player.basicWeaponPierce -= 1) < 0)
+            {
+                player.basicWeaponPierce = 0;
+            }
+        }
+        else
+        {
+            player.basicWeaponPierce += 1;
+        }
+        
     }
     public void ChangeBasicAttackSize(float sizeIncrease)
     {
-        player.basicWeaponSize = sizeIncrease * player.basicWeaponSize;
+
+        player.basicWeaponSize = player.basicWeaponSize + (sizeIncrease * player.basicWeaponSize);
+
     }
     public void ChangeShotsPerAttack(int projetileChange)
     {

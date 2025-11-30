@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float basicWeaponPierce
+    public int basicWeaponPierce
     {
         get
         {

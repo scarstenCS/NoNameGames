@@ -15,8 +15,8 @@ public class BasicAttack : MonoBehaviour
 
     public float projectileSpeed = 5,
     projectileMaxDistance = 5;
-    public float maxPierce = 0;
-    public float pierce = 0;
+    public int maxPierce = 0;
+    public int pierce = 0;
     [SerializeField] private Animator animator; 
     public int Damage = 1;
     // private float projectileDistance;

@@ -10,7 +10,7 @@ public class UpgradeManager : MonoBehaviour
     static public UpgradeManager Instance {get{ return _instance; }}
     static private UpgradeManager _instance;
     public GameObject upgradeWindow;
-    public struct UpgradeOption
+    public struct ChangeOption
     {
         public string optionName;
         public string description;
@@ -18,7 +18,7 @@ public class UpgradeManager : MonoBehaviour
         public System.Action applyChange;
     }
     [System.Serializable]
-    public struct UpgradeValues
+    public struct ChangeValues
     {
         public int healthIncrease;
         public int weaponDamageIncrease;
@@ -29,10 +29,6 @@ public class UpgradeManager : MonoBehaviour
         public int playerShieldAmountIncrease;
         public int playerNumOfProjectilesIncrease;
         public float playerShieldRechargeAmountIncrease;
-    }
-    [System.Serializable]
-    public struct DowngradeValues
-    {
         public int healthDecrease;
         public int weaponDamageDecrease;
         public float weaponDistanceDecrease;
@@ -42,8 +38,10 @@ public class UpgradeManager : MonoBehaviour
         public int playerNumOfProjectilesDecrease;
         public int playerShieldAmountDecrease;
         public float playerShieldRechargeAmountDecrease;
+        public float weaponPierceDecrease;
+        public float weaponPierceIncrease;
     }
-    private UpgradeValues defaultsU = new UpgradeValues
+    private ChangeValues defaults = new ChangeValues
     {
         healthIncrease = 5,
         weaponDamageIncrease = 1,
@@ -53,11 +51,7 @@ public class UpgradeManager : MonoBehaviour
         basicAttackSizeIncrease = 0.25f,
         playerShieldAmountIncrease = 1,
         playerShieldRechargeAmountIncrease = 0.33f,
-        playerNumOfProjectilesIncrease = 1
-
-    };
-    private DowngradeValues defaultsD = new DowngradeValues
-    {
+        playerNumOfProjectilesIncrease = 1,
         healthDecrease = 5,
         weaponDamageDecrease = 1,
         weaponDistanceDecrease = 0.5f,
@@ -66,162 +60,109 @@ public class UpgradeManager : MonoBehaviour
         basicAttackSizeDecrease = 0.25f,
         playerShieldAmountDecrease = 1,
         playerShieldRechargeAmountDecrease = 0.33f,
-        playerNumOfProjectilesDecrease = 1
+        playerNumOfProjectilesDecrease = 1,
+        weaponPierceDecrease = 1,
+        weaponPierceIncrease = 1
 
     };
-    [System.Serializable]
-    public struct ThemedUpgrade
-    {
-        public UpgradeValues upgrade;     // positive changes
-        public DowngradeValues downgrade; // negative changes
-    }
     // APATHY
     [SerializeField]
-    private ThemedUpgrade apathyNumbToPain = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            healthIncrease = 5
-        },
-        downgrade = new DowngradeValues {
-            weaponDamageDecrease = 1,
-            weaponSpeedDecrease = 0.10f
-        }
+    private ChangeValues apathyNumbToPain = new ChangeValues {
+        healthIncrease = 5,
+        weaponDamageDecrease = 1,
+        weaponSpeedDecrease = 0.10f
     };
 
     [SerializeField]
-    private ThemedUpgrade apathyCheckedOut = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            playerShieldRechargeAmountIncrease = 0.20f
-        },
-        downgrade = new DowngradeValues {
-            playerSpeedDecrease = 0.10f,
-            basicAttackSizeDecrease = 0.10f
-        }
+    private ChangeValues apathyCheckedOut = new ChangeValues {
+        playerShieldRechargeAmountIncrease = 0.20f,
+        playerSpeedDecrease = 0.10f,
+        basicAttackSizeDecrease = 0.10f
     };
 
 
     // LONELINESS
     [SerializeField]
-    private ThemedUpgrade lonelinessDistantHeart = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDistanceIncrease = 0.75f
-        },
-        downgrade = new DowngradeValues {
-            basicAttackSizeDecrease = 0.15f,
-            playerShieldAmountDecrease = 1
-        }
+    private ChangeValues lonelinessDistantHeart = new ChangeValues {
+        weaponDistanceIncrease = 0.75f,
+        basicAttackSizeDecrease = 0.15f,
+        playerShieldAmountDecrease = 1
     };
 
     [SerializeField]
-    private ThemedUpgrade lonelinessSolitaryShot = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 2,
-            basicAttackSizeIncrease = 0.15f
-        },
-        downgrade = new DowngradeValues {
-            playerNumOfProjectilesDecrease = 1
-        }
+    private ChangeValues lonelinessSolitaryShot = new ChangeValues {
+        weaponDamageIncrease = 2,
+        basicAttackSizeIncrease = 0.15f,
+        playerNumOfProjectilesDecrease = 1
     };
 
 
     // SLOTH
     [SerializeField]
-    private ThemedUpgrade slothDeadWeight = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            healthIncrease = 7,
-            playerShieldAmountIncrease = 1
-        },
-        downgrade = new DowngradeValues {
-            playerSpeedDecrease = 0.25f
-        }
+    private ChangeValues slothDeadWeight = new ChangeValues {
+        healthIncrease = 7,
+        playerShieldAmountIncrease = 1,
+        playerSpeedDecrease = 0.25f
     };
 
     [SerializeField]
-    private ThemedUpgrade slothRootedFocus = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 1,
-            weaponDistanceIncrease = 0.25f
-        },
-        downgrade = new DowngradeValues {
-            weaponSpeedDecrease = 0.15f,
-            playerSpeedDecrease = 0.15f
-        }
+    private ChangeValues slothLaziness = new ChangeValues {
+        weaponDamageIncrease = 1,
+        weaponDistanceIncrease = 0.25f,
+        weaponSpeedDecrease = 0.15f,
+        playerSpeedDecrease = 0.15f
     };
 
 
     // JEALOUSY
     [SerializeField]
-    private ThemedUpgrade jealousyEnviousStrike = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 2
-        },
-        downgrade = new DowngradeValues {
-            healthDecrease = 5
-        }
+    private ChangeValues jealousyEnviousStrike = new ChangeValues {
+        weaponDamageIncrease = 2,
+        healthDecrease = 5
     };
 
     [SerializeField]
-    private ThemedUpgrade jealousyCovetousHarvest = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 1,
-            playerNumOfProjectilesIncrease = 1
-        },
-        downgrade = new DowngradeValues {
-            healthDecrease = 3,
-            playerShieldAmountDecrease = 1
-        }
+    private ChangeValues jealousyCovetousHarvest = new ChangeValues {
+        weaponDamageIncrease = 1,
+        playerNumOfProjectilesIncrease = 1,
+        healthDecrease = 3,
+        playerShieldAmountDecrease = 1
     };
 
 
     // GREED
     [SerializeField]
-    private ThemedUpgrade greedHoardersBargain = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 1,
-            weaponDistanceIncrease = 0.25f,
-            playerNumOfProjectilesIncrease = 1
-        },
-        downgrade = new DowngradeValues {
-            healthDecrease = 5,
-            playerShieldAmountDecrease = 1
-        }
+    private ChangeValues greedLongShot = new ChangeValues {
+        weaponDamageIncrease = 1,
+        weaponDistanceIncrease = 0.25f,
+        playerNumOfProjectilesIncrease = 1,
+        healthDecrease = 5,
+        playerShieldAmountDecrease = 1
     };
 
     [SerializeField]
-    private ThemedUpgrade greedAllIn = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 2,
-            weaponSpeedIncrease = 0.30f
-        },
-        downgrade = new DowngradeValues {
-            healthDecrease = 10,
-            playerShieldAmountDecrease = 1
-        }
+    private ChangeValues greedAllIn = new ChangeValues {
+        weaponDamageIncrease = 2,
+        weaponSpeedIncrease = 0.30f,
+        healthDecrease = 10,
+        playerShieldAmountDecrease = 1
     };
 
 
     // DEPRESSION
     [SerializeField]
-    private ThemedUpgrade depressionWeightedShots = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 1,
-            basicAttackSizeIncrease = 0.30f
-        },
-        downgrade = new DowngradeValues {
-            weaponSpeedDecrease = 0.25f,
-            playerSpeedDecrease = 0.10f
-        }
+    private ChangeValues depressionWeightedShots = new ChangeValues {
+        weaponDamageIncrease = 1,
+        basicAttackSizeIncrease = 0.30f,
+        weaponSpeedDecrease = 0.25f,
+        playerSpeedDecrease = 0.10f
     };
 
     [SerializeField]
-    private ThemedUpgrade depressionLastLight = new ThemedUpgrade {
-        upgrade = new UpgradeValues {
-            weaponDamageIncrease = 1,
-            weaponSpeedIncrease = 0.20f
-        },
-        downgrade = new DowngradeValues {
-            playerShieldAmountDecrease = 1,
-            playerShieldRechargeAmountDecrease = 0.50f
-        }
+    private ChangeValues depressionWallsUp = new ChangeValues {
+        playerShieldAmountIncrease = 2,
+        weaponDamageDecrease = 1,
+        playerSpeedDecrease = 0.2f
     };
 
 
@@ -229,8 +170,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TMP_Text[] descLabels;
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private BasicAttack launcher;
-    private readonly List<UpgradeOption> options = new List<UpgradeOption>();
-    private List<UpgradeOption> _offered = new List<UpgradeOption>();
+    private readonly List<ChangeOption> options = new List<ChangeOption>();
+    private List<ChangeOption> _offered = new List<ChangeOption>();
     public int totalUpgrades
     {
         get { return options.Count; }
@@ -248,7 +189,7 @@ public class UpgradeManager : MonoBehaviour
         GameManager.ChangeTimeScale(0f);
         GameManager.isPaused = true;
         upgradeWindow.SetActive(true);
-        _offered = OfferedUpgradeOptions();
+        _offered = OfferedChangeOptions();
         for (int i = 0; i < descLabels.Length; i++)
         {
             if (i < _offered.Count)
@@ -286,118 +227,189 @@ public class UpgradeManager : MonoBehaviour
 
     private void BuildOptions()
     {
-        //upgrade defaults = dU
-        var dU = defaultsU; 
-        //downgrade Defaults = dD
-        var dD = defaultsD;
-        options.Add(new UpgradeOption()
+        
+        options.Add(new ChangeOption
         {
-            optionName = "Increase Max Health",
-            description = "+" + dU.healthIncrease + " HP",
-            icon = Resources.Load<Sprite>("Images/heart-plus"),
-            applyChange = () => ChangeMaxHealth(dU.healthIncrease)
-        });
-
-        options.Add(new UpgradeOption()
-        {
-            optionName = "Increase Weapon Damage",
-            description = "+" + dU.weaponDamageIncrease + " ATK but lose "+ dD.healthDecrease+" health",
-            icon = Resources.Load<Sprite>("Images/charged-arrow"),
-            applyChange = () => 
+            optionName = "Apathy: Numb to Pain",
+            description =
+                $"+{apathyNumbToPain.healthIncrease} HP, " +
+                $"{-apathyNumbToPain.weaponDamageDecrease} ATK, " +
+                $"{-apathyNumbToPain.weaponSpeedDecrease * 100f}% attack speed",
+            icon = null,
+            applyChange = () =>
             {
-                ChangeWeaponDamage(dU.weaponDamageIncrease);
-                ChangeMaxHealth(-dD.healthDecrease);
+                ChangeMaxHealth(apathyNumbToPain.healthIncrease);
+                ChangeWeaponDamage(apathyNumbToPain.weaponDamageDecrease);
+                ChangeWeaponSpeed(apathyNumbToPain.weaponSpeedDecrease);
             }
         });
-        options.Add(new UpgradeOption()
+
+        options.Add(new ChangeOption()
         {
-            optionName = "Increase Shield Amount",
-            description = "+" + dU.playerShieldAmountIncrease + " shield but lose" + dD.playerSpeedDecrease*100+"% speed.",
+            optionName = "Apathy: Checked Out",
+            description =
+                $"+{apathyCheckedOut.playerShieldRechargeAmountIncrease*100f }% faster shield recharge, " +
+                $"{-apathyCheckedOut.playerSpeedDecrease} Speed, " +
+                $"{-apathyCheckedOut.basicAttackSizeDecrease * 100f}% size",
+            icon = null,
+            applyChange = () => 
+            {
+                ChangePlayerShieldRecharge(apathyCheckedOut.playerShieldRechargeAmountIncrease);
+                ChangePlayerSpeed(-apathyCheckedOut.playerSpeedDecrease);
+                ChangeBasicAttackSize(-apathyCheckedOut.basicAttackSizeDecrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Loneliness: Distant Heart",
+                description =
+                $"+{lonelinessDistantHeart.weaponDistanceIncrease*100f }% distance, " +
+                $"{-lonelinessDistantHeart.basicAttackSizeDecrease* 100f}% Weapon Size, " +
+                $"{-lonelinessDistantHeart.playerShieldAmountDecrease } shield",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
-                ChangePlayerShieldAmount(dU.playerShieldAmountIncrease);
-                ChangePlayerSpeed(dD.playerSpeedDecrease);
+                ChangePlayerShieldAmount(-lonelinessDistantHeart.playerShieldAmountDecrease);
+                ChangeBasicAttackSize(-lonelinessDistantHeart.basicAttackSizeDecrease);
+                ChangeWeaponDistance(lonelinessDistantHeart.weaponDistanceIncrease);
 
             }
         });
-        options.Add(new UpgradeOption()
+        options.Add(new ChangeOption()
         {
-            optionName = "Reduce Shield recharge time",
-            description = "+" + dU.playerShieldRechargeAmountIncrease*100 + "% reduced time",
+            //how to handle when someone doesn't pick projectiles the whole game. 
+            optionName = "Loneliness: Solitary Shot",
+                description =
+                $"+{lonelinessSolitaryShot.weaponDamageIncrease } damage, " +
+                $"{lonelinessSolitaryShot.basicAttackSizeIncrease* 100f}% Weapon Size, " +
+                $"{-lonelinessSolitaryShot.playerNumOfProjectilesDecrease } projectiles",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
-            applyChange = () => ChangePlayerShieldRecharge(dU.playerShieldRechargeAmountIncrease)
-        });
-
-        options.Add(new UpgradeOption()
-        {
-            //want to add a way for the projectile to increase its size on the way back. 
-            optionName = "Increase Weapon Distance and weapon speed",
-            description = "+" + dU.weaponDistanceIncrease + " Range and + "+ dU.weaponSpeedIncrease*100+"% WeaponSpeed",
-            icon = Resources.Load<Sprite>("Images/arrow-dunk"),
             applyChange = () => {
-                ChangeWeaponDistance(dU.weaponDistanceIncrease);
-                ChangeWeaponSpeed(dU.weaponSpeedIncrease);
+                ChangeWeaponDamage(lonelinessSolitaryShot.weaponDamageIncrease);
+                ChangeBasicAttackSize(lonelinessSolitaryShot.basicAttackSizeIncrease);
+                ChangeShotsPerAttack(-lonelinessSolitaryShot.playerNumOfProjectilesDecrease);
             }
         });
-
-        options.Add(new UpgradeOption()
-        {   
-            optionName = "Increase Weapon Speed",
-            description = "+" + dU.weaponSpeedIncrease*100 + "% ATK SPD but reduce weapon size by "+dD.basicAttackSizeDecrease +"%",
-            icon = Resources.Load<Sprite>("Images/supersonic-bullet"),
-            applyChange = () =>{
-                ChangeWeaponSpeed(dU.weaponSpeedIncrease);
-                ChangeBasicAttackSize(-dD.basicAttackSizeDecrease);
-            }
-        });
-
-        options.Add(new UpgradeOption()
+        options.Add(new ChangeOption()
         {
-            optionName = "Increase Player Speed",
-            description = "+" + dU.playerSpeedIncrease*100 + "% SPD",
-            icon = Resources.Load<Sprite>("Images/wingfoot"),
-            applyChange = () => 
-            {
-                ChangePlayerSpeed(dU.playerSpeedIncrease);
-
-            }
-        });
-        options.Add(new UpgradeOption()
-        {
-            //gain peirce but lose armor
-            optionName = "Extra Basic Attack Pierce",
-            description = "+1 Pierce but lose 1 shield",
-            icon = Resources.Load<Sprite>("Images/pierced-body"),
-            applyChange = () => 
-            {
-                ChangePierce(true);
-                ChangePlayerShieldAmount(dD.playerShieldAmountDecrease);
-            }
-        });
-        options.Add(new UpgradeOption()
-        {
-            optionName = "Increase Basic Attack Size",
-            description = "+" + dU.basicAttackSizeIncrease*100 + "% ATK Size but lower attack speed by " + (dD.basicAttackSizeDecrease-1)*100 + "%",
-            icon = Resources.Load<Sprite>("Images/resize"),
+            optionName = "Sloth: Dead Weight",
+                description =
+                $"+{slothDeadWeight.healthIncrease} health, " +
+                $"{slothDeadWeight.playerShieldAmountIncrease} shield amount, " +
+                $"{-slothDeadWeight.playerSpeedDecrease* 100f}% speed",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
-                ChangeBasicAttackSize(dU.basicAttackSizeIncrease);
-                ChangeWeaponSpeed(-dD.weaponSpeedDecrease);
+                ChangeMaxHealth(slothDeadWeight.healthIncrease);
+                ChangePlayerShieldAmount(slothDeadWeight.playerShieldAmountIncrease);
+                ChangePlayerSpeed(-slothDeadWeight.playerSpeedDecrease);
             }
-
         });
-        options.Add(new UpgradeOption()
+        options.Add(new ChangeOption()
         {
-            optionName = "Increase Shots Per Attack",
-            description = "+"+ dU.playerNumOfProjectilesIncrease + "  Shot projectiles but lose " + dD.weaponDamageDecrease+ " Damage and "+ dD.weaponDistanceDecrease +" Range",
-            icon = Resources.Load<Sprite>("Images/striking-arrows"),
+            optionName = "Sloth: Laziness",
+                description =
+                $"+{slothLaziness.weaponDamageIncrease} DMG, " +
+                $"{slothLaziness.weaponDistanceIncrease* 100f}% range, " +
+                $"{-slothLaziness.weaponSpeedDecrease* 100f}% weapon speed, " +
+                $"{-slothLaziness.playerSpeedDecrease* 100f}% speed",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
-                ChangeShotsPerAttack(dU.playerNumOfProjectilesIncrease);
-                ChangeWeaponDamage(-dD.weaponDamageDecrease);
-                ChangeWeaponDistance(-dD.weaponDistanceDecrease);
+                ChangeWeaponDamage(slothLaziness.weaponDamageIncrease);
+                ChangeWeaponDistance(slothLaziness.weaponDistanceIncrease);
+                ChangePlayerSpeed(-slothLaziness.playerSpeedDecrease);
+                ChangeWeaponSpeed(-slothLaziness.playerSpeedDecrease);
+            }
+        });
+
+        options.Add(new ChangeOption()
+        {
+            optionName = "Jealousy: Envious Strike",
+                description =
+                $"+{jealousyEnviousStrike.weaponDamageIncrease} DMG, " +
+                $"{-jealousyEnviousStrike.healthDecrease} HP",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangeWeaponDamage(jealousyEnviousStrike.weaponDamageIncrease);
+                ChangeMaxHealth(-jealousyEnviousStrike.healthDecrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Jealousy: Envious Strike",
+                description =
+                $"+{jealousyCovetousHarvest.weaponDamageIncrease} DMG, " +
+                $"{jealousyCovetousHarvest.playerNumOfProjectilesIncrease} projectiles, " +
+                $"+{-jealousyCovetousHarvest.healthDecrease} HP, " +
+                $"{-jealousyCovetousHarvest.playerShieldAmountDecrease} shields",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangeWeaponDamage(jealousyCovetousHarvest.weaponDamageIncrease);
+                ChangeMaxHealth(-jealousyCovetousHarvest.healthDecrease);
+                ChangeShotsPerAttack(jealousyCovetousHarvest.playerNumOfProjectilesIncrease);
+                ChangePlayerShieldAmount(-jealousyCovetousHarvest.playerShieldAmountDecrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Greed: Long Shot",
+                description =
+                $"+{greedLongShot.weaponDamageIncrease} DMG, " +
+                $"{greedLongShot.weaponDistanceIncrease* 100f}% range, " +
+                $"+{-greedLongShot.healthDecrease} HP",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangeWeaponDamage(greedLongShot.weaponDamageIncrease);
+                ChangeMaxHealth(-greedLongShot.healthDecrease);
+                ChangeWeaponDistance(greedLongShot.weaponDistanceIncrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Greed: All in",
+                description =
+                $"+{greedAllIn.weaponDamageIncrease} DMG, " +
+                $"{greedAllIn.weaponSpeedIncrease* 100f}% weapon speed, "+
+                $"+{-greedAllIn.healthDecrease} HP, "+
+                $"+{-greedAllIn.playerShieldAmountDecrease} shields",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangeWeaponDamage(greedAllIn.weaponDamageIncrease);
+                ChangeMaxHealth(-greedAllIn.healthDecrease);
+                ChangeWeaponSpeed(greedAllIn.weaponSpeedIncrease);
+                ChangePlayerShieldAmount(-greedAllIn.playerShieldAmountDecrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Depression: Weighted Shots",
+                description =
+                $"+{depressionWeightedShots.weaponDamageIncrease} DMG, " +
+                $"{depressionWeightedShots.basicAttackSizeIncrease* 100f}% weapon size, "+
+                $"+{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed, "+
+                $"+{-depressionWeightedShots.playerSpeedDecrease* 100f}% speed",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangeWeaponDamage(depressionWeightedShots.weaponDamageIncrease);
+                ChangeWeaponSpeed(-depressionWeightedShots.weaponSpeedDecrease);
+                ChangeBasicAttackSize(depressionWeightedShots.basicAttackSizeIncrease);
+                ChangePlayerSpeed(-depressionWeightedShots.playerSpeedDecrease);
+            }
+        });
+        options.Add(new ChangeOption()
+        {
+            optionName = "Depression: Walls up",
+                description =
+                $"+{depressionWallsUp.playerShieldAmountIncrease} shields, " +
+                $"{-depressionWallsUp.weaponDamageDecrease} DMG, " +
+                $"+{-depressionWallsUp.playerSpeedDecrease* 100f}% player speed",
+            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            applyChange = () => {
+                ChangePlayerShieldAmount(depressionWallsUp.playerShieldAmountIncrease);
+                ChangeWeaponDamage(-depressionWallsUp.weaponDamageDecrease);
+                ChangePlayerSpeed(-depressionWallsUp.playerSpeedDecrease);
             }
         });
     }
-    public List<UpgradeOption> OfferedUpgradeOptions()
+    public List<ChangeOption> OfferedChangeOptions()
     {
         _offered.Clear();
         List<int> usedIndices = new List<int>();
@@ -443,16 +455,18 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amout">amount to increase by</param>
     public void ChangeMaxHealth(int amount)
     {
-        if((player.MaxHealth += amount) <= 0)
+        int newMax = player.MaxHealth + amount;
+        if(newMax <= 0)
         {
             player.MaxHealth = 1;
+
         }
         else
         {
-            player.MaxHealth += amount;
+            player.MaxHealth = newMax;
         }
         
-        //Debug.Log($"Max health increased by {ammout}");
+        
     }
     /// <summary>
     /// Increases basic weapon damage 
@@ -460,13 +474,14 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amount">amount to increase by</param>
     public void ChangeWeaponDamage(int amount)
     {
-        if ((player.basicWeaponDmg += amount) <= 0)
+        int newDMG = player.basicWeaponDmg += amount;
+        if(newDMG <= 0)
         {
             player.basicWeaponDmg = 1;
         }
         else
         {
-        player.basicWeaponDmg += amount;
+            player.basicWeaponDmg = newDMG;
         }
         
         //Debug.Log($"Basic weapon damage increased by {amount}");
@@ -478,14 +493,7 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amount">amount to increase by</param>
     public void ChangeWeaponDistance(float amount)
     {
-        if((player.basicWeaponDistance += amount) <= 0)
-        {
-            player.basicWeaponDistance = 0.2f;
-        }
-        else
-        {
-            player.basicWeaponDistance += amount;
-        }
+        player.basicWeaponDistance += player.basicWeaponDistance*amount;
         
         //Debug.Log($"Basic weapon distance increased by {amount}");
     }
@@ -495,7 +503,7 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amount">Amount to increase by</param>
     public void ChangeWeaponSpeed(float amount)
     {
-        player.basicWeaponSpeed = player.basicWeaponSpeed + (player.basicWeaponSpeed * amount);
+        player.basicWeaponSpeed += player.basicWeaponSpeed * amount;
         //Debug.Log($"Basic weapon speed increased by {amount}");
     }
 
@@ -505,45 +513,44 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amount">amount to increase by</param>
     public void ChangePlayerSpeed(float amount)
     {
-        player.Speed += player.Speed + (player.Speed *amount);
+        player.Speed += player.Speed *amount;
         //Debug.Log($"Player speed increased by {amount}");
     }
     public void ChangePlayerShieldRecharge(float newRecharge)
     {
 
-        player.sheildRegenerateTime = player.sheildRegenerateTime - (player.sheildRegenerateTime *newRecharge);
+        player.sheildRegenerateTime -= player.sheildRegenerateTime *newRecharge;
     }
     public void ChangePlayerShieldAmount(int shieldAmount)
     {
-        if((player.totalShieldCount = player.totalShieldCount + shieldAmount) < 0)
+        int newShieldAmt = player.totalShieldCount += shieldAmount;
+        if(newShieldAmt <= 0)
         {
             player.totalShieldCount = 0;
         }
         else
         {
-            player.totalShieldCount = player.totalShieldCount + shieldAmount;
+            player.totalShieldCount = newShieldAmt;
         }
         
     }
-    public void ChangePierce(bool positive)
+    public void ChangePierce(int pierceAmount)
     {
-        if(positive != true)
+        int pierceTotal = player.basicWeaponPierce + pierceAmount;
+        if(pierceTotal <= 0)
         {
-            if ((player.basicWeaponPierce -= 1) < 0)
-            {
-                player.basicWeaponPierce = 0;
-            }
+            player.basicWeaponPierce = 0;
         }
         else
         {
-            player.basicWeaponPierce += 1;
+            player.basicWeaponPierce = pierceTotal;
         }
         
     }
     public void ChangeBasicAttackSize(float sizeIncrease)
     {
 
-        player.basicWeaponSize = player.basicWeaponSize + (sizeIncrease * player.basicWeaponSize);
+        player.basicWeaponSize += sizeIncrease * player.basicWeaponSize;
 
     }
     public void ChangeShotsPerAttack(int projetileChange)
@@ -563,7 +570,7 @@ public class UpgradeManager : MonoBehaviour
     //     var dU = defaultsU; 
     //     //downgrade Defaults = dD
     //     var dD = defaultsD;
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Max Health",
     //         description = "+" + dU.healthIncrease + " HP",
@@ -571,7 +578,7 @@ public class UpgradeManager : MonoBehaviour
     //         applyChange = () => ChangeMaxHealth(dU.healthIncrease)
     //     });
 
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Weapon Damage",
     //         description = "+" + dU.weaponDamageIncrease + " ATK but lose "+ dD.healthDecrease+" health",
@@ -582,7 +589,7 @@ public class UpgradeManager : MonoBehaviour
     //             ChangeMaxHealth(-dD.healthDecrease);
     //         }
     //     });
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Shield Amount",
     //         description = "+" + dU.playerShieldAmountIncrease + " shield but lose" + dD.playerSpeedDecrease*100+"% speed.",
@@ -593,7 +600,7 @@ public class UpgradeManager : MonoBehaviour
 
     //         }
     //     });
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Reduce Shield recharge time",
     //         description = "+" + dU.playerShieldRechargeAmountIncrease*100 + "% reduced time",
@@ -601,7 +608,7 @@ public class UpgradeManager : MonoBehaviour
     //         applyChange = () => ChangePlayerShieldRecharge(dU.playerShieldRechargeAmountIncrease)
     //     });
 
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         //want to add a way for the projectile to increase its size on the way back. 
     //         optionName = "Increase Weapon Distance and weapon speed",
@@ -613,7 +620,7 @@ public class UpgradeManager : MonoBehaviour
     //         }
     //     });
 
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {   
     //         optionName = "Increase Weapon Speed",
     //         description = "+" + dU.weaponSpeedIncrease*100 + "% ATK SPD but reduce weapon size by "+dD.basicAttackSizeDecrease +"%",
@@ -624,7 +631,7 @@ public class UpgradeManager : MonoBehaviour
     //         }
     //     });
 
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Player Speed",
     //         description = "+" + dU.playerSpeedIncrease*100 + "% SPD",
@@ -635,7 +642,7 @@ public class UpgradeManager : MonoBehaviour
 
     //         }
     //     });
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         //gain peirce but lose armor
     //         optionName = "Extra Basic Attack Pierce",
@@ -647,7 +654,7 @@ public class UpgradeManager : MonoBehaviour
     //             ChangePlayerShieldAmount(dD.playerShieldAmountDecrease);
     //         }
     //     });
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Basic Attack Size",
     //         description = "+" + dU.basicAttackSizeIncrease*100 + "% ATK Size but lower attack speed by " + (dD.basicAttackSizeDecrease-1)*100 + "%",
@@ -658,7 +665,7 @@ public class UpgradeManager : MonoBehaviour
     //         }
 
     //     });
-    //     options.Add(new UpgradeOption()
+    //     options.Add(new ChangeOption()
     //     {
     //         optionName = "Increase Shots Per Attack",
     //         description = "+"+ dU.playerNumOfProjectilesIncrease + "  Shot projectiles but lose " + dD.weaponDamageDecrease+ " Damage and "+ dD.weaponDistanceDecrease +" Range",

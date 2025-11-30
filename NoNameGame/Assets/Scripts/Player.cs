@@ -101,9 +101,9 @@ public class Player : MonoBehaviour
     public float startSpeed = 1;
 
     private float playerSpeed;
-    public int totalBlocksCount;
-    private int currentBlocksCount;
-    public float blockRegenerateTime = 5f;
+    public int totalShieldCount;
+    private int currentShieldCount;
+    public float sheildRegenerateTime = 5f;
 
     public float Speed
     {
@@ -172,9 +172,9 @@ public class Player : MonoBehaviour
     /// <param name="amount">the ammount of damage to do to player</param>
     public void TakeDamage(int amount)
     {
-        if(currentBlocksCount > 0)
+        if(currentShieldCount > 0)
         {
-            currentBlocksCount--;
+            currentShieldCount--;
             //flash blue and play sfx sound
             sr.color = new Color(0.0f, 0.0f, 1.0f, 0.7f); // semi-transparent blue
             Invoke("ResetColor", 0.2f);
@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
         health = Mathf.Min(MaxHealth, health + amount);
         HealthChanged?.Invoke(health, MaxHealth);
         //assumed when healed its the end of wave so reset blocks
-        currentBlocksCount = totalBlocksCount;
+        currentShieldCount = totalShieldCount;
     }
 
 
@@ -233,7 +233,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         color = sr.color;
         ui = FindObjectOfType<UserInterface>();
-        currentBlocksCount = totalBlocksCount;
+        currentShieldCount = totalShieldCount;
     }
 
     // Update is called once per frame
@@ -264,7 +264,7 @@ public class Player : MonoBehaviour
             //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
-        if (currentBlocksCount < totalBlocksCount && !shieldGenerated)
+        if (currentShieldCount < totalShieldCount && !shieldGenerated)
         {
             shieldGenerated = true;
             StartCoroutine("regenerateBlocks");
@@ -289,12 +289,13 @@ public class Player : MonoBehaviour
     }
     private IEnumerator regenerateBlocks()
     {
-        if (currentBlocksCount < totalBlocksCount)
+        if (currentShieldCount < totalShieldCount)
         {
-            yield return new WaitForSeconds(blockRegenerateTime);
-            currentBlocksCount++;
+            yield return new WaitForSeconds(sheildRegenerateTime);
+            currentShieldCount++;
             sr.color = new Color(0.0f, 1.0f, 0.0f, 0.3f); // semi-transparent green
             Invoke("ResetColor", 0.2f);
+            //play sfx sound
             shieldGenerated = false;
         }
     }

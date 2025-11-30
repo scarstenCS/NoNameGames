@@ -76,8 +76,7 @@ public class Enemy : MonoBehaviour
     {
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
-        UnityEngine.Debug.Assert(proj != null, "Projectile has no BasicAttack component");
-
+        
         if (other.tag == attackTag && proj.atkStage != 0)
         {
             AudioManager.SfxEnemy1Hit();

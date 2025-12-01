@@ -39,44 +39,44 @@ MonoBehaviour:
   - speaker: Charlie
     text: "I just didn\u2019t think they\u2019d pressure you like they did with me. "
     portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: " \u2026 They don\u2019t get how I\u2019m just different from you. I can
       make things, things people can play and like.\r"
     portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Sam
     text: " I spent days just on this app, I didn\u2019t want to deal with them yelling
       at me to be more like you. \r"
     portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Sam
     text: "But everything I make just gets worse and worse\u2026 people aren\u2019t
       looking at what I make anymore\u2026 why make something if no one cares?"
     portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "\u2026Sam, we need to sit down to talk about this. This isn\u2019t the
       right place for us to talk. I know I wasn\u2019t here for you earlier but I\u2019ll
       book a flight. I have a break coming up soon."
     portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: "Really? You\u2019re <i>actually</i> coming home?"
     portrait: {fileID: 21300000, guid: eea816e802f198241883612423b6b607, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: Yeah, yeah, I am. But, <i>you</i> need to go home first.
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: "\u2026 Ok, I will. But are you actually going to come home? I don\u2019t
       know what I\u2019m supposed to tell mom and dad once I go back\u2026\r"
     portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "Don\u2019t worry. I promise I\u2019ll be there soon, and we can do whatever
       you want once I\u2019m there.\r"
     portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   pausesCombat: 1

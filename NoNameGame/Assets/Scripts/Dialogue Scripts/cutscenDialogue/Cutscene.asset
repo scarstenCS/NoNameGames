@@ -31,21 +31,27 @@ MonoBehaviour:
     text: "Just before Sam\u2019s disappearance, he posted a game on Inscape."
     portrait: {fileID: 0}
     voiceClip: {fileID: 0}
-  - speaker: 
+  - speaker: Charlie
+    text: "I can\u2019t just sit by and wait for something to happen. No one seems
+      to be in a hurry, I have to find him myself. I think I can find clues using
+      his last posted game. "
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
+  - speaker: Charlie
+    text: "I haven\u2019t been checking his account recently, but he seems kind of
+      popular on Inscape now. Not many people have been interacting with his newer
+      games, though. "
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
+  - speaker: Charlie
+    text: "Oh, here\u2019s his most recent game. An abandoned parking lot? That\u2019s
+      a strange setting for a game\u2026  I don't think he liked dark places like
+      this before."
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
+  - speaker: Charlie
     text: "The description says: \u201CThis is the last time. 20XX/02/14.\u201D That\u2019s
       one day from now! I should hurry. "
-    portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
-  - speaker: 
-    text: 
-    portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
-  - speaker: Charlie
-    text: 
-    portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
-  - speaker: Charlie
-    text: 
     portrait: {fileID: 0}
     voiceClip: {fileID: 0}
   pausesCombat: 1

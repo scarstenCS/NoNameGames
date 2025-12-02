@@ -5,9 +5,13 @@ using System.IO;
 public class SceneSwitcher : MonoBehaviour
 {
     public VideoPlayer videoPlayer; // Assign in Inspector
+
     public string nextSceneName;
     public string streamingFileName = "EerieVideo.mp4";
 
+    public DialogueManager dm;
+
+    public DialogueSequence dialogue;
 
     void Awake()
     {
@@ -39,6 +43,7 @@ public class SceneSwitcher : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        SceneManager.LoadScene(nextSceneName);
+        dm.StartSequence(dialogue);
+        //SceneManager.LoadScene(nextSceneName);
     }
 }

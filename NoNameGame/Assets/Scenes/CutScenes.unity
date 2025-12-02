@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7b48553b8dad94cbba4b0caf55975d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
+  ui: {fileID: 1169551978}
   combatInputControllers:
   - {fileID: 0}
   - {fileID: 0}
@@ -1239,6 +1239,8 @@ MonoBehaviour:
   videoPlayer: {fileID: 1790183162}
   nextSceneName: Prototype Scene
   streamingFileName: CutsceneVideo.mp4
+  dm: {fileID: 474561355}
+  dialogue: {fileID: 11400000, guid: 0e8f2d4557353ec49b9b221b22f49541, type: 2}
 --- !u!4 &770350581
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9670a8df2d95278418492051529d5463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequence: {fileID: 0}
+  sequence: {fileID: 11400000, guid: 0e8f2d4557353ec49b9b221b22f49541, type: 2}
   sequencesByWave: []
   manager: {fileID: 474561355}
   oneShot: 0

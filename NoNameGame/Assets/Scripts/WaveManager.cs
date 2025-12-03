@@ -58,6 +58,7 @@ public class WaveManager : MonoBehaviour
         _waveDoneText = waveDoneText;
         _waveCount = 0;
         waveChangeTMP = _waveDoneText.GetComponent<TMP_Text>();
+        turretEnemiesAlive = 0;
 
         mainCamera = Camera.main;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;

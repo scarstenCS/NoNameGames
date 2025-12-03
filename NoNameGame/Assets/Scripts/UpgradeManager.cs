@@ -66,23 +66,19 @@ public class UpgradeManager : MonoBehaviour
 
     };
     // lack of feeling
-    [SerializeField]
     private ChangeValues apathyNumbToPain = new ChangeValues {
         playerShieldAmountIncrease = 2,
         weaponDamageDecrease = 1,
         weaponSpeedDecrease = 0.10f
     };
 
-    [SerializeField]
     private ChangeValues apathyCheckedOut = new ChangeValues {
         playerShieldRechargeAmountIncrease = 0.40f,
         playerSpeedDecrease = 0.10f,
         basicAttackSizeDecrease = 0.20f
     };
 
-
     // Distance and less shots
-    [SerializeField]
     private ChangeValues lonelinessDistantHeart = new ChangeValues {
         weaponDistanceIncrease = 0.5f,
         basicAttackSizeDecrease = 0.15f,
@@ -90,56 +86,41 @@ public class UpgradeManager : MonoBehaviour
         playerShieldAmountDecrease = 1
     };
 
-    [SerializeField]
     private ChangeValues lonelinessSolitaryShot = new ChangeValues {
         weaponDamageIncrease = 1,
         weaponSpeedIncrease = 0.15f,
         playerNumOfProjectilesDecrease = 1
     };
-
-
     // Slow but sturrdy
-    [SerializeField]
     private ChangeValues slothDeadWeight = new ChangeValues {
         healthIncrease = 10,
         playerShieldAmountIncrease = 1,
         playerSpeedDecrease = 0.25f
     };
 
-    [SerializeField]
     private ChangeValues slothSlowToPower = new ChangeValues {
         weaponDamageIncrease = 3,
         healthIncrease = 5,
         weaponSpeedDecrease = 0.20f,
         playerSpeedDecrease = 0.20f
     };
-
-
-    // Moderate risk vs reward
-    [SerializeField]
     private ChangeValues jealousyEnviousStrike = new ChangeValues {
         weaponDamageIncrease = 1,
         healthDecrease = 5,
         weaponPierceIncrease = 1
     };
 
-    [SerializeField]
     private ChangeValues jealousySpitefulHeart = new ChangeValues {
         playerNumOfProjectilesIncrease = 1,
         healthDecrease = 5,
     };
 
-
-    // high risk, high reward upgrades
-    [SerializeField]
     private ChangeValues greedMoreMoreMore = new ChangeValues {
         playerNumOfProjectilesIncrease = 3,
         weaponDistanceDecrease = 0.5f,
         healthDecrease = 5,
         playerShieldAmountDecrease = 1
     };
-
-    [SerializeField]
     private ChangeValues greedAllIn = new ChangeValues {
         weaponDamageIncrease = 2,
         weaponSpeedIncrease = 0.30f,
@@ -147,7 +128,6 @@ public class UpgradeManager : MonoBehaviour
         playerShieldAmountDecrease = 1
     };
     // Heavy feeling upgrades
-    [SerializeField]
     private ChangeValues depressionWeightedShots = new ChangeValues {
         weaponDamageIncrease = 1,
         basicAttackSizeIncrease = 0.40f,
@@ -155,8 +135,6 @@ public class UpgradeManager : MonoBehaviour
         weaponSpeedDecrease = 0.30f,
         playerSpeedDecrease = 0.10f
     };
-
-    [SerializeField]
     private ChangeValues depressionWallsUp = new ChangeValues {
         playerShieldAmountIncrease = 1,
         playerShieldRechargeAmountIncrease = 0.2f,
@@ -164,7 +142,6 @@ public class UpgradeManager : MonoBehaviour
         playerSpeedDecrease = 0.2f
     };
     // Major Upgrades!
-    [SerializeField]
     private ChangeValues anxiety = new ChangeValues {
         weaponSpeedIncrease = 0.50f,
         playerSpeedIncrease = 0.20f,
@@ -172,7 +149,6 @@ public class UpgradeManager : MonoBehaviour
         weaponDistanceDecrease = 0.50f,
         basicAttackSizeDecrease = 0.20f
     };
-    [SerializeField]
     private ChangeValues socialIsolation = new ChangeValues {
         weaponDamageIncrease = 1,
         weaponDistanceIncrease = 0.30f,
@@ -181,7 +157,6 @@ public class UpgradeManager : MonoBehaviour
         playerShieldAmountDecrease = 1,
         healthDecrease = 5
     };
-    [SerializeField]
     private ChangeValues heavyHearted = new ChangeValues {
         healthIncrease = 15,
         playerShieldAmountIncrease = 2,
@@ -263,7 +238,7 @@ public class UpgradeManager : MonoBehaviour
             icon = null,
             applyChange = () =>
             {
-                ChangeMaxHealth(apathyNumbToPain.healthIncrease);
+                ChangePlayerShieldAmount(apathyNumbToPain.playerShieldAmountIncrease);
                 ChangeWeaponDamage(apathyNumbToPain.weaponDamageDecrease);
                 ChangeWeaponSpeed(apathyNumbToPain.weaponSpeedDecrease);
             }
@@ -291,7 +266,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{lonelinessDistantHeart.weaponDistanceIncrease*100f }% distance, " +
                 $"{-lonelinessDistantHeart.basicAttackSizeDecrease* 100f}% Weapon Size, " +
                 $"{-lonelinessDistantHeart.playerShieldAmountDecrease } shield, " +
-                $"{lonelinessDistantHeart.weaponPierceIncrease } pierce.",
+                $"+{lonelinessDistantHeart.weaponPierceIncrease } pierce.",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangePlayerShieldAmount(-lonelinessDistantHeart.playerShieldAmountDecrease);
@@ -334,7 +309,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Sloth: Slow to Power",
                 description =
                 $"+{slothSlowToPower.weaponDamageIncrease} DMG, " +
-                $"{slothSlowToPower.healthIncrease} HP, " +
+                $"+{slothSlowToPower.healthIncrease} HP, " +
                 $"{-slothSlowToPower.weaponSpeedDecrease* 100f}% weapon speed, " +
                 $"{-slothSlowToPower.playerSpeedDecrease* 100f}% speed",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
@@ -363,8 +338,8 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Jealousy: Spiteful Heart",
                 description =
-                $"{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles, " +
-                $"+{-jealousySpitefulHeart.healthDecrease} HP.",
+                $"+{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles, " +
+                $"{-jealousySpitefulHeart.healthDecrease} HP.",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangeMaxHealth(-jealousySpitefulHeart.healthDecrease);
@@ -377,14 +352,14 @@ public class UpgradeManager : MonoBehaviour
                 description =
                 $"+{greedMoreMoreMore.playerNumOfProjectilesIncrease} projectiles, " +
                 $"{-greedMoreMoreMore.weaponDistanceDecrease* 100f}% range, " +
-                $"+{-greedMoreMoreMore.healthDecrease} HP, "+
-                $"+{-greedMoreMoreMore.playerShieldAmountDecrease} shields.",
+                $"{-greedMoreMoreMore.healthDecrease} HP, "+
+                $"{-greedMoreMoreMore.playerShieldAmountDecrease} shields.",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
-                ChangeWeaponDamage(greedMoreMoreMore.weaponDamageIncrease);
+                ChangeWeaponDamage(greedMoreMoreMore.playerNumOfProjectilesDecrease);
                 ChangeMaxHealth(-greedMoreMoreMore.healthDecrease);
-                ChangePlayerShieldAmount(greedMoreMoreMore.playerShieldAmountDecrease);
-                ChangeWeaponDistance(greedMoreMoreMore.weaponDistanceIncrease);
+                ChangePlayerShieldAmount(-greedMoreMoreMore.playerShieldAmountDecrease);
+                ChangeWeaponDistance(-greedMoreMoreMore.weaponDistanceDecrease);
             }
         });
         options.Add(new ChangeOption()
@@ -392,9 +367,9 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Greed: All in",
                 description =
                 $"+{greedAllIn.weaponDamageIncrease} DMG, " +
-                $"{greedAllIn.weaponSpeedIncrease* 100f}% weapon speed, "+
-                $"+{-greedAllIn.healthDecrease} HP, "+
-                $"+{-greedAllIn.playerShieldAmountDecrease} shields",
+                $"+{greedAllIn.weaponSpeedIncrease* 100f}% weapon speed, "+
+                $"{-greedAllIn.healthDecrease} HP, "+
+                $"{-greedAllIn.playerShieldAmountDecrease} shields",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangeWeaponDamage(greedAllIn.weaponDamageIncrease);
@@ -408,10 +383,10 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Depression: Weighted Shots",
                 description =
                 $"+{depressionWeightedShots.weaponDamageIncrease} DMG, " +
-                $"{depressionWeightedShots.basicAttackSizeIncrease* 100f}% weapon size, "+
-                $"{depressionWeightedShots.weaponPierceIncrease} pierce, " + 
-                $"+{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed, "+
-                $"+{-depressionWeightedShots.playerSpeedDecrease* 100f}% speed",
+                $"+{depressionWeightedShots.basicAttackSizeIncrease* 100f}% weapon size, "+
+                $"+{depressionWeightedShots.weaponPierceIncrease} pierce, " + 
+                $"{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed, "+
+                $"{-depressionWeightedShots.playerSpeedDecrease* 100f}% speed",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangeWeaponDamage(depressionWeightedShots.weaponDamageIncrease);
@@ -428,7 +403,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{depressionWallsUp.playerShieldAmountIncrease} shields, " +
                 $"+{depressionWallsUp.playerShieldRechargeAmountIncrease* 100f}% faster shield recharge rate, " +
                 $"{-depressionWallsUp.weaponDamageDecrease} DMG, " +
-                $"+{-depressionWallsUp.playerSpeedDecrease* 100f}% player speed",
+                $"{-depressionWallsUp.playerSpeedDecrease* 100f}% player speed",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
             applyChange = () => {
                 ChangePlayerShieldAmount(depressionWallsUp.playerShieldAmountIncrease);
@@ -441,7 +416,7 @@ public class UpgradeManager : MonoBehaviour
     public List<ChangeOption> OfferedChangeOptions(int currentWave)
     {
         _offered.Clear();
-        if (currentWave == 1 || currentWave == 5)
+        if (currentWave == 1)
         {
             // Example: Three major upgrade path options for the player to choose from
             _offered.Add(new ChangeOption {
@@ -465,15 +440,15 @@ public class UpgradeManager : MonoBehaviour
                 optionName = "Social Isolation",
                 description =
                     $"+{socialIsolation.weaponDamageIncrease} ATK, " +
-                    $"{-socialIsolation.basicAttackSizeIncrease * 100f}% ATK size, " +
-                    $"{socialIsolation.weaponDistanceIncrease * 100f}% range, " +
+                    $"+{socialIsolation.weaponDistanceIncrease * 100f}% range, " +
                     $"+{(int)socialIsolation.weaponPierceIncrease} pierce, " +
+                    $"{-socialIsolation.basicAttackSizeDecrease* 100f}% ATK size, " + 
                     $"{-socialIsolation.playerShieldAmountDecrease} shield, " +
                     $"{-socialIsolation.healthDecrease} HP",
                 icon = Resources.Load<Sprite>("Images/solitary-shot"),
                 applyChange = () => {
                     ChangeWeaponDamage(socialIsolation.weaponDamageIncrease);
-                    ChangeBasicAttackSize(-socialIsolation.basicAttackSizeIncrease);
+                    ChangeBasicAttackSize(-socialIsolation.basicAttackSizeDecrease);
                     ChangeWeaponDistance(socialIsolation.weaponDistanceIncrease);
                     ChangePierce((int)socialIsolation.weaponPierceIncrease);
                     ChangePlayerShieldAmount(-socialIsolation.playerShieldAmountDecrease);

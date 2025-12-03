@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1790183162}
   nextSceneName: Prototype Scene
-  streamingFileName: CutsceneVideo.mp4
+  streamingFileName: newCutscene.mp4
   dm: {fileID: 474561355}
   dialogue: {fileID: 11400000, guid: 0e8f2d4557353ec49b9b221b22f49541, type: 2}
 --- !u!4 &770350581

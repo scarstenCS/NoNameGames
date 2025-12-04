@@ -342,7 +342,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Envious Strike",
                 description =
                 $"<nobr>+{jealousyEnviousStrike.weaponDamageIncrease} weapon damage,</nobr> " +
-                $"<nobr>{-jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
+                $"<nobr>{jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
                 $"<nobr>{-jealousyEnviousStrike.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-envious-strike"),
             applyChange = () => {

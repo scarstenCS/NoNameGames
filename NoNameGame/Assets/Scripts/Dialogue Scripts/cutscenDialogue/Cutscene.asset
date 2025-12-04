@@ -21,7 +21,7 @@ MonoBehaviour:
     text: My parents called me the night Sam went missing, saying they had no idea
       how it happened.
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "I\u2019ve been away at college for 3 years now, but I never would\u2019ve
       expected something like this to happen while I was gone. "
@@ -30,7 +30,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: "Just before Sam\u2019s disappearance, he posted a game on Inscape."
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "I can\u2019t just sit by and wait for something to happen. No one seems
       to be in a hurry, I have to find him myself. I think I can find clues using

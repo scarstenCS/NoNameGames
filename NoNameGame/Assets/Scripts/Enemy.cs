@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
         
         if (other.tag == attackTag && proj.atkStage != 0)
         {
+            
             AudioManager.SfxEnemy1Hit();
             if (proj.pierce <= 0)
             {

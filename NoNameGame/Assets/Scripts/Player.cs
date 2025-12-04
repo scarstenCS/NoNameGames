@@ -295,7 +295,7 @@ public class Player : MonoBehaviour
             currentShieldCount++;
             sr.color = new Color(0.0f, 1.0f, 0.0f, 0.3f); // semi-transparent green
             Invoke("ResetColor", 0.2f);
-            //play sfx sound
+            AudioManager.SfxShieldCharge();
             shieldGenerated = false;
         }
     }

@@ -373,7 +373,7 @@ public class UpgradeManager : MonoBehaviour
                 $"<nobr>{-greedMoreMoreMore.playerShieldAmountDecrease} shields</nobr>",
             icon = Resources.Load<Sprite>("Images/greed-more-more-more"),
             applyChange = () => {
-                ChangeWeaponDamage(greedMoreMoreMore.playerNumOfProjectilesDecrease);
+                ChangeShotsPerAttack(greedMoreMoreMore.playerNumOfProjectilesIncrease);
                 ChangeMaxHealth(-greedMoreMoreMore.healthDecrease);
                 ChangePlayerShieldAmount(-greedMoreMoreMore.playerShieldAmountDecrease);
                 ChangeWeaponDistance(-greedMoreMoreMore.weaponDistanceDecrease);

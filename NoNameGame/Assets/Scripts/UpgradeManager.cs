@@ -80,7 +80,7 @@ public class UpgradeManager : MonoBehaviour
 
     // Distance and less shots
     private ChangeValues lonelinessDistantHeart = new ChangeValues {
-        weaponDistanceIncrease = 0.5f,
+        weaponDistanceIncrease = 1.5f,
         basicAttackSizeDecrease = 0.15f,
         weaponPierceIncrease = 1,
         playerShieldAmountDecrease = 1
@@ -117,7 +117,7 @@ public class UpgradeManager : MonoBehaviour
 
     private ChangeValues greedMoreMoreMore = new ChangeValues {
         playerNumOfProjectilesIncrease = 3,
-        weaponDistanceDecrease = 0.5f,
+        weaponDistanceDecrease = 1f,
         healthDecrease = 5,
         playerShieldAmountDecrease = 1
     };
@@ -146,21 +146,21 @@ public class UpgradeManager : MonoBehaviour
         weaponSpeedIncrease = 0.50f,
         playerSpeedIncrease = 0.20f,
         playerShieldRechargeAmountIncrease = 0.30f,
-        weaponDistanceDecrease = 0.50f,
+        weaponDistanceDecrease = 1f,
         basicAttackSizeDecrease = 0.20f
     };
     private ChangeValues socialIsolation = new ChangeValues {
         weaponDamageIncrease = 1,
-        weaponDistanceIncrease = 0.30f,
+        weaponDistanceIncrease = 1f,
         weaponPierceIncrease = 1,
-        basicAttackSizeDecrease = 0.30f,
+        weaponSpeedIncrease= 0.20f,
         playerShieldAmountDecrease = 1,
         healthDecrease = 5
     };
     private ChangeValues heavyHearted = new ChangeValues {
         healthIncrease = 15,
         playerShieldAmountIncrease = 2,
-        basicAttackSizeIncrease = 0.4f ,
+        basicAttackSizeIncrease = 1f ,
         playerSpeedDecrease = 0.40f
     };
 
@@ -351,7 +351,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Greed: MORE MORE MORE",
                 description =
                 $"+{greedMoreMoreMore.playerNumOfProjectilesIncrease} projectiles, " +
-                $"{-greedMoreMoreMore.weaponDistanceDecrease* 100f}% range, " +
+                $"{-greedMoreMoreMore.weaponDistanceDecrease} range, " +
                 $"{-greedMoreMoreMore.healthDecrease} HP, "+
                 $"{-greedMoreMoreMore.playerShieldAmountDecrease} shields.",
             //icon = Resources.Load<Sprite>("Images/charged-arrow"),
@@ -425,7 +425,7 @@ public class UpgradeManager : MonoBehaviour
                     $"+{anxiety.weaponSpeedIncrease * 100f}% attack speed, " +
                     $"+{anxiety.playerSpeedIncrease * 100f}% move speed, " +
                     $"+{anxiety.playerShieldRechargeAmountIncrease * 100f}% faster shield recharge, " +
-                    $"{-anxiety.weaponDistanceDecrease * 100f}% range, " +
+                    $"{-anxiety.weaponDistanceDecrease} range, " +
                     $"{-anxiety.basicAttackSizeDecrease * 100f}% attack size",
                 icon = Resources.Load<Sprite>("Images/pressure-gauge"), // example icon
                 applyChange = () => {
@@ -440,17 +440,17 @@ public class UpgradeManager : MonoBehaviour
                 optionName = "Social Isolation",
                 description =
                     $"+{socialIsolation.weaponDamageIncrease} ATK, " +
-                    $"+{socialIsolation.weaponDistanceIncrease * 100f}% range, " +
+                    $"+{socialIsolation.weaponDistanceIncrease} range, " +
                     $"+{(int)socialIsolation.weaponPierceIncrease} pierce, " +
-                    $"{-socialIsolation.basicAttackSizeDecrease* 100f}% ATK size, " + 
+                    $"{socialIsolation.weaponSpeedIncrease* 100f}% ATK speed, " +
                     $"{-socialIsolation.playerShieldAmountDecrease} shield, " +
                     $"{-socialIsolation.healthDecrease} HP",
                 icon = Resources.Load<Sprite>("Images/solitary-shot"),
                 applyChange = () => {
                     ChangeWeaponDamage(socialIsolation.weaponDamageIncrease);
-                    ChangeBasicAttackSize(-socialIsolation.basicAttackSizeDecrease);
                     ChangeWeaponDistance(socialIsolation.weaponDistanceIncrease);
                     ChangePierce((int)socialIsolation.weaponPierceIncrease);
+                    ChangeWeaponSpeed(socialIsolation.weaponSpeedIncrease);
                     ChangePlayerShieldAmount(-socialIsolation.playerShieldAmountDecrease);
                     ChangeMaxHealth(-socialIsolation.healthDecrease);
                 }
@@ -459,11 +459,13 @@ public class UpgradeManager : MonoBehaviour
                 optionName = "Heavy-Hearted",
                 description =
                     $"+{heavyHearted.healthIncrease} HP, " +
+                    $"+{heavyHearted.basicAttackSizeIncrease* 100f}% ball size, " +
                     $"+{heavyHearted.playerShieldAmountIncrease} shields, " +
                     $"{-heavyHearted.playerSpeedDecrease * 100f}% move speed",
                 icon = Resources.Load<Sprite>("Images/all-in-coins"),
                 applyChange = () => {
                     ChangeMaxHealth(heavyHearted.healthIncrease);
+                    ChangeBasicAttackSize(heavyHearted.basicAttackSizeIncrease);
                     ChangePlayerShieldAmount(heavyHearted.playerShieldAmountIncrease);
                     ChangePlayerSpeed(-heavyHearted.playerSpeedDecrease);
                 }
@@ -555,8 +557,17 @@ public class UpgradeManager : MonoBehaviour
     /// <param name="amount">amount to increase by</param>
     public void ChangeWeaponDistance(float amount)
     {
-        player.basicWeaponDistance += player.basicWeaponDistance*amount;
-        
+        double boundaries = player.basicWeaponDistance += amount;
+        if(boundaries > 2.5 && boundaries < 8)
+            player.basicWeaponDistance += amount;
+        else if(boundaries < 2.5)
+        {
+            boundaries = 2.5;
+        }
+        else
+        {
+            boundaries = 8;
+        }
         //Debug.Log($"Basic weapon distance increased by {amount}");
     }
     /// <summary>

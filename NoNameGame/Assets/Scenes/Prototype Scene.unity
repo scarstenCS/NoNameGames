@@ -482,12 +482,13 @@ MonoBehaviour:
   player: {fileID: 785250096}
   upgradeWindow: {fileID: 2938227918152015120}
   defaults:
-    healthIncrease: 5
-    weaponDamageIncrease: 2
-    weaponDistanceIncrease: 3
-    weaponSpeedIncrease: 1.25
-    playerSpeedIncrease: 1.25
-    basicAttackSizeIncrease: 1.33
+    healthIncrease: 50
+    weaponDamageIncrease: 3
+    weaponDistanceIncrease: 1
+    weaponSpeedIncrease: 3
+    playerSpeedIncrease: 3
+    basicAttackSizeIncrease: 3
+    numberOfProjectilesIncrease: 3
   buttonLabels:
   - {fileID: 2938227917102148239}
   - {fileID: 2938227917464173513}
@@ -4013,17 +4014,17 @@ MonoBehaviour:
   - numRunner: 0
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
+    upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0
-    spawnAmount: 0
+    spawnAmount: 1
   - numRunner: 0
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
+    upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
@@ -4033,7 +4034,7 @@ MonoBehaviour:
   - numRunner: 1
     numTurret: 0
     numBoss: 0
-    upgradeInWave: 0
+    upgradeInWave: 1
     spawnrate: 1.5
     hpIncrease: 0
     dmgIncrease: 0
@@ -4049,8 +4050,8 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-    spawnAmount: 2
-  - numRunner: 15
+    spawnAmount: 10
+  - numRunner: 10
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
@@ -4059,7 +4060,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.3
-    spawnAmount: 2
+    spawnAmount: 5
   - numRunner: 0
     numTurret: 7
     numBoss: 0
@@ -4070,8 +4071,8 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0.3
     spawnAmount: 2
-  - numRunner: 10
-    numTurret: 10
+  - numRunner: 50
+    numTurret: 50
     numBoss: 0
     upgradeInWave: 1
     spawnrate: 4
@@ -4079,7 +4080,7 @@ MonoBehaviour:
     dmgIncrease: 0
     skillLowerBound: 0
     skillUpperBound: 0.5
-    spawnAmount: 2
+    spawnAmount: 5
   - numRunner: 20
     numTurret: 10
     numBoss: 0
@@ -4164,6 +4165,7 @@ MonoBehaviour:
   numBossRunners: 3
   timeBeforeBossRunnersSpawn: 5
   maxTurretEnemiesAlive: 4
+  waveChangeText: {fileID: 0}
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0

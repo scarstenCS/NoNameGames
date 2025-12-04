@@ -26,6 +26,7 @@ public class UpgradeManager : MonoBehaviour
         public float weaponSpeedIncrease;
         public float playerSpeedIncrease;
         public float basicAttackSizeIncrease;
+        public int numberOfProjectilesIncrease;
     }
     [SerializeField]
     private UpgradeValues defaults = new UpgradeValues
@@ -35,7 +36,8 @@ public class UpgradeManager : MonoBehaviour
         weaponDistanceIncrease = 3f,
         weaponSpeedIncrease = 1.25f,
         playerSpeedIncrease = 1.25f,
-        basicAttackSizeIncrease = 1.25f
+        basicAttackSizeIncrease = 1.25f,
+        numberOfProjectilesIncrease = 1
 
     };
     [SerializeField] private TMP_Text[] buttonLabels;
@@ -158,7 +160,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Increase Shots Per Attack",
             description = "+1 Shot Spread",
             icon = Resources.Load<Sprite>("Images/striking-arrows"),
-            applyUpgrade = () => IncreaseShotsPerAttack()
+            applyUpgrade = () => IncreaseShotsPerAttack(d.numberOfProjectilesIncrease)
         });
     }
     public List<UpgradeOption> OfferedUpgradeOptions()
@@ -256,10 +258,10 @@ public class UpgradeManager : MonoBehaviour
     {
         player.basicWeaponSize = sizeIncrease * player.basicWeaponSize;
     }
-    public void IncreaseShotsPerAttack()
+    public void IncreaseShotsPerAttack(int numberOfProjectilesIncrease)
     {
         var launching = GetComponent<BasicAttack>();
-        launcher.numberOfProjectiles += 1;
+        launcher.numberOfProjectiles += numberOfProjectilesIncrease;
         launcher.spreadDegree = Mathf.Min(launcher.spreadDegree + 1.5f, 25f);
         launcher.randomJitter = Mathf.Min(launcher.randomJitter + 0.5f, 6f);
         UnityEngine.Debug.Log($"Increased shots per attack to {launcher.numberOfProjectiles}");

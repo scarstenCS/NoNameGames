@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 5
   basicAttackObj: {fileID: 4020625129868841038}
+  animator: {fileID: 0}
   idle: {fileID: 0}
 --- !u!58 &8199912590941039346
 CircleCollider2D:

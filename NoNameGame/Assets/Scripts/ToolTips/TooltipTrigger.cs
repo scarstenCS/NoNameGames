@@ -8,12 +8,12 @@ using UnityEngine.EventSystems;
 public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler
 {
     // Start is called before the first frame update
+    public string content;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipSystem.Show();
+        TooltipSystem.Show(content);
     }
 
-    // Update is called once per frame
     public void OnPointerExit(PointerEventData eventData)
     {
         TooltipSystem.Hide();

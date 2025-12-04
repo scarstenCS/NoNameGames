@@ -1311,6 +1311,7 @@ GameObject:
   - component: {fileID: 231688455}
   - component: {fileID: 231688457}
   - component: {fileID: 231688456}
+  - component: {fileID: 231688458}
   m_Layer: 5
   m_Name: Number of Projectiles
   m_TagString: Untagged
@@ -1375,6 +1376,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231688454}
   m_CullTransparentMesh: 0
+--- !u!114 &231688458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231688454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Number of Projectiles: How many projectiles your weapon fires per attack.'
 --- !u!114 &244280707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3796,7 @@ GameObject:
   - component: {fileID: 534028375}
   - component: {fileID: 534028377}
   - component: {fileID: 534028376}
+  - component: {fileID: 534028378}
   m_Layer: 5
   m_Name: Size of weapon
   m_TagString: Untagged
@@ -3846,6 +3861,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534028374}
   m_CullTransparentMesh: 0
+--- !u!114 &534028378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534028374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Weapon Size: How big your projectile is. 100% is normal size. 200% is
+    double size.'
 --- !u!82 &578259506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4685,6 +4714,7 @@ GameObject:
   - component: {fileID: 714888836}
   - component: {fileID: 714888838}
   - component: {fileID: 714888837}
+  - component: {fileID: 714888839}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -4749,6 +4779,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714888835}
   m_CullTransparentMesh: 0
+--- !u!114 &714888839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714888835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Max HP: if it reaches 0, you lose.'
 --- !u!1 &728893064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,6 +4937,7 @@ GameObject:
   - component: {fileID: 742083564}
   - component: {fileID: 742083566}
   - component: {fileID: 742083565}
+  - component: {fileID: 742083567}
   m_Layer: 5
   m_Name: PierceAmount
   m_TagString: Untagged
@@ -4958,6 +5002,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742083563}
   m_CullTransparentMesh: 0
+--- !u!114 &742083567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742083563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Peirce: Higher Pierce lets your projectile hit more enemies or enemy
+    shots before returning short of range. '
 --- !u!1 &748874036
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,6 +5027,7 @@ GameObject:
   - component: {fileID: 748874037}
   - component: {fileID: 748874039}
   - component: {fileID: 748874038}
+  - component: {fileID: 748874040}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -5033,6 +5092,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748874036}
   m_CullTransparentMesh: 0
+--- !u!114 &748874040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748874036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Max Shield: How many hits your shield can absorb before HP is damaged.
+    Recharge rate is affected by Shield Recharge.'
 --- !u!1 &758647105
 GameObject:
   m_ObjectHideFlags: 0
@@ -5798,6 +5871,7 @@ GameObject:
   - component: {fileID: 858108142}
   - component: {fileID: 858108144}
   - component: {fileID: 858108143}
+  - component: {fileID: 858108145}
   m_Layer: 5
   m_Name: Shield recharge
   m_TagString: Untagged
@@ -5862,6 +5936,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858108141}
   m_CullTransparentMesh: 0
+--- !u!114 &858108145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858108141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Shield Recharge: How long after taking damage your shield waits before
+    it starts recharging. Taking a hit resets this delay.'
 --- !u!1 &882247581
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6334,7 @@ GameObject:
   - component: {fileID: 939761065}
   - component: {fileID: 939761067}
   - component: {fileID: 939761066}
+  - component: {fileID: 939761068}
   m_Layer: 5
   m_Name: Size of weapon
   m_TagString: Untagged
@@ -6310,6 +6399,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939761064}
   m_CullTransparentMesh: 0
+--- !u!114 &939761068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939761064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Weapon Size: How big your projectile is. 100% is normal size. 200% is
+    double size.'
 --- !u!1 &947427187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6455,6 +6558,7 @@ GameObject:
   - component: {fileID: 971138861}
   - component: {fileID: 971138863}
   - component: {fileID: 971138862}
+  - component: {fileID: 971138865}
   m_Layer: 5
   m_Name: Speed
   m_TagString: Untagged
@@ -6519,6 +6623,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971138860}
   m_CullTransparentMesh: 0
+--- !u!114 &971138865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971138860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Speed: How fast you move'
 --- !u!1 &972602696
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,6 +6781,7 @@ GameObject:
   - component: {fileID: 995863869}
   - component: {fileID: 995863871}
   - component: {fileID: 995863870}
+  - component: {fileID: 995863872}
   m_Layer: 5
   m_Name: Shield recharge
   m_TagString: Untagged
@@ -6728,6 +6846,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995863868}
   m_CullTransparentMesh: 0
+--- !u!114 &995863872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995863868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Shield Recharge: How long after taking damage your shield waits before
+    it starts recharging. Taking a hit resets this delay.'
 --- !u!1 &1010991987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6816,6 +6948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: 'Range: How far your weapon travels before it returns to you. Range is
+    based on your position when you fire, not after you move.'
 --- !u!1 &1013319028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7135,6 +7269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: 'Speed: How fast you move'
 --- !u!1 &1034091559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,9 +7517,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 492, y: -195}
+  m_AnchoredPosition: {x: 2292.6968, y: -572.75604}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1.1941128, y: -0.05}
 --- !u!114 &1078027662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7398,7 +7533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.36795425, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7497,6 +7632,7 @@ MonoBehaviour:
   content: {fileID: 1630225301}
   layoutElement: {fileID: 1078027666}
   characterWrapLimit: 50
+  rectTransform: {fileID: 1078027661}
 --- !u!1 &1080296814
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,6 +7917,7 @@ GameObject:
   - component: {fileID: 1119067622}
   - component: {fileID: 1119067624}
   - component: {fileID: 1119067623}
+  - component: {fileID: 1119067625}
   m_Layer: 5
   m_Name: Number of Projectiles
   m_TagString: Untagged
@@ -7845,6 +7982,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119067621}
   m_CullTransparentMesh: 0
+--- !u!114 &1119067625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119067621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Number of Projectiles: How many projectiles your weapon fires per attack.'
 --- !u!1 &1124107745
 GameObject:
   m_ObjectHideFlags: 0
@@ -8135,6 +8285,7 @@ GameObject:
   - component: {fileID: 1261771455}
   - component: {fileID: 1261771457}
   - component: {fileID: 1261771456}
+  - component: {fileID: 1261771458}
   m_Layer: 5
   m_Name: Distance
   m_TagString: Untagged
@@ -8199,6 +8350,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261771454}
   m_CullTransparentMesh: 0
+--- !u!114 &1261771458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261771454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Range: How far your weapon travels before it returns to you. Range is
+    based on your position when you fire, not after you move.'
 --- !u!1 &1277087181
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,6 +8452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: 'Weapon Damage: How much damage you do against enemy health.'
 --- !u!1 &1285473159
 GameObject:
   m_ObjectHideFlags: 0
@@ -8574,6 +8740,7 @@ GameObject:
   - component: {fileID: 1333126032}
   - component: {fileID: 1333126034}
   - component: {fileID: 1333126033}
+  - component: {fileID: 1333126035}
   m_Layer: 5
   m_Name: SpeedOfWeapon
   m_TagString: Untagged
@@ -8638,6 +8805,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333126031}
   m_CullTransparentMesh: 0
+--- !u!114 &1333126035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333126031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Weapon Speed: How fast the weapon moves between you and its maximum range.'
 --- !u!1 &1333643499
 GameObject:
   m_ObjectHideFlags: 0
@@ -9601,6 +9781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: 'Max HP: if it reaches 0, you lose.'
 --- !u!1 &1433178317
 GameObject:
   m_ObjectHideFlags: 0
@@ -10117,8 +10298,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: I am i am i am ia m ai amdsfaif asdi asid fasid ias id i di sd iasid f
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2442fe7da0c45df48b32c7141366bb58, type: 2}
+  m_sharedMaterial: {fileID: -2666587512511209119, guid: 2442fe7da0c45df48b32c7141366bb58,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10145,12 +10327,12 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 24
+  m_fontSizeMax: 36
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10786,6 +10968,7 @@ GameObject:
   - component: {fileID: 1711897985}
   - component: {fileID: 1711897987}
   - component: {fileID: 1711897986}
+  - component: {fileID: 1711897988}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -10850,6 +11033,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711897984}
   m_CullTransparentMesh: 0
+--- !u!114 &1711897988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711897984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Weapon Damage: How much damage you do against enemy health.'
 --- !u!1 &1721344588
 GameObject:
   m_ObjectHideFlags: 0
@@ -11569,6 +11765,7 @@ GameObject:
   - component: {fileID: 1835674027}
   - component: {fileID: 1835674029}
   - component: {fileID: 1835674028}
+  - component: {fileID: 1835674030}
   m_Layer: 5
   m_Name: PierceAmount
   m_TagString: Untagged
@@ -11633,6 +11830,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835674026}
   m_CullTransparentMesh: 0
+--- !u!114 &1835674030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835674026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Peirce: Higher Pierce lets your projectile hit more enemies or enemy
+    shots before returning short of range. '
 --- !u!1 &1854304026
 GameObject:
   m_ObjectHideFlags: 0
@@ -12736,7 +12947,7 @@ GameObject:
   - component: {fileID: 2010111748}
   - component: {fileID: 2010111747}
   - component: {fileID: 2010111746}
-  - component: {fileID: 2010111745}
+  - component: {fileID: 2010111749}
   m_Layer: 5
   m_Name: ToolTip Canvas
   m_TagString: Untagged
@@ -12744,23 +12955,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2010111745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010111744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &2010111746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12824,6 +13018,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2010111749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010111744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4604f446ce0584d9f5f2cf7ac3943e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 1078027667}
 --- !u!1 &2024047383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4020625129868841038, guid: 74acb248ad4fde64b9007f7ef803641d,
@@ -12930,6 +13137,7 @@ GameObject:
   - component: {fileID: 2032960143}
   - component: {fileID: 2032960145}
   - component: {fileID: 2032960144}
+  - component: {fileID: 2032960146}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -12994,6 +13202,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032960142}
   m_CullTransparentMesh: 0
+--- !u!114 &2032960146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032960142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Max Shield: How many hits your shield can absorb before HP is damaged.
+    Recharge rate is affected by Shield Recharge.'
 --- !u!1 &2038787659
 GameObject:
   m_ObjectHideFlags: 0
@@ -13609,6 +13831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e856c8159a6214d8091a5fc71c1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: 'Weapon Speed: How fast the weapon moves between you and its maximum range.'
 --- !u!1 &2099472727
 GameObject:
   m_ObjectHideFlags: 0

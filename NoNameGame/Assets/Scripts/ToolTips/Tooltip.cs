@@ -12,11 +12,30 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI content;
     public LayoutElement layoutElement;
     public int characterWrapLimit;
+    public RectTransform rectTransform;
 
-    private void Update()
+    public void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
+    public void SetText(string description)
+    {
+        content.text = description;
         int contentLength = content.text.Length;
 
         layoutElement.enabled = (contentLength > characterWrapLimit)? true:false;
     }
+    private void Update()
+    {
+        Vector2 position = Input.mousePosition;
+        float pivotX = position.x / Screen.width;
+        float pivotY = (float)((position.y / Screen.height));
+
+        rectTransform.pivot = new Vector2(pivotX,-0.05f);
+        transform.position = position;
+
+
+    }
+
 }

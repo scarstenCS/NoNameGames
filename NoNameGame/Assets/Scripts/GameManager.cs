@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         _menuButton.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : timeScale;
         Player p = _player.GetComponent<Player>();
+        TooltipSystem.Hide();
         int numberOfUpgrades = UpgradeManager.Instance.totalUpgrades;
         //updates stats labels
         if (Instance != null && Instance.statsLabels != null)

@@ -11,10 +11,12 @@ public class TooltipSystem : MonoBehaviour
     public void Awake()
     {
         current = this;
+        current.tooltip.gameObject.SetActive(false);
     }
 
-    public static void Show()
+    public static void Show(string content)
     {
+        current.tooltip.SetText(content);
         current.tooltip.gameObject.SetActive(true);
     }
     public static void Hide()

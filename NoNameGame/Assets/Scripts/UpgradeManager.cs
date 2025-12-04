@@ -280,7 +280,7 @@ public class UpgradeManager : MonoBehaviour
         {
             optionName = "Loneliness: Distant Heart",
                 description =
-                $"+{lonelinessDistantHeart.weaponDistanceIncrease*100f }% distance, " +
+                $"+{lonelinessDistantHeart.weaponDistanceIncrease} distance, " +
                 $"{-lonelinessDistantHeart.basicAttackSizeDecrease* 100f}% Weapon Size, " +
                 $"{-lonelinessDistantHeart.playerShieldAmountDecrease } shield, " +
                 $"+{lonelinessDistantHeart.weaponPierceIncrease } pierce.",

@@ -15,8 +15,8 @@ public class BasicAttack : MonoBehaviour
 
     public float projectileSpeed = 5,
     projectileMaxDistance = 5;
-    public float maxPierce = 0;
-    public float pierce = 0;
+    public int maxPierce = 0;
+    public int pierce = 0;
     [SerializeField] private Animator animator; 
     public int Damage = 1;
     // private float projectileDistance;
@@ -144,7 +144,7 @@ public class BasicAttack : MonoBehaviour
                 transform.position += (Vector3)(travelDestination * projectileSpeed * Time.deltaTime);
                 if (spinVisual != null)
                 {
-                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                    //spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
                 }
                 if (Vector2.Distance(_origin, transform.position) >= projectileMaxDistance)
                     atkStage = 2;
@@ -159,7 +159,7 @@ public class BasicAttack : MonoBehaviour
                 
                 if (spinVisual != null)
                 {
-                    spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
+                    //spinVisual.Rotate(0, 0, spinSpeed * Time.deltaTime);
                 }
 
                 // move toward player

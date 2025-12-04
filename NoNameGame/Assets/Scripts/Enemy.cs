@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
     {
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
-
+        
         if (other.tag == attackTag && proj.atkStage != 0)
         {
             AudioManager.SfxEnemy1Hit();

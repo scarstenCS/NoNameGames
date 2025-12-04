@@ -43,6 +43,7 @@ public class SceneSwitcher : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
+        
         dm.StartSequence(dialogue);
         //SceneManager.LoadScene(nextSceneName);
     }

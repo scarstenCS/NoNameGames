@@ -58,8 +58,8 @@ public class DialogueUI : MonoBehaviour
 
                 bodyText.text += words[i][c];
                 if (isAnimating){
-                    AudioManager.Instance.PlayClip(printSFX);
-                     yield return new WaitForSecondsRealtime(charPrintSpeed);
+                    //AudioManager.Instance.PlayClip(printSFX);
+                    yield return new WaitForSecondsRealtime(charPrintSpeed);
                 }
             }
 

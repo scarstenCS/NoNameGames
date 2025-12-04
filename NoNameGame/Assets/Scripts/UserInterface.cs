@@ -144,7 +144,15 @@ public class UserInterface : MonoBehaviour
     }
     public void SetCurrentWaveText(int waveNumber)
     {
-        currentWaveText.text = $"Wave "+ waveNumber;
+        if (waveNumber < 11)
+        {
+            currentWaveText.text = $"Wave "+ waveNumber;
+        }
+        else
+        {
+            currentWaveText.text ="";
+        }
+        
     }
 
     // Update is called once per frame
@@ -158,8 +166,9 @@ public class UserInterface : MonoBehaviour
             waveManager = FindObjectOfType<WaveManager>();
         }
         currentWave= waveManager.GetWaveCount();
-        if(currentWave-2> 0)
+        if(currentWave-2 > 0)
         {
+            
             SetCurrentWaveText(currentWave-2);
         }
         

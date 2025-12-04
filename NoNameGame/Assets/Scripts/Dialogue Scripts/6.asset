@@ -33,5 +33,5 @@ MonoBehaviour:
     text: "Huh, his voice is getting clearer after each wave, I just need to get
       to the end\u2026 maybe he\u2019ll hear me then.\r\n"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   pausesCombat: 1

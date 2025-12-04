@@ -38,7 +38,7 @@ MonoBehaviour:
     text: ' If you really cared, why didn''t you come earlier? You never visited,
       not once in three years.'
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "\u2026"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
     text: "I know you\u2019re upset, but this isn\u2019t safe. You should come back
       home.\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: "\u2026 Did you have fun at college? I mean, you being here just makes
       me feel worse. "

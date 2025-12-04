@@ -168,6 +168,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TMP_Text[] descLabels;
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private BasicAttack launcher;
+    [SerializeField] TMP_Text[] statsLabels;
     private readonly List<ChangeOption> options = new List<ChangeOption>();
     private List<ChangeOption> _offered = new List<ChangeOption>();
     public int totalUpgrades
@@ -189,6 +190,7 @@ public class UpgradeManager : MonoBehaviour
         GameManager.ChangeTimeScale(0f);
         GameManager.isPaused = true;
         upgradeWindow.SetActive(true);
+        var gm = GameManager.Instance;
         _offered = OfferedChangeOptions(waveNumber);
         for (int i = 0; i < descLabels.Length; i++)
         {
@@ -210,6 +212,21 @@ public class UpgradeManager : MonoBehaviour
                 descLabels[i].text = "N/A";
             }
         }
+        //show all current upgrades in upgrade screen
+        if (Instance != null && Instance.statsLabels != null)
+        {
+            Instance.statsLabels[0].text = "SPD: " + player.Speed;
+            Instance.statsLabels[1].text = "HP: " + player.MaxHealth;
+            Instance.statsLabels[2].text = "Range: " + player.basicWeaponDistance;
+            Instance.statsLabels[3].text = "ATK DMG: " + player.basicWeaponDmg;
+            Instance.statsLabels[4].text = "ATK SPD: " + player.basicWeaponSpeed;
+            Instance.statsLabels[5].text = "Projetile Count: " + player.totalBasicAttacksCount;
+            Instance.statsLabels[6].text = "Pierce: " + player.basicWeaponPierce;
+            Instance.statsLabels[7].text = "ATK Size: " + (player.basicWeaponSize.x * 100).ToString("F0") + "%";
+            Instance.statsLabels[8].text = "Shields: " + player.totalShieldCount;
+            Instance.statsLabels[9].text = "S.Recharge time: " + player.sheildRegenerateTime + "s";
+        }
+
 
     }
 
@@ -459,7 +476,7 @@ public class UpgradeManager : MonoBehaviour
                 optionName = "Heavy-Hearted",
                 description =
                     $"+{heavyHearted.healthIncrease} HP, " +
-                    $"+{heavyHearted.basicAttackSizeIncrease* 100f}% ball size, " +
+                    $"+{heavyHearted.basicAttackSizeIncrease* 100f}% ATK size, " +
                     $"+{heavyHearted.playerShieldAmountIncrease} shields, " +
                     $"{-heavyHearted.playerSpeedDecrease * 100f}% move speed",
                 icon = Resources.Load<Sprite>("Images/all-in-coins"),

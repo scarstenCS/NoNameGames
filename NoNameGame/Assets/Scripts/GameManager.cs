@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
             Instance.statsLabels[0].text = "SPD: " + p.Speed;
             Instance.statsLabels[1].text = "HP: " + p.MaxHealth;
             Instance.statsLabels[2].text = "Range: " + p.basicWeaponDistance;
-            Instance.statsLabels[3].text = "ATK: " + p.basicWeaponDmg;
+            Instance.statsLabels[3].text = "ATK DMG: " + p.basicWeaponDmg;
             Instance.statsLabels[4].text = "ATK SPD: " + p.basicWeaponSpeed;
             Instance.statsLabels[5].text = "Projetile Count: " + p.totalBasicAttacksCount;
             Instance.statsLabels[6].text = "Pierce: " + p.basicWeaponPierce;

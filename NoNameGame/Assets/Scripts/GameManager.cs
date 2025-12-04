@@ -90,11 +90,13 @@ public class GameManager : MonoBehaviour
             Instance.statsLabels[2].text = "Range: " + p.basicWeaponDistance;
             Instance.statsLabels[3].text = "ATK: " + p.basicWeaponDmg;
             Instance.statsLabels[4].text = "ATK SPD: " + p.basicWeaponSpeed;
-            Instance.statsLabels[5].text = "ATK Spread: " + p.totalBasicAttacksCount;
+            Instance.statsLabels[5].text = "Projetile Count: " + p.totalBasicAttacksCount;
             Instance.statsLabels[6].text = "Pierce: " + p.basicWeaponPierce;
             Instance.statsLabels[7].text = "ATK Size: " + (p.basicWeaponSize.x * 100).ToString("F0") + "%";
-
+            Instance.statsLabels[8].text = "Shields: " + p.totalShieldCount;
+            Instance.statsLabels[9].text = "S.Recharge time: " + p.sheildRegenerateTime + "s";
         }
+
 
     }
 

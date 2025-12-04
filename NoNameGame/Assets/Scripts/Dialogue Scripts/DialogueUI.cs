@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 
 public class DialogueUI : MonoBehaviour
@@ -58,7 +59,13 @@ public class DialogueUI : MonoBehaviour
 
                 bodyText.text += words[i][c];
                 if (isAnimating){
+                    try{
                     AudioManager.Instance.PlayClip(printSFX);
+                    }
+                    catch (NullReferenceException)
+                    {
+                        Debug.Log("no clip");
+                    }
                      yield return new WaitForSecondsRealtime(charPrintSpeed);
                 }
             }

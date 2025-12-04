@@ -2,6 +2,7 @@
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.Collections;
 public class SceneSwitcher : MonoBehaviour
 {
     public VideoPlayer videoPlayer; // Assign in Inspector
@@ -42,8 +43,19 @@ public class SceneSwitcher : MonoBehaviour
     }
 
     void OnVideoFinished(VideoPlayer vp)
-    {
+    { 
         dm.StartSequence(dialogue);
-        //SceneManager.LoadScene(nextSceneName);
+        
+
+    }
+
+    private IEnumerable playCutsceneDialogue()
+    {
+        Debug.Log("start");
+        dm.StartSequence(dialogue);
+
+        yield return new WaitUntil(dm.isDialogueFinished);
+        SceneManager.LoadScene(nextSceneName);
+
     }
 }

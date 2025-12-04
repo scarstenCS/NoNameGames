@@ -80,8 +80,8 @@ public class UpgradeManager : MonoBehaviour
 
     // Distance and less shots
     private ChangeValues lonelinessDistantHeart = new ChangeValues {
-        weaponDistanceIncrease = 1.5f,
-        basicAttackSizeDecrease = 0.15f,
+        weaponDistanceIncrease = 1f,
+        basicAttackSizeDecrease = 0.10f,
         weaponPierceIncrease = 1,
         playerShieldAmountDecrease = 1
     };
@@ -252,7 +252,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{apathyNumbToPain.playerShieldAmountIncrease} shields, " +
                 $"{-apathyNumbToPain.weaponDamageDecrease} ATK, " +
                 $"{-apathyNumbToPain.weaponSpeedDecrease * 100f}% attack speed",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/apathy-numb-to-pain"),
             applyChange = () =>
             {
                 ChangePlayerShieldAmount(apathyNumbToPain.playerShieldAmountIncrease);
@@ -268,7 +268,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{apathyCheckedOut.playerShieldRechargeAmountIncrease*100f }% faster shield recharge rate, " +
                 $"{-apathyCheckedOut.playerSpeedDecrease} Speed, " +
                 $"{-apathyCheckedOut.basicAttackSizeDecrease * 100f}% size",
-            icon = null,
+            icon = Resources.Load<Sprite>("Images/apathy-checked-out"),
             applyChange = () => 
             {
                 ChangePlayerShieldRecharge(apathyCheckedOut.playerShieldRechargeAmountIncrease);
@@ -284,7 +284,7 @@ public class UpgradeManager : MonoBehaviour
                 $"{-lonelinessDistantHeart.basicAttackSizeDecrease* 100f}% Weapon Size, " +
                 $"{-lonelinessDistantHeart.playerShieldAmountDecrease } shield, " +
                 $"+{lonelinessDistantHeart.weaponPierceIncrease } pierce.",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/lonliness-distant-heart"),
             applyChange = () => {
                 ChangePlayerShieldAmount(-lonelinessDistantHeart.playerShieldAmountDecrease);
                 ChangeBasicAttackSize(-lonelinessDistantHeart.basicAttackSizeDecrease);
@@ -300,7 +300,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{lonelinessSolitaryShot.weaponDamageIncrease } damage, " +
                 $"{lonelinessSolitaryShot.weaponSpeedIncrease* 100f}% weapon speed, " +
                 $"{-lonelinessSolitaryShot.playerNumOfProjectilesDecrease } projectiles",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/lonliness-solitary-shot"),
             applyChange = () => {
                 ChangeWeaponDamage(lonelinessSolitaryShot.weaponDamageIncrease);
                 ChangeBasicAttackSize(lonelinessSolitaryShot.weaponSpeedIncrease);
@@ -314,7 +314,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{slothDeadWeight.healthIncrease} health, " +
                 $"{slothDeadWeight.playerShieldAmountIncrease} shield amount, " +
                 $"{-slothDeadWeight.playerSpeedDecrease* 100f}% speed",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/sloth-dead-weight"),
             applyChange = () => {
                 ChangeMaxHealth(slothDeadWeight.healthIncrease);
                 ChangePlayerShieldAmount(slothDeadWeight.playerShieldAmountIncrease);
@@ -329,7 +329,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{slothSlowToPower.healthIncrease} HP, " +
                 $"{-slothSlowToPower.weaponSpeedDecrease* 100f}% weapon speed, " +
                 $"{-slothSlowToPower.playerSpeedDecrease* 100f}% speed",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/sloth-slow-to-power"),
             applyChange = () => {
                 ChangeWeaponDamage(slothSlowToPower.weaponDamageIncrease);
                 ChangePlayerSpeed(-slothSlowToPower.playerSpeedDecrease);
@@ -344,7 +344,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{jealousyEnviousStrike.weaponDamageIncrease} DMG, " +
                 $"{-jealousyEnviousStrike.weaponPierceIncrease} pierce, "  +
                 $"{-jealousyEnviousStrike.healthDecrease} HP",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/jelousy-envious-strike"),
             applyChange = () => {
                 ChangeWeaponDamage(jealousyEnviousStrike.weaponDamageIncrease);
                 ChangeMaxHealth(-jealousyEnviousStrike.healthDecrease);
@@ -357,7 +357,7 @@ public class UpgradeManager : MonoBehaviour
                 description =
                 $"+{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles, " +
                 $"{-jealousySpitefulHeart.healthDecrease} HP.",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/jelousy-spiteful-heart"),
             applyChange = () => {
                 ChangeMaxHealth(-jealousySpitefulHeart.healthDecrease);
                 ChangeShotsPerAttack(jealousySpitefulHeart.playerNumOfProjectilesIncrease);
@@ -371,7 +371,7 @@ public class UpgradeManager : MonoBehaviour
                 $"{-greedMoreMoreMore.weaponDistanceDecrease} range, " +
                 $"{-greedMoreMoreMore.healthDecrease} HP, "+
                 $"{-greedMoreMoreMore.playerShieldAmountDecrease} shields.",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/greed-more-more-more"),
             applyChange = () => {
                 ChangeWeaponDamage(greedMoreMoreMore.playerNumOfProjectilesDecrease);
                 ChangeMaxHealth(-greedMoreMoreMore.healthDecrease);
@@ -387,7 +387,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{greedAllIn.weaponSpeedIncrease* 100f}% weapon speed, "+
                 $"{-greedAllIn.healthDecrease} HP, "+
                 $"{-greedAllIn.playerShieldAmountDecrease} shields",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/greed-all-in"),
             applyChange = () => {
                 ChangeWeaponDamage(greedAllIn.weaponDamageIncrease);
                 ChangeMaxHealth(-greedAllIn.healthDecrease);
@@ -404,7 +404,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{depressionWeightedShots.weaponPierceIncrease} pierce, " + 
                 $"{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed, "+
                 $"{-depressionWeightedShots.playerSpeedDecrease* 100f}% speed",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/depression-weighted-shots"),
             applyChange = () => {
                 ChangeWeaponDamage(depressionWeightedShots.weaponDamageIncrease);
                 ChangeWeaponSpeed(-depressionWeightedShots.weaponSpeedDecrease);
@@ -421,7 +421,7 @@ public class UpgradeManager : MonoBehaviour
                 $"+{depressionWallsUp.playerShieldRechargeAmountIncrease* 100f}% faster shield recharge rate, " +
                 $"{-depressionWallsUp.weaponDamageDecrease} DMG, " +
                 $"{-depressionWallsUp.playerSpeedDecrease* 100f}% player speed",
-            //icon = Resources.Load<Sprite>("Images/charged-arrow"),
+            icon = Resources.Load<Sprite>("Images/depression-walls-up"),
             applyChange = () => {
                 ChangePlayerShieldAmount(depressionWallsUp.playerShieldAmountIncrease);
                 ChangePlayerShieldRecharge(depressionWallsUp.playerShieldRechargeAmountIncrease);
@@ -444,7 +444,7 @@ public class UpgradeManager : MonoBehaviour
                     $"+{anxiety.playerShieldRechargeAmountIncrease * 100f}% faster shield recharge, " +
                     $"{-anxiety.weaponDistanceDecrease} range, " +
                     $"{-anxiety.basicAttackSizeDecrease * 100f}% attack size",
-                icon = Resources.Load<Sprite>("Images/pressure-gauge"), // example icon
+                icon = Resources.Load<Sprite>("Images/anxiety"), 
                 applyChange = () => {
                     ChangeWeaponSpeed(anxiety.weaponSpeedIncrease);
                     ChangePlayerSpeed(anxiety.playerSpeedIncrease);
@@ -462,7 +462,7 @@ public class UpgradeManager : MonoBehaviour
                     $"{socialIsolation.weaponSpeedIncrease* 100f}% ATK speed, " +
                     $"{-socialIsolation.playerShieldAmountDecrease} shield, " +
                     $"{-socialIsolation.healthDecrease} HP",
-                icon = Resources.Load<Sprite>("Images/solitary-shot"),
+                icon = Resources.Load<Sprite>("Images/social-isolation"),
                 applyChange = () => {
                     ChangeWeaponDamage(socialIsolation.weaponDamageIncrease);
                     ChangeWeaponDistance(socialIsolation.weaponDistanceIncrease);
@@ -473,13 +473,13 @@ public class UpgradeManager : MonoBehaviour
                 }
             });
             _offered.Add(new ChangeOption {
-                optionName = "Heavy-Hearted",
+                optionName = "Heavy Heart",
                 description =
                     $"+{heavyHearted.healthIncrease} HP, " +
                     $"+{heavyHearted.basicAttackSizeIncrease* 100f}% ATK size, " +
                     $"+{heavyHearted.playerShieldAmountIncrease} shields, " +
                     $"{-heavyHearted.playerSpeedDecrease * 100f}% move speed",
-                icon = Resources.Load<Sprite>("Images/all-in-coins"),
+                icon = Resources.Load<Sprite>("Images/heavy-heart"),
                 applyChange = () => {
                     ChangeMaxHealth(heavyHearted.healthIncrease);
                     ChangeBasicAttackSize(heavyHearted.basicAttackSizeIncrease);

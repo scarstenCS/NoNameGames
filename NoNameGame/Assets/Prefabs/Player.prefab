@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4333312619915833616}
   - component: {fileID: 4465776288933132617}
   - component: {fileID: 4226702466098649690}
-  - component: {fileID: 2461281766324429200}
+  - component: {fileID: 1406458778982074916}
   m_Layer: 8
   m_Name: basic attack
   m_TagString: PlayerAttack
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1741479138968308128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5168378482321470703}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17d971605cfbaea47b0d10b0b5dbc406, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef05dcdc256dde5498d780fc538814c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +104,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &2461281766324429200
-EdgeCollider2D:
+--- !u!58 &1406458778982074916
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -114,16 +114,12 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.092588514, y: 0.015861511}
-  - {x: 0.09162301, y: 0.11321944}
-  - {x: 0.1362623, y: 0.13262731}
-  - {x: 0.02517721, y: -0.06741142}
+  m_Offset: {x: -0.1, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &3096818584895333015
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3096818584895333000
 Transform:
   m_ObjectHideFlags: 0
@@ -225,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 5
   basicAttackObj: {fileID: 4020625129868841038}
+  animator: {fileID: 0}
   idle: {fileID: 0}
 --- !u!58 &8199912590941039346
 CircleCollider2D:

@@ -1241,6 +1241,7 @@ MonoBehaviour:
   streamingFileName: newCutscene.mp4
   dm: {fileID: 474561355}
   dialogue: {fileID: 11400000, guid: 0e8f2d4557353ec49b9b221b22f49541, type: 2}
+  dt: {fileID: 1205857553}
 --- !u!4 &770350581
 Transform:
   m_ObjectHideFlags: 0

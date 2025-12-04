@@ -13,7 +13,17 @@ public class SceneSwitcher : MonoBehaviour
     public DialogueManager dm;
 
     public DialogueSequence dialogue;
+    public DialogueTrigger dt;
+    private bool cutscenePlayed;
 
+    void Update()
+    {
+        
+        if(dt.manager.isDialogueFinished() == true && cutscenePlayed){
+            UnityEngine.Debug.Log("Sending to next scene");
+            SceneManager.LoadScene(nextSceneName);
+        }
+    }
     void Awake()
     {
         if (videoPlayer != null)
@@ -44,10 +54,10 @@ public class SceneSwitcher : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     { 
+        cutscenePlayed = true;
         dm.StartSequence(dialogue);
-        
-
     }
+
 
     private IEnumerable playCutsceneDialogue()
     {

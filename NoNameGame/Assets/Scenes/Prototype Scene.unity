@@ -2171,6 +2171,7 @@ MonoBehaviour:
   bossHealthText: {fileID: 1379964775}
   scoreText: {fileID: 613510566}
   totalScore: 0
+  currentWaveText: {fileID: 1019988818}
 --- !u!225 &380564540
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4447,7 +4448,7 @@ MonoBehaviour:
     skillLowerBound: 0
     skillUpperBound: 0
     spawnAmount: 1
-  - numRunner: 0
+  - numRunner: 5
     numTurret: 0
     numBoss: 0
     upgradeInWave: 1
@@ -7270,15 +7271,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 38.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7656,9 +7657,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1576.4612, y: 45.805176}
+  m_AnchoredPosition: {x: 2332.2466, y: 721.4314}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.82107353, y: -0.05}
+  m_Pivot: {x: 1.2147118, y: -0.05}
 --- !u!114 &1078027662
 MonoBehaviour:
   m_ObjectHideFlags: 0

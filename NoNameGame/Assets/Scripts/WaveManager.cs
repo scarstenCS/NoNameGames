@@ -34,6 +34,7 @@ public class WaveManager : MonoBehaviour
     private static WaitForSeconds wait;
     public static int maxEnemies;
     public static int enemiesLeft;
+    public static int currentWavesCount;
     public static int runnerCount;
     public static int turretCount;
     public static int bossCount;
@@ -66,6 +67,7 @@ public class WaveManager : MonoBehaviour
         runnerCount = 0;
         turretCount = 0;
         bossCount = 0;
+        
         StartCoroutine(Phase());
     }
 
@@ -207,8 +209,9 @@ public class WaveManager : MonoBehaviour
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
+
             while (runnerCount + turretCount + bossCount < maxEnemies)
-            {
+            {            
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
                 int cachedSpawnAmount = (int)waves[_waveCount].spawnAmount;
                 UnityEngine.Debug.Log("Cached Spawn Amount: " + cachedSpawnAmount);

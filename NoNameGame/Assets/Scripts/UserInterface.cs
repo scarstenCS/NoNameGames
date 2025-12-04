@@ -20,6 +20,9 @@ public class UserInterface : MonoBehaviour
     public TMP_Text bossHealthText;
     public TMP_Text scoreText;
     public int totalScore = 0;
+    public TMP_Text currentWaveText;
+    public WaveManager waveManager;
+    private int currentWave;
     
 
     // Start is called before the first frame update
@@ -59,6 +62,8 @@ public class UserInterface : MonoBehaviour
             bossHealth.SetActive(false);
         }
         if (scoreText != null) scoreText.text = "Score: 0";
+
+        currentWaveText.text = "";
 
     }
 
@@ -137,11 +142,26 @@ public class UserInterface : MonoBehaviour
     {
         return totalScore;
     }
+    public void SetCurrentWaveText(int waveNumber)
+    {
+        currentWaveText.text = $"Wave "+ waveNumber;
+    }
 
     // Update is called once per frame
     void Update()
     {
         SetEnemiesLeft(WaveManager.enemiesLeft);
         SetShieldsLeft(player.currentShieldCount);
+        
+        if (waveManager == null)
+        {
+            waveManager = FindObjectOfType<WaveManager>();
+        }
+        currentWave= waveManager.GetWaveCount();
+        if(currentWave-2> 0)
+        {
+            SetCurrentWaveText(currentWave-2);
+        }
+        
     }
 }

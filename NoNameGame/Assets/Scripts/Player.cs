@@ -176,9 +176,14 @@ public class Player : MonoBehaviour
         {
             currentShieldCount--;
             //flash blue and play sfx sound
+            AudioManager.SfxShieldHit();
             sr.color = new Color(0.0f, 0.0f, 1.0f, 0.7f); // semi-transparent blue
             Invoke("ResetColor", 0.2f);
             return;
+        }
+        else
+        {
+        AudioManager.SfxPlayerHit();
         }
         if (amount <= 0) return;
         sr.color = new Color(1.0f, 0.0f, 0.0f, 0.7f); // semi-transparent red

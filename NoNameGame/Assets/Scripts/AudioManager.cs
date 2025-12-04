@@ -9,7 +9,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn
-    ,enemy1Death, enemy2Death,playerDeath,waveComplete,UISelect, maskHit, bossHit, bossWhisper;
+    ,enemy1Death, enemy2Death,playerDeath,waveComplete,UISelect, maskHit, bossHit, bossWhisper, shieldCharge, shieldHit;
 
     public AudioClip normalMelody, bossMusic, normalDrums;
     static private AudioManager _instance;
@@ -111,10 +111,20 @@ public class AudioManager : MonoBehaviour
     {
         Instance.PlaySound(Instance.bossWhisper);
     }
+    static public void SfxShieldCharge()
+    {
+        Instance.PlaySound(Instance.shieldCharge);
+        
+    }
+    static public void SfxShieldHit()
+    {
+        Instance.PlaySound(Instance.shieldHit);
+    }
      public void setMainVol(float value)
     {
         Instance.audioMixer.SetFloat("mainVolume", Mathf.Log10(value) * 20f);
     }
+
 
      public void setSFXVol(float value)
     {

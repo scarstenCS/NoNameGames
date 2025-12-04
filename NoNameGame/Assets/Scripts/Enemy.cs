@@ -105,7 +105,6 @@ public class Enemy : MonoBehaviour
     {
         int dmg = atk;
         GameManager.PlayerTakeDamage(dmg);
-        AudioManager.SfxPlayerHit();
         animator.ResetTrigger("Punch");
     }
     private void Die()

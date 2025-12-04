@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
     private float playerSpeed;
     public int totalShieldCount;
-    private int currentShieldCount;
+    public int currentShieldCount;
     public float sheildRegenerateTime = 5f;
 
     public float Speed

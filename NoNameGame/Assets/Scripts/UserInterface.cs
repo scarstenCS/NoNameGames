@@ -8,8 +8,9 @@ public class UserInterface : MonoBehaviour
 {
     [Header("Wire these in the Inspector")]
     public Player player;
-    public TMP_Text healthText;              // drag your "Health: ..." TMP Text
-    public TMP_Text enemiesLeftText;         // drag your "Enemies left: ..." TMP Text
+    public TMP_Text healthText;              
+    public TMP_Text enemiesLeftText;        
+    public TMP_Text currentShields; 
     public GameObject damagedTakenImage;
     public Animator animator;
     private RectTransform damagedTakenRectTransform; // cache RectTransform
@@ -109,6 +110,10 @@ public class UserInterface : MonoBehaviour
         if (!enemiesLeftText) return;
         enemiesLeftText.text = $"{count}";
     }
+    public void SetShieldsLeft(int count)
+    {
+        currentShields.text = $"{count}";
+    }
     public void SetActiveBossHealthBar(bool isActive)
     {
         bossHealth.SetActive(isActive);
@@ -137,5 +142,6 @@ public class UserInterface : MonoBehaviour
     void Update()
     {
         SetEnemiesLeft(WaveManager.enemiesLeft);
+        SetShieldsLeft(player.currentShieldCount);
     }
 }

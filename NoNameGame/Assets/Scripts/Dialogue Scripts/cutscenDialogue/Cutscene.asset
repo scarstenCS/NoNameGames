@@ -16,7 +16,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: "Two days have gone by since anyone\u2019s last heard of my little brother."
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: My parents called me the night Sam went missing, saying they had no idea
       how it happened.
@@ -26,7 +26,7 @@ MonoBehaviour:
     text: "I\u2019ve been away at college for 3 years now, but I never would\u2019ve
       expected something like this to happen while I was gone. "
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "Just before Sam\u2019s disappearance, he posted a game on Inscape."
     portrait: {fileID: 0}
@@ -36,22 +36,22 @@ MonoBehaviour:
       to be in a hurry, I have to find him myself. I think I can find clues using
       his last posted game. "
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "I haven\u2019t been checking his account recently, but he seems kind of
       popular on Inscape now. Not many people have been interacting with his newer
       games, though. "
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "Oh, here\u2019s his most recent game. An abandoned parking lot? That\u2019s
       a strange setting for a game\u2026  I don't think he liked dark places like
       this before."
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: "The description says: \u201CThis is the last time. 20XX/02/14.\u201D That\u2019s
       one day from now! I should hurry. "
     portrait: {fileID: 0}
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   pausesCombat: 1

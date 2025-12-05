@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  maxHp: 0
   atk: 1
   attackTag: PlayerAttack
   player: {fileID: 0}

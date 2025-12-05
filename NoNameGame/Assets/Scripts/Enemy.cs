@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     private SpriteRenderer sr;
     public int hp = 1;
+    public int maxHp;
     public int atk = 1;
     public string attackTag = "PlayerAttack";
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
     private bool isDead = false;
     public AudioClip deathClip;
     private Color colour;
+    private float enemyColorBlueGreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +41,10 @@ public class Enemy : MonoBehaviour
         colour = sr.color;
         if (followSkill >= 0.5)
         {
-            colour = Color.red;
+            colour = Color.green;
             this.GetComponent<Renderer>().material.SetColor("_Color", colour);
         }
+        maxHp = hp;
     }
 
     void Awake()
@@ -128,16 +131,30 @@ public class Enemy : MonoBehaviour
         animator.SetBool("Dead", true);
         isDead = true;
     }
-    public void AnimEventDestroySelf() {
+
+    public void AnimEventDestroySelf() 
+    {
         Destroy(gameObject);
     }
     void Flash()
     {
-        sr.color = sr.color = new Color(0.0f, 0.0f, 1.0f, 0.4f); // semi-transparent blue
-        Invoke("ResetColor", 0.2f);
+        sr.color = new Color(1.0f, 0.0f, 0f, 0.4f); // semi-transparent blue
+        //Invoke("ResetColor", 0.2f);
+        Invoke("HurtColor",0.2f);
+
     }
+    
     void ResetColor()
     {
         sr.color = colour;
     }
+    void HurtColor()
+    {
+        UnityEngine.Debug.Log("Invoked");
+        UnityEngine.Debug.Log("Max Hp: " + maxHp + " and hp: "+ hp);
+        enemyColorBlueGreen = ((float)(hp)/maxHp);
+        UnityEngine.Debug.Log("Enemycolorred: "+ enemyColorBlueGreen);
+        sr.color = new Color(1.0f, enemyColorBlueGreen, enemyColorBlueGreen, 1f);
+    }
+
 }

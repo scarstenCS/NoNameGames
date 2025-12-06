@@ -268,6 +268,7 @@ RectTransform:
   - {fileID: 2056344309}
   - {fileID: 1726805407}
   - {fileID: 1189921676}
+  - {fileID: 1769405748}
   - {fileID: 74693245}
   - {fileID: 952175516}
   - {fileID: 1601844677}
@@ -296,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &74693245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -309,12 +310,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8617312}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 560, y: 22.5}
-  m_SizeDelta: {x: 696.4912, y: 490.99982}
+  m_AnchoredPosition: {x: 391.53, y: 22.5}
+  m_SizeDelta: {x: 1033.4265, y: 490.99982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74693246
 MonoBehaviour:
@@ -342,7 +343,27 @@ MonoBehaviour:
     CC BY 3.0\r<size=100%>\n\nSupersonic bullet:<color=#354196><size=80%>https://game-icons.net/1x1/lorc/supersonic-bullet.html#download
     <color=\"white\"> ,by Lorc under CC BY 3.0<size=100%>\n\nArrow Dunk icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/arrow-dunk.html<color=\"white\">,by
     Lorc under CC BY 3.0<size=100%>\n\nCharged arrow icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/charged-arrow.html<color=\"white\">by
-    Lorc under CC BY 3.0<size=100%>"
+    Lorc under CC BY 3.0<size=100%>\n\nParanoia icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/paranoia.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nKnockout icon: <size=80%><color=#354196>https://game-icons.net/1x1/skoll/knockout.html\n<color=\"white\">,
+    by Skoll under CC BY 3.0, <color=#8B0000>Changed eyes</color>\n<size=100%>\nSurrounded
+    shield icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/surrounded-shield.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDefensive wall icon: <size=80%><color=#354196>https://game-icons.net/1x1/heavenly-dog/defensive-wall.html#download\n<color=\"white\">,
+    by HeavenlyDog under CC BY 3.0\n<size=100%>\n\nHeavy fall icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/heavy-fall.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDiamonds smile icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/diamonds-smile.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nGluttonous smile icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/gluttonous-smile.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nChained heart icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/chained-heart.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDread skull icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/dread-skull.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nEvil love icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/evil-love.html#download\n<color=\"white\">,
+    by Delapouite under CC BY 3.0, <color=#8B0000>Changes were made by using the
+    small heart charm icon and removed the mountain in the background</color>\n<size=100%>\n\nCharm
+    icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/charm.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nHorizon road icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/horizon-road.html\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nSloth icon: <size=80%><color=#354196>https://game-icons.net/1x1/caro-asercion/sloth.html\n<color=\"white\">,
+    by Caro Asercion under CC BY 3.0, <color=#8B0000>Removed Eyes</color>\n<size=100%>\n\nElephant
+    icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/elephant.html#download\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nSilenced icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/silenced.html\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nBowman icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/bowman.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f3121d3f197429409f9da22c9b1a746, type: 2}
   m_sharedMaterial: {fileID: -5365450341428492243, guid: 7f3121d3f197429409f9da22c9b1a746,
@@ -370,8 +391,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21
-  m_fontSizeBase: 21
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -548,6 +569,167 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &779557378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779557379}
+  - component: {fileID: 779557381}
+  - component: {fileID: 779557380}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &779557379
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779557378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1006616902}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.4997864, y: 0.00012207031}
+  m_SizeDelta: {x: 921.3989, y: 4056.7231}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &779557380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779557378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Wingfoot icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/wingfoot.html#download<color=\"white\">,
+    by Lorc under CC BY 3.0\r<size=100%>\n\nResize icon: <color=#354196><size=80%>https://game-icons.net/1x1/delapouite/resize.html#download
+    <color=\"white\">, by Delapouite under CC BY 3.0\r<size=100%>\n\nPierced body:<color=#354196><size=80%>
+    https://game-icons.net/1x1/lorc/pierced-body.html<color=\"white\">, by Lorc under
+    CC BY 3.0\r<size=100%>\n\nSupersonic bullet:<color=#354196><size=80%>https://game-icons.net/1x1/lorc/supersonic-bullet.html#download
+    <color=\"white\"> ,by Lorc under CC BY 3.0<size=100%>\n\nArrow Dunk icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/arrow-dunk.html<color=\"white\">,by
+    Lorc under CC BY 3.0<size=100%>\n\nCharged arrow icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/charged-arrow.html<color=\"white\">by
+    Lorc under CC BY 3.0<size=100%>\n\nParanoia icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/paranoia.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nKnockout icon: <size=80%><color=#354196>https://game-icons.net/1x1/skoll/knockout.html\n<color=\"white\">,
+    by Skoll under CC BY 3.0, <color=#8B0000>Changed eyes</color>\n<size=100%>\nSurrounded
+    shield icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/surrounded-shield.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDefensive wall icon: <size=80%><color=#354196>https://game-icons.net/1x1/heavenly-dog/defensive-wall.html#download\n<color=\"white\">,
+    by HeavenlyDog under CC BY 3.0\n<size=100%>\n\nHeavy fall icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/heavy-fall.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDiamonds smile icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/diamonds-smile.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nGluttonous smile icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/gluttonous-smile.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nChained heart icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/chained-heart.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nDread skull icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/dread-skull.html#download\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nEvil love icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/evil-love.html#download\n<color=\"white\">,
+    by Delapouite under CC BY 3.0, <color=#8B0000>Changes were made by using the
+    small heart charm icon and removed the mountain in the background</color>\n<size=100%>\n\nCharm
+    icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/charm.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>\n\nHorizon road icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/horizon-road.html\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nSloth icon: <size=80%><color=#354196>https://game-icons.net/1x1/caro-asercion/sloth.html\n<color=\"white\">,
+    by Caro Asercion under CC BY 3.0, <color=#8B0000>Removed Eyes</color>\n<size=100%>\n\nElephant
+    icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/elephant.html#download\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nSilenced icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/silenced.html\n<color=\"white\">,
+    by Delapouite under CC BY 3.0\n<size=100%>\n\nBowman icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/bowman.html\n<color=\"white\">,
+    by Lorc under CC BY 3.0\n<size=100%>"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 7f3121d3f197429409f9da22c9b1a746, type: 2}
+  m_sharedMaterial: {fileID: -5365450341428492243, guid: 7f3121d3f197429409f9da22c9b1a746,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 33.52
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &779557381
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779557378}
+  m_CullTransparentMesh: 0
 --- !u!1 &834651397
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +864,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834651397}
   m_CullTransparentMesh: 0
+--- !u!1 &906999947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906999948}
+  m_Layer: 5
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &906999948
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906999947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1595923736}
+  m_Father: {fileID: 2031807053}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &926001498
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,11 +974,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8617312}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 560, y: 306.0003}
+  m_AnchoredPosition: {x: 418.08, y: 306.0003}
   m_SizeDelta: {x: 527.22473, y: 49.959595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952175517
@@ -946,6 +1164,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1006616901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006616902}
+  m_Layer: 5
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1006616902
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006616901}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 779557379}
+  m_Father: {fileID: 1904962456}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.000017522416}
+  m_SizeDelta: {x: 0, y: 4056.7236}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &1189921675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1397,14 @@ MonoBehaviour:
   waveComplete: []
   UISelect:
   - {fileID: 8300000, guid: cbac35d294036634a9bd7aedf3a620ee, type: 3}
+  maskHit: []
+  bossHit: []
+  bossWhisper: []
+  normalMelody: {fileID: 0}
+  bossMusic: {fileID: 0}
+  normalDrums: {fileID: 0}
+  melodySrc: {fileID: 0}
+  drumSrc: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: e7a24486564d19b4bbfcba792b02eb08, type: 2}
 --- !u!82 &1361175635
 AudioSource:
@@ -1241,6 +1503,80 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1595923735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595923736}
+  - component: {fileID: 1595923738}
+  - component: {fileID: 1595923737}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1595923736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595923735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 906999948}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1595923737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595923735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.17254902, g: 0.20784315, b: 0.48235297, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1595923738
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595923735}
+  m_CullTransparentMesh: 0
 --- !u!1 &1601844676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1607,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8617312}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1411,8 +1747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499, y: 306}
-  m_SizeDelta: {x: 527.4972, y: 49.958923}
+  m_AnchoredPosition: {x: -528.28, y: 318}
+  m_SizeDelta: {x: 747.6371, y: 49.958923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726805408
 MonoBehaviour:
@@ -1461,14 +1797,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 33.52
@@ -1497,7 +1833,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.31970215, w: 0}
+  m_margin: {x: 2.344757, y: 0, z: -0.31970215, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1510,6 +1846,202 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726805406}
+  m_CullTransparentMesh: 0
+--- !u!1 &1769405747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769405748}
+  - component: {fileID: 1769405751}
+  - component: {fileID: 1769405750}
+  - component: {fileID: 1769405749}
+  m_Layer: 5
+  m_Name: Scroll View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1769405748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1904962456}
+  - {fileID: 2031807053}
+  m_Father: {fileID: 8617312}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 469.2, y: -61.1}
+  m_SizeDelta: {x: 938.39844, y: 658.1959}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769405749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 1006616902}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 3
+  m_Viewport: {fileID: 1904962456}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 2031807054}
+  m_HorizontalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 2
+  m_HorizontalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: -3
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1769405750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1769405751
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405747}
+  m_CullTransparentMesh: 0
+--- !u!1 &1904962455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904962456}
+  - component: {fileID: 1904962459}
+  - component: {fileID: 1904962458}
+  - component: {fileID: 1904962457}
+  m_Layer: 5
+  m_Name: Viewport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1904962456
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904962455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1006616902}
+  m_Father: {fileID: 1769405748}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1904962457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904962455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!114 &1904962458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904962455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1904962459
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904962455}
   m_CullTransparentMesh: 0
 --- !u!1 &1907396382
 GameObject:
@@ -1644,6 +2176,130 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907396382}
+  m_CullTransparentMesh: 0
+--- !u!1 &2031807052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2031807053}
+  - component: {fileID: 2031807056}
+  - component: {fileID: 2031807055}
+  - component: {fileID: 2031807054}
+  m_Layer: 5
+  m_Name: Scrollbar Vertical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2031807053
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031807052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 906999948}
+  m_Father: {fileID: 1769405748}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 16.999886, y: -17}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &2031807054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031807052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9811321, g: 0.5970096, b: 0.5970096, a: 1}
+    m_PressedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+    m_SelectedColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1595923737}
+  m_HandleRect: {fileID: 1595923736}
+  m_Direction: 2
+  m_Value: 1
+  m_Size: 0.16224815
+  m_NumberOfSteps: 1
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2031807055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031807052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2031807056
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031807052}
   m_CullTransparentMesh: 0
 --- !u!1 &2056344308
 GameObject:

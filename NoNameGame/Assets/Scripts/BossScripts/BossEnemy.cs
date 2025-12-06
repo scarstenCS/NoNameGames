@@ -67,7 +67,7 @@ public class BossEnemy : MonoBehaviour
         }
         
         CachePlayerPos();
-        teleportTrigger = Mathf.FloorToInt(hp/3);
+        teleportTrigger = Mathf.FloorToInt(hp/2);
         //Determine boss root for movement
         if (bossRoot == null) {
             bossRoot = transform.parent != null ? transform.parent : transform;
@@ -106,6 +106,7 @@ public class BossEnemy : MonoBehaviour
     void Update()
     {
         if (hp <= 0 && !isDead) {
+            hp = 0;
             foreach (var turret in maskEnemies)
             {
                 if (turret != null 
@@ -116,13 +117,14 @@ public class BossEnemy : MonoBehaviour
                 }
             }
             int cachedDifficulty = difficulty;
-            hp = 0;
+            
             speed = 0f;
             if(EnemiesAliveNow() == 1)
             {
                     
                 if(calledFinalDialogue == false)
                 {
+
                     AudioManager.Instance.StopMusic();
                     calledFinalDialogue = true;
                     StartCoroutine(FinalDialogue(cachedDifficulty));
@@ -167,7 +169,9 @@ public class BossEnemy : MonoBehaviour
             if(this.numOfTurretsAlive == 0)
             {
                 //double damage if no masks are alive
-                hp -= proj.Damage;
+                int damageTaken = proj.Damage - 2;
+                if (damageTaken <= 0) damageTaken = 1;
+                hp -= damageTaken;
                 AudioManager.SfxBossHit();
                 currentHealthLost += proj.Damage;
                 UnityEngine.Debug.Log("Boss took normal damage!");
@@ -179,7 +183,7 @@ public class BossEnemy : MonoBehaviour
                 currentHealthLost += 1;
                 UnityEngine.Debug.Log("Boss took reduced damage!");
             }
-            if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && hp > 3)
+            if (hp > 0 && teleportTrigger - currentHealthLost <= 0)
             {
                 // pick a teleport location away from player
                 //gameObject.GetComponent<Renderer>().enabled = false;
@@ -235,7 +239,7 @@ public class BossEnemy : MonoBehaviour
         yield break;
     }
     public void AnimEventDestroySelf() {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(FadeCanvasGroup(fadeCanvas, fadeCanvas.alpha, 1f, 2f));
         
     }
@@ -273,7 +277,7 @@ public class BossEnemy : MonoBehaviour
                 turret.gameObject.SetActive(true);
 
                 // Reset masks and increase difficulty
-                speed = speed + (difficulty*0.05f);
+                speed = speed + (difficulty*0.1f);
                 turret.ResetMasks(difficulty);
                 AudioManager.SfxBossWhisp();
         }
@@ -374,6 +378,7 @@ public class BossEnemy : MonoBehaviour
     }
     IEnumerator FinalDialogue(int cachedDifficulty)
     {
+        UnityEngine.Debug.Log("Start final dialogue");
         int index = finalWaveNumber + cachedDifficulty;
         yield return new WaitForSeconds(turretDeathAnimTime);
 

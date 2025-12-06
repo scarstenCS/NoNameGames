@@ -16,24 +16,24 @@ MonoBehaviour:
   - speaker: ???
     text: "It\u2019s all too much\u2026 "
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: " He still sounds a little far\u2026 The things he\u2019s saying, I\u2019m
       starting to get worried. I need to find him quickly and get out of here.\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: ???
     text: "Why didn\u2019t he come visit? Is it something I did..? Is it so bad that
       I\u2019m not like him?"
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: 'Is he talking about me? '
     portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Charlie
     text: " Mom and dad\u2026 could they have been pulling the same crap with Sam
       like they did with me? \r"
     portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   pausesCombat: 1

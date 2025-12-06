@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 [System.Serializable]
     public struct Wave
     {
@@ -20,7 +21,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     static private WaveManager _instance;
-    static public WaveManager Instance;
+    static public WaveManager Instance {get {return _instance;}}
     [SerializeField] private DialogueTrigger dialogueTrigger; 
     public List<Wave> waves;
     private int _waveCount;
@@ -33,16 +34,20 @@ public class WaveManager : MonoBehaviour
     private static WaitForSeconds wait;
     public static int maxEnemies;
     public static int enemiesLeft;
+    public static int currentWavesCount;
     public static int runnerCount;
     public static int turretCount;
     public static int bossCount;
     static public GameObject _waveDoneText;
     [SerializeField] GameObject waveDoneText;
+    private TMP_Text waveChangeTMP;
     bool bossRunnersSpawned = false;
     public int numBossRunners = 3;
     public float timeBeforeBossRunnersSpawn = 5f;
     private BossEnemy boss;
-    public int BaseEnemySpawn = 4;
+    public static int turretEnemiesAlive;
+    public int maxTurretEnemiesAlive = 4;
+    public TextMeshProUGUI waveChangeText;
     
     // Start is called before the first frame update
     void Awake()
@@ -53,6 +58,8 @@ public class WaveManager : MonoBehaviour
     {
         _waveDoneText = waveDoneText;
         _waveCount = 0;
+        waveChangeTMP = _waveDoneText.GetComponent<TMP_Text>();
+        turretEnemiesAlive = 0;
 
         mainCamera = Camera.main;
         maxEnemies = waves[_waveCount].numRunner + waves[_waveCount].numTurret + waves[_waveCount].numBoss;
@@ -60,6 +67,7 @@ public class WaveManager : MonoBehaviour
         runnerCount = 0;
         turretCount = 0;
         bossCount = 0;
+        
         StartCoroutine(Phase());
     }
 
@@ -150,6 +158,7 @@ public class WaveManager : MonoBehaviour
     }
     public void SpawnTurret()
     {
+        if (turretEnemiesAlive >= maxTurretEnemiesAlive) return;
         GameObject e = Instantiate(turretPrefab, new Vector3(Random.Range(GameManager.minX, GameManager.maxX), Random.Range(GameManager.minY, GameManager.maxY)), Quaternion.identity);
         TurretEnemy t = e.GetComponent<TurretEnemy>();
         t.player = player;
@@ -159,6 +168,7 @@ public class WaveManager : MonoBehaviour
         t.atk += currWave.dmgIncrease;
         t.skill = Random.Range(currWave.skillLowerBound, currWave.skillUpperBound);
         turretCount++;
+        turretEnemiesAlive++;
     }
     public void SpawnBoss()
     {
@@ -199,14 +209,15 @@ public class WaveManager : MonoBehaviour
     {
         while (_waveCount < waves.Count && !GameManager.isPaused)
         {
+
             while (runnerCount + turretCount + bossCount < maxEnemies)
-            {
+            {            
                 yield return new WaitForSeconds(waves[_waveCount].spawnrate);
                 int cachedSpawnAmount = (int)waves[_waveCount].spawnAmount;
                 UnityEngine.Debug.Log("Cached Spawn Amount: " + cachedSpawnAmount);
                 if(cachedSpawnAmount >  (maxEnemies - (runnerCount + turretCount + bossCount)))
                 {
-                    cachedSpawnAmount = (maxEnemies - (runnerCount + turretCount + bossCount));
+                    cachedSpawnAmount = maxEnemies - (runnerCount + turretCount + bossCount);
                 }
                 for(int i = 0; i < cachedSpawnAmount; i++)
                 {
@@ -221,19 +232,23 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
 
-            AudioManager.Instance.stopDrums();
+            AudioManager.Instance.StopDrums();
+            if (_waveCount == 12) AudioManager.Instance.StopMusic();
             if (_waveCount >2)
             {
+                // The player sees round 3 as wave 1 complete (first two are tutorial)
+                waveChangeTMP.text = "Wave " + (_waveCount-2) + " Complete!";
                 if (_waveDoneText) _waveDoneText.SetActive(true);
                 AudioManager.SfxWaveComplete();
                 yield return new WaitForSeconds(2);
                 if (_waveDoneText) _waveDoneText.SetActive(false);
             }
 
+            player.SetActive(false);
             // Show upgrades if applicable
             if (waves[_waveCount].upgradeInWave)
             {
-                UpgradeManager.Instance.ShowUpgradeWindow();
+                UpgradeManager.Instance.ShowUpgradeWindow(_waveCount-2);
                 yield return new WaitUntil(UpgradeManager.isWindowClosed);
             }
 
@@ -241,6 +256,8 @@ public class WaveManager : MonoBehaviour
             if (boss != null && boss.hp <= 0) yield break;
             dialogueTrigger.OnWaveEnd(_waveCount);
             yield return new WaitUntil(dialogueTrigger.manager.isDialogueFinished);
+            player.GetComponent<Player>().animator.SetBool("isAttacking", false);
+            player.SetActive(true);
 
             _waveCount++;
 
@@ -256,7 +273,7 @@ public class WaveManager : MonoBehaviour
                 p.Heal(p.MaxHealth);
 
                 //!!
-                AudioManager.Instance.startDrums();
+                AudioManager.Instance.StartDrums();
             }
         }
         // game done
@@ -283,5 +300,9 @@ public class WaveManager : MonoBehaviour
             SpawnEnemy();
         }
         bossRunnersSpawned = false;
+    }
+    public int GetWaveCount()
+    {
+        return _waveCount;
     }
 }

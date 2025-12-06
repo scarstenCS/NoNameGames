@@ -16,33 +16,33 @@ MonoBehaviour:
   - speaker: Sam
     text: "Ugh! I don\u2019t get why you\u2019re trying so hard!"
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "What do you mean?! You\u2019re my brother, and I know I messed up now!
       Please stop, everyone\u2019s worried!"
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: Sam
     text: 'What? You say that so easily, but you barely called or talked to me! You
       left me here to deal with everything by myself.
 
 '
     portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Sam
     text: "This app was the only thing where I could be something, but even then\u2026
       Nothing I make is...\r"
     portrait: {fileID: 21300000, guid: 93443cf9059553c40926eeb200fdd2b1, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "Okay, okay, I\u2019m sorry, but why didn\u2019t you say something? If
       I knew, if someone knew, you could\u2019ve gotten help."
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: Why would I tell you anything?
     portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: "What! What\u2019s that supposed to mean!?"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}

@@ -16,27 +16,27 @@ MonoBehaviour:
   - speaker: Charlie
     text: " I don\u2019t like this game. It\u2019s creepy\u2026 "
     portrait: {fileID: 21300000, guid: adb9a9e81cb343a4886309d9774e6689, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: Charlie
     text: Why would Sam make something like this? Did something happen while I was
       gone?
     portrait: {fileID: 21300000, guid: 11fc98ab0ca876a4f863234970e4a112, type: 3}
-    voiceClip: {fileID: 8300000, guid: 5dd095255e7340042a3e3e6e6d1ec78f, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: ???
     text: "\u2026leave\u2026.e\u2026.alone."
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: "Who said that? Who\u2019s there?\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: ???
     text: "Your\u2026 fault\u2026"
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: "What?! I can\u2019t make out what the voice is saying. It\u2019s too far
       away."
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   pausesCombat: 1

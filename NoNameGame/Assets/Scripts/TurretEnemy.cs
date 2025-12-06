@@ -31,7 +31,8 @@ public class TurretEnemy : MonoBehaviour
     private int bulletDamageInitial;
     private float bulletshootCooldownInitial;
     public float deathAnimSpeed = 1.75f;
-
+    private Color colour;
+    private float enemyColorBlueGreen;
 
 
     void Start()
@@ -61,10 +62,11 @@ public class TurretEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("Dead", false);
         animator.SetFloat("AnimationSpeed", 1.25f / shootCooldown);
-        if (skill >= 0.5)
+        colour = sr.color;
+        if (skill >= 0.5 && !isPartOfBoss)
         {
-            if (isPartOfBoss == false)
-            this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            colour = Color.red;
+            this.GetComponent<Renderer>().material.SetColor("_Color", colour);
         }
         //animator.SetFloat("ShootSpeed", clipLength / shootCooldown);
     }
@@ -80,8 +82,10 @@ public class TurretEnemy : MonoBehaviour
         }
 
         
-        if (hp <= 0 && !isDead) Die(); 
-
+        if (hp <= 0 && !isDead) {
+            UnityEngine.Debug.Log("Turret dying");
+            Die(); 
+        }
         if (Time.time >= _nextShootTime)
         {
             
@@ -97,6 +101,7 @@ public class TurretEnemy : MonoBehaviour
         animator.ResetTrigger("Shoot");
     }
     public void AnimEventDestroySelf() {
+        UnityEngine.Debug.Log("isDead: " + isDead);
         if (!isDead) return;
         UnityEngine.Debug.Log("part of boss: " + isPartOfBoss);
         if(isPartOfBoss == true) gameObject.SetActive(false);
@@ -135,7 +140,13 @@ public class TurretEnemy : MonoBehaviour
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
         {
-            AudioManager.SfxEnemy2Hit();
+            if (isPartOfBoss) {
+                AudioManager.SfxMaskHit();
+            }
+            else
+            {
+               AudioManager.SfxEnemy2Hit(); 
+            }
             if (proj.pierce <= 0)
             {
                 proj.atkStage = 2;
@@ -144,22 +155,27 @@ public class TurretEnemy : MonoBehaviour
             {
                 proj.pierce -= 1;
             }
+            
             hp -= proj.Damage;
-            Flash();
+            UnityEngine.Debug.Log("HP: " + hp);
+            if (hp > 0) Flash();
 
         }
     }
     
     private void Die()
     {
+        UnityEngine.Debug.Log("isDead: " + isDead);
         if (isDead) return;
 
         bool isBossTurret = GetComponentInParent<BossEnemy>() != null;
+        UnityEngine.Debug.Log("isBossTurret: " + isBossTurret);
 
         if (!isBossTurret)
         {
             // Only standalone turrets affect the wave counter
             WaveManager.enemiesLeft--;
+            WaveManager.turretEnemiesAlive--;
             UserInterface ui = FindObjectOfType<UserInterface>();
             if (ui != null)
             {
@@ -168,11 +184,12 @@ public class TurretEnemy : MonoBehaviour
         }
         else
         {
+            UnityEngine.Debug.Log("Part of boss turret dying");
             BossEnemy boss = GetComponentInParent<BossEnemy>();
             boss.numOfTurretsAlive--;
         }
 
-        AudioManager.SfxEnemy2Death();
+        if (!isPartOfBoss) AudioManager.SfxEnemy2Death();
         animator.SetBool("Dead", true);
         isDead = true;
     }
@@ -184,18 +201,26 @@ public class TurretEnemy : MonoBehaviour
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = bulletSpeedInitial*difficulty*0.25f;
+        this.bulletSpeed = bulletSpeedInitial;
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }
     void Flash()
     {
-        sr.color = new Color(0.0f, 0.0f, 0.0f, 0.4f); // semi-transparent black
-        Invoke("ResetColor", 0.2f);
+        sr.color = new Color(0.0f, 0.0f, 1.0f, 0.4f); // semi-transparent blue
+        Invoke("HurtColor", 0.2f);
     }
     void ResetColor()
     {
-        sr.color = Color.white;
+        sr.color = colour;
+    }
+    void HurtColor()
+    {
+        UnityEngine.Debug.Log("Invoked");
+        UnityEngine.Debug.Log("Max Hp: " + hpMax + " and hp: "+ hp);
+        enemyColorBlueGreen = ((float)(hp)/(float)hpMax);
+        UnityEngine.Debug.Log("Enemycolorred: "+ enemyColorBlueGreen);
+        sr.color = new Color(1.0f, enemyColorBlueGreen, enemyColorBlueGreen, 1f);
     }
     public void Kill(bool forTeleport = false)
     {

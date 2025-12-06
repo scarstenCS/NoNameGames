@@ -16,22 +16,22 @@ MonoBehaviour:
   - speaker: Charlie
     text: 'Woah! What happened to the parking lot?   '
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: ???
     text: "\u2026I can\u2019t do anything\u2026"
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: ???
     text: Why am I like this? Is there something wrong with me?
     portrait: {fileID: 21300000, guid: 8293f1c6ea91bda418abca3cab6338d9, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Charlie
     text: "Sam! Where are you! What are you talking about?!\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: Charlie
     text: "His voice is getting clearer after each wave, hmm\u2026 I just need to
       get to the end, maybe he\u2019ll hear me then."
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   pausesCombat: 1

@@ -9,7 +9,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] playerAttack, playerHit, enemy1Hit, enemy2Hit, turretShoot, enemy1Spawn, enemy2Spawn
-    ,enemy1Death, enemy2Death,playerDeath,waveComplete,UISelect;
+    ,enemy1Death, enemy2Death,playerDeath,waveComplete,UISelect, maskHit, bossHit, bossWhisper;
 
     public AudioClip normalMelody, bossMusic, normalDrums;
     static private AudioManager _instance;
@@ -33,10 +33,16 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    private void PlaySound(AudioClip[] clip, float volume = 1.0f)
+    public void PlaySound(AudioClip[] clip, float volume = 1.0f)
     {
         int idx = Random.Range(0, clip.Length);
         audioSource.clip = clip[idx];
+        audioSource.PlayOneShot(audioSource.clip, volume);
+    }
+
+    public void PlayClip(AudioClip clip, float volume = 1.5f)
+    {
+        audioSource.clip  = clip;
         audioSource.PlayOneShot(audioSource.clip, volume);
     }
     static public void SfxSelect()
@@ -93,7 +99,18 @@ public class AudioManager : MonoBehaviour
         Instance.PlaySound(Instance.waveComplete);
     }
 
-
+    static public void SfxMaskHit()
+    {
+        Instance.PlaySound(Instance.maskHit);
+    }
+    static public void SfxBossHit()
+    {
+        Instance.PlaySound(Instance.bossHit);
+    }
+    static public void SfxBossWhisp()
+    {
+        Instance.PlaySound(Instance.bossWhisper);
+    }
      public void setMainVol(float value)
     {
         Instance.audioMixer.SetFloat("mainVolume", Mathf.Log10(value) * 20f);
@@ -109,7 +126,7 @@ public class AudioManager : MonoBehaviour
         Instance.audioMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20f);
     }
 
-    public void stopDrums()
+    public void StopDrums()
     {
         StopAllCoroutines();
         //StartCoroutine(fadeTrack("drumVolume",drumFadeTime, -80f,drumsVolume));
@@ -117,7 +134,7 @@ public class AudioManager : MonoBehaviour
         Instance.audioMixer.SetFloat("drumVolume", -80);
     }
     
-    public void startDrums()
+    public void StartDrums()
     {
         StopAllCoroutines();
         StartCoroutine(fadeTrack("drumVolume",drumFadeTime, drumsVolume, -80f));

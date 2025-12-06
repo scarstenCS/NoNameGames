@@ -2,13 +2,28 @@
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.Collections;
 public class SceneSwitcher : MonoBehaviour
 {
     public VideoPlayer videoPlayer; // Assign in Inspector
+
     public string nextSceneName;
     public string streamingFileName = "EerieVideo.mp4";
 
+    public DialogueManager dm;
 
+    public DialogueSequence dialogue;
+    public DialogueTrigger dt;
+    private bool cutscenePlayed;
+
+    void Update()
+    {
+        
+        if(dt.manager.isDialogueFinished() == true && cutscenePlayed){
+            UnityEngine.Debug.Log("Sending to next scene");
+            SceneManager.LoadScene(nextSceneName);
+        }
+    }
     void Awake()
     {
         if (videoPlayer != null)
@@ -38,7 +53,19 @@ public class SceneSwitcher : MonoBehaviour
     }
 
     void OnVideoFinished(VideoPlayer vp)
+    { 
+        cutscenePlayed = true;
+        dm.StartSequence(dialogue);
+    }
+
+
+    private IEnumerable playCutsceneDialogue()
     {
+        Debug.Log("start");
+        dm.StartSequence(dialogue);
+
+        yield return new WaitUntil(dm.isDialogueFinished);
         SceneManager.LoadScene(nextSceneName);
+
     }
 }

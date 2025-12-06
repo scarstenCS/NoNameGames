@@ -17,11 +17,11 @@ MonoBehaviour:
     text: "Sam!! Can you hear me now? I don\u2019t see any more of those robot things
       \u2026 Did I complete the game?"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: cacebbbeb68ef264a9847cf96e3230de, type: 3}
   - speaker: Sam
     text: "\u2026 You made it this far? Why would <i>you</i> do that!?\r\n"
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "Wait, what are you talking about?! You\u2019ve been missing!"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
@@ -43,17 +43,17 @@ MonoBehaviour:
     text: "I know you\u2019re upset, but this isn\u2019t safe. You should come back
       home.\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
-  - speaker: Charlie
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
+  - speaker: Sam
     text: "\u2026 Did you have fun at college? I mean, you being here just makes
       me feel worse. "
-    portrait: {fileID: 21300000, guid: 93443cf9059553c40926eeb200fdd2b1, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    portrait: {fileID: 21300000, guid: 3b9c02af5ed51e942b0cc467f6452a81, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Sam
     text: "All they do is talk about <i>you</i> , it\u2019s always about <i>you</i>.
       They want me to be like you, just as smart, just like a copy."
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: "Listen, we can talk about everything later, it isn\u2019t safe being here
       like this! Let\u2019s get out of here!\r"
@@ -69,5 +69,5 @@ MonoBehaviour:
     text: "Just get out. I don\u2019t want to see you, or anyone else. Just leave
       me alone. \r"
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   pausesCombat: 1

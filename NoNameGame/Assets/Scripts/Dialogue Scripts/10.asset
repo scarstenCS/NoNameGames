@@ -25,7 +25,7 @@ MonoBehaviour:
   - speaker: Charlie
     text: "Wait, what are you talking about?! You\u2019ve been missing!"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: ...
     portrait: {fileID: 21300000, guid: 93443cf9059553c40926eeb200fdd2b1, type: 3}
@@ -34,7 +34,7 @@ MonoBehaviour:
     text: " If you really cared, why didn't you come earlier? You never visited,
       not once in three years.\r"
     portrait: {fileID: 21300000, guid: 93443cf9059553c40926eeb200fdd2b1, type: 3}
-    voiceClip: {fileID: 8300000, guid: bcafeccd22db75749b36eb67d0bb98a7, type: 3}
+    voiceClip: {fileID: 8300000, guid: 85b77a9cd2159ba4fb68f724d07107ac, type: 3}
   - speaker: Charlie
     text: ...
     portrait: {fileID: 21300000, guid: 29d575551079f7240ac19caea91ac814, type: 3}
@@ -58,13 +58,13 @@ MonoBehaviour:
     text: "Listen, we can talk about everything later, it isn\u2019t safe being here
       like this! Let\u2019s get out of here!\r"
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
-    voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
+    voiceClip: {fileID: 8300000, guid: 51ac8d4da9827144eb95c4f08e6621ef, type: 3}
   - speaker: Sam
     text: "You still don\u2019t get it! Why don\u2019t you just leave and go back
       to your life? You clearly didn\u2019t care enough earlier, so why come looking
       now. \r"
     portrait: {fileID: 21300000, guid: 3e79683301d7d4141b9978185e85cfe3, type: 3}
-    voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
+    voiceClip: {fileID: 8300000, guid: 543b6322b05a5104b92d4fc5a768267f, type: 3}
   - speaker: Sam
     text: "Just get out. I don\u2019t want to see you, or anyone else. Just leave
       me alone. \r"

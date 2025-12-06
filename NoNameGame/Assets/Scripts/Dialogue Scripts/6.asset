@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Charlie
-    text: Another wave done, I think I'm halfway through now.
+    text: 'Woah! What happened to the parking lot?   '
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
     voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   - speaker: ???
@@ -30,8 +30,8 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
     voiceClip: {fileID: 8300000, guid: 86fe20e6fc8a1d340a4741c7c62b7b69, type: 3}
   - speaker: Charlie
-    text: "Huh, his voice is getting clearer after each wave, I just need to get
-      to the end\u2026 maybe he\u2019ll hear me then.\r\n"
+    text: "His voice is getting clearer after each wave, hmm\u2026 I just need to
+      get to the end, maybe he\u2019ll hear me then."
     portrait: {fileID: 21300000, guid: 08564b482b2f0ec4286cc4ec282dcac6, type: 3}
     voiceClip: {fileID: 8300000, guid: d365a38dab7c2354ebd657010e1ee2ce, type: 3}
   pausesCombat: 1

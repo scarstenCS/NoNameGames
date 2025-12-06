@@ -32,6 +32,7 @@ public class TurretEnemy : MonoBehaviour
     private float bulletshootCooldownInitial;
     public float deathAnimSpeed = 1.75f;
     private Color colour;
+    private float enemyColorBlueGreen;
 
 
     void Start()
@@ -207,11 +208,19 @@ public class TurretEnemy : MonoBehaviour
     void Flash()
     {
         sr.color = new Color(0.0f, 0.0f, 1.0f, 0.4f); // semi-transparent blue
-        Invoke("ResetColor", 0.2f);
+        Invoke("HurtColor", 0.2f);
     }
     void ResetColor()
     {
         sr.color = colour;
+    }
+    void HurtColor()
+    {
+        UnityEngine.Debug.Log("Invoked");
+        UnityEngine.Debug.Log("Max Hp: " + hpMax + " and hp: "+ hp);
+        enemyColorBlueGreen = ((float)(hp)/(float)hpMax);
+        UnityEngine.Debug.Log("Enemycolorred: "+ enemyColorBlueGreen);
+        sr.color = new Color(1.0f, enemyColorBlueGreen, enemyColorBlueGreen, 1f);
     }
     public void Kill(bool forTeleport = false)
     {

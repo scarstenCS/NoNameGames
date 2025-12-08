@@ -632,6 +632,7 @@ MonoBehaviour:
     CC BY 3.0\r<size=100%>\n\nSupersonic bullet:<color=#354196><size=80%>https://game-icons.net/1x1/lorc/supersonic-bullet.html#download
     <color=\"white\"> ,by Lorc under CC BY 3.0<size=100%>\n\nArrow Dunk icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/arrow-dunk.html<color=\"white\">,by
     Lorc under CC BY 3.0<size=100%>\n\nCharged arrow icon: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/charged-arrow.html<color=\"white\">by
+    Lorc under CC BY 3.0<size=100%>\n\nWave end bell SFX: <color=#354196><size=80%>https://game-icons.net/1x1/lorc/charged-arrow.html<color=\"white\">by
     Lorc under CC BY 3.0<size=100%>\n\nParanoia icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/paranoia.html\n<color=\"white\">,
     by Lorc under CC BY 3.0\n<size=100%>\n\nKnockout icon: <size=80%><color=#354196>https://game-icons.net/1x1/skoll/knockout.html\n<color=\"white\">,
     by Skoll under CC BY 3.0, <color=#8B0000>Changed eyes</color>\n<size=100%>\nSurrounded
@@ -652,7 +653,9 @@ MonoBehaviour:
     icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/elephant.html#download\n<color=\"white\">,
     by Delapouite under CC BY 3.0\n<size=100%>\n\nSilenced icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/silenced.html\n<color=\"white\">,
     by Delapouite under CC BY 3.0\n<size=100%>\n\nBowman icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/bowman.html\n<color=\"white\">,
-    by Lorc under CC BY 3.0\n<size=100%>"
+    by Lorc under CC BY 3.0\n<size=100%>\n\nMenu selection click: <size=80%><color=#354196>https://opengameart.org/content/menu-selection-click\n<color=\"white\">,
+    by NenadSimic under CC BY 3.0\n<size=100%>\n\nWave end bell: <size=80%><color=#354196>https://opengameart.org/content/church-bell\n<color=\"white\">,
+    by NenadSimic under CC BY SA 3.0\n<size=100%>\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f3121d3f197429409f9da22c9b1a746, type: 2}
   m_sharedMaterial: {fileID: -5365450341428492243, guid: 7f3121d3f197429409f9da22c9b1a746,
@@ -2259,7 +2262,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1595923736}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.16224815
+  m_Size: 0.16224818
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:

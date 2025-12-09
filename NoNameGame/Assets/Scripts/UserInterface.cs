@@ -23,6 +23,8 @@ public class UserInterface : MonoBehaviour
     public TMP_Text currentWaveText;
     public WaveManager waveManager;
     private int currentWave;
+    private int playerShieldAmount;
+    public Image shieldImage;
     
 
     // Start is called before the first frame update
@@ -159,7 +161,8 @@ public class UserInterface : MonoBehaviour
     void Update()
     {
         SetEnemiesLeft(WaveManager.enemiesLeft);
-        SetShieldsLeft(player.currentShieldCount);
+        playerShieldAmount = player.currentShieldCount;
+        SetShieldsLeft(playerShieldAmount);
         
         if (waveManager == null)
         {
@@ -170,6 +173,17 @@ public class UserInterface : MonoBehaviour
         {
             
             SetCurrentWaveText(currentWave-2);
+        }
+
+        if(playerShieldAmount <= 0)
+        {
+            
+            shieldImage.sprite = Resources.Load<Sprite>("Images/shield_break");
+        }
+        else
+        {
+            
+            shieldImage.sprite = Resources.Load<Sprite>("Images/shield");
         }
         
     }

@@ -485,321 +485,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 785250096}
   upgradeWindow: {fileID: 2938227918152015120}
-  apathyNumbToPain:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 2
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 1
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0.1
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  apathyCheckedOut:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0.4
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0.1
-    basicAttackSizeDecrease: 0.2
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  lonelinessDistantHeart:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0.5
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0.15
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 1
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 1
-  lonelinessSolitaryShot:
-    healthIncrease: 0
-    weaponDamageIncrease: 1
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0.15
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 1
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  slothDeadWeight:
-    healthIncrease: 10
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 1
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0.25
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  slothSlowToPower:
-    healthIncrease: 5
-    weaponDamageIncrease: 3
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0.2
-    playerSpeedDecrease: 0.2
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  jealousyEnviousStrike:
-    healthIncrease: 0
-    weaponDamageIncrease: 1
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 5
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 1
-  jealousySpitefulHeart:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 1
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 5
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  greedMoreMoreMore:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 3
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 5
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0.5
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 1
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  greedAllIn:
-    healthIncrease: 0
-    weaponDamageIncrease: 2
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0.3
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 5
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 1
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  depressionWeightedShots:
-    healthIncrease: 0
-    weaponDamageIncrease: 1
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0.4
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0.3
-    playerSpeedDecrease: 0.1
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 1
-  depressionWallsUp:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 1
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0.2
-    healthDecrease: 0
-    weaponDamageDecrease: 1
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0.2
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  anxiety:
-    healthIncrease: 0
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0.5
-    playerSpeedIncrease: 0.2
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0.3
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0.5
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0.2
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
-  socialIsolation:
-    healthIncrease: 0
-    weaponDamageIncrease: 1
-    weaponDistanceIncrease: 0.3
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0
-    playerShieldAmountIncrease: 0
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 5
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0
-    basicAttackSizeDecrease: 0.3
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 1
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 1
-  heavyHearted:
-    healthIncrease: 15
-    weaponDamageIncrease: 0
-    weaponDistanceIncrease: 0
-    weaponSpeedIncrease: 0
-    playerSpeedIncrease: 0
-    basicAttackSizeIncrease: 0.4
-    playerShieldAmountIncrease: 2
-    playerNumOfProjectilesIncrease: 0
-    playerShieldRechargeAmountIncrease: 0
-    healthDecrease: 0
-    weaponDamageDecrease: 0
-    weaponDistanceDecrease: 0
-    weaponSpeedDecrease: 0
-    playerSpeedDecrease: 0.4
-    basicAttackSizeDecrease: 0
-    playerNumOfProjectilesDecrease: 0
-    playerShieldAmountDecrease: 0
-    playerShieldRechargeAmountDecrease: 0
-    weaponPierceDecrease: 0
-    weaponPierceIncrease: 0
   buttonLabels:
   - {fileID: 1976732902}
   - {fileID: 486037214}
@@ -929,7 +614,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 380564538}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1065,7 +750,7 @@ RectTransform:
   m_Children:
   - {fileID: 223546123}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1871,7 +1556,7 @@ RectTransform:
   - {fileID: 1754247353}
   - {fileID: 664365526}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2450,6 +2135,7 @@ RectTransform:
   - {fileID: 1457040847}
   - {fileID: 2038787662}
   - {fileID: 1861936900}
+  - {fileID: 1358971456}
   - {fileID: 429194073}
   - {fileID: 1124107746}
   - {fileID: 613510565}
@@ -2776,7 +2462,7 @@ RectTransform:
   - {fileID: 1360631268}
   - {fileID: 1379964774}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4340,7 +4026,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 380564538}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7535,7 +7221,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 380564538}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -7977,9 +7663,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2034.7012, y: 459.6363}
+  m_AnchoredPosition: {x: 1929.9152, y: 1727.3989}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1.0597403, y: -0.05}
+  m_Pivot: {x: 1.0051641, y: -0.05}
 --- !u!114 &1078027662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8488,7 +8174,7 @@ RectTransform:
   - {fileID: 1475492965}
   - {fileID: 1942109873}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9637,17 +9323,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358971455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1861936900}
-  m_RootOrder: 0
+  m_Father: {fileID: 380564538}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 443.78, y: -365}
+  m_SizeDelta: {x: 614.6497, y: 109.7589}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358971457
 MonoBehaviour:
@@ -12548,9 +12234,8 @@ RectTransform:
   m_GameObject: {fileID: 1861936899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1358971456}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
+  m_Children: []
   m_Father: {fileID: 380564538}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12578,7 +12263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75480a8b38d15ba468aef59def5840af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 045fda445361f6f4db125206d011016c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14058,7 +13743,7 @@ RectTransform:
   - {fileID: 766846335}
   - {fileID: 531388937}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15476,7 +15161,7 @@ RectTransform:
   - {fileID: 511752980}
   - {fileID: 2938227916946617443}
   m_Father: {fileID: 380564538}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

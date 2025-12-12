@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public const string enemyTag = "Enemy";
 
     private int _maxHealth =20;
+    private bool shieldGenerated;
     public int MaxHealth
     {
 
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float basicWeaponPierce
+    public int basicWeaponPierce
     {
         get
         {
@@ -86,11 +87,11 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return ba.projectileT.localScale;
+            return ba.transform.localScale;
         }
         set
         {
-            ba.projectileT.localScale = value;
+            ba.transform.localScale = value;
         }
     } 
     public event Action<int, int> HealthChanged;
@@ -100,6 +101,9 @@ public class Player : MonoBehaviour
     public float startSpeed = 1;
 
     private float playerSpeed;
+    public int totalShieldCount;
+    public int currentShieldCount;
+    public float sheildRegenerateTime = 5f;
 
     public float Speed
     {
@@ -123,7 +127,7 @@ public class Player : MonoBehaviour
             ba.numberOfProjectiles = value;
         }
     }   
-    
+   
     public PlayerControls controls;
 
     private InputAction move;
@@ -139,6 +143,8 @@ public class Player : MonoBehaviour
 
     public Animation idle;
     private UserInterface ui;
+    private Color color;
+
 
     private void Awake()
     {
@@ -166,9 +172,26 @@ public class Player : MonoBehaviour
     /// <param name="amount">the ammount of damage to do to player</param>
     public void TakeDamage(int amount)
     {
+        if(currentShieldCount > 0)
+        {
+            currentShieldCount--;
+            //flash blue and play sfx sound
+            AudioManager.SfxShieldHit();
+            sr.color = new Color(0.0f, 0.0f, 1.0f, 0.7f); // semi-transparent blue
+            Invoke("ResetColor", 0.2f);
+            return;
+        }
+        else
+        {
+        AudioManager.SfxPlayerHit();
+        }
         if (amount <= 0) return;
+        sr.color = new Color(1.0f, 0.0f, 0.0f, 0.7f); // semi-transparent red
+        Invoke("ResetColor", 0.2f);
         health = Mathf.Max(0, health - amount);
         HealthChanged?.Invoke(health, MaxHealth);
+        StopCoroutine("regenerateBlocks");
+        shieldGenerated = false;
         if (health == 0 && !isDead)
         {
             isDead = true;
@@ -194,6 +217,8 @@ public class Player : MonoBehaviour
         if (amount <= 0) return;
         health = Mathf.Min(MaxHealth, health + amount);
         HealthChanged?.Invoke(health, MaxHealth);
+        //assumed when healed its the end of wave so reset blocks
+        currentShieldCount = totalShieldCount;
     }
 
 
@@ -211,7 +236,9 @@ public class Player : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
 
         sr = GetComponent<SpriteRenderer>();
+        color = sr.color;
         ui = FindObjectOfType<UserInterface>();
+        currentShieldCount = totalShieldCount;
     }
 
     // Update is called once per frame
@@ -220,14 +247,10 @@ public class Player : MonoBehaviour
         Vector2 inputVector = move.ReadValue<Vector2>();
         t.position += (Vector3)inputVector * Time.deltaTime * playerSpeed;
         t.position = new Vector3(Mathf.Clamp(t.position.x, GameManager.minX, GameManager.maxX), Mathf.Clamp(t.position.y, GameManager.minY, GameManager.maxY));
-
+        
+        sr.flipX = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()).x >= t.position.x;
         if (move.ReadValue<Vector2>() != Vector2.zero)
         {
-            if (inputVector.x != 0 && Time.timeScale!= 0)
-            {
-                
-                sr.flipX = inputVector.x > 0;
-            }
             animator.SetBool("isWalking", true);
         }
         else
@@ -246,6 +269,11 @@ public class Player : MonoBehaviour
             //yield return new WaitForSeconds(0.1f);
             GameManager.TogglePause();
         }
+        if (currentShieldCount < totalShieldCount && !shieldGenerated)
+        {
+            shieldGenerated = true;
+            StartCoroutine("regenerateBlocks");
+        }
     }
 
     private void HandleDeath()
@@ -260,5 +288,20 @@ public class Player : MonoBehaviour
     {
         return move;
     }
-    
+    void ResetColor()
+    {
+        sr.color = color;
+    }
+    private IEnumerator regenerateBlocks()
+    {
+        if (currentShieldCount < totalShieldCount)
+        {
+            yield return new WaitForSeconds(sheildRegenerateTime);
+            currentShieldCount++;
+            sr.color = new Color(0.0f, 1.0f, 0.0f, 0.3f); // semi-transparent green
+            Invoke("ResetColor", 0.2f);
+            AudioManager.SfxShieldCharge();
+            shieldGenerated = false;
+        }
+    }
 }

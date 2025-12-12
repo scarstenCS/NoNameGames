@@ -652,7 +652,10 @@ MonoBehaviour:
     icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/elephant.html#download\n<color=\"white\">,
     by Delapouite under CC BY 3.0\n<size=100%>\n\nSilenced icon: <size=80%><color=#354196>https://game-icons.net/1x1/delapouite/silenced.html\n<color=\"white\">,
     by Delapouite under CC BY 3.0\n<size=100%>\n\nBowman icon: <size=80%><color=#354196>https://game-icons.net/1x1/lorc/bowman.html\n<color=\"white\">,
-    by Lorc under CC BY 3.0\n<size=100%>"
+    by Lorc under CC BY 3.0\n<size=100%>\n\nMenu Click:\n<size=80%><color=#354196>https://opengameart.org/content/menu-selection-click\r\n<color=\"white\">,
+    by NenadSimic under CC BY 3.0\n<size=100%>\n\n\nWave End Bell:\n<size=80%><color=#354196>https://opengameart.org/content/church-bell\n<color=\"white\">,
+    by Ulrich Metzner under CC BY SA 3.0\n<color=#8B0000>Bit crushed, and lowered
+    pitch</color>\n<size=100%>\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f3121d3f197429409f9da22c9b1a746, type: 2}
   m_sharedMaterial: {fileID: -5365450341428492243, guid: 7f3121d3f197429409f9da22c9b1a746,
@@ -1400,6 +1403,8 @@ MonoBehaviour:
   maskHit: []
   bossHit: []
   bossWhisper: []
+  shieldCharge: []
+  shieldHit: []
   normalMelody: {fileID: 0}
   bossMusic: {fileID: 0}
   normalDrums: {fileID: 0}

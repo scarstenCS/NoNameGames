@@ -210,12 +210,12 @@ public class TurretEnemy : MonoBehaviour
     public void ResetMasks(int difficulty)
     {
         BossEnemy boss = GetComponentInParent<BossEnemy>();
-        this.hp = hpMax * difficulty;
+        this.hp = hpMax * difficulty*2;
         isDead = false;
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = (float)(bulletSpeedInitial*1.15f*difficulty);
+        this.bulletSpeed = (float)(bulletSpeedInitial*difficulty/1.5);
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }

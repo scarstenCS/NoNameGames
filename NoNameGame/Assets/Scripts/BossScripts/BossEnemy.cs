@@ -32,7 +32,7 @@ public class BossEnemy : MonoBehaviour
     private bool isResummoningMasks = false;
     private bool isResummoningMasksDelayed = false;
     public int difficulty = 1;
-    private float delayResummonMasks = 10f;
+    private float delayResummonMasks = 3f;
     public float numOfTurretsAlive;
     private Coroutine delayResummonRoutine;
     private UserInterface ui;

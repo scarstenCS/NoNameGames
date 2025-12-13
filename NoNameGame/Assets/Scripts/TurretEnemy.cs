@@ -7,6 +7,8 @@ public class TurretEnemy : MonoBehaviour
 
     public int hp = 2;
     public int atk = 0;
+    public float contactDamageCooldown = 1.0f;
+    private float _nextContactDamageTime = 0f;
     public string attackTag = "PlayerAttack";
     //public float cooldown = 1.0f;
     Animator animator;
@@ -119,14 +121,22 @@ public class TurretEnemy : MonoBehaviour
         // aiming ahead of player
         Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
         Vector3 futurePos = playerPos.position + inputVec * skill * player.GetComponent<Player>().Speed;
-        Vector3 dir = Vector3.Normalize(futurePos - transform.position);
+        Vector3 dir = futurePos - transform.position;
+        if (dir.sqrMagnitude < 0.0001f)
+            dir = playerPos.position - transform.position;
+        if (dir.sqrMagnitude < 0.0001f)
+            dir = transform.right;
+        dir.Normalize();
 
         // bullet spawn position
         Vector3 spawnPos = transform.position + dir;
-
+        UnityEngine.Debug.Log("1Bullet direction: " + dir);
+        UnityEngine.Debug.Log("1Bullet spawnPos: " + bulletSpeed);
         GameObject go = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
         TurretBullet tb = go.GetComponent<TurretBullet>();
         tb.initialDirection = dir;
+        UnityEngine.Debug.Log("2Bullet direction: " + dir);
+        UnityEngine.Debug.Log("2Bullet spawnPos: " + bulletSpeed);
         tb.speed = bulletSpeed;
         tb.lifetime = bulletLifetime;
         tb.damage = bulletDamage;
@@ -136,6 +146,7 @@ public class TurretEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        UnityEngine.Debug.Log("Turret OnTriggerEnter2D with " + other.tag);
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
@@ -160,6 +171,17 @@ public class TurretEnemy : MonoBehaviour
             UnityEngine.Debug.Log("HP: " + hp);
             if (hp > 0) Flash();
 
+        }
+    }
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        GameObject other = coll.collider.gameObject;
+        if (!other.CompareTag("Player")) return;
+
+        if (Time.time >= _nextContactDamageTime)
+        {
+            GameManager.PlayerTakeDamage(atk);
+            _nextContactDamageTime = Time.time + contactDamageCooldown;
         }
     }
     
@@ -196,12 +218,12 @@ public class TurretEnemy : MonoBehaviour
     public void ResetMasks(int difficulty)
     {
         BossEnemy boss = GetComponentInParent<BossEnemy>();
-        this.hp = hpMax * difficulty;
+        this.hp = hpMax * difficulty*2;
         isDead = false;
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
-        this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = bulletSpeedInitial;
+        this.shootCooldown = cooldownInitial/(difficulty*0.75f);
+        this.bulletSpeed = (float)(bulletSpeedInitial*((float)difficulty/2f));
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }

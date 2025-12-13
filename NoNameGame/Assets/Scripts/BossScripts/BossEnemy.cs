@@ -32,7 +32,7 @@ public class BossEnemy : MonoBehaviour
     private bool isResummoningMasks = false;
     private bool isResummoningMasksDelayed = false;
     public int difficulty = 1;
-    private float delayResummonMasks = 10f;
+    private float delayResummonMasks = 3f;
     public float numOfTurretsAlive;
     private Coroutine delayResummonRoutine;
     private UserInterface ui;
@@ -40,11 +40,14 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger;
     private Renderer[] bossRenderers; 
 
-    [SerializeField] private float turretDeathAnimTime = 1f;
+    [SerializeField] private float turretDeathAnimTime = 0.5f;
     readonly int finalWaveNumber = 12;   
 
     private bool calledFinalDialogue = false;
     [SerializeField] private CanvasGroup fadeCanvas;
+    private bool hasTeleported = false;
+    private float playerProjectileSpeed = 0f;
+    private int playerNumOfProjectiles = 0;
 
     void Start()
     {
@@ -52,6 +55,8 @@ public class BossEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        playerProjectileSpeed = player.GetComponent<Player>().basicWeaponSpeed;
+        playerNumOfProjectiles = player.GetComponent<Player>().totalBasicAttacksCount;
 
         //rb = gameObject.GetComponent<Rigidbody2D>();
        
@@ -119,18 +124,13 @@ public class BossEnemy : MonoBehaviour
             int cachedDifficulty = difficulty;
             
             speed = 0f;
-            if(EnemiesAliveNow() == 1)
-            {
-                    
-                if(calledFinalDialogue == false)
+            if(calledFinalDialogue == false)
                 {
 
                     AudioManager.Instance.StopMusic();
                     calledFinalDialogue = true;
                     StartCoroutine(FinalDialogue(cachedDifficulty));
                 }
-            }
-
                 
         }
         if (playerPos == null) CachePlayerPos();
@@ -141,12 +141,13 @@ public class BossEnemy : MonoBehaviour
 
         if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
         {
-                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
+            delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
         }
         if (player.GetComponent<Player>().Health <= 0)
         {
             ui.SetActiveBossHealthBar(false);
         }
+
  
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -154,6 +155,8 @@ public class BossEnemy : MonoBehaviour
         
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
+        int damageTaken = 0;
+        
         if (other.tag == attackTag && proj.atkStage != 0)
         {
             //AudioManager.SfxEnemy2Hit();
@@ -169,26 +172,45 @@ public class BossEnemy : MonoBehaviour
             if(this.numOfTurretsAlive == 0)
             {
                 //double damage if no masks are alive
-                int damageTaken = proj.Damage - 2;
-                if (damageTaken <= 0) damageTaken = 1;
+                damageTaken = (int)(proj.Damage/3f);
+                if (damageTaken >= 4) damageTaken = 4;
+                if(playerProjectileSpeed < 4)
+                {
+                    UnityEngine.Debug.Log("eXTRA DAMAGE DUE TO SLOW PROJECTILE SPEED");
+                    damageTaken = damageTaken + 2;
+                }
+                if(playerNumOfProjectiles > 1)
+                {
+                    damageTaken /= playerNumOfProjectiles;
+                }
                 hp -= damageTaken;
                 AudioManager.SfxBossHit();
-                currentHealthLost += proj.Damage;
+                currentHealthLost += damageTaken;
                 UnityEngine.Debug.Log("Boss took normal damage!");
             }
             else
             {
-                hp -= 1;
+                if(playerProjectileSpeed <= 4)
+                {
+                    UnityEngine.Debug.Log("eXTRA DAMAGE DUE TO SLOW PROJECTILE SPEED");
+                    damageTaken = 3;
+                }
+                else
+                {
+                    damageTaken = 1;
+                }
+                hp -= damageTaken;
                 AudioManager.SfxBossHit();
                 currentHealthLost += 1;
                 UnityEngine.Debug.Log("Boss took reduced damage!");
             }
-            if (hp > 0 && teleportTrigger - currentHealthLost <= 0)
+            if (hp > 0 && teleportTrigger - currentHealthLost <= 0 && !hasTeleported)
             {
                 // pick a teleport location away from player
                 //gameObject.GetComponent<Renderer>().enabled = false;
                 //Transform[] transform = GetComponentsInChildren<Renderer>(includeInactive: true);
-                
+                //hp = teleportTrigger;
+                hasTeleported = true;
                 gameObject.GetComponent<Renderer>().enabled = true;
                 //gameObject.GetComponent<Renderer>().enabled = true;
                 //Invoke(nameof(Teleport), 0.5f);
@@ -213,6 +235,7 @@ public class BossEnemy : MonoBehaviour
             {
                 ui.OnBossHealthChanged(hp, maxHealth);
             }
+            
 
         }
     }
@@ -234,12 +257,13 @@ public class BossEnemy : MonoBehaviour
             ui.AddScore(1000);
         }
         //TODO: Let animation do this
-        AnimEventDestroySelf();
+        StartCoroutine(AnimEventDestroySelf());
 
         yield break;
     }
-    public void AnimEventDestroySelf() {
+    IEnumerator AnimEventDestroySelf() {
         //StopAllCoroutines();
+        yield return new WaitForSeconds(1f); 
         StartCoroutine(FadeCanvasGroup(fadeCanvas, fadeCanvas.alpha, 1f, 2f));
         
     }
@@ -277,7 +301,7 @@ public class BossEnemy : MonoBehaviour
                 turret.gameObject.SetActive(true);
 
                 // Reset masks and increase difficulty
-                speed = speed + (difficulty*0.1f);
+                //speed = speed + (difficulty*0.1f);
                 turret.ResetMasks(difficulty);
                 AudioManager.SfxBossWhisp();
         }
@@ -351,7 +375,7 @@ public class BossEnemy : MonoBehaviour
     {
         cachedDifficulty = cachedDifficulty + finalWaveNumber;
         UnityEngine.Debug.Log("Starting teleport dialogue for dialogue Sequence " + cachedDifficulty);
-        yield return new WaitForSeconds(turretDeathAnimTime);
+        //yield return new WaitForSeconds(turretDeathAnimTime);
 
         AudioManager.Instance.StopDrums();
         dialogueTrigger.OnWaveEnd(cachedDifficulty);
@@ -380,7 +404,8 @@ public class BossEnemy : MonoBehaviour
     {
         UnityEngine.Debug.Log("Start final dialogue");
         int index = finalWaveNumber + cachedDifficulty;
-        yield return new WaitForSeconds(turretDeathAnimTime);
+        UnityEngine.Debug.Log("index is: " + index);
+        //yield return new WaitForSeconds(turretDeathAnimTime);
 
         dialogueTrigger.OnWaveEnd(index);
 
@@ -399,6 +424,7 @@ public class BossEnemy : MonoBehaviour
     }
     IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
     {
+        if(!calledFinalDialogue) yield break;
         float timer = 0f;
         while (timer < duration)
         {

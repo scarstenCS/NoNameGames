@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public const string gameSceneName = "Cutscenes";
+    public const string titleSceneName = "MainMenu";
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,11 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+    public void toMainMenu()
+    {
+        AudioManager.SfxSelect();
+        SceneManager.LoadScene(titleSceneName);
     }
 
     public void StartGame()

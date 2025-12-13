@@ -220,6 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 5
+  totalShieldCount: 0
+  currentShieldCount: 0
+  sheildRegenerateTime: 5
   basicAttackObj: {fileID: 4020625129868841038}
   animator: {fileID: 0}
   idle: {fileID: 0}

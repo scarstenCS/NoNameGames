@@ -88,14 +88,15 @@ public class UpgradeManager : MonoBehaviour
 
     private ChangeValues lonelinessSolitaryShot = new ChangeValues {
         weaponDamageIncrease = 1,
-        weaponSpeedIncrease = 0.15f,
+        weaponSpeedIncrease = 0.2f,
+        weaponDistanceIncrease = 0.5f,
         playerNumOfProjectilesDecrease = 1
     };
     // Slow but sturrdy
     private ChangeValues slothDeadWeight = new ChangeValues {
         healthIncrease = 10,
         playerShieldAmountIncrease = 1,
-        playerSpeedDecrease = 0.25f
+        playerSpeedDecrease = 0.20f
     };
 
     private ChangeValues slothSlowToPower = new ChangeValues {
@@ -106,12 +107,15 @@ public class UpgradeManager : MonoBehaviour
     };
     private ChangeValues jealousyEnviousStrike = new ChangeValues {
         weaponDamageIncrease = 1,
+        playerSpeedIncrease = 0.20f,
         healthDecrease = 5,
         weaponPierceIncrease = 1
     };
 
     private ChangeValues jealousySpitefulHeart = new ChangeValues {
         playerNumOfProjectilesIncrease = 1,
+        playerSpeedIncrease = 0.20f,
+        weaponDistanceIncrease = 0.5f,
         healthDecrease = 5,
     };
 
@@ -132,14 +136,15 @@ public class UpgradeManager : MonoBehaviour
         weaponDamageIncrease = 1,
         basicAttackSizeIncrease = 0.40f,
         weaponPierceIncrease = 1,
-        weaponSpeedDecrease = 0.30f,
+        healthIncrease = 5,
+        weaponSpeedDecrease = 0.25f,
         playerSpeedDecrease = 0.10f
     };
     private ChangeValues depressionWallsUp = new ChangeValues {
         playerShieldAmountIncrease = 1,
         playerShieldRechargeAmountIncrease = 0.2f,
         weaponDamageDecrease = 1,
-        playerSpeedDecrease = 0.2f
+        playerSpeedDecrease = 0.1f
     };
     // Major Upgrades!
     private ChangeValues anxiety = new ChangeValues {
@@ -266,7 +271,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Apathy: Checked Out",
             description =
                 $"<nobr>+{apathyCheckedOut.playerShieldRechargeAmountIncrease*100f }% faster shield recharge rate,</nobr> " +
-                $"<nobr>{-apathyCheckedOut.playerSpeedDecrease} player speed,</nobr> " +
+                $"<nobr>{-apathyCheckedOut.playerSpeedDecrease* 100f}% player speed,</nobr> " +
                 $"<nobr>{-apathyCheckedOut.basicAttackSizeDecrease * 100f}% weapon size</nobr>",
             icon = Resources.Load<Sprite>("Images/apathy-checked-out"),
             applyChange = () => 
@@ -299,11 +304,13 @@ public class UpgradeManager : MonoBehaviour
                 description =
                 $"<nobr>+{lonelinessSolitaryShot.weaponDamageIncrease } damage,</nobr> " +
                 $"<nobr>{lonelinessSolitaryShot.weaponSpeedIncrease* 100f}% weapon speed,</nobr> " +
+                $"<nobr>{lonelinessSolitaryShot.weaponDistanceIncrease} range,</nobr> " +
                 $"<nobr>{-lonelinessSolitaryShot.playerNumOfProjectilesDecrease } projectiles</nobr>",
             icon = Resources.Load<Sprite>("Images/lonliness-solitary-shot"),
             applyChange = () => {
                 ChangeWeaponDamage(lonelinessSolitaryShot.weaponDamageIncrease);
                 ChangeBasicAttackSize(lonelinessSolitaryShot.weaponSpeedIncrease);
+                ChangeWeaponDistance(lonelinessSolitaryShot.weaponDistanceIncrease);
                 ChangeShotsPerAttack(-lonelinessSolitaryShot.playerNumOfProjectilesDecrease);
             }
         });
@@ -332,6 +339,7 @@ public class UpgradeManager : MonoBehaviour
             icon = Resources.Load<Sprite>("Images/sloth-slow-to-power"),
             applyChange = () => {
                 ChangeWeaponDamage(slothSlowToPower.weaponDamageIncrease);
+                ChangeMaxHealth(slothSlowToPower.healthIncrease);
                 ChangePlayerSpeed(-slothSlowToPower.playerSpeedDecrease);
                 ChangeWeaponSpeed(-slothSlowToPower.playerSpeedDecrease);
             }
@@ -343,11 +351,13 @@ public class UpgradeManager : MonoBehaviour
                 description =
                 $"<nobr>+{jealousyEnviousStrike.weaponDamageIncrease} weapon damage,</nobr> " +
                 $"<nobr>{jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
+                $"<nobr>{jealousyEnviousStrike.playerSpeedIncrease* 100f}% speed,</nobr> " +
                 $"<nobr>{-jealousyEnviousStrike.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-envious-strike"),
             applyChange = () => {
                 ChangeWeaponDamage(jealousyEnviousStrike.weaponDamageIncrease);
                 ChangeMaxHealth(-jealousyEnviousStrike.healthDecrease);
+                ChangePlayerSpeed(jealousyEnviousStrike.playerSpeedIncrease);
                 ChangePierce(jealousyEnviousStrike.weaponPierceIncrease);
             }
         });
@@ -356,10 +366,14 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Spiteful Heart",
                 description =
                 $"<nobr>+{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles,</nobr> " +
+                $"<nobr>{jealousySpitefulHeart.playerSpeedIncrease* 100f}% speed,</nobr> " +
+                $"<nobr>{jealousySpitefulHeart.weaponDistanceIncrease} range,</nobr> " +
                 $"<nobr>{-jealousySpitefulHeart.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-spiteful-heart"),
             applyChange = () => {
                 ChangeMaxHealth(-jealousySpitefulHeart.healthDecrease);
+                ChangePlayerSpeed(jealousySpitefulHeart.playerSpeedIncrease);
+                ChangeWeaponDistance(jealousySpitefulHeart.weaponDistanceIncrease);
                 ChangeShotsPerAttack(jealousySpitefulHeart.playerNumOfProjectilesIncrease);
             }
         });
@@ -402,12 +416,14 @@ public class UpgradeManager : MonoBehaviour
                 $"<nobr>+{depressionWeightedShots.weaponDamageIncrease} weapon damage,</nobr> " +
                 $"<nobr>+{depressionWeightedShots.basicAttackSizeIncrease* 100f}% weapon size,</nobr> "+
                 $"<nobr>+{depressionWeightedShots.weaponPierceIncrease} pierce,</nobr> " + 
+                $"<nobr>+{depressionWeightedShots.healthIncrease} max health,</nobr> " + 
                 $"<nobr>{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed,</nobr> "+
                 $"<nobr>{-depressionWeightedShots.playerSpeedDecrease* 100f}% player speed</nobr>",
             icon = Resources.Load<Sprite>("Images/depression-weighted-shots"),
             applyChange = () => {
                 ChangeWeaponDamage(depressionWeightedShots.weaponDamageIncrease);
                 ChangeWeaponSpeed(-depressionWeightedShots.weaponSpeedDecrease);
+                ChangeMaxHealth(depressionWeightedShots.healthIncrease);
                 ChangePierce(depressionWeightedShots.weaponPierceIncrease);
                 ChangeBasicAttackSize(depressionWeightedShots.basicAttackSizeIncrease);
                 ChangePlayerSpeed(-depressionWeightedShots.playerSpeedDecrease);

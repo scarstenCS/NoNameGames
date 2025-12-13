@@ -155,6 +155,7 @@ public class BossEnemy : MonoBehaviour
         
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
+        int damageTaken = 0;
         
         if (other.tag == attackTag && proj.atkStage != 0)
         {
@@ -171,7 +172,7 @@ public class BossEnemy : MonoBehaviour
             if(this.numOfTurretsAlive == 0)
             {
                 //double damage if no masks are alive
-                int damageTaken = (int)(proj.Damage/3f);
+                damageTaken = (int)(proj.Damage/3f);
                 if (damageTaken >= 4) damageTaken = 4;
                 if(playerProjectileSpeed < 4)
                 {

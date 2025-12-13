@@ -277,7 +277,7 @@ public class BossEnemy : MonoBehaviour
                 turret.gameObject.SetActive(true);
 
                 // Reset masks and increase difficulty
-                speed = speed + (difficulty*0.1f);
+                //speed = speed + (difficulty*0.1f);
                 turret.ResetMasks(difficulty);
                 AudioManager.SfxBossWhisp();
         }

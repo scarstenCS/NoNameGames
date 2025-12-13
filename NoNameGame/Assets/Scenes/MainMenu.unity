@@ -960,6 +960,8 @@ MonoBehaviour:
   maskHit: []
   bossHit: []
   bossWhisper: []
+  shieldCharge: []
+  shieldHit: []
   normalMelody: {fileID: 0}
   bossMusic: {fileID: 0}
   normalDrums: {fileID: 0}
@@ -1107,7 +1109,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c2c5d3833b2dde140a62332431bf4d7c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.19
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

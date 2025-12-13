@@ -46,6 +46,8 @@ public class BossEnemy : MonoBehaviour
     private bool calledFinalDialogue = false;
     [SerializeField] private CanvasGroup fadeCanvas;
     private bool hasTeleported = false;
+    private float playerProjectileSpeed = 0f;
+    private int playerNumOfProjectiles = 0;
 
     void Start()
     {
@@ -53,6 +55,8 @@ public class BossEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         playerPos = player.GetComponent<Transform>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        playerProjectileSpeed = player.GetComponent<Player>().basicWeaponSpeed;
+        playerNumOfProjectiles = player.GetComponent<Player>().totalBasicAttacksCount;
 
         //rb = gameObject.GetComponent<Rigidbody2D>();
        
@@ -167,16 +171,34 @@ public class BossEnemy : MonoBehaviour
             if(this.numOfTurretsAlive == 0)
             {
                 //double damage if no masks are alive
-                int damageTaken = (int)proj.Damage/3;
-                if (damageTaken <= 0) damageTaken = 1;
+                int damageTaken = (int)(proj.Damage/3f);
+                if (damageTaken >= 4) damageTaken = 4;
+                if(playerProjectileSpeed < 4)
+                {
+                    UnityEngine.Debug.Log("eXTRA DAMAGE DUE TO SLOW PROJECTILE SPEED");
+                    damageTaken = damageTaken + 2;
+                }
+                if(playerNumOfProjectiles > 1)
+                {
+                    damageTaken /= playerNumOfProjectiles;
+                }
                 hp -= damageTaken;
                 AudioManager.SfxBossHit();
-                currentHealthLost += (int)proj.Damage/3;
+                currentHealthLost += damageTaken;
                 UnityEngine.Debug.Log("Boss took normal damage!");
             }
             else
             {
-                hp -= 1;
+                if(playerProjectileSpeed <= 4)
+                {
+                    UnityEngine.Debug.Log("eXTRA DAMAGE DUE TO SLOW PROJECTILE SPEED");
+                    damageTaken = 3;
+                }
+                else
+                {
+                    damageTaken = 1;
+                }
+                hp -= damageTaken;
                 AudioManager.SfxBossHit();
                 currentHealthLost += 1;
                 UnityEngine.Debug.Log("Boss took reduced damage!");

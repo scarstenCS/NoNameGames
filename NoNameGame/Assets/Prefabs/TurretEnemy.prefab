@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 2
-  atk: 0
+  atk: 1
+  contactDamageCooldown: 3
   attackTag: PlayerAttack
-  cooldown: 1
   player: {fileID: 0}
   bulletPrefab: {fileID: 3546407658342801539, guid: 36d007c3bf6285a4c8d9dfe8486b1e36,
     type: 3}
@@ -109,6 +109,9 @@ MonoBehaviour:
   bulletSpeed: 4
   bulletLifetime: 3
   bulletDamage: 1
+  skill: 0
+  isPartOfBoss: 0
+  deathAnimSpeed: 1.75
 --- !u!50 &-7805707930408660618
 Rigidbody2D:
   serializedVersion: 4

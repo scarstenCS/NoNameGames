@@ -141,7 +141,7 @@ public class BossEnemy : MonoBehaviour
 
         if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
         {
-                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
+            delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
         }
         if (player.GetComponent<Player>().Health <= 0)
         {

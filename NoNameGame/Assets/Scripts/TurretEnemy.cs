@@ -177,6 +177,7 @@ public class TurretEnemy : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D coll)
     {
+        if(isDead) return;
         GameObject other = coll.collider.gameObject;
         if (!other.CompareTag("Player")) return;
 

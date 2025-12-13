@@ -303,8 +303,8 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Loneliness: Solitary Shot",
                 description =
                 $"<nobr>+{lonelinessSolitaryShot.weaponDamageIncrease } damage,</nobr> " +
-                $"<nobr>{lonelinessSolitaryShot.weaponSpeedIncrease* 100f}% weapon speed,</nobr> " +
-                $"<nobr>{lonelinessSolitaryShot.weaponDistanceIncrease} range,</nobr> " +
+                $"<nobr>+{lonelinessSolitaryShot.weaponSpeedIncrease* 100f}% weapon speed,</nobr> " +
+                $"<nobr>+{lonelinessSolitaryShot.weaponDistanceIncrease} range,</nobr> " +
                 $"<nobr>{-lonelinessSolitaryShot.playerNumOfProjectilesDecrease } projectiles</nobr>",
             icon = Resources.Load<Sprite>("Images/lonliness-solitary-shot"),
             applyChange = () => {
@@ -319,7 +319,7 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Sloth: Dead Weight",
                 description =
                 $"<nobr>+{slothDeadWeight.healthIncrease} max health,</nobr> " +
-                $"<nobr>{slothDeadWeight.playerShieldAmountIncrease} shield amount,</nobr> " +
+                $"<nobr>+{slothDeadWeight.playerShieldAmountIncrease} shield amount,</nobr> " +
                 $"<nobr>{-slothDeadWeight.playerSpeedDecrease* 100f}% player speed</nobr>",
             icon = Resources.Load<Sprite>("Images/sloth-dead-weight"),
             applyChange = () => {

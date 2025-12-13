@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
     public AudioClip deathClip;
     private Color colour;
     private float enemyColorBlueGreen;
+    [SerializeField] private int orderOffsetFromPlayer = 1; // enemy behind = playerOrder - 1, in front = playerOrder + 1
+    private SpriteRenderer playerSr;
+    private int _cachedOrder = int.MinValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +37,7 @@ public class Enemy : MonoBehaviour
         var boss = GetComponentInParent<BossEnemy>();
         if (boss != null) playerPos = boss.playerPos;
         else playerPos = player.GetComponent<Transform>();
-        
+        playerSr = player.GetComponentInChildren<SpriteRenderer>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Dead", false);
@@ -155,6 +159,29 @@ public class Enemy : MonoBehaviour
         enemyColorBlueGreen = ((float)(hp)/maxHp);
         UnityEngine.Debug.Log("Enemycolorred: "+ enemyColorBlueGreen);
         sr.color = new Color(1.0f, enemyColorBlueGreen, enemyColorBlueGreen, 1f);
+    }
+    void LateUpdate()
+    {
+        if (isDead) return;
+        UpdateSortingRelativeToPlayer();
+    }
+
+    private void UpdateSortingRelativeToPlayer()
+    {
+        if (sr == null || playerPos == null || playerSr == null) return;
+
+        // Player above enemy => enemy behind (lower order)
+        bool playerAboveEnemy = playerPos.position.y > transform.position.y;
+        UnityEngine.Debug.Log("Player above enemy: " + playerAboveEnemy);
+        int targetOrder = playerAboveEnemy
+            ? playerSr.sortingOrder + orderOffsetFromPlayer
+            : playerSr.sortingOrder - orderOffsetFromPlayer;
+        UnityEngine.Debug.Log("Target order: " + targetOrder);
+        if (targetOrder != _cachedOrder)
+        {
+            sr.sortingOrder = targetOrder;
+            _cachedOrder = targetOrder;
+        }
     }
 
 }

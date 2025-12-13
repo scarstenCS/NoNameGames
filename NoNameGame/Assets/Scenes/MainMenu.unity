@@ -957,6 +957,11 @@ MonoBehaviour:
   waveComplete: []
   UISelect:
   - {fileID: 8300000, guid: cbac35d294036634a9bd7aedf3a620ee, type: 3}
+  maskHit: []
+  bossHit: []
+  bossWhisper: []
+  shieldCharge: []
+  shieldHit: []
   normalMelody: {fileID: 0}
   bossMusic: {fileID: 0}
   normalDrums: {fileID: 0}

@@ -132,6 +132,7 @@ public class UpgradeManager : MonoBehaviour
         weaponDamageIncrease = 1,
         basicAttackSizeIncrease = 0.40f,
         weaponPierceIncrease = 1,
+        healthIncrease = 5,
         weaponSpeedDecrease = 0.30f,
         playerSpeedDecrease = 0.10f
     };
@@ -332,6 +333,7 @@ public class UpgradeManager : MonoBehaviour
             icon = Resources.Load<Sprite>("Images/sloth-slow-to-power"),
             applyChange = () => {
                 ChangeWeaponDamage(slothSlowToPower.weaponDamageIncrease);
+                ChangeMaxHealth(slothSlowToPower.healthIncrease);
                 ChangePlayerSpeed(-slothSlowToPower.playerSpeedDecrease);
                 ChangeWeaponSpeed(-slothSlowToPower.playerSpeedDecrease);
             }
@@ -402,12 +404,14 @@ public class UpgradeManager : MonoBehaviour
                 $"<nobr>+{depressionWeightedShots.weaponDamageIncrease} weapon damage,</nobr> " +
                 $"<nobr>+{depressionWeightedShots.basicAttackSizeIncrease* 100f}% weapon size,</nobr> "+
                 $"<nobr>+{depressionWeightedShots.weaponPierceIncrease} pierce,</nobr> " + 
+                $"<nobr>+{depressionWeightedShots.healthIncrease} max health,</nobr> " + 
                 $"<nobr>{-depressionWeightedShots.weaponSpeedDecrease* 100f}% weapon speed,</nobr> "+
                 $"<nobr>{-depressionWeightedShots.playerSpeedDecrease* 100f}% player speed</nobr>",
             icon = Resources.Load<Sprite>("Images/depression-weighted-shots"),
             applyChange = () => {
                 ChangeWeaponDamage(depressionWeightedShots.weaponDamageIncrease);
                 ChangeWeaponSpeed(-depressionWeightedShots.weaponSpeedDecrease);
+                ChangeMaxHealth(depressionWeightedShots.healthIncrease);
                 ChangePierce(depressionWeightedShots.weaponPierceIncrease);
                 ChangeBasicAttackSize(depressionWeightedShots.basicAttackSizeIncrease);
                 ChangePlayerSpeed(-depressionWeightedShots.playerSpeedDecrease);

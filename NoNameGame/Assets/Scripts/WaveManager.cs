@@ -237,8 +237,13 @@ public class WaveManager : MonoBehaviour
             if (_waveCount >2)
             {
                 // The player sees round 3 as wave 1 complete (first two are tutorial)
-                waveChangeTMP.text = "Wave " + (_waveCount-2) + " Complete!";
-                if (_waveDoneText) _waveDoneText.SetActive(true);
+                if(_waveCount-2 < 11)
+                {
+                    waveChangeTMP.text = "Wave " + (_waveCount-2) + " Complete!";
+                    if (_waveDoneText) _waveDoneText.SetActive(true);
+                }
+                
+                
                 AudioManager.SfxWaveComplete();
                 yield return new WaitForSeconds(2);
                 if (_waveDoneText) _waveDoneText.SetActive(false);

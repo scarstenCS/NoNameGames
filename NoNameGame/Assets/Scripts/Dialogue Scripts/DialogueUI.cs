@@ -62,7 +62,7 @@ public class DialogueUI : MonoBehaviour
                     try{
                     AudioManager.Instance.PlayClip(printSFX);
                     }
-                    catch (NullReferenceException)
+                    catch (Exception)
                     {
                         Debug.Log("no clip");
                     }

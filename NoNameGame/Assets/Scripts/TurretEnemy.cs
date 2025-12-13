@@ -7,6 +7,8 @@ public class TurretEnemy : MonoBehaviour
 
     public int hp = 2;
     public int atk = 0;
+    public float contactDamageCooldown = 1.0f;
+    private float _nextContactDamageTime = 0f;
     public string attackTag = "PlayerAttack";
     //public float cooldown = 1.0f;
     Animator animator;
@@ -136,6 +138,7 @@ public class TurretEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        UnityEngine.Debug.Log("Turret OnTriggerEnter2D with " + other.tag);
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
         if (other.tag == attackTag && proj.atkStage != 0)
@@ -160,6 +163,17 @@ public class TurretEnemy : MonoBehaviour
             UnityEngine.Debug.Log("HP: " + hp);
             if (hp > 0) Flash();
 
+        }
+    }
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        GameObject other = coll.collider.gameObject;
+        if (!other.CompareTag("Player")) return;
+
+        if (Time.time >= _nextContactDamageTime)
+        {
+            GameManager.PlayerTakeDamage(atk);
+            _nextContactDamageTime = Time.time + contactDamageCooldown;
         }
     }
     
@@ -196,12 +210,12 @@ public class TurretEnemy : MonoBehaviour
     public void ResetMasks(int difficulty)
     {
         BossEnemy boss = GetComponentInParent<BossEnemy>();
-        this.hp = hpMax * difficulty;
+        this.hp = hpMax * difficulty*2;
         isDead = false;
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/difficulty;
-        this.bulletSpeed = bulletSpeedInitial;
+        this.bulletSpeed = (float)(bulletSpeedInitial*difficulty/1.5);
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }

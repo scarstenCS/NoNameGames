@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
-  atk: 2
+  hp: 100
+  atk: 3
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
   playerPos: {fileID: 0}
@@ -150,7 +150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &762721180657688237
 Rigidbody2D:
@@ -217,12 +217,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -243,12 +243,17 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: shootCooldown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: bulletLifetime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
+        type: 3}
+      propertyPath: contactDamageCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6537362400255028652, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -389,12 +394,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -420,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: shootCooldown
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -541,12 +546,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -567,7 +572,7 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: shootCooldown
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}

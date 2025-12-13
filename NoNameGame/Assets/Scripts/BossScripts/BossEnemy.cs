@@ -32,7 +32,7 @@ public class BossEnemy : MonoBehaviour
     private bool isResummoningMasks = false;
     private bool isResummoningMasksDelayed = false;
     public int difficulty = 1;
-    private float delayResummonMasks = 10f;
+    private float delayResummonMasks = 3f;
     public float numOfTurretsAlive;
     private Coroutine delayResummonRoutine;
     private UserInterface ui;
@@ -141,7 +141,7 @@ public class BossEnemy : MonoBehaviour
 
         if (this.numOfTurretsAlive < 3 && delayResummonRoutine == null)
         {
-                delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
+            delayResummonRoutine = StartCoroutine(DelayResummonMaskEnemies());
         }
         if (player.GetComponent<Player>().Health <= 0)
         {

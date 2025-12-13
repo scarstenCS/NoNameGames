@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9670a8df2d95278418492051529d5463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequence: {fileID: 11400000, guid: 79fad90c69392994e9054e0a9262b53c, type: 2}
+  sequence: {fileID: 0}
   sequencesByWave: []
   manager: {fileID: 1604894115}
   oneShot: 1
@@ -1817,7 +1817,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33f7b1e754ed3df4d9957a1c7bc3a69b, type: 2}
   - {fileID: 11400000, guid: ef5ec720f3343d741a9f77c504592182, type: 2}
   - {fileID: 11400000, guid: 6bd1d52092085224599ee200262fcdb0, type: 2}
-  - {fileID: 11400000, guid: 4ce513c7422d37344ab72e7174a1197a, type: 2}
   - {fileID: 11400000, guid: d162b7fb6876fc54e9552213d96cd752, type: 2}
   manager: {fileID: 1604894115}
   oneShot: 1
@@ -7818,9 +7817,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2952.7273, y: 935.75757}
+  m_AnchoredPosition: {x: 5184.42, y: 2201.4878}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1.5378788, y: -0.05}
+  m_Pivot: {x: 2.700219, y: -0.05}
 --- !u!114 &1078027662
 MonoBehaviour:
   m_ObjectHideFlags: 0

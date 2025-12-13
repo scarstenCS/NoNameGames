@@ -146,6 +146,7 @@ public class TurretEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(isDead) return;
         UnityEngine.Debug.Log("Turret OnTriggerEnter2D with " + other.tag);
         var proj = other.GetComponent<BasicAttack>();
         proj = other.GetComponentInParent<BasicAttack>();
@@ -156,6 +157,7 @@ public class TurretEnemy : MonoBehaviour
             }
             else
             {
+                
                AudioManager.SfxEnemy2Hit(); 
             }
             if (proj.pierce <= 0)

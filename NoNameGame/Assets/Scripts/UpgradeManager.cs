@@ -350,8 +350,8 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Envious Strike",
                 description =
                 $"<nobr>+{jealousyEnviousStrike.weaponDamageIncrease} weapon damage,</nobr> " +
-                $"<nobr>{jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
-                $"<nobr>{jealousyEnviousStrike.playerSpeedIncrease* 100f}% player speed,</nobr> " +
+                $"<nobr>+{jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
+                $"<nobr>+{jealousyEnviousStrike.playerSpeedIncrease* 100f}% player speed,</nobr> " +
                 $"<nobr>{-jealousyEnviousStrike.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-envious-strike"),
             applyChange = () => {
@@ -366,8 +366,8 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Spiteful Heart",
                 description =
                 $"<nobr>+{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles,</nobr> " +
-                $"<nobr>{jealousySpitefulHeart.playerSpeedIncrease* 100f}% playerspeed,</nobr> " +
-                $"<nobr>{jealousySpitefulHeart.weaponDistanceIncrease} range,</nobr> " +
+                $"<nobr>+{jealousySpitefulHeart.playerSpeedIncrease* 100f}% playerspeed,</nobr> " +
+                $"<nobr>+{jealousySpitefulHeart.weaponDistanceIncrease} range,</nobr> " +
                 $"<nobr>{-jealousySpitefulHeart.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-spiteful-heart"),
             applyChange = () => {

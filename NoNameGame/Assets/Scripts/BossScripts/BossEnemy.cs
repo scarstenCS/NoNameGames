@@ -173,6 +173,7 @@ public class BossEnemy : MonoBehaviour
             {
                 //double damage if no masks are alive
                 damageTaken = (int)(proj.Damage/3f);
+                if (damageTaken <= 0) damageTaken = 1;
                 if (damageTaken >= 4) damageTaken = 4;
                 if(playerProjectileSpeed < 4)
                 {
@@ -182,6 +183,7 @@ public class BossEnemy : MonoBehaviour
                 if(playerNumOfProjectiles > 1)
                 {
                     damageTaken /= playerNumOfProjectiles;
+                    if (damageTaken <= 0) damageTaken = 1;
                 }
                 hp -= damageTaken;
                 AudioManager.SfxBossHit();

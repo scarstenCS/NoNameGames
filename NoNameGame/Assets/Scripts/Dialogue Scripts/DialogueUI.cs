@@ -21,7 +21,7 @@ public class DialogueUI : MonoBehaviour
     const float defaultCharPrintSpeed = 0.025f; 
 
     // the number of characters that fit on a line in a 16:9 ratio
-    const int charsPerLine = 42;
+    //const int charsPerLine = 50;
     public void Show(bool on) => rootPanel.SetActive(on);
 
     public void Render(string speaker, string body, Sprite portrait, AudioClip dialogueSFX)
@@ -46,12 +46,12 @@ public class DialogueUI : MonoBehaviour
         {
             lineLen += words[i].Length +1;
 
-            // add newline if word won't fit on line
-            if (lineLen > charsPerLine)
-            {
-                lineLen=0;
-                bodyText.text += "\n";
-            }
+            // // add newline if word won't fit on line
+            // if (lineLen > charsPerLine)
+            // {
+            //     lineLen=0;
+            //     bodyText.text += "\n";
+            // }
 
 
             // add word

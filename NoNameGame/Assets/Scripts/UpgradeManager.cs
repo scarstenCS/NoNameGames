@@ -106,12 +106,14 @@ public class UpgradeManager : MonoBehaviour
     };
     private ChangeValues jealousyEnviousStrike = new ChangeValues {
         weaponDamageIncrease = 1,
+        playerSpeedIncrease = 0.20f,
         healthDecrease = 5,
         weaponPierceIncrease = 1
     };
 
     private ChangeValues jealousySpitefulHeart = new ChangeValues {
         playerNumOfProjectilesIncrease = 1,
+        playerSpeedIncrease = 0.20f,
         healthDecrease = 5,
     };
 
@@ -345,11 +347,13 @@ public class UpgradeManager : MonoBehaviour
                 description =
                 $"<nobr>+{jealousyEnviousStrike.weaponDamageIncrease} weapon damage,</nobr> " +
                 $"<nobr>{jealousyEnviousStrike.weaponPierceIncrease} pierce,</nobr> "  +
+                $"<nobr>{jealousyEnviousStrike.playerSpeedIncrease* 100f}% speed</nobr>",
                 $"<nobr>{-jealousyEnviousStrike.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-envious-strike"),
             applyChange = () => {
                 ChangeWeaponDamage(jealousyEnviousStrike.weaponDamageIncrease);
                 ChangeMaxHealth(-jealousyEnviousStrike.healthDecrease);
+                ChangePlayerSpeed(jealousyEnviousStrike.playerSpeedIncrease);
                 ChangePierce(jealousyEnviousStrike.weaponPierceIncrease);
             }
         });
@@ -358,10 +362,12 @@ public class UpgradeManager : MonoBehaviour
             optionName = "Jealousy: Spiteful Heart",
                 description =
                 $"<nobr>+{jealousySpitefulHeart.playerNumOfProjectilesIncrease} projectiles,</nobr> " +
+                $"<nobr>{-jealousySpitefulHeart.playerSpeedIncrease* 100f}% speed</nobr>, " +
                 $"<nobr>{-jealousySpitefulHeart.healthDecrease} max health</nobr>",
             icon = Resources.Load<Sprite>("Images/jelousy-spiteful-heart"),
             applyChange = () => {
                 ChangeMaxHealth(-jealousySpitefulHeart.healthDecrease);
+                ChangePlayerSpeed(jealousySpitefulHeart.playerSpeedIncrease);
                 ChangeShotsPerAttack(jealousySpitefulHeart.playerNumOfProjectilesIncrease);
             }
         });

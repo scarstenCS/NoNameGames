@@ -121,14 +121,22 @@ public class TurretEnemy : MonoBehaviour
         // aiming ahead of player
         Vector3 inputVec = (Vector3)player.GetComponent<Player>().GetMove().ReadValue<Vector2>();
         Vector3 futurePos = playerPos.position + inputVec * skill * player.GetComponent<Player>().Speed;
-        Vector3 dir = Vector3.Normalize(futurePos - transform.position);
+        Vector3 dir = futurePos - transform.position;
+        if (dir.sqrMagnitude < 0.0001f)
+            dir = playerPos.position - transform.position;
+        if (dir.sqrMagnitude < 0.0001f)
+            dir = transform.right;
+        dir.Normalize();
 
         // bullet spawn position
         Vector3 spawnPos = transform.position + dir;
-
+        UnityEngine.Debug.Log("1Bullet direction: " + dir);
+        UnityEngine.Debug.Log("1Bullet spawnPos: " + bulletSpeed);
         GameObject go = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
         TurretBullet tb = go.GetComponent<TurretBullet>();
         tb.initialDirection = dir;
+        UnityEngine.Debug.Log("2Bullet direction: " + dir);
+        UnityEngine.Debug.Log("2Bullet spawnPos: " + bulletSpeed);
         tb.speed = bulletSpeed;
         tb.lifetime = bulletLifetime;
         tb.damage = bulletDamage;
@@ -215,7 +223,7 @@ public class TurretEnemy : MonoBehaviour
         animator.SetBool("Dead", false);
         // this.atk = atkInitial * difficulty;
         this.shootCooldown = cooldownInitial/(difficulty*0.75f);
-        this.bulletSpeed = (float)(bulletSpeedInitial*(difficulty/2));
+        this.bulletSpeed = (float)(bulletSpeedInitial*((float)difficulty/2f));
         // this.bulletDamage = bulletDamageInitial*difficulty;
         boss.numOfTurretsAlive=3;
     }

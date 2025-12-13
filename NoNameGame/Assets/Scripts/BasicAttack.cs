@@ -41,6 +41,7 @@ public class BasicAttack : MonoBehaviour
     private Vector2 travelDestination;
     public bool blockWhileInAir = true;
     private Vector2 _origin;
+    
     void Start()
     {
         t = GetComponent<Transform>();

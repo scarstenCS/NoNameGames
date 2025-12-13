@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d935296cdeed874d8e8a9b9175cfb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
-  atk: 2
+  hp: 75
+  atk: 3
   attackTag: PlayerAttack
   player: {fileID: 3096818584895333015, guid: 74acb248ad4fde64b9007f7ef803641d, type: 3}
   playerPos: {fileID: 0}
@@ -217,12 +217,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -389,12 +389,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
@@ -541,12 +541,12 @@ PrefabInstance:
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: hp
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}
       propertyPath: atk
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 563468809425296227, guid: b2cfb3f043fb37b4784c36e3ac18a647,
         type: 3}

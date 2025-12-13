@@ -169,9 +169,28 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Makes the player take damage.
     /// </summary>
-    /// <param name="amount">the ammount of damage to do to player</param>
     public void TakeDamage(int amount)
     {
+        float hpNormalized = (float)health / MaxHealth;
+        // float lowHpBoost = Mathf.Lerp(1.5f, 1.0f, hpNormalized);
+        const float lowHpThreshold = 0.33f;
+        const float baseShakeMultiplier = 1.0f;
+        const float lowHpMaxMultiplier = 1.8f;
+
+        float intensity;
+        if (hpNormalized > lowHpThreshold)
+        {
+            intensity = baseShakeMultiplier;
+        }
+        else
+        {
+            // t goes 0 -> 1 as HP goes from threshold -> 0
+            float t = Mathf.InverseLerp(lowHpThreshold, 0f, hpNormalized);
+            // smooth ramp (no sudden jump at 33%)
+            t = Mathf.SmoothStep(0f, 1f, t);
+            intensity = Mathf.Lerp(baseShakeMultiplier, lowHpMaxMultiplier, t);
+        }
+
         if(currentShieldCount > 0)
         {
             currentShieldCount--;
@@ -179,6 +198,7 @@ public class Player : MonoBehaviour
             AudioManager.SfxShieldHit();
             sr.color = new Color(0.0f, 0.0f, 1.0f, 0.7f); // semi-transparent blue
             Invoke("ResetColor", 0.2f);
+            CameraShake.ShieldHit(intensity);
             return;
         }
         else
@@ -186,6 +206,7 @@ public class Player : MonoBehaviour
         AudioManager.SfxPlayerHit();
         }
         if (amount <= 0) return;
+        CameraShake.PlayerHit(intensity);
         sr.color = new Color(1.0f, 0.0f, 0.0f, 0.7f); // semi-transparent red
         Invoke("ResetColor", 0.2f);
         health = Mathf.Max(0, health - amount);
@@ -195,13 +216,12 @@ public class Player : MonoBehaviour
         if (health == 0 && !isDead)
         {
             isDead = true;
+            // CameraShake.PlayerDeath(lowHpBoost);
             AudioManager.SfxPlayerDeath();
             AudioManager.Instance.StopMusic();
             move.Disable();
             basicAtkAction.Disable();
             animator.SetBool("Dead", true);
-            
-
         } 
         if (ui != null)
         {
